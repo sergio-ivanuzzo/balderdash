@@ -193,10 +193,17 @@ void fwrite_char(CHAR_DATA *ch, FILE *fp){
 	fprintf(fp, "Bronze %d\n", ch->pcdata->bronze);
     fprintf(fp, "LogO %ld\n", (long)current_time);
     fprintf(fp, "Vers %d\n", 6);
- //  fprintf(fp, "Host %s~\n", ch->pcdata->lasthost);
-//    fprintf(fp, "IP   %s~\n", ch->pcdata->lastip);
-    fprintf(fp, "Host %s~\n", ch->desc->ip);
-    fprintf(fp, "IP   %s~\n", ch->desc->ip);
+
+    if (ch->desc != NULL) {
+        fprintf(fp, "Host %s~\n", ch->desc->ip);
+        fprintf(fp, "IP   %s~\n", ch->desc->ip);
+    } else if (ch->pcdata != NULL) {
+        fprintf(fp, "Host %s~\n", ch->pcdata->lasthost);
+        fprintf(fp, "IP   %s~\n", ch->pcdata->lastip);
+    } else {
+        fprintf(fp, "Host %s~\n", "10.10.10.10");
+        fprintf(fp, "IP   %s~\n", "10.10.10.10");
+    }
 
 
     if (ch->short_descr[0] != '\0')
