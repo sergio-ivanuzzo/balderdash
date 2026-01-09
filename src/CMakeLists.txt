@@ -1,14 +1,21 @@
 cmake_minimum_required(VERSION 3.12)
 project(balderdash)
 
-find_package(PkgConfig)
 find_library(DL_LIB dl REQUIRED)
 find_package(ZLIB REQUIRED)
-pkg_check_modules(mysqlclient mysqlclient REQUIRED)
 
-include_directories(${mysqlclient_INCLUDE_DIRS})
+set(WITH_MYSQL NO CACHE STRING "Build with mysql support, default OFF")
 
-add_definitions(-D_GNU_SOURCE)
+if(WITH_MYSQL)
+    find_package(PkgConfig)
+    pkg_check_modules(mysqlclient mysqlclient REQUIRED)
+    include_directories(${mysqlclient_INCLUDE_DIRS})
+else()
+    add_definitions(-DNO_MYSQL)
+endif()
+
+
+add_definitions(-D_GNU_SOURCE -fPIC)
 set(SRCS
     act_comm.c act_info.c act_move.c act_obj.c act_wiz.c
     alias.c ban.c comm.c const.c db.c db2.c effects.c fight.c flags.c
@@ -22,4 +29,4 @@ set(SRCS
     olc_classes.c olc_groups.c query.c)
 
 add_executable(rom ${SRCS})
-target_link_libraries(rom m ${DL_LIB} ${ZLIB_LIBRARIES} ${mysqlclient_LIBRARIES})
+target_link_libraries(rom m ${DL_LIB} ${ZLIB_LIBRARIES} ${mysqlclient_LIBRARIES} -export-dynamic)

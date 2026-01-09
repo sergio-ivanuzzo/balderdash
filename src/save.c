@@ -192,7 +192,7 @@ void fwrite_char(CHAR_DATA *ch, FILE *fp){
 	fprintf(fp, "Platinum %d\n", ch->pcdata->platinum);
 	fprintf(fp, "Bronze %d\n", ch->pcdata->bronze);
     fprintf(fp, "LogO %ld\n", (long)current_time);
-    fprintf(fp, "Vers %d\n", 6);
+    fprintf(fp, "Vers %d\n", 7);
 
     if (ch->desc != NULL) {
         fprintf(fp, "Host %s~\n", ch->desc->ip);
@@ -929,7 +929,7 @@ bool load_char_obj(DESCRIPTOR_DATA *d, char *name, bool beac, bool equip){
     ch->pcdata->deaths_mob	= 0;
     ch->pcdata->deaths_pc	= 0;
     ch->pcdata->flees		= 0;
-	ch->pcdata->successed	= 0;
+	ch->pcdata->successed	= 1;
 
     ch->pcdata->quest_curr  	= 0;
     ch->pcdata->quest_type  	= 0;
@@ -1586,6 +1586,10 @@ void fread_char(CHAR_DATA *ch, FILE *fp){
 					}
 				}
 
+				if (ch->version < 7) {
+				    /* All chars are approved by default */
+				    ch->pcdata->successed = 1;
+				}
 				return;
 			}
 			KEY("Exp",		ch->exp,		fread_number(fp));
