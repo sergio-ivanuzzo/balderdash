@@ -8474,6 +8474,7 @@ void do_pload(CHAR_DATA *ch, char *argument)
     }
 
     d.original = NULL;
+    d.ip = "127.0.0.1";
 
     isChar = load_char_obj(&d, name, TRUE, TRUE); /* файл игрока существует? */
 

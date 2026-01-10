@@ -8731,6 +8731,10 @@ void send_to_char(const char *txt, CHAR_DATA *ch)
     if (!ch || !Show_output)
 	return;
 
+	if (ch->desc->connected == 0) {
+		return;
+	}
+
     buf[0] = '\0';
     point2 = buf;
 
