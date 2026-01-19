@@ -136,7 +136,9 @@ Skill        28 2 'ask nature'                   false
 Skill        34 2 'forest teleport'              false
 Skill        1  3 'concentrate'                  false
 Skill        10 1 'bless forest'                 false
+Skill        35 3 'dispel magic'                 false
 Skill        25 1 'lightning bolt'               false
+Skill        45 5 'gate'                         false
 
 * Titles section.
 MTitle       0  (null)~
