@@ -71,7 +71,10 @@ bool check_auction_obj(CHAR_DATA *ch, OBJ_DATA *obj);
 
 bool check_obj_spells(OBJ_DATA *obj, int sn)
 {
-    if (obj == NULL || obj->item_type != ITEM_SCROLL || sn < 0 || sn >= max_skills)
+    if (obj->item_type != ITEM_SCROLL && obj->item_type != ITEM_ROD) {
+        return FALSE;
+    }
+    if (obj == NULL || sn < 0 || sn >= max_skills)
 	return FALSE;
 
     if (!str_cmp(skill_table[obj->value[sn]].name, "locate object")
