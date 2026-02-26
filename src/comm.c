@@ -7389,8 +7389,11 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                 case '6':
                     d->codepage = CODEPAGE_TRANS;
                     break;
+                case '7':
+                    d->codepage = CODEPAGE_UTF8;
+                    break;
                 default:
-                    write_to_buffer(d, "Please, 1, 2, 3, 4, 5 or 6?", 0);
+                    write_to_buffer(d, "Please, 1, 2, 3, 4, 5, 6 or 7?", 0);
                     return;
             }
 
@@ -10338,6 +10341,133 @@ int recode_trans(char *argument, bool outp)
     return count;
 }
 
+static int recode_utf8(char *argument, bool to_utf8)
+{
+    size_t in_len = strlen(argument);
+    size_t cap = to_utf8 ? in_len * 2 + 1 : in_len + 1;
+    char *tmp = calloc(cap, 1);
+    size_t i = 0, o = 0;
+
+    if (tmp == NULL)
+	return 0;
+
+    if (to_utf8)
+    {
+	while (i < in_len)
+	{
+	    unsigned char ch = (unsigned char)argument[i++];
+
+	    /*
+	     * Source files may contain historical text where CP1251 bytes
+	     * were converted to UTF-8 as Latin-1 symbols (C2/C3 xx).
+	     * Fold such pairs back to original single-byte values first.
+	     */
+	    if (ch == 0xC2 && i < in_len)
+	    {
+		unsigned char c2 = (unsigned char)argument[i];
+
+		if (c2 >= 0x80 && c2 <= 0xBF)
+		{
+		    ch = c2;
+		    i++;
+		}
+	    }
+	    else if (ch == 0xC3 && i < in_len)
+	    {
+		unsigned char c2 = (unsigned char)argument[i];
+
+		if (c2 >= 0x80 && c2 <= 0xBF)
+		{
+		    ch = (unsigned char)(c2 + 0x40);
+		    i++;
+		}
+	    }
+
+	    if (ch < 0x80)
+		tmp[o++] = (char)ch;
+	    else if (ch == 0xA8)
+	    {
+		tmp[o++] = (char)0xD0;
+		tmp[o++] = (char)0x81;
+	    }
+	    else if (ch == 0xB8)
+	    {
+		tmp[o++] = (char)0xD1;
+		tmp[o++] = (char)0x91;
+	    }
+	    else if (ch >= 0xC0 && ch <= 0xDF)
+	    {
+		tmp[o++] = (char)0xD0;
+		tmp[o++] = (char)(0x90 + (ch - 0xC0));
+	    }
+	    else if (ch >= 0xE0 && ch <= 0xEF)
+	    {
+		tmp[o++] = (char)0xD0;
+		tmp[o++] = (char)(0xB0 + (ch - 0xE0));
+	    }
+	    else if (ch >= 0xF0)
+	    {
+		tmp[o++] = (char)0xD1;
+		tmp[o++] = (char)(0x80 + (ch - 0xF0));
+	    }
+	    else
+		tmp[o++] = '?';
+	}
+    }
+    else
+    {
+	while (i < in_len)
+	{
+	    unsigned char c1 = (unsigned char)argument[i++];
+
+	    if (c1 < 0x80)
+	    {
+		tmp[o++] = (char)c1;
+		continue;
+	    }
+
+	    if (i >= in_len)
+		break;
+
+	    unsigned char c2 = (unsigned char)argument[i++];
+	    if ((c2 & 0xC0) != 0x80)
+	    {
+		tmp[o++] = '?';
+		continue;
+	    }
+
+	    if (c1 == 0xD0)
+	    {
+		if (c2 == 0x81)
+		    tmp[o++] = (char)0xA8;
+		else if (c2 >= 0x90 && c2 <= 0xAF)
+		    tmp[o++] = (char)(0xC0 + (c2 - 0x90));
+		else if (c2 >= 0xB0 && c2 <= 0xBF)
+		    tmp[o++] = (char)(0xE0 + (c2 - 0xB0));
+		else
+		    tmp[o++] = '?';
+	    }
+	    else if (c1 == 0xD1)
+	    {
+		if (c2 == 0x91)
+		    tmp[o++] = (char)0xB8;
+		else if (c2 >= 0x80 && c2 <= 0x8F)
+		    tmp[o++] = (char)(0xF0 + (c2 - 0x80));
+		else
+		    tmp[o++] = '?';
+	    }
+	    else
+		tmp[o++] = '?';
+	}
+    }
+
+    tmp[o] = '\0';
+    strcpy(argument, tmp);
+    free(tmp);
+
+    return (int)(o > in_len ? o - in_len : 0);
+}
+
 int recode(char *argument, int codepage, int16_t outp)
 {
     uchar	*CodeTable;       /* Current conversion table. */
@@ -10358,6 +10488,8 @@ int recode(char *argument, int codepage, int16_t outp)
     case CODEPAGE_MAC:
 	CodeTable = IS_SET(outp, RECODE_OUTPUT) ? wm : mw;
 	break;
+    case CODEPAGE_UTF8:
+	return recode_utf8(argument, IS_SET(outp, RECODE_OUTPUT));
     case CODEPAGE_TRANS:
 	return /* IS_SET(outp, RECODE_OUTPUT) ? */ recode_trans(argument, IS_SET(outp, RECODE_OUTPUT) /* TRUE */) /* : 0*/;
     }
