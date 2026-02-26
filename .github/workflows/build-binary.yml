@@ -38,4 +38,5 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
             chmod +x /home/balderdash/rom
+            sudo chown balderdash:balderdash /home/balderdash/rom
             sudo systemctl restart balderdash
