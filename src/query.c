@@ -90,7 +90,7 @@ void list_query(CHAR_DATA *ch)
     int t = 1;
     char buf[MSL];
 
-    send_to_char(" N.   Íàçâàíèå\n\r",ch);
+    send_to_char(" N.   ÃÃ Ã§Ã¢Ã Ã­Ã¨Ã¥\n\r",ch);
     send_to_char("====|========================================================================\n\r", ch);
     for (query  = query_list; query != NULL; query  = query->next)
     {
@@ -182,11 +182,11 @@ bool check_query_obj(QUERY_DATA *query, OBJ_INDEX_DATA *obj)
     char arg2[MIL];
     char arg3[MIL];
     char arg4[MIL];
-    char *spar1 = NULL;
+    const char *spar1 = NULL;
     int par1 = 0, par2 = 0, tpar = 0, wpar = 0;
     AFFECT_DATA *paf;
 
-    if (query->text == '\0')
+    if (query == NULL || IS_NULLSTR(query->text))
 	return FALSE;
 
     code = query->text;
@@ -220,9 +220,9 @@ bool check_query_obj(QUERY_DATA *query, OBJ_INDEX_DATA *obj)
 	tpar = -999;
 	wpar = -999;
 	par2 = 0;
-	spar1 = str_dup("");
+	spar1 = "";
 
-	if (arg1 == '\0' || arg2 == '\0' || arg3 == '\0' || arg4 == '\0') 
+	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0' || arg4[0] == '\0') 
 	    return FALSE;
 
 	switch (UPPER(arg1[0]))
@@ -377,7 +377,7 @@ bool check_query_mob(QUERY_DATA *query, MOB_INDEX_DATA *mob)
 {   
     bool check = FALSE;
 
-    if (query->text == '\0')
+    if (query == NULL || IS_NULLSTR(query->text))
 	return FALSE;
     
     return check;
