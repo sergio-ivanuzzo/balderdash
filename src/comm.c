@@ -10357,32 +10357,6 @@ static int recode_utf8(char *argument, bool to_utf8)
 	{
 	    unsigned char ch = (unsigned char)argument[i++];
 
-	    /*
-	     * Source files may contain historical text where CP1251 bytes
-	     * were converted to UTF-8 as Latin-1 symbols (C2/C3 xx).
-	     * Fold such pairs back to original single-byte values first.
-	     */
-	    if (ch == 0xC2 && i < in_len)
-	    {
-		unsigned char c2 = (unsigned char)argument[i];
-
-		if (c2 >= 0x80 && c2 <= 0xBF)
-		{
-		    ch = c2;
-		    i++;
-		}
-	    }
-	    else if (ch == 0xC3 && i < in_len)
-	    {
-		unsigned char c2 = (unsigned char)argument[i];
-
-		if (c2 >= 0x80 && c2 <= 0xBF)
-		{
-		    ch = (unsigned char)(c2 + 0x40);
-		    i++;
-		}
-	    }
-
 	    if (ch < 0x80)
 		tmp[o++] = (char)ch;
 	    else if (ch == 0xA8)
@@ -10400,15 +10374,10 @@ static int recode_utf8(char *argument, bool to_utf8)
 		tmp[o++] = (char)0xD0;
 		tmp[o++] = (char)(0x90 + (ch - 0xC0));
 	    }
-	    else if (ch >= 0xE0 && ch <= 0xEF)
-	    {
-		tmp[o++] = (char)0xD0;
-		tmp[o++] = (char)(0xB0 + (ch - 0xE0));
-	    }
-	    else if (ch >= 0xF0)
+	    else if (ch >= 0xE0)
 	    {
 		tmp[o++] = (char)0xD1;
-		tmp[o++] = (char)(0x80 + (ch - 0xF0));
+		tmp[o++] = (char)(0x80 + (ch - 0xE0));
 	    }
 	    else
 		tmp[o++] = '?';
