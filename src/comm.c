@@ -7588,8 +7588,8 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             switch (*argument) {
                 case 'y' :
                 case 'Y':
-                case '\xE4' :
-                case '\xC4':
+                case '' :
+                case '':
                     SLIST_FOREACH_SAFE(d_old, &descriptor_list, link, d_next) {
                         if (d_old == d || d_old->character == NULL)
                             continue;
@@ -7613,8 +7613,8 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
                 case 'n' :
                 case 'N':
-                case '\xED' :
-                case '\xCD':
+                case '' :
+                case '':
                     write_to_buffer(d, ": ", 0);
                     if (d->character != NULL) {
                         free_char(d->character);
@@ -7633,8 +7633,8 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             switch (*argument) {
                 case 'y':
                 case 'Y':
-                case '\xE4':
-                case '\xC4':
+                case '':
+                case '':
                     /*
                      * check names of people playing. Yes, this is necessary for multiple
                      * newbies with the same name (thanks Saro)
@@ -7674,8 +7674,8 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
                 case 'n':
                 case 'N':
-                case '\xED':
-                case '\xCD':
+                case '':
+                case '':
                     write_to_buffer(d, "Ok,  ? ", 0);
                     free_char(d->character);
                     d->character = NULL;
@@ -7720,8 +7720,8 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             switch (argument[0]) {
                 case 'Y':
                 case 'y':
-                case '\xC4':
-                case '\xE4': {
+                case '':
+                case '': {
                     write_to_buffer(d, "\n\r", 2);
                     do_function(ch, &do_colour, "noprint");
                     /*     	    write_to_buffer(d, "\n\r", 2); */
@@ -7729,8 +7729,8 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                 }
                 case 'N':
                 case 'n':
-                case '\xCD':
-                case '\xED':
+                case '':
+                case '':
                     break;
                 default: {
                     write_to_buffer(d, ",   ? ", 0);
@@ -7829,16 +7829,16 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         case CON_GET_NEW_SEX:
         switch (argument[0])
         {
-        case '\xEC':
-        case '\xCC':
+        case '':
+        case '':
         case 'm':
         case 'M':
             ch->sex = SEX_MALE;
             ch->pcdata->true_sex = SEX_MALE;
             break;
 
-        case '\xE6':
-        case '\xC6':
+        case '':
+        case '':
         case 'f':
         case 'F':
             ch->sex = SEX_FEMALE;
@@ -7899,15 +7899,15 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
         case CON_GET_ALIGNMENT:
 
-        if (((argument[0] == 'g' || argument[0] == 'G' || argument[0] == '\xE4' || argument[0] == '\xC4')
+        if (((argument[0] == 'g' || argument[0] == 'G' || argument[0] == '' || argument[0] == '')
              && IS_SET(get_valid_align(ch), ALIGN_GOOD)) || is_only_align(ch) == ALIGN_GOOD)
             ch->alignment = 750;
         else
-            if (((argument[0] == 'n' || argument[0] == 'N' || argument[0] == '\xED' || argument[0] == '\xCD')
+            if (((argument[0] == 'n' || argument[0] == 'N' || argument[0] == '' || argument[0] == '')
              && IS_SET(get_valid_align(ch), ALIGN_NEUTRAL)) || is_only_align(ch) == ALIGN_NEUTRAL)
             ch->alignment = 0;
             else
-            if (((argument[0] == 'e' || argument[0] == 'E' || argument[0] == '\xE7' || argument[0] == '\xC7')
+            if (((argument[0] == 'e' || argument[0] == 'E' || argument[0] == '' || argument[0] == '')
                  && IS_SET(get_valid_align(ch), ALIGN_EVIL)) || is_only_align(ch) == ALIGN_EVIL)
                 ch->alignment = -750;
             else
