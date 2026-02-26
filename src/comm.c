@@ -272,72 +272,72 @@ struct translit_type
 };
 
 struct translit_type		translit	[]	= {
-    {'×', "CH"},
-    {'÷', "ch"},
-    {'Ø', "SH" },
-    {'ø', "sh" },
-    {'Ù', "SH"},
-    {'ù', "sh"},
-    {'É', "YJ" },
-    {'é', "yj" },
-    {'Þ', "YU"},
-    {'þ', "yu"},
-    {'ß', "YA"},
-    {'ÿ', "ya"},
-    {'À', "A"} ,
-    {'à', "a"} ,
-    {'Á', "B"} ,
-    {'á', "b"} ,
-    {'Â', "V"} ,
-    {'â', "v"} ,
-    {'Ã', "G"} ,
-    {'ã', "g"} ,
-    {'Ä', "D"} ,
-    {'ä', "d"} ,
-    {'Å', "E"} ,
-    {'å', "e"} ,
-    {'¨', "E"} ,
-    {'¸', "e"} ,
-    {'Æ', "J"} ,
-    {'æ', "j"} ,
-    {'Ç', "Z"} ,
-    {'ç', "z"} ,
-    {'È', "I"} ,
-    {'è', "i"} ,
-    {'Ê', "K"} ,
-    {'ê', "k"} ,
-    {'Ë', "L"} ,
-    {'ë', "l"} ,
-    {'Ì', "M"} ,
-    {'ì', "m"} ,
-    {'Í', "N"} ,
-    {'í', "n"} ,
-    {'Î', "O"} ,
-    {'î', "o"} ,
-    {'Ï', "P"} ,
-    {'ï', "p"} ,
-    {'Ð', "R"} ,
-    {'ð', "r"} ,
-    {'Ñ', "S"} ,
-    {'ñ', "s"} ,
-    {'Ò', "T"} ,
-    {'ò', "t"} ,
-    {'Ó', "U"} ,
-    {'ó', "u"} ,
-    {'Ô', "F"} ,
-    {'ô', "f"} ,
-    {'Õ', "H"} ,
-    {'õ', "h"} ,
-    {'Ü', "'"} ,
-    {'ü', "'"} ,
-    {'Ú', "'"} ,
-    {'ú', "'"} ,
-    {'Ö', "C"},
-    {'ö', "c"},
-    {'Û', "Y"},
-    {'û', "y"},
-    {'Ý', "E"},
-    {'ý', "e"},
+    {'\xD7', "CH"},
+    {'\xF7', "ch"},
+    {'\xD8', "SH" },
+    {'\xF8', "sh" },
+    {'\xD9', "SH"},
+    {'\xF9', "sh"},
+    {'\xC9', "YJ" },
+    {'\xE9', "yj" },
+    {'\xDE', "YU"},
+    {'\xFE', "yu"},
+    {'\xDF', "YA"},
+    {'\xFF', "ya"},
+    {'\xC0', "A"} ,
+    {'\xE0', "a"} ,
+    {'\xC1', "B"} ,
+    {'\xE1', "b"} ,
+    {'\xC2', "V"} ,
+    {'\xE2', "v"} ,
+    {'\xC3', "G"} ,
+    {'\xE3', "g"} ,
+    {'\xC4', "D"} ,
+    {'\xE4', "d"} ,
+    {'\xC5', "E"} ,
+    {'\xE5', "e"} ,
+    {'\xA8', "E"} ,
+    {'\xB8', "e"} ,
+    {'\xC6', "J"} ,
+    {'\xE6', "j"} ,
+    {'\xC7', "Z"} ,
+    {'\xE7', "z"} ,
+    {'\xC8', "I"} ,
+    {'\xE8', "i"} ,
+    {'\xCA', "K"} ,
+    {'\xEA', "k"} ,
+    {'\xCB', "L"} ,
+    {'\xEB', "l"} ,
+    {'\xCC', "M"} ,
+    {'\xEC', "m"} ,
+    {'\xCD', "N"} ,
+    {'\xED', "n"} ,
+    {'\xCE', "O"} ,
+    {'\xEE', "o"} ,
+    {'\xCF', "P"} ,
+    {'\xEF', "p"} ,
+    {'\xD0', "R"} ,
+    {'\xF0', "r"} ,
+    {'\xD1', "S"} ,
+    {'\xF1', "s"} ,
+    {'\xD2', "T"} ,
+    {'\xF2', "t"} ,
+    {'\xD3', "U"} ,
+    {'\xF3', "u"} ,
+    {'\xD4', "F"} ,
+    {'\xF4', "f"} ,
+    {'\xD5', "H"} ,
+    {'\xF5', "h"} ,
+    {'\xDC', "'"} ,
+    {'\xFC', "'"} ,
+    {'\xDA', "'"} ,
+    {'\xFA', "'"} ,
+    {'\xD6', "C"},
+    {'\xF6', "c"},
+    {'\xDB', "Y"},
+    {'\xFB', "y"},
+    {'\xDD', "E"},
+    {'\xFD', "e"},
     {'\0', ""}
 };
 
@@ -349,22 +349,22 @@ struct antitrigger_type
 };
 
 struct antitrigger_type		antitrigger	[]	= {
-    {'à', 'a'},
-    {'å', 'e'},
-    {'î', 'o'},
-    {'ð', 'p'},
-    {'ñ', 'c'},
-    {'õ', 'x'},
-    {'À', 'A'},
-    {'Â', 'B'},
-    {'Å', 'E'},
-    {'Ì', 'M'},
-    {'Í', 'H'},
-    {'Î', 'O'},
-    {'Ð', 'P'},
-    {'Ñ', 'C'},
-    {'Ò', 'T'},
-    {'Õ', 'X'},
+    {'\xE0', 'a'},
+    {'\xE5', 'e'},
+    {'\xEE', 'o'},
+    {'\xF0', 'p'},
+    {'\xF1', 'c'},
+    {'\xF5', 'x'},
+    {'\xC0', 'A'},
+    {'\xC2', 'B'},
+    {'\xC5', 'E'},
+    {'\xCC', 'M'},
+    {'\xCD', 'H'},
+    {'\xCE', 'O'},
+    {'\xD0', 'P'},
+    {'\xD1', 'C'},
+    {'\xD2', 'T'},
+    {'\xD5', 'X'},
     {'\0','\0'}
 };
 
@@ -7389,7 +7389,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                     return;
             }
 
-            write_to_buffer(d, "Ïîä êàêèì èìåíåì òû çäåñü áóäåøü?", 0);
+	    write_to_buffer(d, "\xCF\xEE\xE4 \xEA\xE0\xEA\xE8\xEC \xE8\xEC\xE5\xED\xE5\xEC \xF2\xFB \xE7\xE4\xE5\xF1\xFC \xE1\xF3\xE4\xE5\xF8\xFC?", 0);
             d->connected = CON_GET_NAME;
             break;
 
@@ -7934,7 +7934,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         write_to_buffer(d, "\n\r", 2);
         switch (argument[0])
         {
-        case 'y': case 'Y': case 'ä': case 'Ä':
+	case 'y': case 'Y': case '\xE4': case '\xC4':
             ch->gen_data = new_gen_data();
             group_add(ch, class_table[ch->classid].default_group, TRUE);
             ch->gen_data->points_chosen = ch->pcdata->points;
@@ -7946,7 +7946,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             do_function(ch, &do_help, "menu choice");
             d->connected = CON_GEN_GROUPS;
             break;
-        case 'n': case 'N':  case 'í': case 'Í':
+	case 'n': case 'N':  case '\xED': case '\xCD':
             group_add(ch, class_table[ch->classid].default_group, TRUE);
             write_to_buffer(d, "\n\rÂûáåðèòå îðóæèå èç ñïèñêà:\n\r    ", 0);
             buf[0] = '\0';
@@ -8111,13 +8111,13 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         case CON_GET_ATHEIST:
         switch(argument[0])
         {
-            case 'Y': case 'y': case 'Ä': case 'ä':
+	    case 'Y': case 'y': case '\xC4': case '\xE4':
                 {
                 write_to_buffer(d, "\n\r", 2);
                 ch->pcdata->atheist = 1; //yes
                 break;
                 }
-            case 'N': case 'n': case 'Í': case 'í':
+	    case 'N': case 'n': case '\xCD': case '\xED':
             {
                 break;
             }
@@ -8559,7 +8559,7 @@ bool check_parse_name(char *name)
     if (is_exact_name(name, "âñå ñïèñîê ÷òî êòî"))
 	return FALSE;
 
-    if ((c = UPPER(name[0])) == 'Ú' || c == 'Ü' || c == 'Û')
+	if ((c = UPPER(name[0])) == '\xDA' || c == '\xDC' || c == '\xDB')
 	return FALSE;
 
 

@@ -3244,16 +3244,16 @@ struct prog_code
 #define VALIDATE(data)    do { if ((data) != NULL) (data)->valid = TRUE; } while (0)
 #define INVALIDATE(data)  ((data)->valid = FALSE)
 
-#define LOWER(c)    ((c) >= 'À' && (c) <= 'ß'\
-        ? (c)+'à'-'À'\
+#define LOWER(c)    ((unsigned char)(c) >= 0xC0 && (unsigned char)(c) <= 0xDF\
+        ? (unsigned char)(c) + 0x20\
         : ((c) >= 'A' && (c) <= 'Z'? (c)+'a'-'A' : (c)))
 
-#define UPPER(c)    ((c) >= 'à' && (c) <= 'ÿ'\
-        ? (c)+'À'-'à'\
+#define UPPER(c)    ((unsigned char)(c) >= 0xE0 && (unsigned char)(c) <= 0xFF\
+        ? (unsigned char)(c) - 0x20\
         : ((c) >= 'a' && (c) <= 'z'? (c)+'A'-'a' : (c)))
 
-#define IS_RUSSIAN(c)    (((c) >= 'À' && (c) <= 'ß')\
-        || ((c) >= 'à' && (c) <= 'ÿ'))
+#define IS_RUSSIAN(c)    (((unsigned char)(c) >= 0xC0 && (unsigned char)(c) <= 0xDF)\
+        || ((unsigned char)(c) >= 0xE0 && (unsigned char)(c) <= 0xFF))
 #define IS_ALPHA(c)    (IS_RUSSIAN(c) || ((c) >= 'A' && (c) <= 'Z')\
         || ((c) >= 'a' && (c) <= 'z'))
 
