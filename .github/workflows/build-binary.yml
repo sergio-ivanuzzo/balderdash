@@ -1,0 +1,34 @@
+name: Build balderdash binary
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential zlib1g-dev
+
+      - name: Build binary from sources
+        run: make -C src rom
+
+      - name: Put binary into bin/
+        run: |
+          mkdir -p bin
+          cp src/rom bin/rom
+          chmod +x bin/rom
+
+      - name: Upload binary artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: balderdash-bin
+          path: bin/rom
