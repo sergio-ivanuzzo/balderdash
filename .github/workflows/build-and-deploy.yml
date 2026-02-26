@@ -1,0 +1,52 @@
+name: Build and Deploy balderdash
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential zlib1g-dev
+
+      - name: Build binary
+        run: make -C src rom
+
+      - name: Copy binary to VPS
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          source: "src/rom"
+          target: "/home/balderdash/area/"
+          strip_components: 1
+
+      - name: Copy help files to VPS
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          source: "area/*.hlp"
+          target: "/home/balderdash/area/"
+
+      - name: Fix permissions and restart service
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            chmod +x /home/balderdash/area/rom
+            sudo chown balderdash:balderdash /home/balderdash/area/rom
+            sudo chown balderdash:balderdash /home/balderdash/area/*.hlp
+            sudo systemctl restart balderdash
