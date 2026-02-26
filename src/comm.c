@@ -272,72 +272,72 @@ struct translit_type
 };
 
 struct translit_type		translit	[]	= {
-    {'×', "CH"},
-    {'÷', "ch"},
-    {'Ø', "SH" },
-    {'ø', "sh" },
-    {'Ù', "SH"},
-    {'ù', "sh"},
-    {'É', "YJ" },
-    {'é', "yj" },
-    {'Þ', "YU"},
-    {'þ', "yu"},
-    {'ß', "YA"},
-    {'ÿ', "ya"},
-    {'À', "A"} ,
-    {'à', "a"} ,
-    {'Á', "B"} ,
-    {'á', "b"} ,
-    {'Â', "V"} ,
-    {'â', "v"} ,
-    {'Ã', "G"} ,
-    {'ã', "g"} ,
-    {'Ä', "D"} ,
-    {'ä', "d"} ,
-    {'Å', "E"} ,
-    {'å', "e"} ,
-    {'¨', "E"} ,
-    {'¸', "e"} ,
-    {'Æ', "J"} ,
-    {'æ', "j"} ,
-    {'Ç', "Z"} ,
-    {'ç', "z"} ,
-    {'È', "I"} ,
-    {'è', "i"} ,
-    {'Ê', "K"} ,
-    {'ê', "k"} ,
-    {'Ë', "L"} ,
-    {'ë', "l"} ,
-    {'Ì', "M"} ,
-    {'ì', "m"} ,
-    {'Í', "N"} ,
-    {'í', "n"} ,
-    {'Î', "O"} ,
-    {'î', "o"} ,
-    {'Ï', "P"} ,
-    {'ï', "p"} ,
-    {'Ð', "R"} ,
-    {'ð', "r"} ,
-    {'Ñ', "S"} ,
-    {'ñ', "s"} ,
-    {'Ò', "T"} ,
-    {'ò', "t"} ,
-    {'Ó', "U"} ,
-    {'ó', "u"} ,
-    {'Ô', "F"} ,
-    {'ô', "f"} ,
-    {'Õ', "H"} ,
-    {'õ', "h"} ,
-    {'Ü', "'"} ,
-    {'ü', "'"} ,
-    {'Ú', "'"} ,
-    {'ú', "'"} ,
-    {'Ö', "C"},
-    {'ö', "c"},
-    {'Û', "Y"},
-    {'û', "y"},
-    {'Ý', "E"},
-    {'ý', "e"},
+    {'\xD7', "CH"},
+    {'\xF7', "ch"},
+    {'\xD8', "SH" },
+    {'\xF8', "sh" },
+    {'\xD9', "SH"},
+    {'\xF9', "sh"},
+    {'\xC9', "YJ" },
+    {'\xE9', "yj" },
+    {'\xDE', "YU"},
+    {'\xFE', "yu"},
+    {'\xDF', "YA"},
+    {'\xFF', "ya"},
+    {'\xC0', "A"} ,
+    {'\xE0', "a"} ,
+    {'\xC1', "B"} ,
+    {'\xE1', "b"} ,
+    {'\xC2', "V"} ,
+    {'\xE2', "v"} ,
+    {'\xC3', "G"} ,
+    {'\xE3', "g"} ,
+    {'\xC4', "D"} ,
+    {'\xE4', "d"} ,
+    {'\xC5', "E"} ,
+    {'\xE5', "e"} ,
+    {'\xA8', "E"} ,
+    {'\xB8', "e"} ,
+    {'\xC6', "J"} ,
+    {'\xE6', "j"} ,
+    {'\xC7', "Z"} ,
+    {'\xE7', "z"} ,
+    {'\xC8', "I"} ,
+    {'\xE8', "i"} ,
+    {'\xCA', "K"} ,
+    {'\xEA', "k"} ,
+    {'\xCB', "L"} ,
+    {'\xEB', "l"} ,
+    {'\xCC', "M"} ,
+    {'\xEC', "m"} ,
+    {'\xCD', "N"} ,
+    {'\xED', "n"} ,
+    {'\xCE', "O"} ,
+    {'\xEE', "o"} ,
+    {'\xCF', "P"} ,
+    {'\xEF', "p"} ,
+    {'\xD0', "R"} ,
+    {'\xF0', "r"} ,
+    {'\xD1', "S"} ,
+    {'\xF1', "s"} ,
+    {'\xD2', "T"} ,
+    {'\xF2', "t"} ,
+    {'\xD3', "U"} ,
+    {'\xF3', "u"} ,
+    {'\xD4', "F"} ,
+    {'\xF4', "f"} ,
+    {'\xD5', "H"} ,
+    {'\xF5', "h"} ,
+    {'\xDC', "'"} ,
+    {'\xFC', "'"} ,
+    {'\xDA', "'"} ,
+    {'\xFA', "'"} ,
+    {'\xD6', "C"},
+    {'\xF6', "c"},
+    {'\xDB', "Y"},
+    {'\xFB', "y"},
+    {'\xDD', "E"},
+    {'\xFD', "e"},
     {'\0', ""}
 };
 
@@ -349,22 +349,22 @@ struct antitrigger_type
 };
 
 struct antitrigger_type		antitrigger	[]	= {
-    {'à', 'a'},
-    {'å', 'e'},
-    {'î', 'o'},
-    {'ð', 'p'},
-    {'ñ', 'c'},
-    {'õ', 'x'},
-    {'À', 'A'},
-    {'Â', 'B'},
-    {'Å', 'E'},
-    {'Ì', 'M'},
-    {'Í', 'H'},
-    {'Î', 'O'},
-    {'Ð', 'P'},
-    {'Ñ', 'C'},
-    {'Ò', 'T'},
-    {'Õ', 'X'},
+    {'\xE0', 'a'},
+    {'\xE5', 'e'},
+    {'\xEE', 'o'},
+    {'\xF0', 'p'},
+    {'\xF1', 'c'},
+    {'\xF5', 'x'},
+    {'\xC0', 'A'},
+    {'\xC2', 'B'},
+    {'\xC5', 'E'},
+    {'\xCC', 'M'},
+    {'\xCD', 'H'},
+    {'\xCE', 'O'},
+    {'\xD0', 'P'},
+    {'\xD1', 'C'},
+    {'\xD2', 'T'},
+    {'\xD5', 'X'},
     {'\0','\0'}
 };
 
@@ -402,45 +402,45 @@ void turn_on_mxp (DESCRIPTOR_DATA *d)
     /* Get an item tag (for things on the ground) */
     write_to_buffer(d, MXPTAG
 		    ("!ELEMENT Get \"<send href='"
-		     "âçÿòü &#39;&name;&#39;|"
-		     "ïðîâåðèòü &#39;&name;&#39;|"
-		     "ïèòü &#39;&name;&#39;"
+		     " &#39;&name;&#39;|"
+		     " &#39;&name;&#39;|"
+		     " &#39;&name;&#39;"
 		     "' "
-		     "hint='Äëÿ èñïîëüçîâàíèÿ ýòîãî îáúåêòà íàæìèòå ïðàâóþ êíîïêó ìûøè|"
-		     "Âçÿòü &desc;|"
-		     "Ïðîâåðèòü &desc;|"
-		     "Ïèòü èç &desc;"
+		     "hint='       |"
+		     " &desc;|"
+		     " &desc;|"
+		     "  &desc;"
 		     "'>\" ATT='name desc'"),
 		    0);
     /* Drop an item tag (for things in the inventory) */
     write_to_buffer(d, MXPTAG
 		    ("!ELEMENT Drop \"<send href='"
-		     "áðîñèòü &#39;&name;&#39;|"
-		     "ïðîâåðèòü &#39;&name;&#39;|"
-		     "ñìîòðåòü â &#39;&name;&#39;|"
-		     "îäåòü &#39;&name;&#39;|"
-		     "åñòü &#39;&name;&#39;|"
-		     "ïèòü &#39;&name;&#39;"
+		     " &#39;&name;&#39;|"
+		     " &#39;&name;&#39;|"
+		     "  &#39;&name;&#39;|"
+		     " &#39;&name;&#39;|"
+		     " &#39;&name;&#39;|"
+		     " &#39;&name;&#39;"
 		     "' "
-		     "hint='Äëÿ èñïîëüçîâàíèÿ ýòîãî îáúåêòà íàæìèòå ïðàâóþ êíîïêó ìûøè|"
-		     "Áðîñèòü &desc;|"
-		     "Ïðîâåðèòü &desc;|"
-		     "Ñìîòðåòü â &desc;|"
-		     "Îäåòü &desc;|"
-		     "Åñòü &desc;|"
-		     "Ïèòü &desc;"
+		     "hint='       |"
+		     " &desc;|"
+		     " &desc;|"
+		     "  &desc;|"
+		     " &desc;|"
+		     " &desc;|"
+		     " &desc;"
 		     "'>\" ATT='name desc'"),
 		    0);
     /* List an item tag (for things in a shop) */
     write_to_buffer(d, MXPTAG
-		    ("!ELEMENT List \"<send href='êóïèòü &#39;&name;&#39;' "
-		     "hint='Êóïèòü &desc;'>\" "
+		    ("!ELEMENT List \"<send href=' &#39;&name;&#39;' "
+		     "hint=' &desc;'>\" "
 		     "ATT='name desc'"),
 		    0);
     /* Player tag (for who lists, tells etc.) */
     /*  write_to_buffer(d, MXPTAG
-     ("!ELEMENT Player \"<send href='ãîâ &#39;&name;&#39; ' "
-     "hint='Ïîñëàòü ñîîáùåíèå &name;' prompt>\" "
+     ("!ELEMENT Player \"<send href=' &#39;&name;&#39; ' "
+     "hint='  &name;' prompt>\" "
      "ATT='name'"),
      0); */
 } /* end of turn_on_mxp */
@@ -1218,7 +1218,7 @@ void close_socket(DESCRIPTOR_DATA *dclose){
 	process_output(dclose, FALSE);
 
     if (dclose->snoop_by != NULL){
-	    write_to_buffer(dclose->snoop_by, "Òâîÿ öåëü âûøëà èç èãðû.\n\r", 0);
+	    write_to_buffer(dclose->snoop_by, "    .\n\r", 0);
     }
 
 
@@ -1246,18 +1246,18 @@ void close_socket(DESCRIPTOR_DATA *dclose){
 
         /* cut down on wiznet spam when rebooting */
 
-        check_auctions(ch, NULL, "èñ÷åçíîâåíèÿ âëàäåëüöà íåèçâåñòíî êóäà");
+        check_auctions(ch, NULL, "   ");
 
         if (dclose->connected == CON_PLAYING && !merc_down)
         {
             if (!IS_IMMORTAL(ch))
             {
-                act("$n òåðÿåò ñîçíàíèå.", ch, NULL, NULL, TO_ROOM);
+                act("$n  .", ch, NULL, NULL, TO_ROOM);
             }
 
-            edit_done(ch);	/* Ñíèìàåì ôëàã ðåäàêòèðîâàíèÿ */
+            edit_done(ch);	/*    */
 
-            sprintf(bfr, "$N@%s òåðÿåò ñâÿçü.", dns_gethostname(dclose->Host));
+            sprintf(bfr, "$N@%s  .", dns_gethostname(dclose->Host));
             wiznet(bfr, ch, NULL, WIZ_LINKS, 0, get_trust(ch));
 
             if (ch->desc && ch->desc->original && !ch->desc->original->in_room)
@@ -1304,7 +1304,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d){
 
 	sprintf(bfr, "%s input overflow!", d->ip);
 	log_string(bfr);
-	write_to_buffer(d, "\n\r{R*** ÝÒÎ ÑÏÀÌ!!! ***{x\n\r", 0);
+	write_to_buffer(d, "\n\r{R***  !!! ***{x\n\r", 0);
 	return FALSE;
     }
 
@@ -1357,14 +1357,14 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 
     d->grep[0] = '\0';
 
-    /* Î÷èñòêà áóôåðà êîìàíä */
+    /*    */
 
     for (i = 0; d->inbuf[i] != '\0'; i++)
     {
 	if (flag && d->inbuf[i] == '-')
 	{
 	    d->inbuf[0] = '\0';
-	    write_to_buffer(d, "Áóôåð êîìàíä î÷èùåí.\n\r", 0);
+	    write_to_buffer(d, "  .\n\r", 0);
 	    return;
 	}
 
@@ -1402,7 +1402,7 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
     {
 	if (k >= MAX_INPUT_LENGTH - 2)
 	{
-	    write_to_buffer(d, "Ñëèøêîì äëèííàÿ ñòðîêà.\n\r", 0);
+	    write_to_buffer(d, "  .\n\r", 0);
 
 	    /* skip the rest of the line */
 	    for (; d->inbuf[i] != '\0'; i++)
@@ -1511,14 +1511,14 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 
 	    if (++d->repeat >= 25 && d->character
 		&& d->connected == CON_PLAYING
-		&& !is_name(bfr, "ñåâåð þã çàïàä âîñòîê âåðõ ââåðõ íèç north "
-			    "south east west up down íîâîñò news ïèñüì ïèñü íîâî íîâ íîâîñòè íîâîñ ïèñ ïè èä èäå ïèñüìî"
-			    "note èçìåíåíèÿ changes èäåÿ ideas êîíåö quit èçì èç èçìå èçìåí èçìåíå èçìåíåí èçìåíåíè")
+		&& !is_name(bfr, "       north "
+			    "south east west up down  news           "
+			    "note  changes  ideas  quit       ")
 		&& !(IS_IMMORTAL(d->character)))
 	    {
 		sprintf(bfr, "%s input spamming!", d->ip);
 		log_string(bfr);
-		wiznet("$N çàìå÷åí â ñïàìå!", d->character, NULL,
+		wiznet("$N   !", d->character, NULL,
 		       WIZ_SPAM, 0, get_trust(d->character));
 
 		if (d->incomm[0] == '!')
@@ -1536,7 +1536,7 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 
 		d->repeat = 0;
 
-		write_to_buffer(d, "\n\r*** ÑÏÀÌ ÍÅ ÐÀÇÐÅØÅÍ!!! ***\n\r", 0);
+		write_to_buffer(d, "\n\r***   !!! ***\n\r", 0);
 		strcpy(d->incomm, "quit");
 
 	    }
@@ -1596,8 +1596,8 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 	{
 	    if (!str_infix(stoplist[i], d->incomm))
 	    {
-		write_to_buffer(d, "ÂÛÁÈÐÀÉ ÂÛÐÀÆÅÍÈß!\n\r\n\r", 0);
-		sprintf(bfr, "Íåöåíçóðùèíà: '%s' Host: %s",
+		write_to_buffer(d, " !\n\r\n\r", 0);
+		sprintf(bfr, ": '%s' Host: %s",
 			d->incomm, d->ip);
 		log_string(bfr);
 		sprintf(d->incomm, "\n\r");
@@ -1684,7 +1684,7 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 	{
 	    char tmp[MIL];
 
-	    colourconv(buf, "{Y[Íàæìèòå Enter äëÿ ïðîäîëæåíèÿ]{x\n\r", d->character);
+	    colourconv(buf, "{Y[ Enter  ]{x\n\r", d->character);
 	    strcpy(tmp, d->grep);
 	    d->grep[0] = '\0';
 	    write_to_buffer(d, buf, 0);
@@ -1711,21 +1711,21 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 		    percent = (victim->max_hit > 0) ? victim->hit * 100 / victim->max_hit : -1;
 
 		    if (percent >= 100)
-		        sprintf(wound, "{Gâ ïðåêðàñíîì ñîñòîÿíèè.{x");
+		        sprintf(wound, "{G  .{x");
 		    else if (percent >= 90)
-		        sprintf(wound, "{gñëåãêà ïîöàðàïàí%s.{x", SEX_ENDING(victim));
+		        sprintf(wound, "{g %s.{x", SEX_ENDING(victim));
 		    else if (percent >= 75)
-		        sprintf(wound, "{Cëåãêî ðàíåí%s.{x", SEX_ENDING(victim));
+		        sprintf(wound, "{C %s.{x", SEX_ENDING(victim));
 		    else if (percent >= 50)
-		        sprintf(wound, "{cðàíåí%s.{x", SEX_ENDING(victim));
+		        sprintf(wound, "{c%s.{x", SEX_ENDING(victim));
 		    else if (percent >= 30)
-		        sprintf(wound, "{Yñåðüåçíî ðàíåí%s.{x", SEX_ENDING(victim));
+		        sprintf(wound, "{Y %s.{x", SEX_ENDING(victim));
 		    else if (percent >= 15)
-		        sprintf(wound, "{yâûãëÿäèò î÷åíü ïëîõî.{x");
+		        sprintf(wound, "{y  .{x");
 		    else if (percent >= 0)
-		        sprintf(wound, "{râ óæàñíîì ñîñòîÿíèè.{x");
+		        sprintf(wound, "{r  .{x");
 		    else
-		        sprintf(wound, "{Rèñòåêàåò êðîâüþ.{x");
+		        sprintf(wound, "{R .{x");
 
 		    sprintf(pbuff, "%s %s \n\r",
 			IS_NPC(victim) ? victim->short_descr : victim->name, wound);
@@ -1817,7 +1817,7 @@ void bust_a_prompt(CHAR_DATA *ch)
     EXIT_DATA *pexit;
     bool found;
     const char *dir_name[] = {"N", "E", "S", "W", "U", "D"};
-    const char *dir_rname[] = {"Ñ", "Â", "Þ", "Ç", "Ââ", "Í"};
+    const char *dir_rname[] = {"", "", "", "", "", ""};
     int door;
 
     CHAR_DATA *victim;
@@ -1901,7 +1901,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 
     if (IS_SET(ch->comm, COMM_AFK))
     {
-	send_to_char("{c<ÂÎÊ>{x ", ch);
+	send_to_char("{c<>{x ", ch);
 	return;
     }
 
@@ -2003,7 +2003,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 		    && !IS_SET(ch->act, PLR_HOLYLIGHT))
 		{
 		    found=TRUE;
-		    strcpy(doors, (*str == 'e') ? "blind" : "ñëåï");
+		    strcpy(doors, (*str == 'e') ? "blind" : "");
 		}
 		else if (ch->in_room)
 		{
@@ -2012,7 +2012,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 			&& room_is_dark_new(ch))
 		    {
 			found=TRUE;
-			strcpy(doors, (*str == 'e') ? "dark" : "òåìíî");
+			strcpy(doors, (*str == 'e') ? "dark" : "");
 		    }
 		    else
 		    {
@@ -2034,45 +2034,45 @@ void bust_a_prompt(CHAR_DATA *ch)
 	    }
 	    else
 	    {
-		strcpy(doors, (*str == 'e') ? "sleeping" : "ñîí");
+		strcpy(doors, (*str == 'e') ? "sleeping" : "");
 		found=TRUE;
 	    }
 	    if (!found)
-		strcpy(doors, (*str == 'e') ? "none" : "íåò");
+		strcpy(doors, (*str == 'e') ? "none" : "");
 
 	    strcpy(buf2, doors);
 	    i = buf2;
 	    break;
 	case 'y' :
-	    sprintf(buf2, "%s", ch->style == NORM_STYLE ? "Íîðìà" 
-				: (ch->style == AGGR_STYLE ? "Àòàêà" : "Îáîðîíà"));
+	    sprintf(buf2, "%s", ch->style == NORM_STYLE ? "" 
+				: (ch->style == AGGR_STYLE ? "" : ""));
 	    i = buf2; break;
 
-//áåññìåðòèå è ïîñìåðòèå
+//  
 	case 'i' :
 		if (!IS_NPC(ch))
 		{
 			if (ch->pcdata->temp_RIP == 0)
 			{
-			    sprintf(buf2, "%s", "íåò"); 
+			    sprintf(buf2, "%s", ""); 
 			}
 			else
 			{
 				if (ch->pcdata->temp_RIP == 1)
 				{
-				    sprintf(buf2, "%s", "âûêë"); 
+				    sprintf(buf2, "%s", ""); 
 				}
 				else
 				{
 					if (ch->pcdata->temp_RIP == 2)
 					{
-						sprintf(buf2, "%s", "âêë");
+						sprintf(buf2, "%s", "");
 					}
 					else
 					{
 						if (ch->pcdata->temp_RIP == 3)
 						{
-							sprintf(buf2, "%s", "ïîñì");
+							sprintf(buf2, "%s", "");
 						}
 					}
 				}
@@ -2080,7 +2080,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 		}
 		else
 		{
-		    sprintf(buf2, "%s", "íåîïîçíàíî"); 
+		    sprintf(buf2, "%s", ""); 
 		}
 		i = buf2; break;
 
@@ -2090,25 +2090,25 @@ void bust_a_prompt(CHAR_DATA *ch)
 		{
 			if (ch->pcdata->temp_RIP == 0)
 			{
-			    sprintf(buf2, "%s", "íå êóïëåíî"); 
+			    sprintf(buf2, "%s", " "); 
 			}
 			else
 			{
 				if (ch->pcdata->temp_RIP == 1)
 				{
-				    sprintf(buf2, "%s", "áåññìåðòèå âûêëþ÷åíî"); 
+				    sprintf(buf2, "%s", " "); 
 				}
 				else
 				{
 					if (ch->pcdata->temp_RIP == 2)
 					{
-						sprintf(buf2, "%s", "áåññìåðòèå âêëþ÷åíî");
+						sprintf(buf2, "%s", " ");
 					}
 					else
 					{
 						if (ch->pcdata->temp_RIP == 3)
 						{
-							sprintf(buf2, "%s", "ïîñìåðòèå");
+							sprintf(buf2, "%s", "");
 						}
 					}
 				}
@@ -2117,7 +2117,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 		else
 		{
 
-		    sprintf(buf2, "%s", "íåîïîçíàíî"); 
+		    sprintf(buf2, "%s", ""); 
 		}
 		i = buf2; break;
 
@@ -2160,29 +2160,29 @@ void bust_a_prompt(CHAR_DATA *ch)
 	    if(ch->level > 9)
 		sprintf(buf2, "%d", ch->alignment);
 	    else if (ch->alignment >  900)
-		sprintf(buf2, "%s", "àíãåë");
+		sprintf(buf2, "%s", "");
 	    else if (ch->alignment >  700)
-		sprintf(buf2, "%s", "ñâÿòàÿ");
+		sprintf(buf2, "%s", "");
 	    else if (ch->alignment >  350)
-		sprintf(buf2, "%s", "õîðîøàÿ");
+		sprintf(buf2, "%s", "");
 	    else if (ch->alignment >  100)
-		sprintf(buf2, "%s", "ëþáåçíàÿ");
+		sprintf(buf2, "%s", "");
 	    else if (ch->alignment > -100)
-		sprintf(buf2, "%s", "íåéòðàëüíàÿ");
+		sprintf(buf2, "%s", "");
 	    else if (ch->alignment > -350)
-		sprintf(buf2, "%s", "ïîäëàÿ");
+		sprintf(buf2, "%s", "");
 	    else if (ch->alignment > -700)
-		sprintf(buf2, "%s", "çëàÿ");
+		sprintf(buf2, "%s", "");
 	    else if (ch->alignment > -900)
-		sprintf(buf2, "%s", "äåìîí");
+		sprintf(buf2, "%s", "");
 	    else
-		sprintf(buf2, "%s", "ñàòàíà");
+		sprintf(buf2, "%s", "");
 
 	    i = buf2;
 	    break;
 	case 'r' :
 	    if(SUPPRESS_OUTPUT(check_blind(ch)) && ch->in_room != NULL && IS_AWAKE(ch) && can_see_room(ch, ch->in_room))
-		sprintf(buf2, "%s", room_is_dark_new(ch) ? "òåìíî" : ch->in_room->name);
+		sprintf(buf2, "%s", room_is_dark_new(ch) ? "" : ch->in_room->name);
 	    else
 		strcpy(buf2, " ");
 	    i = buf2; break;
@@ -2211,7 +2211,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 	    sprintf(buf2, "%s", olc_ed_vnum(ch));
 	    i = buf2; break;
 	    /*
-	     * Îáùåå âðåìÿ è âðåìÿ äî îêîí÷àíèÿ êâåñòà.
+	     *       .
 	     */
 	case 'q' :
 	    if (IS_NPC(ch))
@@ -2249,7 +2249,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 	    break;
 
 	    /*
-	     * Ïîãîäó â ïðîìïò. Äëÿ âàìïèðîâ è êàñòåðîâ ïîëåçíî.
+	     *   .     .
 	     */
 	case 'w' :
 	    if (IS_OUTSIDE(ch) && IS_AWAKE(ch))
@@ -2257,16 +2257,16 @@ void bust_a_prompt(CHAR_DATA *ch)
 		switch (weather_info.sky)
 		{
 		case SKY_CLOUDLESS:
-		    sprintf(buf2, "{x[{Yáåçîáëà÷íî{x]");
+		    sprintf(buf2, "{x[{Y{x]");
 		    break;
 		case SKY_CLOUDY:
-		    sprintf(buf2, "{x[{yîáëà÷íî{x]");
+		    sprintf(buf2, "{x[{y{x]");
 		    break;
 		case SKY_RAINING:
-		    sprintf(buf2, "{x[{wèäåò äîæäü{x]");
+		    sprintf(buf2, "{x[{w {x]");
 		    break;
 		case SKY_LIGHTNING:
-		    sprintf(buf2, "{x[{Dãðîçà{x]");
+		    sprintf(buf2, "{x[{D{x]");
 		    break;
 		default:
 		    strcpy(buf2, " ");
@@ -2461,8 +2461,8 @@ void convert_mxp_tags (const int bMXP, char * dest, const char *src, int length)
 		} /* end of inner switch */
 	    }
 	    else
-		*pd++ = c;  /* not MXP - just copy character */ /* ÊÐÅØÀÅÒ ÌÈÐ ÍÀ pload Ãðèýëü; ñòàò ìîá Ãðèýëü; immdamage Ãðèýëü; punload Ãðèýëü*/
-			/* Â
+		*pd++ = c;  /* not MXP - just copy character */ /*    pload ;   ; immdamage ; punload */
+			/* 
 			354 ==10804== Process terminating with default action of signal 11 (SIGSEGV): dumping core
 			355 ==10804==  Access not within mapped region at address 0xFF362904
 			356 ==10804==    at 0x80D78F2: convert_mxp_tags (comm.c:2577)
@@ -2643,26 +2643,18 @@ bool write_to_descriptor(DESCRIPTOR_DATA *d, char *txt, int length)
     {
 	length += recode(buf, d->codepage, IS_IMMORTAL(CH(d)) ? RECODE_OUTPUT|RECODE_NOANTITRIGGER : RECODE_OUTPUT);
 
-	if (d->codepage != CODEPAGE_WIN && d->codepage != CODEPAGE_TRANS)
+	for (i=0;buf[i] != '\0';i++)
 	{
-	    for (i=0;buf[i] != '\0';i++)
+	    if (buf[i] == (signed char)IAC)
 	    {
-		if (buf[i] == (signed char)IAC)
-		{
-		    int j;
+		int j;
 
-		    for (j=length;j >= i;j--)
-			buf[j+1]=buf[j];
+		for (j=length;j >= i;j--)
+		    buf[j+1]=buf[j];
 
-		    length++;
-		    i++;
-		}
+		length++;
+		i++;
 	    }
-	}
-	else
-	{
-	    for(i=0;buf[i] != '\0';i++)
-		if (buf[i] == (signed char)IAC) buf[i] = UPPER(buf[i]);
 	}
     }
 
@@ -2697,20 +2689,20 @@ void show_valid_align(CHAR_DATA *ch)
 
     buf[0] = '\0';
      
-    strlcpy(buf, "Âàø âûáîð [ ", sizeof(buf));
+    strlcpy(buf, "  [ ", sizeof(buf));
 
     cra = get_valid_align(ch);
 
     va = is_only_align(ch);
-    write_to_buffer(ch->desc, "Âû ìîæåòå áûòü", 0);
+    write_to_buffer(ch->desc, "  ", 0);
     if (va > 0)
-	write_to_buffer(ch->desc," òîëüêî", 0);
+	write_to_buffer(ch->desc," ", 0);
 
     if (IS_SET(cra, ALIGN_GOOD))
     {
-	write_to_buffer(ch->desc," äîáðûì", 0);
+	write_to_buffer(ch->desc," ", 0);
 	if (va == 0)
-	    strlcat(buf, "(Ä)îáðûé", sizeof(buf));
+	    strlcat(buf, "()", sizeof(buf));
 	tm = TRUE;
     }
 
@@ -2720,11 +2712,11 @@ void show_valid_align(CHAR_DATA *ch)
 	{
 	    if (tm)
 		strcat(buf, "/");
-	    strlcat(buf, "(Í)åéòðàë", sizeof(buf));
+	    strlcat(buf, "()", sizeof(buf));
 	}
 	if (tm)
 	    write_to_buffer(ch->desc,",", 0);
-	write_to_buffer(ch->desc, " íåéòðàëîì", 0);
+	write_to_buffer(ch->desc, " ", 0);
 	tm = TRUE;
     }
 
@@ -2734,17 +2726,17 @@ void show_valid_align(CHAR_DATA *ch)
 	{
 	    if (tm)
 		strlcat(buf, "/", sizeof(buf));
-	    strlcat(buf, "(Ç)ëîé", sizeof(buf));
+	    strlcat(buf, "()", sizeof(buf));
 	}
 	if (tm)
-	    write_to_buffer(ch->desc," èëè", 0);
+	    write_to_buffer(ch->desc," ", 0);
 	    
-	write_to_buffer(ch->desc, " çëûì", 0);
+	write_to_buffer(ch->desc, " ", 0);
     }
 
    write_to_buffer(ch->desc,".\n\r", 0);
    if (va > 0)
-	write_to_buffer(ch->desc, "\n\r[Íàæìèòå Enter äëÿ ïðîäîëæåíèÿ]\n\r", 0);
+	write_to_buffer(ch->desc, "\n\r[ Enter  ]\n\r", 0);
     else
     {
 	strlcat(buf, " ] :\n\r", sizeof(buf));
@@ -2784,7 +2776,7 @@ bool check_case(CHAR_DATA *ch, char *cs, int c)
     {
 	char buf[MSL];
 
-	sprintf(buf, "\n\r{WÍåïðàâèëüíûé ïàäåæ (%s)!{x Íàæìèòå ïðîñòî <Enter>, åñëè ñîãëàñíû ñ ïàäåæîì ïî-óìîë÷àíèþ [%s].{x\n\r",
+	sprintf(buf, "\n\r{W  (%s)!{x   <Enter>,     - [%s].{x\n\r",
 		cs, cases(ch->name, c));
 	send_to_char(buf, ch);
 	return FALSE;
@@ -7366,7 +7358,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             close_socket(d);
             return;
 
-            /*ÂÛÁÎÐ ÊÎÄÈÐÎÂÊÈ*/
+            /* */
         case CON_GET_CODEPAGE:
             bugf("select codepage. %s.", d->ip);
             switch (argument[0]) {
@@ -7397,12 +7389,12 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                     return;
             }
 
-            write_to_buffer(d, "Ïîä êàêèì èìåíåì òû çäåñü áóäåøü?", 0);
+	    write_to_buffer(d, "\xCF\xEE\xE4 \xEA\xE0\xEA\xE8\xEC \xE8\xEC\xE5\xED\xE5\xEC \xF2\xFB \xE7\xE4\xE5\xF1\xFC \xE1\xF3\xE4\xE5\xF8\xFC?", 0);
             d->connected = CON_GET_NAME;
             break;
 
             /*****************************
-            * ÂÂÎÄ ÈÌÅÍÈ
+            *  
             *****************************/
         case CON_GET_NAME:
             if (argument[0] == '\0') {
@@ -7412,9 +7404,9 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
             bugf("Get name %s. ip: %s", argument, d->ip);
             if (!check_parse_name(argument)) {
-                write_to_buffer(d, "Íåïðàâèëüíîå èìÿ, âûáåðèòå äðóãîå.\n\r"
-                        "(Èìÿ äîëæíî ñîñòîÿòü èç 3-10 ðóññêèõ áóêâ è íå ñîâïàäàòü ñ ñóùåñòâóþùèìè)\n\r"
-                        "Èìÿ: ", 0);
+                write_to_buffer(d, " ,  .\n\r"
+                        "(    3-10       )\n\r"
+                        ": ", 0);
                 return;
             }
 
@@ -7426,20 +7418,20 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             if (IS_SET(ch->act, PLR_DENY)) {
                 sprintf(buf, "Denying access to %s@%s.", argument, d->ip);
                 log_string(buf);
-                write_to_buffer(d, "Ó Âàñ íåò äîñòóïà.\n\r", 0);
+                write_to_buffer(d, "   .\n\r", 0);
                 close_socket(d);
                 return;
             }
 
             if (check_ban(d->ip, BAN_PERMIT) && !IS_SET(ch->act, PLR_PERMIT)) {
-                write_to_buffer(d, "Âàø õîñò áûë çàáëîêèðîâàí â ýòîì ìèðå.\n\r", 0);
+                write_to_buffer(d, "      .\n\r", 0);
                 close_socket(d);
                 return;
             }
 
             if (check_ban(d->ip, BAN_NEWBIES) && ch->level <= 5) {
-                write_to_buffer(d, "Èãðà íîâûìè ïåðñîíàæàìè ñ âàøåãî õîñòà "
-                        "ÇÀÏÐÅÙÅÍÀ!\n\r", 0);
+                write_to_buffer(d, "      "
+                        "!\n\r", 0);
                 close_socket(d);
                 return;
             }
@@ -7452,7 +7444,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                         break;
 
                 if (!ip) {
-                    write_to_buffer(d, "\n\rÝòîìó ïåðñîíàæó çàïðåùåíî èãðàòü ñ òàêîãî IP-àäðåñà.\n\r", 0);
+                    write_to_buffer(d, "\n\r      IP-.\n\r", 0);
                     close_socket(d);
                     return;
                 }
@@ -7464,8 +7456,8 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                 if (cfg.wizlock && !IS_IMMORTAL(ch))
                     //	    if (!IS_IMMORTAL(ch))
                 {
-                    write_to_buffer(d, "Èãðà çàêðûòà áîãàìè. Ïîïðîáóéòå ÷åðåç "
-                            "íåñêîëüêî ìèíóò.\n\r", 0);
+                    write_to_buffer(d, "  .   "
+                            " .\n\r", 0);
                     close_socket(d);
                     return;
                 }
@@ -7475,28 +7467,28 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             if (fOld) {
                 /* Old player */
                 write_to_descriptor(d, echo_off_str, -1);
-                write_to_buffer(d, "Ïàðîëü: ", 0);
+                write_to_buffer(d, ": ", 0);
                 d->connected = CON_GET_OLD_PASSWORD;
                 return;
             } else {
                 bugf("create new player. %s %s", argument, d->ip);
                 /* New player */
                 if (cfg.newlock) {
-                    write_to_buffer(d, "Èãðà çàêðûòà äëÿ íîâûõ èãðîêîâ.\n\r", 0);
+                    write_to_buffer(d, "    .\n\r", 0);
                     close_socket(d);
                     return;
                 }
 
                 if (check_ban(d->ip, BAN_NEWBIES)) {
-                    write_to_buffer(d, "Ñ Âàøåãî õîñòà çàïðåùåíû íîâûå èãðîêè.\n\r",
+                    write_to_buffer(d, "     .\n\r",
                                     0);
                     close_socket(d);
                     return;
                 }
 
-                do_function(d->character, &do_help, "èìÿ");
+                do_function(d->character, &do_help, "");
 
-                sprintf(buf, "%s, ýòî ïðàâèëüíî (Äà/Íåò)? ", argument);
+                sprintf(buf, "%s,   (/)? ", argument);
                 write_to_buffer(d, buf, 0);
                 d->connected = CON_CONFIRM_NEW_NAME;
                 return;
@@ -7510,15 +7502,15 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             if (!ch->pcdata || strcmp(argument, ch->pcdata->pwd)) {
                 bugf("CON GET OLD PWD: not correct pass: %s ip: %s pass: %s", ch->name, d->ip, argument);
 
-                write_to_buffer(d, "Íåïðàâèëüíûé ïàðîëü.\n\r", 0);
+                write_to_buffer(d, " .\n\r", 0);
                 write_to_buffer(d,
-                                "Íåïðàâèëüíûé ïàðîëü ìîæåò áûòü ñëåäñòâèåì àâòîìàòè÷åñêîé ñìåíû ïàðîëÿ, åñëè âàøåãî ïåðñîíàæà\n\r",
+                                "       ,   \n\r",
                                 0);
                 write_to_buffer(d,
-                                "ïûòàëèñü âçëîìàòü (ââåëè ïîäðÿä 3 ðàçà íåâåðíûé îòâåò íà çàïðîñ êîíòðîëüíîé áóêâû).\n\r",
+                                "  (  3       ).\n\r",
                                 0);
                 write_to_buffer(d,
-                                "Â ýòîì ñëó÷àå ïàðîëü âûñûëàåòñÿ íà ïî÷òó, óêàçàííóþ ïðè ðåãèñòðàöèè. Ïðîâåðüòå ñâîþ ïî÷òó.\n\r",
+                                "      ,   .   .\n\r",
                                 0);
                 close_socket(d);
                 return;
@@ -7529,9 +7521,9 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                 write_to_descriptor(d, echo_on_str, -1);
                 ch->pcdata->num_char = number_range(1, strlen(ch->pcdata->reg_answer));
                 sprintf(buf,
-                        "Ââåäèòå %d-þ áóêâó âàøåãî îòâåòà íà ðåãèñòðàöèîííûé âîïðîñ (äåâè÷üÿ ôàìèëèÿ âàøåé ìàìû): ",
+                        " %d-       (   ): ",
                         ch->pcdata->num_char);
-                write_to_buffer(d, "Çàïðîñ êîíòðîëüíîé áóêâû:\n\r", 0);
+                write_to_buffer(d, "  :\n\r", 0);
                 write_to_buffer(d, buf, 0);
 
                 d->connected = CON_GET_NUM_REGANSWER;
@@ -7552,13 +7544,13 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             write_to_buffer(d, "\n\r", 2);
 
             if (IS_NULLSTR(argument)) {
-                write_to_buffer(d, "Âû íå ââåëè êîíòðîëüíóþ áóêâó. Ïîïðîáóéòå åùå ðàç.\n\r", 0);
+                write_to_buffer(d, "    .   .\n\r", 0);
                 return;
             }
 
             if (!ch->pcdata || (LOWER(argument[0]) != LOWER(ch->pcdata->reg_answer[ch->pcdata->num_char - 1]))) {
                 bugf("Not correct reganswer:%s ch:%s ip:%s", argument, ch->name, d->ip);
-                write_to_buffer(d, "Íåïðàâèëüíûé îòâåò.\n\r", 0);
+                write_to_buffer(d, " .\n\r", 0);
                 ch->pcdata->count_entries_errors++;
 
                 if (ch->pcdata->count_entries_errors > 2) {
@@ -7596,8 +7588,8 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             switch (*argument) {
                 case 'y' :
                 case 'Y':
-                case 'ä' :
-                case 'Ä':
+                case '' :
+                case '':
                     SLIST_FOREACH_SAFE(d_old, &descriptor_list, link, d_next) {
                         if (d_old == d || d_old->character == NULL)
                             continue;
@@ -7611,7 +7603,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                     if (check_reconnect(d, ch->name, TRUE))
                         return;
 
-                    write_to_buffer(d, "Íå óäàëîñü ïåðåïîäêëþ÷èòüñÿ.\n\rÈìÿ: ", 0);
+                    write_to_buffer(d, "  .\n\r: ", 0);
                     if (d->character != NULL) {
                         free_char(d->character);
                         d->character = NULL;
@@ -7621,9 +7613,9 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
                 case 'n' :
                 case 'N':
-                case 'í' :
-                case 'Í':
-                    write_to_buffer(d, "Èìÿ: ", 0);
+                case '' :
+                case '':
+                    write_to_buffer(d, ": ", 0);
                     if (d->character != NULL) {
                         free_char(d->character);
                         d->character = NULL;
@@ -7632,7 +7624,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                     break;
 
                 default:
-                    write_to_buffer(d, "Ïîæàëóéñòà, Äà èëè Íåò? ", 0);
+                    write_to_buffer(d, ",   ? ", 0);
                     break;
             }
             break;
@@ -7641,8 +7633,8 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             switch (*argument) {
                 case 'y':
                 case 'Y':
-                case 'ä':
-                case 'Ä':
+                case '':
+                case '':
                     /*
                      * check names of people playing. Yes, this is necessary for multiple
                      * newbies with the same name (thanks Saro)
@@ -7659,7 +7651,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                                 && !str_cmp(dc->character->name, name)
                                 && dc->connected != CON_PLAYING) {
                                 count++;
-                                write_to_buffer(d, "Â ýòîò ìîìåíò êòî-òî åùå ñîçäàåò ïåðñîíàæà ñ òàêèì æå èìåíåì!\n\r",
+                                write_to_buffer(d, "   -       !\n\r",
                                                 0);
                                 close_socket(d);
                             }
@@ -7673,8 +7665,8 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                         }
                     }
 
-                    sprintf(buf, "\n\rÍîâûé ïåðñîíàæ.\n\r\n\r"
-                            "Ââåäèòå Âàø ïàðîëü äëÿ %s: ", ch->name);
+                    sprintf(buf, "\n\r .\n\r\n\r"
+                            "    %s: ", ch->name);
                     write_to_buffer(d, buf, 0);
                     write_to_descriptor(d, echo_off_str, -1);
                     d->connected = CON_GET_NEW_PASSWORD;
@@ -7682,16 +7674,16 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
                 case 'n':
                 case 'N':
-                case 'í':
-                case 'Í':
-                    write_to_buffer(d, "Ok, ÷òî äàëüøå? ", 0);
+                case '':
+                case '':
+                    write_to_buffer(d, "Ok,  ? ", 0);
                     free_char(d->character);
                     d->character = NULL;
                     d->connected = CON_GET_NAME;
                     break;
 
                 default:
-                    write_to_buffer(d, "Ïîæàëóéñòà, Äà èëè Íåò? ", 0);
+                    write_to_buffer(d, ",   ? ", 0);
                     break;
             }
             break;
@@ -7700,27 +7692,27 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             write_to_buffer(d, "\n\r", 2);
 
             if (!check_password(d, argument)) {
-                write_to_buffer(d, "Ïàðîëü: ", 0);
+                write_to_buffer(d, ": ", 0);
                 return;
             }
 
             free_string(ch->pcdata->pwd);
             ch->pcdata->pwd = str_dup(argument);
-            write_to_buffer(d, "Ïîâòîðèòå ïàðîëü: ", 0);
+            write_to_buffer(d, " : ", 0);
             d->connected = CON_CONFIRM_NEW_PASSWORD;
             break;
 
         case CON_CONFIRM_NEW_PASSWORD:
             write_to_buffer(d, "\n\r", 2);
             if (strcmp(argument, ch->pcdata->pwd)) {
-                write_to_buffer(d, "Ïàðîëè íå ñîâïàäàþò.\n\rÏàðîëü: ",
+                write_to_buffer(d, "  .\n\r: ",
                                 0);
                 d->connected = CON_GET_NEW_PASSWORD;
                 return;
             }
 
             write_to_descriptor(d, echo_on_str, -1);
-            write_to_buffer(d, "Áóäåòå ëè Âû èñïîëüçîâàòü öâåòà (Äà/Íåò)? ", 0);
+            write_to_buffer(d, "     (/)? ", 0);
             d->connected = CON_GET_COLOR;
             break;
 
@@ -7728,8 +7720,8 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             switch (argument[0]) {
                 case 'Y':
                 case 'y':
-                case 'Ä':
-                case 'ä': {
+                case '':
+                case '': {
                     write_to_buffer(d, "\n\r", 2);
                     do_function(ch, &do_colour, "noprint");
                     /*     	    write_to_buffer(d, "\n\r", 2); */
@@ -7737,17 +7729,17 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                 }
                 case 'N':
                 case 'n':
-                case 'Í':
-                case 'í':
+                case '':
+                case '':
                     break;
                 default: {
-                    write_to_buffer(d, "Ïîæàëóéñòà, Äà èëè Íåò? ", 0);
+                    write_to_buffer(d, ",   ? ", 0);
                     return;
                 }
             }
             /*       	write_to_buffer(d, echo_on_str, 0); */
 
-            write_to_buffer(d, "Âûáåðèòå ñâîé ïîë [ (Ì)óæñêîé/(Æ)åíñêèé ]: ", 0);
+            write_to_buffer(d, "   [ ()/() ]: ", 0);
             d->connected = CON_GET_NEW_SEX;
             break;
 
@@ -7756,7 +7748,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             one_argument(argument, arg);
 
             if (!str_prefix(arg, "help")
-                || !str_prefix(arg, "ïîìîùü")
+                || !str_prefix(arg, "")
                 || !str_cmp(arg, "?")) {
                 write_to_buffer(d, "\n\r", 0);
                 argument = one_argument(argument, arg);
@@ -7765,7 +7757,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                 else
                     do_function(ch, &do_help, argument);
 
-                write_to_buffer(d, "\n\rÂûáåðèòå ðàñó ('ïîìîùü' äëÿ èíôîðìàöèè):",
+                write_to_buffer(d, "\n\r  (''  ):",
                                 0);
                 break;
             }
@@ -7773,14 +7765,14 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             race = race_lookup(argument);
             //findme
             if (race == -1 || !race_table[race].pc_race) {
-                write_to_buffer(d, "Òàêîé ðàñû â ýòîì ìèðå íåò.\n\r", 0);
-                write_to_buffer(d, "Äîñòóïíû ñëåäóþùèå ðàñû:\n\r  [ ", 0);
+                write_to_buffer(d, "     .\n\r", 0);
+                write_to_buffer(d, "  :\n\r  [ ", 0);
                 for (race = 1; race < MAX_PC_RACE; race++) {
                     write_to_buffer(d, race_table[race].rname, 0);
                     write_to_buffer(d, " ", 1);
                 }
                 write_to_buffer(d, "]\n\r", 0);
-                write_to_buffer(d, "\n\rÂàøà ðàñà ('ïîìîùü' äëÿ èíôîðìàöèè): ", 0);
+                write_to_buffer(d, "\n\r  (''  ): ", 0);
                 break;
             }
 
@@ -7795,10 +7787,10 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             for (i = 0; i < DAM_MAX; i++){
                 ch->resists[i] = race_table[race].resists[i];
             }
-        /* ÕÇ ÇÀ×ÅÌ ÐÀÍÜØÅ ÂÅØÀËÈ ÐÅÇÈÇÑÒ Ê ÌÀÃÈÈ ÍÀ ÃÅÍÅÐÈÐÓÅÌÎÃÎ ×ÀÐÀ*/
+        /*          */
         //ch->resists[DAM_MAGIC] = 10;
 
-        /* ÄÀÄÈÌ ÍÅÌÍÎÃÎ ÇÎËÎÒÀ Â ÍÀ×ÀËÅ*/
+        /*     */
         ch->gold += 100;
         ch->pcdata->quest_curr += 1000;
         ch->pcdata->quest_accum += 1000;
@@ -7814,7 +7806,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         ch->pcdata->points = pc_race_table[race].points;
         ch->size = pc_race_table[race].size;
 
-        strcpy(buf, "\n\rÂàì äîñòóïíû ñëåäóþùèå ïðîôåññèè:\n\r  [");
+        strcpy(buf, "\n\r   :\n\r  [");
 
         for (iClass = 0; iClass < MAX_CLASS; iClass++)
         {
@@ -7837,16 +7829,16 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         case CON_GET_NEW_SEX:
         switch (argument[0])
         {
-        case 'ì':
-        case 'Ì':
+        case '':
+        case '':
         case 'm':
         case 'M':
             ch->sex = SEX_MALE;
             ch->pcdata->true_sex = SEX_MALE;
             break;
 
-        case 'æ':
-        case 'Æ':
+        case '':
+        case '':
         case 'f':
         case 'F':
             ch->sex = SEX_FEMALE;
@@ -7854,11 +7846,11 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             break;
 
         default:
-            write_to_buffer(d, "\n\rÍåïðàâèëüíûé ïîë.\n\rÂàø ïîë? ", 0);
+            write_to_buffer(d, "\n\r .\n\r ? ", 0);
             return;
         }
 
-        write_to_buffer(d, "\n\rÄîñòóïíû ñëåäóþùèå ðàñû:\n\r  [ ", 0);
+        write_to_buffer(d, "\n\r  :\n\r  [ ", 0);
 
         for (race = 1; race < MAX_PC_RACE; race++)
         {
@@ -7869,17 +7861,17 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         }
 
         write_to_buffer(d, "]\n\r", 0);
-        write_to_buffer(d, "Âûáåðèòå ñâîþ ðàñó (äëÿ ïîäðîáíîé èíôîðìàöèè íàáåðèòå ïîìîùü): ", 0);
+        write_to_buffer(d, "   (    ): ", 0);
         d->connected = CON_GET_NEW_RACE;
         break;
 
         case CON_GET_NEW_CLASS:
         iClass = class_lookup(argument);
 
-    /* êëàññ àëõèìèêîâ ïðè ãåíåðàöèè íåëüçÿ âûáðàòü findme */
+    /*       findme */
         if (iClass == -1)
         {
-            write_to_buffer(d,	"\n\rÒàêîé ïðîôåññèè íåò.\n\rÂàøà ïðîôåññèÿ? ", 0);
+            write_to_buffer(d,	"\n\r  .\n\r ? ", 0);
             return;
         }
 
@@ -7887,7 +7879,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             || (pc_race_table[ch->race].valid_align
             & class_table[iClass].valid_align) == 0)
         {
-            write_to_buffer(d,	"\n\rÝòà ïðîôåññèÿ Âàì íåäîñòóïíà.\n\rÂàøà ïðîôåññèÿ? ", 0);
+            write_to_buffer(d,	"\n\r   .\n\r ? ", 0);
             return;
         }
 
@@ -7895,7 +7887,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
         sprintf(buf, "%s@%s new player.", ch->name, d->ip);
         log_string(buf);
-        wiznet("Íîâûé èãðîê - $N !", ch, NULL, WIZ_NEWBIE, 0, 0);
+        wiznet("  - $N !", ch, NULL, WIZ_NEWBIE, 0, 0);
         wiznet(buf, NULL, NULL, WIZ_SITES, 0, get_trust(ch));
 
         write_to_buffer(d, "\n\r", 2);
@@ -7907,20 +7899,20 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
         case CON_GET_ALIGNMENT:
 
-        if (((argument[0] == 'g' || argument[0] == 'G' || argument[0] == 'ä' || argument[0] == 'Ä')
+        if (((argument[0] == 'g' || argument[0] == 'G' || argument[0] == '' || argument[0] == '')
              && IS_SET(get_valid_align(ch), ALIGN_GOOD)) || is_only_align(ch) == ALIGN_GOOD)
             ch->alignment = 750;
         else
-            if (((argument[0] == 'n' || argument[0] == 'N' || argument[0] == 'í' || argument[0] == 'Í')
+            if (((argument[0] == 'n' || argument[0] == 'N' || argument[0] == '' || argument[0] == '')
              && IS_SET(get_valid_align(ch), ALIGN_NEUTRAL)) || is_only_align(ch) == ALIGN_NEUTRAL)
             ch->alignment = 0;
             else
-            if (((argument[0] == 'e' || argument[0] == 'E' || argument[0] == 'ç' || argument[0] == 'Ç')
+            if (((argument[0] == 'e' || argument[0] == 'E' || argument[0] == '' || argument[0] == '')
                  && IS_SET(get_valid_align(ch), ALIGN_EVIL)) || is_only_align(ch) == ALIGN_EVIL)
                 ch->alignment = -750;
             else
             {
-                write_to_buffer(d, "Íåïðàâèëüíûé âûáîð.\n\r", 0);
+                write_to_buffer(d, " .\n\r", 0);
                 show_valid_align(ch);
                 return;
             }
@@ -7932,9 +7924,9 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         group_add(ch, "rom basics", FALSE);
         group_add(ch, class_table[ch->classid].base_group, FALSE);
         ch->pcdata->learned[gsn_recall] = 50;
-        write_to_buffer(d, "Âû õîòèòå äîïîëíèòåëüíî íàñòðîèòü ñâîåãî ïåðñîíàæà?\n\r", 0);
-        write_to_buffer(d, "Ýòî çàéìåò íåêîòîðîå âðåìÿ, íî ïîçâîëèò äîáàâèòü äîïîëíèòåëüíûå óìåíèÿ è âîçìîæíîñòè.\n\r", 0);
-        write_to_buffer(d, "Íàñòðîèòü (Äà/Íåò)? ", 0);
+        write_to_buffer(d, "     ?\n\r", 0);
+        write_to_buffer(d, "   ,       .\n\r", 0);
+        write_to_buffer(d, " (/)? ", 0);
         d->connected = CON_DEFAULT_CHOICE;
         break;
 
@@ -7942,21 +7934,21 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         write_to_buffer(d, "\n\r", 2);
         switch (argument[0])
         {
-        case 'y': case 'Y': case 'ä': case 'Ä':
+	case 'y': case 'Y': case '\xE4': case '\xC4':
             ch->gen_data = new_gen_data();
             group_add(ch, class_table[ch->classid].default_group, TRUE);
             ch->gen_data->points_chosen = ch->pcdata->points;
             /*	    do_function(ch, &do_help, "group header"); */
             list_group_costs(ch);
-            write_to_buffer(d, "Ó Âàñ óæå åñòü ñëåäóþùèå óìåíèÿ:\n\r", 0);
+            write_to_buffer(d, "     :\n\r", 0);
             do_function(ch, &do_skills, "");
             write_to_buffer(d, "\n\r", 0);
             do_function(ch, &do_help, "menu choice");
             d->connected = CON_GEN_GROUPS;
             break;
-        case 'n': case 'N':  case 'í': case 'Í':
+	case 'n': case 'N':  case '\xED': case '\xCD':
             group_add(ch, class_table[ch->classid].default_group, TRUE);
-            write_to_buffer(d, "\n\rÂûáåðèòå îðóæèå èç ñïèñêà:\n\r    ", 0);
+            write_to_buffer(d, "\n\r   :\n\r    ", 0);
             buf[0] = '\0';
             for (i = 0; weapon_table[i].rname != NULL; i++)
             if (weapon_table[i].can_select && ch->pcdata->learned[*weapon_table[i].gsn] > 0)
@@ -7964,12 +7956,12 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                 strcat(buf, weapon_table[i].rname);
                 strcat(buf, " ");
             }
-            strcat(buf, "\n\rÂàø âûáîð? ");
+            strcat(buf, "\n\r ? ");
             write_to_buffer(d, buf, 0);
             d->connected = CON_PICK_WEAPON;
             break;
         default:
-            write_to_buffer(d, "Ïîæàëóéñòà, Äà èëè Íåò? ", 0);
+            write_to_buffer(d, ",   ? ", 0);
             return;
         }
         break;
@@ -7982,7 +7974,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             || !weapon_table[weapon].can_select)
         {
             write_to_buffer(d,
-                    "Âûáðàíî íåïðàâèëüíîå îðóæèå. Âûáåðèòå èç ñïèñêà:\n\r    ", 0);
+                    "  .   :\n\r    ", 0);
             buf[0] = '\0';
             for (i = 0; weapon_table[i].rname != NULL; i++)
             if (weapon_table[i].can_select && ch->pcdata->learned[*weapon_table[i].gsn] > 0)
@@ -7990,13 +7982,13 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                 strcat(buf, weapon_table[i].rname);
                 strcat(buf, " ");
             }
-            strcat(buf, "\n\rÂàø âûáîð? ");
+            strcat(buf, "\n\r ? ");
             write_to_buffer(d, buf, 0);
             return;
         }
 
         ch->pcdata->learned[*weapon_table[weapon].gsn] = 40;
-        write_to_buffer(d, "Ââåäèòå äåâè÷üþ ôàìèëèþ âàøåé ìàòåðè (íåîáõîäèìî íà ñëó÷àé êðàæè ÷àðà/óòåðè ïàðîëÿ):\n\r", 0);
+        write_to_buffer(d, "     (    / ):\n\r", 0);
         d->connected = CON_GET_QUESTION;
 
         break;
@@ -8005,7 +7997,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         case CON_GET_QUESTION:
         if (IS_NULLSTR(argument))
         {
-            write_to_buffer(d, "Ââåäèòå, ïîæàëóéñòà, äåâè÷üþ ôàìèëèþ âàøåé ìàòåðè.\n\r", 0);
+            write_to_buffer(d, ", ,    .\n\r", 0);
             return;
         }
 
@@ -8013,8 +8005,8 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         smash_tilde(argument);
         ch->pcdata->reg_answer = str_dup(argument);
 
-        write_to_buffer(d, "Âûáåðèòå, êàê áóäåò ñêëîíÿòüñÿ Âàøå èìÿ:\n\r", 0);
-        sprintf(buf, "Ðîäèòåëüíûé ïàäåæ (âåùü êîãî?)    : [%s]", capitalize(cases(ch->name, 1)));
+        write_to_buffer(d, ",     :\n\r", 0);
+        sprintf(buf, "  ( ?)    : [%s]", capitalize(cases(ch->name, 1)));
         write_to_buffer(d, buf, 0);
         d->connected = CON_GET_CASES_1;
 
@@ -8031,7 +8023,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         smash_tilde(buf);
         strip_colors(buf);
         ch->pcdata->cases[0] = str_dup(buf);
-        sprintf(buf, "Äàòåëüíûé ïàäåæ (äàòü êîìó?)      : [%s]", capitalize(cases(ch->name, 2)));
+        sprintf(buf, "  ( ?)      : [%s]", capitalize(cases(ch->name, 2)));
         write_to_buffer(d, buf, 0);
         d->connected = CON_GET_CASES_2;
         break;
@@ -8047,7 +8039,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         strip_colors(buf);
         ch->pcdata->cases[1] = str_dup(buf);
 
-        sprintf(buf, "Âèíèòåëüíûé ïàäåæ (óäàðèòü êîãî?) : [%s]", capitalize(cases(ch->name, 3)));
+        sprintf(buf, "  ( ?) : [%s]", capitalize(cases(ch->name, 3)));
         write_to_buffer(d, buf, 0);
         d->connected = CON_GET_CASES_3;
         break;
@@ -8062,7 +8054,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         smash_tilde(buf);
         strip_colors(buf);
         ch->pcdata->cases[2] = str_dup(buf);
-        sprintf(buf, "Òâîðèòåëüíûé ïàäåæ (ñäåëàíî êåì?) : [%s]", capitalize(cases(ch->name, 4)));
+        sprintf(buf, "  ( ?) : [%s]", capitalize(cases(ch->name, 4)));
         write_to_buffer(d, buf, 0);
         d->connected = CON_GET_CASES_4;
         break;
@@ -8077,7 +8069,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         smash_tilde(buf);
         strip_colors(buf);
         ch->pcdata->cases[3] = str_dup(buf);
-        sprintf(buf, "Ïðåäëîæíûé ïàäåæ (ãîâîðèòü î êîì?): [%s]", capitalize(cases(ch->name, 5)));
+        sprintf(buf, "  (  ?): [%s]", capitalize(cases(ch->name, 5)));
         write_to_buffer(d, buf, 0);
         d->connected = CON_GET_CASES_5;
         break;
@@ -8092,7 +8084,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         smash_tilde(buf);
         strip_colors(buf);
         ch->pcdata->cases[4] = str_dup(buf);
-        write_to_buffer(d, "\n\r\n\rÂâåäèòå Âàø àäðåñ ýëåêòðîííîé ïî÷òû. Îí íóæåí òîëüêî äëÿ òåõíè÷åñêèõ öåëåé, êàê òî: âîññòàíîâëåíèå ïàðîëÿ, ñîîáùåíèå ðàçëè÷íîé òåõíè÷åñêîé èíôîðìàöèè è ò.ï. Ïîýòîìó íå ñîâåòóåì Âàì ñîîáùàòü åðóíäó 'ðàäè ãàëî÷êè'. Ýòî íóæíî íå ñòîëüêî íàì, ñêîëüêî Âàì! È åùå - ýòîò àäðåñ íå áóäåò èñïîëüçîâàí äëÿ ñïàìà!\n\rÂàø E-mail:\n\r", 0);
+        write_to_buffer(d, "\n\r\n\r    .      ,  :  ,      ..       ' '.     ,  !   -       !\n\r E-mail:\n\r", 0);
         d->connected = CON_GET_EMAIL;
         break;
 
@@ -8100,32 +8092,32 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
         if (!IS_NULLSTR(argument) && !CHECK_EMAIL(argument))
         {
-            write_to_buffer(d, "Òàêèõ àäðåñîâ íå áûâàåò... Ïîïðîáóé åùå.\n\r", 0);
+            write_to_buffer(d, "   ...  .\n\r", 0);
             return;
         }
 
         if (IS_NULLSTR(argument))
         {
-            write_to_buffer(d, "Ââåäèòå àäðåñ e-mail.\n\r", 0);
+            write_to_buffer(d, "  e-mail.\n\r", 0);
             return;
         }
 
         free_string(ch->pcdata->email);
         ch->pcdata->email = str_dup(argument);
         d->connected = CON_GET_ATHEIST;
-        write_to_buffer(d, "\n\r\n\rÂû áóäåòå àòåèñòîì? Íàáåðèòå ? äëÿ ïîëó÷åíèÿ èíôîðìàöèè. Âíèìàíèå: äëÿ íîâè÷êîâ êðàéíå ðåêîìåíäóåòñÿ âûáðàòü ÍÅÒ. [Ä/Í] (ïî óìîë÷àíèþ ÍÅÒ): \n\r", 0);
+        write_to_buffer(d, "\n\r\n\r  ?  ?   . :      . [/] (  ): \n\r", 0);
         break;
 
         case CON_GET_ATHEIST:
         switch(argument[0])
         {
-            case 'Y': case 'y': case 'Ä': case 'ä':
+	    case 'Y': case 'y': case '\xC4': case '\xE4':
                 {
                 write_to_buffer(d, "\n\r", 2);
                 ch->pcdata->atheist = 1; //yes
                 break;
                 }
-            case 'N': case 'n': case 'Í': case 'í':
+	    case 'N': case 'n': case '\xCD': case '\xED':
             {
                 break;
             }
@@ -8135,10 +8127,10 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             }
             case '?':
                 {
-                write_to_buffer(d, "Àòåèñòû - ñóùåñòâà, íå âåðÿùèå â áîãîâ. Îíè æèâóò òàêæå, êàê âñå îñòàëüíûå,\n\r", 0);
-                write_to_buffer(d, "íî Áîãè íå äàðóþò èì íè âîçìîæíîñòè ñîâåðøàòü âîçâðàò â ñâîé õðàì, íè\n\r", 0);
-                write_to_buffer(d, "æåðòâîâàòü èì ÷òî-ëèáî, íè âîñêðåøàòü ïîñëå ñìåðòè.\n\r", 0);
-                write_to_buffer(d, "Èíûìè ñëîâàìè - äëÿ àòåèñòà ïåðâàÿ ñìåðòü - ïîñëåäíÿÿ.\n\r", 0);
+                write_to_buffer(d, " - ,    .   ,   ,\n\r", 0);
+                write_to_buffer(d, "           , \n\r", 0);
+                write_to_buffer(d, "  -,    .\n\r", 0);
+                write_to_buffer(d, "  -     - .\n\r", 0);
                 return;
                 }
 
@@ -8152,33 +8144,33 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         case CON_GEN_GROUPS:
         send_to_char("\n\r", ch);
 
-        if (!str_cmp(argument, "done") || !str_cmp(argument, "ãîòîâî"))
+        if (!str_cmp(argument, "done") || !str_cmp(argument, ""))
         {
             if (ch->pcdata->points == pc_race_table[ch->race].points)
             {
-            send_to_char("Âû íè÷åãî íå âûáðàëè.\n\r", ch);
+            send_to_char("   .\n\r", ch);
             break;
             }
 
             if (ch->pcdata->points < 40 + pc_race_table[ch->race].points)
             {
-            sprintf(buf, "Âû äîëæíû íàáðàòü ìèíèìóì %d %s.\n\r",
+            sprintf(buf, "    %d %s.\n\r",
                 40 + pc_race_table[ch->race].points,
                 hours(40 + pc_race_table[ch->race].points, TYPE_POINTS));
             send_to_char(buf, ch);
             break;
             }
 
-            sprintf(buf, "Ïóíêòû ãåíåðàöèè: %d\n\r", ch->pcdata->points);
+            sprintf(buf, " : %d\n\r", ch->pcdata->points);
             send_to_char(buf, ch);
-            sprintf(buf, "Êîëè÷åñòâî î÷êîâ íà óðîâåíü: %d\n\r\n\r",
+            sprintf(buf, "   : %d\n\r\n\r",
                 exp_per_level(ch, ch->gen_data->points_chosen));
             if (ch->pcdata->points < 40)
             ch->train = (40 - ch->pcdata->points + 1) / 2;
             free_gen_data(ch->gen_data);
             ch->gen_data = NULL;
             send_to_char(buf, ch);
-            write_to_buffer(d, "\n\rÂûáåðèòå îðóæèå èç ñïèñêà:\n\r    ", 0);
+            write_to_buffer(d, "\n\r   :\n\r    ", 0);
             buf[0] = '\0';
             for (i = 0; weapon_table[i].rname != NULL; i++)
             if (weapon_table[i].can_select && ch->pcdata->learned[*weapon_table[i].gsn] > 0)
@@ -8186,7 +8178,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                 strcat(buf, weapon_table[i].rname);
                 strcat(buf, " ");
             }
-            strcat(buf, "\n\rÂàø âûáîð? ");
+            strcat(buf, "\n\r ? ");
             write_to_buffer(d, buf, 0);
             d->connected = CON_PICK_WEAPON;
             break;
@@ -8194,9 +8186,9 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
         if (!parse_gen_groups(ch, argument))
         {
-            send_to_char("Äîñòóïíûå êîìàíäû:\n\r"
-                 "ñïèñîê, ïðèîáðåòåííûå, äîáàâèòü, ñáðîñèòü, "
-                 "èíôî, ïîìîùü, è ãîòîâî.\n\r", ch);
+            send_to_char(" :\n\r"
+                 ", , , , "
+                 ", ,  .\n\r", ch);
         }
 
         write_to_buffer(d, "\n\r", 0);
@@ -8212,13 +8204,13 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         case CON_READ_MOTD:
 
         if (ch->pcdata == NULL || ch->pcdata->pwd[0] == '\0'){
-            write_to_buffer(d, "Âíèìàíèå! Ïóñòîé ïàðîëü!\n\r", 0);
-            write_to_buffer(d, "Ñîîáùèòå ñòàðûé ïàðîëü êîìàíäîé 'ãëþê'.\n\r", 0);
-            write_to_buffer(d, "Äëÿ èñïðàâëåíèÿ íàáåðèòå 'password null <íîâûé ïàðîëü>'.\n\r", 0);
+            write_to_buffer(d, "!  !\n\r", 0);
+            write_to_buffer(d, "    ''.\n\r", 0);
+            write_to_buffer(d, "   'password null < >'.\n\r", 0);
         }
 
         write_to_buffer(d, "\n\r===========================================================================", 0);
-        write_to_buffer(d, "\n\rÄîáðî ïîæàëîâàòü â ÁÀËÄÅÐÄÀØ. Ïîæàëóéñòà, íå êîðìèòå è íå ïóãàéòå ìîáîâ :-)", 0);
+        write_to_buffer(d, "\n\r   . ,       :-)", 0);
         write_to_buffer(d, "\n\r===========================================================================\n\r\n\r", 0);
 
         if (IS_IMMORTAL(ch))
@@ -8226,9 +8218,9 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
         if (reboot_time > 0 && reboot_time < 60){
             if (reboot_time == 1)
-            sprintf(buf, "{gÄî çàïëàíèðîâàííîé ïåðåçàãðóçêè îñòàëîñü ìåíåå ìèíóòû!{x\n\r\n\r");
+            sprintf(buf, "{g     !{x\n\r\n\r");
             else
-            sprintf(buf, "{gÄî çàïëàíèðîâàííîé ïåðåçàãðóçêè îñòàëîñü %d %s.{x\n\r\n\r",
+            sprintf(buf, "{g    %d %s.{x\n\r\n\r",
                 reboot_time, hours(reboot_time, TYPE_MINUTES));
             send_to_char(buf, ch);
         }
@@ -8276,7 +8268,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             ch->pcdata->genip = str_dup(d->ip);
         } else {
             if (ch->pcdata){
-                sprintf(buf, "Ïîñëåäíèé ðàç òû çàõîäèë%s â ýòîò ìèð %sÕîñò     %s\n\rIP àäðåñ %s\n\r\n\r",
+                sprintf(buf, "   %s    %s     %s\n\rIP  %s\n\r\n\r",
                         SEX_ENDING(ch),
                         ctime(&ch->pcdata->lastlogof),
                         ch->pcdata->lasthost,
@@ -8285,10 +8277,10 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             }
 
             if (ch->pcdata && ch->pcdata->count_entries_errors){
-                send_to_char("{RÑ ìîìåíòà òâîåãî ïîñëåäíåãî âõîäà â èãðó òâîèì ïåðñîíàæåì ïûòàëèñü çàéòè,\n\r", ch);
-                sprintf(buf, "{Ríî íåâåðíî ââîäèëè áóêâó ðåãèñòðàöèîííîãî îòâåòà, %d ðàç(à).{x\n\r", ch->pcdata->count_entries_errors);
+                send_to_char("{R          ,\n\r", ch);
+                sprintf(buf, "{R     , %d ().{x\n\r", ch->pcdata->count_entries_errors);
                 send_to_char(buf, ch);
-                send_to_char("{RÑÐÎ×ÍÎ ñìåíè ïàðîëü îò ïåðñîíàæà. È ðàçáåðèñü, ïî÷åìó òâîé ïàðîëü êòî-òî çíàåò.{x\n\r\n\r", ch);
+                send_to_char("{R    .  ,    - .{x\n\r\n\r", ch);
                 ch->pcdata->count_entries_errors = 0;
                 save_char_obj(ch, FALSE);
             }
@@ -8313,16 +8305,16 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
 
             if (IS_NULLSTR(ch->pcdata->email))
-            send_to_char("{RÓ òåáÿ íå ââåäåí àäðåñ ýëåêòðîííîé ïî÷òû!{x\n\rÑîâåòóåì ñäåëàòü ýòî (êîìàíäà 'ïî÷òà ñìåíèòü <òâîé email>'), èíà÷å â ñëó÷àå óòåðè ïàðîëÿ òû íå ñìîæåøü åãî âîññòàíîâèòü.\n\r\n\r", ch);
+            send_to_char("{R      !{x\n\r   ( '  < email>'),          .\n\r\n\r", ch);
 
             if (IS_NULLSTR(ch->pcdata->reg_answer))
-            send_to_char("{RÓ òåáÿ íå ââåäåí îòâåò íà ðåãèñòðàöèîííûé âîïðîñ!{x\n\rÎÁßÇÀÒÅËÜÍÎ ñäåëàé ýòî (êîìàíäà 'ðåãâîïðîñ').\n\r\n\r", ch);
+            send_to_char("{R       !{x\n\r   ( '').\n\r\n\r", ch);
 
             if (ch->level >= MAX_NOCLAN_LEVEL && !IS_IMMORTAL(ch) && !is_clan(ch)){
                 ch->clan = clan_lookup(CLAN_INDEPEND);
                 clan_table[ch->clan].count++;
-                printf_to_char("Âàé-âàé-âàé... Íåóæåëè òû âñå åùå íå â êëàíå?\n\r"
-                    "Òû ïðèñîåäèíÿåøüñÿ ê êëàíó %s.\n\r",
+                printf_to_char("--...       ?\n\r"
+                    "    %s.\n\r",
                     ch, clan_table[ch->clan].short_descr);
             }
 
@@ -8336,12 +8328,12 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             }
 
 
-            //åñëè ÷àð âõîäèò â ìèð â ÷óæîì äîìå, òî êèäàþ åãî â ðåêîëë.
+            //       ,     .
             if (ch->in_room != NULL && !is_room_owner(ch, ch->in_room)) {
 				ROOM_INDEX_DATA *location;
 
 				if ((location = get_recall(ch)) == NULL)
-					send_to_char("Òû îêîí÷àòåëüíî ïîòåðÿëñÿ...\n\r", ch);
+					send_to_char("  ...\n\r", ch);
 
 					char_from_room(ch);
 					char_to_room(ch, location, TRUE);
@@ -8352,9 +8344,9 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
 
 			if (ch->pcdata == NULL || ch->pcdata->pwd[0] == '\0'){
-				write_to_buffer(d, "Âíèìàíèå! Ïóñòîé ïàðîëü!\n\r", 0);
-				write_to_buffer(d, "Ñîîáùèòå ñòàðûé ïàðîëü êîìàíäîé 'ãëþê'.\n\r", 0);
-				write_to_buffer(d, "Äëÿ èñïðàâëåíèÿ íàáåðèòå 'password null <íîâûé ïàðîëü>'.\n\r", 0);
+				write_to_buffer(d, "!  !\n\r", 0);
+				write_to_buffer(d, "    ''.\n\r", 0);
+				write_to_buffer(d, "   'password null < >'.\n\r", 0);
 			}
         }
 
@@ -8372,47 +8364,47 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
         smash_tilde(ch->pcdata->lasthost);
 
-        act("$n âõîäèò â ýòîò ìèð.", ch, NULL, NULL, TO_ROOM);
+        act("$n    .", ch, NULL, NULL, TO_ROOM);
         do_function(ch, &do_look, "auto");
 
-        wiznet("$N âõîäèò â ýòîò ìèð.", ch, NULL,	WIZ_LOGINS, WIZ_SITES, get_trust(ch));
+        wiznet("$N    .", ch, NULL,	WIZ_LOGINS, WIZ_SITES, get_trust(ch));
 
 
-    /* Îòëàäêà Áàãà ñ êàìóôëÿæåì ïðè âõîäå äðóëÿ */
+    /*        */
         /*
         if (IS_AFFECTED(ch, AFF_CAMOUFLAGE)){
-            bugf("Êàìóôëÿæ åñòü");
-            wiznet("$N Êàìóôëÿæ åñòü", ch, NULL,	WIZ_LOGINS, WIZ_SITES, get_trust(ch));
+            bugf(" ");
+            wiznet("$N  ", ch, NULL,	WIZ_LOGINS, WIZ_SITES, get_trust(ch));
             } else{
-            wiznet("$N Êàìóôëÿæ íåò", ch, NULL,	WIZ_LOGINS, WIZ_SITES, get_trust(ch));
-            bugf("Êàìóôëÿæà íåò");
+            wiznet("$N  ", ch, NULL,	WIZ_LOGINS, WIZ_SITES, get_trust(ch));
+            bugf(" ");
         }
 
             if (IS_IN_WILD(ch)){
-            wiznet("$N Ïðèðîäà â êîìíàòå: åñòü", ch, NULL,	WIZ_LOGINS, WIZ_SITES, get_trust(ch));
-            bugf("Ïðèðîäà åñòü");
+            wiznet("$N   : ", ch, NULL,	WIZ_LOGINS, WIZ_SITES, get_trust(ch));
+            bugf(" ");
         }else{
-            wiznet("$N Ïðèðîäà â êîìíàòå: íåò", ch, NULL,	WIZ_LOGINS, WIZ_SITES, get_trust(ch));
-                bugf("Ïðèðîäû íåò");
+            wiznet("$N   : ", ch, NULL,	WIZ_LOGINS, WIZ_SITES, get_trust(ch));
+                bugf(" ");
             }
     */
 
         if (ch->pet != NULL)
         {
             char_to_room(ch->pet, ch->in_room, TRUE);
-            act("$n âõîäèò â ýòîò ìèð.", ch->pet, NULL, NULL, TO_ROOM);
+            act("$n    .", ch->pet, NULL, NULL, TO_ROOM);
         }
 
         if (ch->mount != NULL)
         {
             char_to_room(ch->mount, ch->in_room, TRUE);
-            act("$n âõîäèò â èãðó.", ch->mount, NULL, NULL, TO_ROOM);
+            act("$n   .", ch->mount, NULL, NULL, TO_ROOM);
 
             if (IS_AWAKE(ch))
             do_mount(ch, "");
         }
 
-        sprintf(buf, "[R:%5d] %s@%s âõîäèò â èãðó%s.",
+        sprintf(buf, "[R:%5d] %s@%s   %s.",
         		ch->in_room != NULL ? ch->in_room->vnum : 0,
         		ch->name,
         		d->ip,
@@ -8425,7 +8417,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
         if (ch->pcdata->bank > 10000)
         {
-            sprintf(buf, "[R:%5d] %s èìååò íà ñ÷åòó %ld. (áîëüøå 10 000)", ch->in_room != NULL ? ch->in_room->vnum : 0, ch->name, ch->pcdata->bank);
+            sprintf(buf, "[R:%5d] %s    %ld. ( 10 000)", ch->in_room != NULL ? ch->in_room->vnum : 0, ch->name, ch->pcdata->bank);
             log_string(buf);
             convert_dollars(buf);
             wiznet(buf, NULL, NULL, WIZ_SITES, 0, get_trust(ch));
@@ -8439,7 +8431,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
             if (wch && !strcmp(d->ip, d_old->ip) && d->character != wch)
             {
-                sprintf(buf, "[R:%5d] %s è %s âîøëè â èãðó c îäíîãî IP-àäðåñà %s.",
+                sprintf(buf, "[R:%5d] %s  %s    c  IP- %s.",
                     wch->in_room != NULL ? wch->in_room->vnum : 0,
                     wch->name, ch->name, d->ip);
                 log_string(buf);
@@ -8450,7 +8442,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
                 if (!strcmp(wch->pcdata->pwd, d->character->pcdata->pwd))
                 {
-                sprintf(buf, "[R:%5d] %s è %s èìåþò îäèíàêîâûé ïàðîëü!",
+                sprintf(buf, "[R:%5d] %s  %s   !",
                     wch->in_room != NULL ? wch->in_room->vnum : 0,
                     wch->name, ch->name);
                 log_string(buf);
@@ -8460,7 +8452,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                 && !IS_NULLSTR(d->character->pcdata->email)
                 && !str_cmp(wch->pcdata->email, d->character->pcdata->email))
                 {
-                sprintf(buf, "[R:%5d] %s è %s èìåþò îäèíàêîâûé e-mail!",
+                sprintf(buf, "[R:%5d] %s  %s   e-mail!",
                     wch->in_room != NULL ? wch->in_room->vnum : 0,
                     wch->name, ch->name);
                 log_string(buf);
@@ -8471,7 +8463,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                 && !IS_NULLSTR(d->character->pcdata->reg_answer)
                 && !str_cmp(wch->pcdata->reg_answer, d->character->pcdata->reg_answer))
                 {
-                sprintf(buf, "[R:%5d] %s è %s èìåþò îäèíàêîâûé ðåãèñòðàöèîííûé îòâåò!",
+                sprintf(buf, "[R:%5d] %s  %s    !",
                     wch->in_room != NULL ? wch->in_room->vnum : 0,
                     wch->name, ch->name);
                 log_string(buf);
@@ -8494,19 +8486,19 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
         if (check_channels(ch))
         {
-            sprintf(buf, "Ó òåáÿ îòîáðàëè êàíàëû äî: %s", (char *) c_time(&ch->pcdata->nochan));
+            sprintf(buf, "    : %s", (char *) c_time(&ch->pcdata->nochan));
             send_to_char(buf, ch);
         }
 
         if (IS_SET(ch->comm, COMM_NONOTES) && ch->pcdata->nonotes > 0)
         {
-            sprintf(buf, "Òåáå çàïðåùåíî ïèñàòü ïèñüìà äî: %s", (char *) c_time(&ch->pcdata->nonotes));
+            sprintf(buf, "    : %s", (char *) c_time(&ch->pcdata->nonotes));
             send_to_char(buf, ch);
         }
 
         if (IS_SET(ch->comm, COMM_NOTITLE) && ch->pcdata->notitle > 0)
         {
-            sprintf(buf, "Òåáå çàïðåùåíî ìåíÿòü òèòóë äî: %s", (char *) c_time(&ch->pcdata->notitle));
+            sprintf(buf, "    : %s", (char *) c_time(&ch->pcdata->notitle));
             send_to_char(buf, ch);
         }
 
@@ -8521,8 +8513,8 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                 && (to_room = pexit->u1.to_room) != NULL
                 && can_see_room(ch, to_room))
             {
-                act("$n óõîäèò $t.", ch, direct(i, TRUE), NULL, TO_ROOM);
-                act("$N ïðèõîäèò $t.", LIST_FIRST(&to_room->people), direct(i, FALSE), ch, TO_ALL);
+                act("$n  $t.", ch, direct(i, TRUE), NULL, TO_ROOM);
+                act("$N  $t.", LIST_FIRST(&to_room->people), direct(i, FALSE), ch, TO_ALL);
                 char_from_room(ch);
                 char_to_room(ch, to_room, TRUE);
                 break;
@@ -8564,10 +8556,10 @@ bool check_parse_name(char *name)
      * Reserved words.
      */
 
-    if (is_exact_name(name, "âñå ñïèñîê ÷òî êòî"))
+    if (is_exact_name(name, "   "))
 	return FALSE;
 
-    if ((c = UPPER(name[0])) == 'Ú' || c == 'Ü' || c == 'Û')
+	if ((c = UPPER(name[0])) == '\xDA' || c == '\xDC' || c == '\xDB')
 	return FALSE;
 
 
@@ -8648,16 +8640,16 @@ bool check_reconnect(DESCRIPTOR_DATA *d, char *name, bool fConn)
 		ch->desc	 = d;
 		ch->timer	 = 0;
 
-		send_to_char("Ïåðåïîäêëþ÷åíèå. Íàáåðèòå 'âîñïðîèçâåñòè' äëÿ ïðîñìîòðà ïðîïóùåííûõ ñîîáùåíèé.\n\r", ch);
+		send_to_char(".  ''    .\n\r", ch);
 		if (!IS_IMMORTAL(ch))
 		{
-			act("$n âîçâðàùàåòñÿ â ñîçíàíèå.", ch, NULL, NULL, TO_ROOM);
+			act("$n   .", ch, NULL, NULL, TO_ROOM);
 		}
 
 		sprintf(bfr, "%s@%s reconnected.", ch->name, d->ip);
 		log_string(bfr);
 
-		sprintf(bfr, "$N@%s âîññòàíàâëèâàåò ñâÿçü.", d->ip);
+		sprintf(bfr, "$N@%s  .", d->ip);
 		wiznet(bfr, ch, NULL, WIZ_LINKS, 0, get_trust(ch));
 		d->connected = CON_PLAYING;
 	    }
@@ -8686,8 +8678,8 @@ bool check_playing(DESCRIPTOR_DATA *d, char *name)
 	    && dold->connected != CON_GET_OLD_PASSWORD
 	    && !str_cmp(name, CH(dold)->name))
 	{
-	    write_to_buffer(d, "Ýòîò ïåðñîíàæ óæå â èãðå.\n\r", 0);
-	    write_to_buffer(d, "Óñòàíîâèòü ñâÿçü (Äà/Íåò)?", 0);
+	    write_to_buffer(d, "    .\n\r", 0);
+	    write_to_buffer(d, "  (/)?", 0);
 	    d->connected = CON_BREAK_CONNECT;
 	    return TRUE;
 	}
@@ -8713,7 +8705,7 @@ void stop_idling(CHAR_DATA *ch)
     char_from_room(ch);
     char_to_room(ch, ch->was_in_room, FALSE);
     ch->was_in_room	= NULL;
-    act("$n âîçâðàùàåòñÿ èç íèîòêóäà.", ch, NULL, NULL, TO_ROOM);
+    act("$n   .", ch, NULL, NULL, TO_ROOM);
     do_function(ch, &do_look, "auto");
     return;
 }
@@ -8918,7 +8910,7 @@ void show_string(DESCRIPTOR_DATA *d, char *input)
     {
 	if (scan - buffer >= OUTBUF_SIZE - 1)
 	{
-	    write_to_descriptor(d, "Ñëèøêîì áîëüøîé îáúåì èíôîðìàöèè!\n\r", 0);
+	    write_to_descriptor(d, "   !\n\r", 0);
 	    stop = TRUE;
 	}
 
@@ -9043,7 +9035,7 @@ void act_new(const char *format, CHAR_DATA *ch, void *arg1,
 	if ((type == TO_ROOM || type == TO_NOTVICT) && !can_see(to, ch))
 	{
 	    if (to->desc != NULL)
-		write_to_buffer(to->desc, "Òû ñëûøèøü íåïîíÿòíûå çâóêè è îùóùàåøü, ÷òî ðÿäîì ïðîèñõîäèò ÷òî-òî íåèçâåñòíîå...\n\r", 0);
+		write_to_buffer(to->desc, "     ,    - ...\n\r", 0);
 	    continue;
 	}
 
@@ -9118,12 +9110,12 @@ void act_new(const char *format, CHAR_DATA *ch, void *arg1,
 			if (can_see(to, ch))
 			{
 			    if (cs == 1)
-				strcat(bfr, "í");
+				strcat(bfr, "");
 
 			    strcat(bfr, he_she[URANGE(0, ch->sex, GET_MAX_SEX(ch))]);
 			}
 			else
-			    strcpy(bfr, "êòî-òî");
+			    strcpy(bfr, "-");
 		    }
 
 		    i = bfr;
@@ -9135,12 +9127,12 @@ void act_new(const char *format, CHAR_DATA *ch, void *arg1,
 			if (can_see(to, vch))
 			{
 			    if (cs == 1)
-				strcat(bfr, "í");
+				strcat(bfr, "");
 
 			    strcat(bfr, he_she[URANGE(0, vch->sex, GET_MAX_SEX(ch))]);
 			}
 			else
-			    strcpy(bfr, "êòî-òî");
+			    strcpy(bfr, "-");
 		    }
 
 		    i = bfr;
@@ -9152,12 +9144,12 @@ void act_new(const char *format, CHAR_DATA *ch, void *arg1,
 			if (can_see(to, ch))
 			{
 			    if (cs == 1)
-				strcat(bfr, "í");
+				strcat(bfr, "");
 
 			    strcat(bfr, him_her[URANGE(0, ch->sex, GET_MAX_SEX(ch))]);
 			}
 			else
-			    strcpy(bfr, "êîìó-òî");
+			    strcpy(bfr, "-");
 		    }
 
 		    i = bfr;
@@ -9169,13 +9161,13 @@ void act_new(const char *format, CHAR_DATA *ch, void *arg1,
 			if (can_see(to, vch))
 			{
 			    if (cs == 1)
-				strcat(bfr, "í");
+				strcat(bfr, "");
 
 			    strcat(bfr, him_her[URANGE(0, vch->sex, GET_MAX_SEX(ch))]);
 			}
 			else
 			{
-			    strcpy(bfr, "êîìó-òî");
+			    strcpy(bfr, "-");
 			}
 		    }
 
@@ -9188,7 +9180,7 @@ void act_new(const char *format, CHAR_DATA *ch, void *arg1,
 			if (can_see(to, ch))
 			{
 			    if (cs == 1)
-				strcat(bfr, "í");
+				strcat(bfr, "");
 
 			    strcat(bfr, his_her[URANGE(0, ch->sex, GET_MAX_SEX(ch))]);
 			}
@@ -9197,13 +9189,13 @@ void act_new(const char *format, CHAR_DATA *ch, void *arg1,
 			    switch(cs)
 			    {
 			    case  2:
-				strcpy(bfr, "÷üè-òî");
+				strcpy(bfr, "-");
 				break;
 			    case  3:
-				strcpy(bfr, "÷üåé-òî");
+				strcpy(bfr, "-");
 				break;
 			    default:
-				strcpy(bfr, "êîãî-òî");
+				strcpy(bfr, "-");
 				break;
 			    }
 			}
@@ -9218,7 +9210,7 @@ void act_new(const char *format, CHAR_DATA *ch, void *arg1,
 			if (can_see(to, vch))
 			{
 			    if (cs == 1)
-				strcat(bfr, "í");
+				strcat(bfr, "");
 
 			    strcat(bfr, his_her[URANGE(0, vch->sex, GET_MAX_SEX(ch))]);
 			}
@@ -9227,13 +9219,13 @@ void act_new(const char *format, CHAR_DATA *ch, void *arg1,
 			    switch(cs)
 			    {
 			    case  2:
-				strcpy(bfr, "÷üè-òî");
+				strcpy(bfr, "-");
 				break;
 			    case  3:
-				strcpy(bfr, "÷üåé-òî");
+				strcpy(bfr, "-");
 				break;
 			    default:
-				strcpy(bfr, "êîãî-òî");
+				strcpy(bfr, "-");
 				break;
 			    }
 			}
@@ -9245,29 +9237,29 @@ void act_new(const char *format, CHAR_DATA *ch, void *arg1,
 		case 'p':
 		    i = obj1 != NULL ? can_see_obj(to, obj1)
 			? cases(obj1->short_descr, cs)
-			: cases("÷òî-òî", cs) : "";
+			: cases("-", cs) : "";
 		    break;
 
 		case 'P':
 		    i = obj2 != NULL ? can_see_obj(to, obj2)
 			? cases(obj2->short_descr, cs)
-			: cases("÷òî-òî", cs) : "";
+			: cases("-", cs) : "";
 		    break;
 
 		case 'd':
-		    i = cases(IS_NULLSTR((char *) arg2_new) ? "äâåðü" : (char *) arg2_new, cs);
+		    i = cases(IS_NULLSTR((char *) arg2_new) ? "" : (char *) arg2_new, cs);
 		    break;
 
 		case 'r':
 		    i = obj1 != NULL ?
 			decompose_end(can_see_obj(to, obj1)
-				      ? obj1->short_descr : "÷òî-òî") : "";
+				      ? obj1->short_descr : "-") : "";
 		    break;
 
 		case 'R':
 		    i = obj2 != NULL ?
 			decompose_end(can_see_obj(to, obj2)
-				      ? obj2->short_descr : "÷òî-òî") : "";
+				      ? obj2->short_descr : "-") : "";
 		    break;
 
 		case 'x':
@@ -9275,23 +9267,23 @@ void act_new(const char *format, CHAR_DATA *ch, void *arg1,
 		    switch (ch->in_room->sector_type)
 		    {
 		    case SECT_FIELD:
-			i = "íà òðàâó";
+			i = " ";
 			break;
 
 		    case SECT_MOUNTAIN:
-			i = "íà êàìíè";
+			i = " ";
 			break;
 		    case SECT_WATER_SWIM:
 		    case SECT_WATER_NOSWIM:
-			i = "â âîäó";
+			i = " ";
 			break;
 
 		    case SECT_AIR:
-			i = "â âîçäóõ";
+			i = " ";
 			break;
 
 		    default:
-			i = "íà çåìëþ";
+			i = " ";
 			break;
 		    }
 		    break;
@@ -9301,23 +9293,23 @@ void act_new(const char *format, CHAR_DATA *ch, void *arg1,
 		    switch (ch->in_room->sector_type)
 		    {
 		    case SECT_FIELD:
-			i = "íàä òðàâîé";
+			i = " ";
 			break;
 
 		    case SECT_MOUNTAIN:
-			i = "íàä êàìíÿìè";
+			i = " ";
 			break;
 		    case SECT_WATER_SWIM:
 		    case SECT_WATER_NOSWIM:
-			i = "íàä âîäîé";
+			i = " ";
 			break;
 
 		    case SECT_AIR:
-			i = "â âîçäóõå";
+			i = " ";
 			break;
 
 		    default:
-			i = "íàä çåìëåé";
+			i = " ";
 			break;
 		    }
 
@@ -10374,10 +10366,15 @@ static int recode_utf8(char *argument, bool to_utf8)
 		tmp[o++] = (char)0xD0;
 		tmp[o++] = (char)(0x90 + (ch - 0xC0));
 	    }
-	    else if (ch >= 0xE0)
+	    else if (ch >= 0xE0 && ch <= 0xEF)
+	    {
+		tmp[o++] = (char)0xD0;
+		tmp[o++] = (char)(0xB0 + (ch - 0xE0));
+	    }
+	    else if (ch >= 0xF0)
 	    {
 		tmp[o++] = (char)0xD1;
-		tmp[o++] = (char)(0x80 + (ch - 0xE0));
+		tmp[o++] = (char)(0x80 + (ch - 0xF0));
 	    }
 	    else
 		tmp[o++] = '?';
@@ -10501,7 +10498,7 @@ void do_port(CHAR_DATA *ch, char *argument)
 {
     char buf[30];
 
-    sprintf(buf, "Íîìåð ïîðòà: %d\n\r", cfg.port);
+    sprintf(buf, " : %d\n\r", cfg.port);
     send_to_char(buf, ch);
 }
 
@@ -10519,7 +10516,7 @@ void safe_exit(int flag)
 
 	if (ch != NULL)
 	{
-	    write_to_buffer(d, "Íåíîðìàëüíîå çàâåðøåíèå ðàáîòû!\n\rÑîõðàíåíèå - ïîäîæäè íåìíîãî.\n\r", 0);
+	    write_to_buffer(d, "  !\n\r -  .\n\r", 0);
 	    VALIDATE(ch);
 	    save_char_obj(ch, FALSE);
 	}
@@ -10614,13 +10611,13 @@ void do_host(CHAR_DATA *ch, char *argument)
 
     if (argument[0] == '\0')
     {
-	send_to_char("Õîñò êàêîãî èãðîêà òû õîòåë ïîñìîòðåòü?\n\r", ch);
+	send_to_char("     ?\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, argument)) == NULL)
     {
-	send_to_char("Òàêèõ èãðîêîâ íåò â èãðå.\n\r", ch);
+	send_to_char("    .\n\r", ch);
 	return;
     }
 
@@ -10643,7 +10640,7 @@ bool check_password(DESCRIPTOR_DATA *d, char *argument)
 
     if (strlen(argument) < 5)
     {
-	write_to_buffer(d, "Ïàðîëü äîëæåí ñîñòîÿòü êàê ìèíèìóì èç 5-òè ñèìâîëîâ.\n\r", 0);
+	write_to_buffer(d, "      5- .\n\r", 0);
 	return FALSE;
     }
 
@@ -10660,7 +10657,7 @@ bool check_password(DESCRIPTOR_DATA *d, char *argument)
     }
 
     if (!alpha)
-	write_to_buffer(d, "Íîâûé ïàðîëü íåïðèåìëåì, ïîïûòàéòåñü åùå ðàç.\n\r", 0);
+	write_to_buffer(d, "  ,   .\n\r", 0);
 
     return alpha;
 }
@@ -10745,7 +10742,7 @@ void do_email_pass(CHAR_DATA *ch, char *argument)
     {
 		if (ch != NULL)
 		{
-			send_to_char("Êîìó òû õîòåë îòïðàâèòü ïàðîëü?\n\r", ch);
+			send_to_char("    ?\n\r", ch);
 		}
 		return;
     }
@@ -10754,7 +10751,7 @@ void do_email_pass(CHAR_DATA *ch, char *argument)
     {
 		if (ch != NULL)
 		{
-			send_to_char("Ýòîò ïåðñîíàæ ñåé÷àñ â èãðå.\n\r", ch);
+			send_to_char("    .\n\r", ch);
 		}
 		return;
     }
@@ -10765,7 +10762,7 @@ void do_email_pass(CHAR_DATA *ch, char *argument)
     {
 		if (ch != NULL)
 		{
-			send_to_char("Òàêèõ íåò â ýòîì ìèðå.\n\r", ch);
+			send_to_char("    .\n\r", ch);
 		}
 		free_descriptor(d);
 		return;
@@ -10786,7 +10783,7 @@ void do_email_pass(CHAR_DATA *ch, char *argument)
 	{
 		if (ch != NULL)
 		{
-			send_to_char("Ó ýòîãî ïåðñîíàæà íå ïðîïèñàí àäðåñ ýëåêòðîííîé ïî÷òû.\n\r", ch);
+			send_to_char("       .\n\r", ch);
 		}
 	}
 
@@ -10887,7 +10884,7 @@ void tagline_to_char(const char *text, CHAR_DATA *ch, CHAR_DATA *looker)
     char *p_output = output;
     char *common;
 
-    /* Åñëè ñòðîêà ïóñòàÿ - äåëàòü íè÷åãî íå íàäî */
+    /*    -     */
     if (strlen(text) <= 0)
 	return;
 
@@ -10908,7 +10905,7 @@ void tagline_to_char(const char *text, CHAR_DATA *ch, CHAR_DATA *looker)
 	    continue;
 	}
 
-	/* Ïðîïóñêàåì íà÷àëî òýãà '[#'. */
+	/*    '[#'. */
 	desc++;
 
 	common = buf;
@@ -10916,7 +10913,7 @@ void tagline_to_char(const char *text, CHAR_DATA *ch, CHAR_DATA *looker)
 	{
 	    if (*desc == '\0')
 	    {
-		bugf("Îøèáêà: Â òýãå íåò ðàçäåëèòåëÿ ':'. Êîìíàòà: %d.", ch->in_room->vnum);
+		bugf(":     ':'. : %d.", ch->in_room->vnum);
 		*common = *desc;
 		break;
 	    }
@@ -10924,12 +10921,12 @@ void tagline_to_char(const char *text, CHAR_DATA *ch, CHAR_DATA *looker)
 	    desc++;
 	    common++;
 	}
-	*common = '\0';  // Çàâåðøàåì òýã
-	/* Ïðîïóñêàåì ':' è ïðîáåëüíûå ñèìâîëû */
+	*common = '\0';  //  
+	/*  ':'    */
 	desc++;
 	while (isspace(*desc)) desc++;
 
-	/* ×èòàåì îïèñàíèå òýãà */
+	/*    */
 	common = tagline;
 	while (*desc != ']')
 	{
@@ -10943,18 +10940,18 @@ void tagline_to_char(const char *text, CHAR_DATA *ch, CHAR_DATA *looker)
 	    common++;
 	    desc++;
 	}
-	*common = '\0'; // Çàâåðøàåì êîìàíäó
+	*common = '\0'; //  
 
-	/* Âûäåëÿåì àðãóìåíòû */
+	/*   */
 	common = buf;
 	common = one_argument(common, arg);
 	common = one_argument(common, arg2);
 	if (is_number(common))
 	    value = atoi(common);
 	else if (str_cmp(arg, "pos") && strlen(common) > 0)
-	    bugf("Îøèáêà â òýãå â êîìíàòå %d: %s %s %s.", ch->in_room->vnum, arg, arg2, common);
+	    bugf("     %d: %s %s %s.", ch->in_room->vnum, arg, arg2, common);
 
-	/*======[  Ñëó÷àè  ]======*/
+	/*======[    ]======*/
 	switch (UPPER(arg[0]))
 	{
 	case 'A':
@@ -11172,12 +11169,12 @@ void tagline_to_char(const char *text, CHAR_DATA *ch, CHAR_DATA *looker)
 	    bGo = FALSE;
 	    break;
 	}
-	/* ======[Âñå, ñëó÷àè êîí÷àëèñü]====== */
+	/* ======[,  ]====== */
 
 	if (!bGo && (sn = skill_lookup(arg)) >= 0)
 	    bGo = COMPARE_TAG(get_skill(ch, sn), value, arg2);
 
-	/* Êîïèðóåì ïîëó÷åííîå â îòâåò */
+	/*     */
 	if (bGo == TRUE)
 	{
 	    common = tagline;
@@ -11193,9 +11190,9 @@ void tagline_to_char(const char *text, CHAR_DATA *ch, CHAR_DATA *looker)
 	}
     }
 
-    /* Îòïðàâëÿåì ïîëó÷åííîå èãðîêó */
-    *p_output = '\0';          // Êîíåö ñòðîêè
-    send_to_char(output, looker);  // Îòïðàâëÿåì ñòðîêó ÷àðó
+    /*    */
+    *p_output = '\0';          //  
+    send_to_char(output, looker);  //   
     return;
 }
 
