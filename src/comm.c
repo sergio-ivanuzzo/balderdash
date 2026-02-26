@@ -2643,26 +2643,18 @@ bool write_to_descriptor(DESCRIPTOR_DATA *d, char *txt, int length)
     {
 	length += recode(buf, d->codepage, IS_IMMORTAL(CH(d)) ? RECODE_OUTPUT|RECODE_NOANTITRIGGER : RECODE_OUTPUT);
 
-	if (d->codepage != CODEPAGE_WIN && d->codepage != CODEPAGE_TRANS)
+	for (i=0;buf[i] != '\0';i++)
 	{
-	    for (i=0;buf[i] != '\0';i++)
+	    if (buf[i] == (signed char)IAC)
 	    {
-		if (buf[i] == (signed char)IAC)
-		{
-		    int j;
+		int j;
 
-		    for (j=length;j >= i;j--)
-			buf[j+1]=buf[j];
+		for (j=length;j >= i;j--)
+		    buf[j+1]=buf[j];
 
-		    length++;
-		    i++;
-		}
+		length++;
+		i++;
 	    }
-	}
-	else
-	{
-	    for(i=0;buf[i] != '\0';i++)
-		if (buf[i] == (signed char)IAC) buf[i] = UPPER(buf[i]);
 	}
     }
 
@@ -10374,10 +10366,15 @@ static int recode_utf8(char *argument, bool to_utf8)
 		tmp[o++] = (char)0xD0;
 		tmp[o++] = (char)(0x90 + (ch - 0xC0));
 	    }
-	    else if (ch >= 0xE0)
+	    else if (ch >= 0xE0 && ch <= 0xEF)
+	    {
+		tmp[o++] = (char)0xD0;
+		tmp[o++] = (char)(0xB0 + (ch - 0xE0));
+	    }
+	    else if (ch >= 0xF0)
 	    {
 		tmp[o++] = (char)0xD1;
-		tmp[o++] = (char)(0x80 + (ch - 0xE0));
+		tmp[o++] = (char)(0x80 + (ch - 0xF0));
 	    }
 	    else
 		tmp[o++] = '?';
