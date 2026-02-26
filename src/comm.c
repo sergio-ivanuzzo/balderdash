@@ -10621,16 +10621,13 @@ void p_openw(char *command, char *argument)
 
 void do_gdb(CHAR_DATA *ch, char *argument)
 {
-
-    char buf[MAX_INPUT_LENGTH + 20];
-
-    buf[0] = '\0';
-
     if (argument[0] != '\0')
-	sprintf(buf, "echo '%s' | ", argument);
+    {
+	send_to_char("Arguments are disabled for security.\n\r", ch);
+	return;
+    }
 
-    strcat(buf, "gdb rom rom.core");
-    p_open(ch, buf);
+    p_open(ch, "gdb rom rom.core");
 
     return;
 }
