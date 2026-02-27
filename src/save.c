@@ -82,8 +82,7 @@ static bool safe_decompress_player_file(const char *archive_path)
 
     if (pid == 0)
     {
-        execl("/bin/gzip", "gzip", "-dfq", archive_path, (char *)NULL);
-        execl("/usr/bin/gzip", "gzip", "-dfq", archive_path, (char *)NULL);
+        execlp("gzip", "gzip", "-dfq", archive_path, (char *)NULL);
         _exit(127);
     }
 
