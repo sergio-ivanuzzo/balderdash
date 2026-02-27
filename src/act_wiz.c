@@ -9702,7 +9702,7 @@ void do_choice(CHAR_DATA *ch, char *argument)
 
 	buffer = new_buf();
 	
-	if (argument != '\0' && !is_number(argument))
+	if (argument[0] != '\0' && !is_number(argument))
 	{                 
 	    send_to_char("Ââåäèòå íîìåð çàïðîñà.\n\r",ch);
 	    return;
@@ -9755,11 +9755,11 @@ void do_choice(CHAR_DATA *ch, char *argument)
 	send_to_char("Â ðàçðàáîòêå.\n\r",ch);
 	return;
 // Òóò òîæå ñàìîå, òîëüêî ñ ìîáàìè
-	MOB_INDEX_DATA *mob, *array[top_vnum_mob];
+	MOB_INDEX_DATA *mob, *array2[top_vnum_mob];
 
 	buffer = new_buf();
 	
-	if (argument != '\0' && !is_number(argument))
+	if (argument[0] != '\0' && !is_number(argument))
 	{                 
 	    send_to_char("Ââåäèòå íîìåð çàïðîñà.\n\r",ch);
 	    return;
@@ -9772,7 +9772,7 @@ void do_choice(CHAR_DATA *ch, char *argument)
 	    if ((mob = get_mob_index(vnum)) != NULL
 		&& check_query_mob(query, mob))
 	    {
-		array[count++] = mob;
+		array2[count++] = mob;
 		if (count > 300)
 		{
 		    send_to_char("Íàéäåíî áîëåå 300 ìîáîâ. Óòî÷íèòå çàïðîñ.\n\r",ch);
@@ -9790,13 +9790,13 @@ void do_choice(CHAR_DATA *ch, char *argument)
 	    return;
 	}
 
-	qsort(array, count, sizeof(mob), compare_objects);
+	qsort(array2, count, sizeof(mob), compare_objects);
 
 	for (vnum = 0; vnum < count; vnum++)
 	{
 	    sprintf(buf, "%s: level: [%-2d]  vnum: [%-5d]  [%s]\n\r",
-		str_color_fmt(array[vnum]->short_descr, 35), array[vnum]->level,
-		array[vnum]->vnum, array[vnum]->area->name);
+		str_color_fmt(array2[vnum]->short_descr, 35), array2[vnum]->level,
+		array2[vnum]->vnum, array2[vnum]->area->name);
 	    add_buf(buffer, buf);
 	}
 //È äî ñþäà
@@ -9805,7 +9805,7 @@ void do_choice(CHAR_DATA *ch, char *argument)
     {
 	argument = one_argument(argument, arg2);
 
-	if (!str_prefix(arg2, "list") || arg2 == '\0')
+	if (!str_prefix(arg2, "list") || arg2[0] == '\0')
 	{
 	    list_query(ch);
 	    return;
@@ -9827,7 +9827,7 @@ void do_choice(CHAR_DATA *ch, char *argument)
 	    return;
 	}
 
-	if (argument != '\0' && !is_number(argument))
+	if (argument[0] != '\0' && !is_number(argument))
 	{                 
 	    send_to_char("Ââåäèòå íîìåð çàïðîñà.\n\r",ch);
 	    return;
@@ -10000,9 +10000,6 @@ void do_charquest(CHAR_DATA *ch, char *argument)
 	"çà êàæäûé ïàðàìåòð öåíà óìíîæàåòñÿ íà êîë-âî ïàðàìåòðîâ: óäâîåíèå îïûòà ñòîèò 1/÷àñ, óòðîåíèå âñåãî - 6/÷àñ\n\r", ch);
 	return;
 }
-
-
-        sprintf(buf, "Affc '%s' %3d %3d %3d %3d %3d %lu %ld \n",
 void do_immaffects(CHAR_DATA *ch, char *argument){
     CHAR_DATA *victim;
     AFFECT_DATA *paf;
