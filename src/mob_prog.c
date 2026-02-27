@@ -130,9 +130,9 @@ bool mob_holylight = FALSE;
 #define EVAL_NE            5
 
 
-char *someone = "Кто-то";
-char *something = "Что-то";
-char *someones = "Чье-то";
+char *someone = "РљС‚Рѕ-С‚Рѕ";
+char *something = "Р§С‚Рѕ-С‚Рѕ";
+char *someones = "Р§СЊРµ-С‚Рѕ";
 
 #define MAX_REGEX_MATCHES 9
 char match[MAX_REGEX_MATCHES][MAX_INPUT_LENGTH];
@@ -213,7 +213,7 @@ const char * fn_keyword[] =
     "str_prefix",	/* if str_prefix $a foo - is $a == "foo" or "fo" */
     /*			  or even "f"		 */
     "hasskill",		/* if hasskill $n 'axe' - is $n has skilled in axes */
-    //статсы чара
+    //СЃС‚Р°С‚СЃС‹ С‡Р°СЂР°
     "str",		/* if str $n > 20 - is str of $n > 20 */
     "int",		/* if int $n > 20 - is int of $n > 20 */
     "wis",		/* if wis $n > 20 - is wis of $n > 20 */
@@ -284,7 +284,7 @@ bool regex_compare(char *arg, char *tpl)
     if (err != 0) {
         char buff[512];
         regerror(err, &expr, buff, sizeof(buff));
-	bugf("Кривой REX_EXP шаблон! Err: %s", buff);
+	bugf("РљСЂРёРІРѕР№ REX_EXP С€Р°Р±Р»РѕРЅ! Err: %s", buff);
     } else {
 	regerr = regexec(&expr, arg, MAX_REGEX_MATCHES, m, 0);
 	if (regerr == 0 ){
@@ -1184,7 +1184,7 @@ int cmd_eval_mob(int vnum, char *line, int check,
 	    lval = count_people_room(lval_char, NULL, NULL, 4);
 	break;
 
-	//проверки на статсы
+	//РїСЂРѕРІРµСЂРєРё РЅР° СЃС‚Р°С‚СЃС‹
     case CHK_ISSTR:
 	if (lval_char != NULL)
 	    lval = get_curr_stat(lval_char, STAT_STR);
@@ -1713,7 +1713,7 @@ int cmd_eval_obj(int vnum, char *line, int check,
 	    lval = count_people_room(lval_char, NULL, NULL, 4);
 	break;
 
-	/* проверки на статсы */
+	/* РїСЂРѕРІРµСЂРєРё РЅР° СЃС‚Р°С‚СЃС‹ */
     case CHK_ISSTR:
 	if (lval_char != NULL)
 	    lval = get_curr_stat(lval_char, STAT_STR);
@@ -2199,7 +2199,7 @@ int cmd_eval_room(int vnum, char *line, int check,
 	    lval = count_people_room(lval_char, NULL, NULL, 4);
 	break;
 
-	/* проверки на статсы */
+	/* РїСЂРѕРІРµСЂРєРё РЅР° СЃС‚Р°С‚СЃС‹ */
     case CHK_ISSTR:
 	if (lval_char != NULL)
 	    lval = get_curr_stat(lval_char, STAT_STR);

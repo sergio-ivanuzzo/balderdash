@@ -222,7 +222,7 @@ void ban_site(CHAR_DATA * ch, char *argument, bool fPerm)
 
 	if ((wch = get_char_world(ch, arg2)) == NULL || IS_NPC(wch))
 	{
-	    send_to_char("Таких нет в этом мире.\n\r", ch);
+	    send_to_char("РўР°РєРёС… РЅРµС‚ РІ СЌС‚РѕРј РјРёСЂРµ.\n\r", ch);
 	    return;
 	}
 

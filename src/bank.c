@@ -16,10 +16,10 @@ void do_balance(CHAR_DATA *ch, char *argument)
 	return;
 
     if (ch->pcdata->bank > 0)
-	sprintf(buf, "На твоем счете в банке %ld золота.\n\r",
+	sprintf(buf, "РќР° С‚РІРѕРµРј СЃС‡РµС‚Рµ РІ Р±Р°РЅРєРµ %ld Р·РѕР»РѕС‚Р°.\n\r",
 		ch->pcdata->bank);
     else
-	strcpy(buf, "У тебя нет денег в банке.\n\r");
+	strcpy(buf, "РЈ С‚РµР±СЏ РЅРµС‚ РґРµРЅРµРі РІ Р±Р°РЅРєРµ.\n\r");
 
     send_to_char(buf, ch);
     return;
@@ -37,7 +37,7 @@ void do_deposit(CHAR_DATA *ch, char *argument)
 
     if (!IS_SET(ch->in_room->room_flags, ROOM_BANK)) 
     {
-	send_to_char("Но ты не в банке!\n\r", ch);
+	send_to_char("РќРѕ С‚С‹ РЅРµ РІ Р±Р°РЅРєРµ!\n\r", ch);
 	return;
     }
 
@@ -50,7 +50,7 @@ void do_deposit(CHAR_DATA *ch, char *argument)
 
     if (!banker)
     {
-	send_to_char("Банкир тут недоступен.\n\r", ch);
+	send_to_char("Р‘Р°РЅРєРёСЂ С‚СѓС‚ РЅРµРґРѕСЃС‚СѓРїРµРЅ.\n\r", ch);
 	return;
     }
  
@@ -58,7 +58,7 @@ void do_deposit(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0')
     {
-	send_to_char("Сколько золота ты хочешь положить на счет?\n\r", ch);
+	send_to_char("РЎРєРѕР»СЊРєРѕ Р·РѕР»РѕС‚Р° С‚С‹ С…РѕС‡РµС€СЊ РїРѕР»РѕР¶РёС‚СЊ РЅР° СЃС‡РµС‚?\n\r", ch);
 	return;
     }
 
@@ -66,7 +66,7 @@ void do_deposit(CHAR_DATA *ch, char *argument)
 
     if (amnt < 1)
     {
-	send_to_char("А головой подумать?\n\r", ch);
+	send_to_char("Рђ РіРѕР»РѕРІРѕР№ РїРѕРґСѓРјР°С‚СЊ?\n\r", ch);
 	return;
     }
 
@@ -74,7 +74,7 @@ void do_deposit(CHAR_DATA *ch, char *argument)
 
     if (amnt > ch->gold)
     {
-	sprintf(buf, "%s говорит тебе: {R%s, у тебя нет столько денег.{x\n\r",
+	sprintf(buf, "%s РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {R%s, Сѓ С‚РµР±СЏ РЅРµС‚ СЃС‚РѕР»СЊРєРѕ РґРµРЅРµРі.{x\n\r",
 		banker->short_descr, ch->name);
 	send_to_char(buf, ch);
 	return;
@@ -83,7 +83,7 @@ void do_deposit(CHAR_DATA *ch, char *argument)
     ch->pcdata->bank += amnt;
     ch->gold -= amnt;
     sprintf(buf,
-	    "%s говорит тебе: {R%s, на твоем счете теперь %ld золота.{x\n\r",
+	    "%s РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {R%s, РЅР° С‚РІРѕРµРј СЃС‡РµС‚Рµ С‚РµРїРµСЂСЊ %ld Р·РѕР»РѕС‚Р°.{x\n\r",
 	    banker->short_descr, ch->name, ch->pcdata->bank);
     send_to_char(buf, ch);
     return;
@@ -101,7 +101,7 @@ void do_withdraw (CHAR_DATA *ch, char *argument)
 
     if (!IS_SET(ch->in_room->room_flags, ROOM_BANK)) 
     {
-    	send_to_char("Но ты не в банке!\n\r", ch);
+    	send_to_char("РќРѕ С‚С‹ РЅРµ РІ Р±Р°РЅРєРµ!\n\r", ch);
 	return;
     }
 
@@ -114,7 +114,7 @@ void do_withdraw (CHAR_DATA *ch, char *argument)
 
     if (!banker)
     {
-	send_to_char("Банкир сейчас недоступен.\n\r", ch);
+	send_to_char("Р‘Р°РЅРєРёСЂ СЃРµР№С‡Р°СЃ РЅРµРґРѕСЃС‚СѓРїРµРЅ.\n\r", ch);
 	return;
     }
  
@@ -122,7 +122,7 @@ void do_withdraw (CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0')
     {
-	send_to_char("Сколько ты хочешь снять со своего счета?\n\r", ch);
+	send_to_char("РЎРєРѕР»СЊРєРѕ С‚С‹ С…РѕС‡РµС€СЊ СЃРЅСЏС‚СЊ СЃРѕ СЃРІРѕРµРіРѕ СЃС‡РµС‚Р°?\n\r", ch);
 	return;
     }
 
@@ -130,14 +130,14 @@ void do_withdraw (CHAR_DATA *ch, char *argument)
 
     if (amnt < 2)
     {
-	send_to_char("А головой подумать?\n\r", ch);
+	send_to_char("Рђ РіРѕР»РѕРІРѕР№ РїРѕРґСѓРјР°С‚СЊ?\n\r", ch);
 	return;
     }
     
     if (amnt > ch->pcdata->bank) 
     {
-        sprintf(buf, "%s говорит тебе: {R%s, у тебя нет столько денег на "
-		     "счете.{x\n\r",
+        sprintf(buf, "%s РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {R%s, Сѓ С‚РµР±СЏ РЅРµС‚ СЃС‚РѕР»СЊРєРѕ РґРµРЅРµРі РЅР° "
+		     "СЃС‡РµС‚Рµ.{x\n\r",
 		banker->short_descr, ch->name);
 	send_to_char( buf, ch);
         ch->reply = banker;
@@ -148,14 +148,14 @@ void do_withdraw (CHAR_DATA *ch, char *argument)
     
     if (!can_take_weight(ch, get_money_weight(amnt - pr, 0)))
     {
-	send_to_char("Тебе не унести столько тяжести.\n\r", ch);
+	send_to_char("РўРµР±Рµ РЅРµ СѓРЅРµСЃС‚Рё СЃС‚РѕР»СЊРєРѕ С‚СЏР¶РµСЃС‚Рё.\n\r", ch);
 	return;
     }
 
     ch->gold += (amnt - pr);
     ch->pcdata->bank -= amnt;
-    sprintf(buf, "%s говорит тебе: {R%s, на твоем счете теперь %ld золота. "
-		 "За свои услуги я взял себе %d золота.{x\n\r",
+    sprintf(buf, "%s РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {R%s, РЅР° С‚РІРѕРµРј СЃС‡РµС‚Рµ С‚РµРїРµСЂСЊ %ld Р·РѕР»РѕС‚Р°. "
+		 "Р—Р° СЃРІРѕРё СѓСЃР»СѓРіРё СЏ РІР·СЏР» СЃРµР±Рµ %d Р·РѕР»РѕС‚Р°.{x\n\r",
 	    banker->short_descr, ch->name, ch->pcdata->bank, pr);
     send_to_char(buf, ch);
     ch->reply = banker;

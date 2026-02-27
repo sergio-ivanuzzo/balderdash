@@ -69,14 +69,14 @@ void song_update(void)
 	{
 	    if (channel_songs[0] < 0)
 	    {
-		sprintf(buf, "Музыка:{y %s, %s{x",
+		sprintf(buf, "РњСѓР·С‹РєР°:{y %s, %s{x",
 			song_table[channel_songs[1]].group,
 			song_table[channel_songs[1]].name);
 		channel_songs[0] = 0;
 	    }
 	    else
 	    {
-		sprintf(buf, "Музыка:{y %s{x",
+		sprintf(buf, "РњСѓР·С‹РєР°:{y %s{x",
 			song_table[channel_songs[1]].lyrics[channel_songs[0]]);
 		channel_songs[0]++;
 	    }
@@ -117,7 +117,7 @@ void song_update(void)
 
 	if (obj->value[0] < 0)
 	{
-	    sprintf(buf, "$p начинает играть %s, %s.",
+	    sprintf(buf, "$p РЅР°С‡РёРЅР°РµС‚ РёРіСЂР°С‚СЊ %s, %s.",
 		    song_table[obj->value[1]].group, song_table[obj->value[1]].name);
 	    if (!LIST_EMPTY(&room->people))
 		act(buf, LIST_FIRST(&room->people), obj, NULL, TO_ALL);
@@ -144,7 +144,7 @@ void song_update(void)
 	    obj->value[0]++;
 	}
 
-	sprintf(buf, "$p играет: {y%s{x", line);
+	sprintf(buf, "$p РёРіСЂР°РµС‚: {y%s{x", line);
 	if (!LIST_EMPTY(&room->people))
 	    act(buf, LIST_FIRST(&room->people), obj, NULL, TO_ALL);
     }
@@ -226,17 +226,17 @@ void do_play(CHAR_DATA *ch, char *argument)
 
     if (juke == NULL)
     {
-	send_to_char("Ты не видишь, что бы можно было послушать.\n\r", ch);
+	send_to_char("РўС‹ РЅРµ РІРёРґРёС€СЊ, С‡С‚Рѕ Р±С‹ РјРѕР¶РЅРѕ Р±С‹Р»Рѕ РїРѕСЃР»СѓС€Р°С‚СЊ.\n\r", ch);
 	return;
     }
 
     if (argument[0] == '\0')
     {
-	send_to_char("Играть что?\n\r", ch);
+	send_to_char("РРіСЂР°С‚СЊ С‡С‚Рѕ?\n\r", ch);
 	return;
     }
 
-    if (!str_prefix(arg, "list") || !str_prefix(arg, "список"))
+    if (!str_prefix(arg, "list") || !str_prefix(arg, "СЃРїРёСЃРѕРє"))
     {
 	BUFFER *buffer;
 	char buf[MAX_STRING_LENGTH];
@@ -247,13 +247,13 @@ void do_play(CHAR_DATA *ch, char *argument)
 	argument = str;
 	argument = one_argument(argument, arg);
 
-	if (!str_cmp(arg, "artist") || !str_cmp(arg, "исполнитель"))
+	if (!str_cmp(arg, "artist") || !str_cmp(arg, "РёСЃРїРѕР»РЅРёС‚РµР»СЊ"))
 	    artist = TRUE;
 
 	if (argument[0] != '\0')
 	    match = TRUE;
 
-	sprintf(buf, "%s содержит следующие песни:\n\r",
+	sprintf(buf, "%s СЃРѕРґРµСЂР¶РёС‚ СЃР»РµРґСѓСЋС‰РёРµ РїРµСЃРЅРё:\n\r",
 		juke->short_descr);
 	add_buf(buffer, capitalize(buf));
 
@@ -283,7 +283,7 @@ void do_play(CHAR_DATA *ch, char *argument)
 	return;
     }
 
-    if (IS_IMMORTAL(ch) && (!str_cmp(arg, "loud") || !str_cmp(arg, "громко")))
+    if (IS_IMMORTAL(ch) && (!str_cmp(arg, "loud") || !str_cmp(arg, "РіСЂРѕРјРєРѕ")))
     {
 	argument = str;
 	global = TRUE;
@@ -291,16 +291,16 @@ void do_play(CHAR_DATA *ch, char *argument)
 
     if (argument[0] == '\0')
     {
-	send_to_char("Играть что?\n\r", ch);
+	send_to_char("РРіСЂР°С‚СЊ С‡С‚Рѕ?\n\r", ch);
 	return;
     }
 
-    if (!str_cmp(arg, "стоп") || !str_cmp(arg, "stop"))
+    if (!str_cmp(arg, "СЃС‚РѕРї") || !str_cmp(arg, "stop"))
     {
 	if ((global && channel_songs[1] == -1)
 	    || (!global && juke->value[1] == -1))
 	{
-	    send_to_char("Да вроде бы никакой музыки и нет.\n\r", ch);
+	    send_to_char("Р”Р° РІСЂРѕРґРµ Р±С‹ РЅРёРєР°РєРѕР№ РјСѓР·С‹РєРё Рё РЅРµС‚.\n\r", ch);
 	    return;
 	}
 
@@ -313,14 +313,14 @@ void do_play(CHAR_DATA *ch, char *argument)
 	    juke->value[0] = MAX_LINES + 1;
 	}
 
-	send_to_char("Ты останавливаешь текущую песню.\n\r", ch);
+	send_to_char("РўС‹ РѕСЃС‚Р°РЅР°РІР»РёРІР°РµС€СЊ С‚РµРєСѓС‰СѓСЋ РїРµСЃРЅСЋ.\n\r", ch);
 	return;
     }
 
     if ((global && channel_songs[MAX_GLOBAL] > -1) 
 	|| (!global && juke->value[4] > -1))
     {
-	send_to_char("Этот музыкальный аппарат занят сейчас.\n\r", ch);
+	send_to_char("Р­С‚РѕС‚ РјСѓР·С‹РєР°Р»СЊРЅС‹Р№ Р°РїРїР°СЂР°С‚ Р·Р°РЅСЏС‚ СЃРµР№С‡Р°СЃ.\n\r", ch);
 	return;
     }
 
@@ -348,11 +348,11 @@ void do_play(CHAR_DATA *ch, char *argument)
 
     if (song >= MAX_SONGS)
     {
-	send_to_char("Эта песня недоступна.\n\r", ch);
+	send_to_char("Р­С‚Р° РїРµСЃРЅСЏ РЅРµРґРѕСЃС‚СѓРїРЅР°.\n\r", ch);
 	return;
     }
 
-    send_to_char("Сейчас будет.\n\r", ch);
+    send_to_char("РЎРµР№С‡Р°СЃ Р±СѓРґРµС‚.\n\r", ch);
 
     if (global)
     {

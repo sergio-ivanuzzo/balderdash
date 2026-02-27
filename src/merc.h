@@ -82,7 +82,7 @@
 #define DAM_WEAPON		25
 #define DAM_MAX			26
 
-/* максимальное кол-во приглашенных и приглашаемых */
+/* РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»-РІРѕ РїСЂРёРіР»Р°С€РµРЅРЅС‹С… Рё РїСЂРёРіР»Р°С€Р°РµРјС‹С… */
 #define  MAX_GUESTS		10
 
 #define MOB_VNUM_ZOMBIE		1
@@ -138,7 +138,7 @@ typedef unsigned short int uint16_t;
 #endif
 */
 
-#define SAGE_COST  15  /* для do_identify() и auction identify */
+#define SAGE_COST  15  /* РґР»СЏ do_identify() Рё auction identify */
 
 #define CLASS_MAGE	0
 #define CLASS_CLERIC	1
@@ -563,12 +563,12 @@ typedef void EFFECT_FUN args((void *vo, int level, int dam, int target));
 #define IS_WIZINVISMOB(ch)	(ch && IS_NPC(ch) && IS_SET(ch->act, ACT_WIZINVIS))
 
 /* vnums of called charmises...  8))  */
-#define MOB_VNUM_DRUIDS_TREE	3  /* дерево */
-#define MOB_VNUM_DRUIDS_WOLF	4  /* волк    (31-35 уровни) */
-#define MOB_VNUM_DRUIDS_LION	5  /* лев     (36-40 --"---) */
-#define MOB_VNUM_DRUIDS_BEAR	6  /* медведь (41-45 --"---) */
-#define MOB_VNUM_DRUIDS_DRAGON	7  /* дракон  (46-51 --"---) */
-				   /* дракоша кастовать должен уметь */
+#define MOB_VNUM_DRUIDS_TREE	3  /* РґРµСЂРµРІРѕ */
+#define MOB_VNUM_DRUIDS_WOLF	4  /* РІРѕР»Рє    (31-35 СѓСЂРѕРІРЅРё) */
+#define MOB_VNUM_DRUIDS_LION	5  /* Р»РµРІ     (36-40 --"---) */
+#define MOB_VNUM_DRUIDS_BEAR	6  /* РјРµРґРІРµРґСЊ (41-45 --"---) */
+#define MOB_VNUM_DRUIDS_DRAGON	7  /* РґСЂР°РєРѕРЅ  (46-51 --"---) */
+				   /* РґСЂР°РєРѕС€Р° РєР°СЃС‚РѕРІР°С‚СЊ РґРѕР»Р¶РµРЅ СѓРјРµС‚СЊ */
 
 #define OBJ_VNUM_DRUIDS_SWORD	27
 #define OBJ_VNUM_CAMPFIRE	28
@@ -881,9 +881,9 @@ struct  con_app_type
 #define TO_ALL		4
 #define TO_SOUND		5
 
-#define STRING_NORM "нормальный"
-#define STRING_AGGR "атакующий"
-#define STRING_CARE "оборонительный"
+#define STRING_NORM "РЅРѕСЂРјР°Р»СЊРЅС‹Р№"
+#define STRING_AGGR "Р°С‚Р°РєСѓСЋС‰РёР№"
+#define STRING_CARE "РѕР±РѕСЂРѕРЅРёС‚РµР»СЊРЅС‹Р№"
 
 /*
  * Help table types.
@@ -1320,7 +1320,7 @@ extern bool too_many_victims;
 #define ACT_BANKER    (ee)
 #define ACT_ANIMAL    (ff)
 #define ACT_QUESTER    (gg)
-#define ACT_AROSH		(hh) /*зодчий - строитель домов*/
+#define ACT_AROSH		(hh) /*Р·РѕРґС‡РёР№ - СЃС‚СЂРѕРёС‚РµР»СЊ РґРѕРјРѕРІ*/
 #define ACT_EXECUTIONER (ii)
 #define ACT_WIZINVIS	(jj)
 #define ACT_INLUA	(kk)	/* For internal use only */
@@ -1750,7 +1750,7 @@ extern bool too_many_victims;
 #define ITEM_GLOW    (A)
 #define ITEM_HUM    (B)
 
-#define ITEM_DARK    (C) /*  ????????? Занакой нужно? */
+#define ITEM_DARK    (C) /*  ????????? Р—Р°РЅР°РєРѕР№ РЅСѓР¶РЅРѕ? */
 #define ITEM_LOCK    (D) /*                           */
 
 #define ITEM_EVIL    (E)
@@ -2032,20 +2032,20 @@ extern bool too_many_victims;
 #define ROOM_NOFLY_DT    	(aa)
 #define ROOM_NOLOOT    		(bb)
 #define ROOM_NOEXP_LOST    	(cc)
-#define ROOM_NO_FLY		(dd) /* флаг "не_летать" */
+#define ROOM_NO_FLY		(dd) /* С„Р»Р°Рі "РЅРµ_Р»РµС‚Р°С‚СЊ" */
 #define ROOM_KILL    		(ee)
 #define ROOM_ARENA              (ff)
 #define ROOM_ARENA_MONITOR      (gg)
-#define ROOM_HOUSE		(hh) /* флаг "дом чара" */
+#define ROOM_HOUSE		(hh) /* С„Р»Р°Рі "РґРѕРј С‡Р°СЂР°" */
 #define ROOM_NOSLEEP    	(ii)
 #define ROOM_NOSIT    		(jj)
-#define ROOM_CAN_BUILD_HOUSE	(kk) /* флаг 'можно строить дом' */
+#define ROOM_CAN_BUILD_HOUSE	(kk) /* С„Р»Р°Рі 'РјРѕР¶РЅРѕ СЃС‚СЂРѕРёС‚СЊ РґРѕРј' */
 #define ROOM_NORUN		(ll)
 #define ROOM_NOAUCTION		(mm)
-#define ROOM_HOLY    		(nn) /*святые комнаты (храмы)*/
-#define ROOM_GUILD    		(oo) /*гильдии*/
-#define ROOM_PRISON		(pp) /*тюрьмы*/
-#define ROOM_NOQUEST		(qq) /*квесты*/
+#define ROOM_HOLY    		(nn) /*СЃРІСЏС‚С‹Рµ РєРѕРјРЅР°С‚С‹ (С…СЂР°РјС‹)*/
+#define ROOM_GUILD    		(oo) /*РіРёР»СЊРґРёРё*/
+#define ROOM_PRISON		(pp) /*С‚СЋСЂСЊРјС‹*/
+#define ROOM_NOQUEST		(qq) /*РєРІРµСЃС‚С‹*/
 
 
 /*
@@ -2217,11 +2217,11 @@ extern bool too_many_victims;
 #define PLR_MAPEXIT    (ff)
 
 /* misc flags */
-#define PLR_CHALLENGER          (gg) /* Флаг участия в боях без правил */
-#define PLR_FULL_SILENCE		(hh) /* флаг "полное молчание */
+#define PLR_CHALLENGER          (gg) /* Р¤Р»Р°Рі СѓС‡Р°СЃС‚РёСЏ РІ Р±РѕСЏС… Р±РµР· РїСЂР°РІРёР» */
+#define PLR_FULL_SILENCE		(hh) /* С„Р»Р°Рі "РїРѕР»РЅРѕРµ РјРѕР»С‡Р°РЅРёРµ */
 #define PLR_CONFIRM_DELETE      (ii)
-#define PLR_NOPK				(jj) /* флаг ноу_ПК */
-#define PLR_AUTOATTACK			(kk) /*флаг разрешения атаки на чаров, защита от случайных нападений*/
+#define PLR_NOPK				(jj) /* С„Р»Р°Рі РЅРѕСѓ_РџРљ */
+#define PLR_AUTOATTACK			(kk) /*С„Р»Р°Рі СЂР°Р·СЂРµС€РµРЅРёСЏ Р°С‚Р°РєРё РЅР° С‡Р°СЂРѕРІ, Р·Р°С‰РёС‚Р° РѕС‚ СЃР»СѓС‡Р°Р№РЅС‹С… РЅР°РїР°РґРµРЅРёР№*/
 
 /*
  * #define PLR_OLD_COMPENSATION		(mm)
@@ -2634,9 +2634,9 @@ struct pc_data
     time_t	lastlogof;
 
 
-    int		quest_accum;		/* Общее количество купе за всю игру чаром */
+    int		quest_accum;		/* РћР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РєСѓРїРµ Р·Р° РІСЃСЋ РёРіСЂСѓ С‡Р°СЂРѕРј */
     CHAR_DATA	*questgiver;		/* who gave the quest quest */
-    int		quest_curr;         /* Текущее количество купе у чара */
+    int		quest_curr;         /* РўРµРєСѓС‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РєСѓРїРµ Сѓ С‡Р°СЂР° */
     int		nextquest;
     int		qtime;
     int		countdown;
@@ -2674,15 +2674,15 @@ struct pc_data
     int		train_hit;
     int		train_mana;
 
-    /*внум основной комнаты его дома*/
+    /*РІРЅСѓРј РѕСЃРЅРѕРІРЅРѕР№ РєРѕРјРЅР°С‚С‹ РµРіРѕ РґРѕРјР°*/
     int		vnum_house;
-    /*массив - кого пригласил*/
+    /*РјР°СЃСЃРёРІ - РєРѕРіРѕ РїСЂРёРіР»Р°СЃРёР»*/
     long	id_who_guest[MAX_GUESTS];
-    /*массив - кем приглашен*/
+    /*РјР°СЃСЃРёРІ - РєРµРј РїСЂРёРіР»Р°С€РµРЅ*/
     long	id_whom_guest[MAX_GUESTS];
-    /*флаг продолжения свадьбы у моба*/
+    /*С„Р»Р°Рі РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ СЃРІР°РґСЊР±С‹ Сѓ РјРѕР±Р°*/
     int		flag_can_marry;
-    /*контрольный вопрос/ответ*/
+    /*РєРѕРЅС‚СЂРѕР»СЊРЅС‹Р№ РІРѕРїСЂРѕСЃ/РѕС‚РІРµС‚*/
     char	*reg_answer;
 
     Bytef	*visited;
@@ -2732,7 +2732,7 @@ struct  extra_descr_data
 };
 
 /*
- * Структура участника боев.
+ * РЎС‚СЂСѓРєС‚СѓСЂР° СѓС‡Р°СЃС‚РЅРёРєР° Р±РѕРµРІ.
  */
 struct  challenger_data
 {
@@ -2746,7 +2746,7 @@ struct  challenger_data
 };
 
 /*
- * Структура отдельно взятого боя.
+ * РЎС‚СЂСѓРєС‚СѓСЂР° РѕС‚РґРµР»СЊРЅРѕ РІР·СЏС‚РѕРіРѕ Р±РѕСЏ.
  */
 struct  score_data
 {
@@ -2777,7 +2777,7 @@ struct  score_data
 #define RECIPE_CLERIC		6
 
 /*
- * Структура рецепта.
+ * РЎС‚СЂСѓРєС‚СѓСЂР° СЂРµС†РµРїС‚Р°.
  */
 struct  recipe_data
 {
@@ -3244,16 +3244,16 @@ struct prog_code
 #define VALIDATE(data)    do { if ((data) != NULL) (data)->valid = TRUE; } while (0)
 #define INVALIDATE(data)  ((data)->valid = FALSE)
 
-#define LOWER(c)    ((c) >= 'А' && (c) <= 'Я'\
-        ? (c)+'а'-'А'\
+#define LOWER(c)    ((c) >= 'Рђ' && (c) <= 'РЇ'\
+        ? (c)+'Р°'-'Рђ'\
         : ((c) >= 'A' && (c) <= 'Z'? (c)+'a'-'A' : (c)))
 
-#define UPPER(c)    ((c) >= 'а' && (c) <= 'я'\
-        ? (c)+'А'-'а'\
+#define UPPER(c)    ((c) >= 'Р°' && (c) <= 'СЏ'\
+        ? (c)+'Рђ'-'Р°'\
         : ((c) >= 'a' && (c) <= 'z'? (c)+'A'-'a' : (c)))
 
-#define IS_RUSSIAN(c)    (((c) >= 'А' && (c) <= 'Я')\
-        || ((c) >= 'а' && (c) <= 'я'))
+#define IS_RUSSIAN(c)    (((c) >= 'Рђ' && (c) <= 'РЇ')\
+        || ((c) >= 'Р°' && (c) <= 'СЏ'))
 #define IS_ALPHA(c)    (IS_RUSSIAN(c) || ((c) >= 'A' && (c) <= 'Z')\
         || ((c) >= 'a' && (c) <= 'z'))
 
@@ -3313,8 +3313,8 @@ struct prog_code
         || strstr(Area->builders, "All")))
 
 
-#define SEX_ENDING(ch)    ((ch->sex == SEX_FEMALE) ? "а" : (ch->sex == SEX_MALE) ? "" : (ch->sex == SEX_MANY) ? "ы" : "о")
-#define SEX_END_ADJ(victim)  ((victim->sex == SEX_FEMALE) ? "ой" : (ch->sex == SEX_MANY) ? "ыми" : "ым")
+#define SEX_ENDING(ch)    ((ch->sex == SEX_FEMALE) ? "Р°" : (ch->sex == SEX_MALE) ? "" : (ch->sex == SEX_MANY) ? "С‹" : "Рѕ")
+#define SEX_END_ADJ(victim)  ((victim->sex == SEX_FEMALE) ? "РѕР№" : (ch->sex == SEX_MANY) ? "С‹РјРё" : "С‹Рј")
 #define GET_MAX_SEX(ch)    (IS_NPC(ch) ? MAX_NPC_SEX : MAX_PC_SEX)
 
 #define act(format,ch,arg1,arg2,type)  act_new((format),(ch),(arg1),(arg2),(type),POS_RESTING)
@@ -3333,9 +3333,9 @@ struct prog_code
 /*
  * Description macros.
  */
-#define PERS(ch, looker, numcase)  (can_see(looker, (ch)) ? (IS_NPC(ch) ? cases(ch->short_descr, numcase) : cases(ch->name, numcase)) : (IS_IMMORTAL(ch) && !IS_SWITCHED(ch) ? cases(ch->sex == SEX_FEMALE ? "Бессмертная" : "Бессмертный", numcase) : cases("кто-то",numcase)))
+#define PERS(ch, looker, numcase)  (can_see(looker, (ch)) ? (IS_NPC(ch) ? cases(ch->short_descr, numcase) : cases(ch->name, numcase)) : (IS_IMMORTAL(ch) && !IS_SWITCHED(ch) ? cases(ch->sex == SEX_FEMALE ? "Р‘РµСЃСЃРјРµСЂС‚РЅР°СЏ" : "Р‘РµСЃСЃРјРµСЂС‚РЅС‹Р№", numcase) : cases("РєС‚Рѕ-С‚Рѕ",numcase)))
 
-#define PERS_OBJ(looker, obj, numcase)  (can_see_obj(looker, obj) ? cases(obj->short_descr, numcase) : cases("что-то",numcase))
+#define PERS_OBJ(looker, obj, numcase)  (can_see_obj(looker, obj) ? cases(obj->short_descr, numcase) : cases("С‡С‚Рѕ-С‚Рѕ",numcase))
 
 #define IS_SPACE(arg)    (arg == ' ' || arg == '\n' || arg == '\r' || arg == '\t')
 
@@ -3467,7 +3467,7 @@ extern struct quest_type immquest;
 #define MAX_CLAN   20
 #define MAX_CLAN_PLAYERS 150
 #define MIN_CLAN_LEVEL   20
-#define CLAN_INDEPEND   "независимые"
+#define CLAN_INDEPEND   "РЅРµР·Р°РІРёСЃРёРјС‹Рµ"
 #define CLAN_NEWS_EXPIRED 2
 #define MAX_NOCLAN_LEVEL 30
 
@@ -3679,7 +3679,7 @@ char *  crypt    args((const char *key, const char *salt));
 #define BUG_FILE        "bugs.txt" /* For 'bug' and bug()*/
 #define TODO_FILE		"todo.txt" /*For todo*/
 
-/*для списка всех операций с домами*/
+/*РґР»СЏ СЃРїРёСЃРєР° РІСЃРµС… РѕРїРµСЂР°С†РёР№ СЃ РґРѕРјР°РјРё*/
 /*#define HOUSE_FILE		"houses.txt" */
 
 #define TYPO_FILE       "typos.txt" /* For 'typo'*/
@@ -4158,9 +4158,9 @@ extern char *target_name;
 
 /* mob_prog.c */
 
-static char * const he_she  [] = { "оно",  "он",  "она", "они" };
-static char * const him_her [] = { "ему",  "ему", "ей", "им" };
-static char * const his_her [] = { "его", "его", "ее", "их" };
+static char * const he_she  [] = { "РѕРЅРѕ",  "РѕРЅ",  "РѕРЅР°", "РѕРЅРё" };
+static char * const him_her [] = { "РµРјСѓ",  "РµРјСѓ", "РµР№", "РёРј" };
+static char * const his_her [] = { "РµРіРѕ", "РµРіРѕ", "РµРµ", "РёС…" };
 
 
 int program_flow(int vnum, char *source, CHAR_DATA *mob,
@@ -4405,8 +4405,8 @@ extern const struct flag_type  wear_flags[];
 extern const struct flag_type  weapon_flags[];
 extern const struct flag_type  container_flags[];
 extern const struct flag_type  chest_flags[];
-extern const struct flag_type  ing_sector_flags[];	/*ингредиенты - сектор*/
-extern const struct flag_type  ing_weather_flags[];	/*ингредиенты - погода*/
+extern const struct flag_type  ing_sector_flags[];	/*РёРЅРіСЂРµРґРёРµРЅС‚С‹ - СЃРµРєС‚РѕСЂ*/
+extern const struct flag_type  ing_weather_flags[];	/*РёРЅРіСЂРµРґРёРµРЅС‚С‹ - РїРѕРіРѕРґР°*/
 extern const struct flag_type  portal_flags[];
 extern const struct flag_type  room_flags[];
 extern const struct flag_type  exit_flags[];

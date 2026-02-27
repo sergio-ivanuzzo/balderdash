@@ -613,21 +613,21 @@ void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 
         case ITEM_MORTAR:
             fprintf(fp, "%d %s %d %d %d\n",
-                     pObjIndex->value[0],		/*макс вместимость*/
+                     pObjIndex->value[0],		/*РјР°РєСЃ РІРјРµСЃС‚РёРјРѕСЃС‚СЊ*/
                      fwrite_flag(pObjIndex->value[1]),
-                     pObjIndex->value[2],		/*количество предметов*/
-                     pObjIndex->value[3],               /*макс масса предмета*/
-                     pObjIndex->value[4]);              /*мультиплер*/
+                     pObjIndex->value[2],		/*РєРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРµРґРјРµС‚РѕРІ*/
+                     pObjIndex->value[3],               /*РјР°РєСЃ РјР°СЃСЃР° РїСЂРµРґРјРµС‚Р°*/
+                     pObjIndex->value[4]);              /*РјСѓР»СЊС‚РёРїР»РµСЂ*/
             break;
 
         case ITEM_INGREDIENT:
             fprintf(fp, "%d %s %d ",
-                     pObjIndex->value[0],		/*время поиска*/
-                     fwrite_flag(pObjIndex->value[1]),	/*местность*/
-                     pObjIndex->value[2]);		/*раса моба-чара*/
+                     pObjIndex->value[0],		/*РІСЂРµРјСЏ РїРѕРёСЃРєР°*/
+                     fwrite_flag(pObjIndex->value[1]),	/*РјРµСЃС‚РЅРѕСЃС‚СЊ*/
+                     pObjIndex->value[2]);		/*СЂР°СЃР° РјРѕР±Р°-С‡Р°СЂР°*/
             fprintf(fp, "%s %d\n",
-                     fwrite_flag(pObjIndex->value[3]),	/*погода, время года*/
-                     pObjIndex->value[4]);		/*шанс найти*/
+                     fwrite_flag(pObjIndex->value[3]),	/*РїРѕРіРѕРґР°, РІСЂРµРјСЏ РіРѕРґР°*/
+                     pObjIndex->value[4]);		/*С€Р°РЅСЃ РЅР°Р№С‚Рё*/
             break;
 
     }

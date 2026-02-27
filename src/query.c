@@ -90,7 +90,7 @@ void list_query(CHAR_DATA *ch)
     int t = 1;
     char buf[MSL];
 
-    send_to_char(" N.   Íàçâàíèå\n\r",ch);
+    send_to_char(" N.   ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ\n\r",ch);
     send_to_char("====|========================================================================\n\r", ch);
     for (query  = query_list; query != NULL; query  = query->next)
     {

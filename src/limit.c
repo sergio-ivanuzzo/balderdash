@@ -73,17 +73,17 @@ bool is_have_limit(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 	{
 	    if (victim != ch) 
 	    {
-		act("Ó $S1 óæå åñòü $p.", victim, lobj, ch, TO_CHAR);
+		act("Ð£ $S1 ÑƒÐ¶Ðµ ÐµÑÑ‚ÑŒ $p.", victim, lobj, ch, TO_CHAR);
 	    }	
 	    else
 	    {
 		if (lobj->wear_loc == WEAR_NONE)
 		{
-		    act("Ïîèùè $p6 ó ñåáÿ â èíâåíòàðå.", ch, lobj, NULL, TO_CHAR);
+		    act("ÐŸÐ¾Ð¸Ñ‰Ð¸ $p6 Ñƒ ÑÐµÐ±Ñ Ð² Ð¸Ð½Ð²ÐµÐ½Ñ‚Ð°Ñ€Ðµ.", ch, lobj, NULL, TO_CHAR);
 		}
 		else
 		{
-		    act("Ïîèùè $p6 íà ñåáå.", ch, lobj, NULL, TO_CHAR);
+		    act("ÐŸÐ¾Ð¸Ñ‰Ð¸ $p6 Ð½Ð° ÑÐµÐ±Ðµ.", ch, lobj, NULL, TO_CHAR);
 		}
 	    }
 	    return TRUE;
@@ -96,11 +96,11 @@ bool is_have_limit(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 		{
 		    if (victim != ch) 
 		    {
-			act("Ó $S1 óæå åñòü $p.", victim, obj_in, ch, TO_CHAR);
+			act("Ð£ $S1 ÑƒÐ¶Ðµ ÐµÑÑ‚ÑŒ $p.", victim, obj_in, ch, TO_CHAR);
 		    }
 		    else
 		    {
-			act("Ïîèùè $p6 ó ñåáÿ â $P5.", ch, obj_in, lobj, TO_CHAR);
+			act("ÐŸÐ¾Ð¸Ñ‰Ð¸ $p6 Ñƒ ÑÐµÐ±Ñ Ð² $P5.", ch, obj_in, lobj, TO_CHAR);
 		    }
 
 		    return TRUE; 
@@ -116,11 +116,11 @@ bool is_have_limit(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 	{
 	    if (victim != ch)
 	    {
-		act("$E óæå ïûòàåòñÿ êóïèòü $p6 íà àóêöèîíå.", victim, obj, ch, TO_CHAR);
+		act("$E ÑƒÐ¶Ðµ Ð¿Ñ‹Ñ‚Ð°ÐµÑ‚ÑÑ ÐºÑƒÐ¿Ð¸Ñ‚ÑŒ $p6 Ð½Ð° Ð°ÑƒÐºÑ†Ð¸Ð¾Ð½Ðµ.", victim, obj, ch, TO_CHAR);
 	    }
 	    else
 	    {
-		act("Òû óæå ïûòàåøüñÿ êóïèòü $p6 íà àóêöèîíå.", ch, obj, NULL, TO_CHAR);
+		act("Ð¢Ñ‹ ÑƒÐ¶Ðµ Ð¿Ñ‹Ñ‚Ð°ÐµÑˆÑŒÑÑ ÐºÑƒÐ¿Ð¸Ñ‚ÑŒ $p6 Ð½Ð° Ð°ÑƒÐºÑ†Ð¸Ð¾Ð½Ðµ.", ch, obj, NULL, TO_CHAR);
 	    }
 
 	    return TRUE;
@@ -242,7 +242,7 @@ void do_limits(CHAR_DATA *ch, char *argument)
 
 	    sprintf(bfr, "%-5d  %s   {%c%2d (%2d){x     {D%-2d{x\n\r", limits[i],
 		    str_color_fmt((obj == NULL)
-				  ? "{RÎáúåêò îòñóòñòâóåò{x"
+				  ? "{RÐžÐ±ÑŠÐµÐºÑ‚ Ð¾Ñ‚ÑÑƒÑ‚ÑÑ‚Ð²ÑƒÐµÑ‚{x"
 				  : obj->short_descr, 30),
 		    color, limits[i+1], limits[i+2], obj ? obj->level : 0);
 	    add_buf(output, bfr);

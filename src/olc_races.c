@@ -86,7 +86,7 @@ void do_raedit(CHAR_DATA *ch, char *argument)
     {
 	if (!is_spec_granted(ch, "raedit_create"))
 	{
-	    send_to_char("Ты не можешь создавать новые расы.\n\r", ch);
+	    send_to_char("РўС‹ РЅРµ РјРѕР¶РµС€СЊ СЃРѕР·РґР°РІР°С‚СЊ РЅРѕРІС‹Рµ СЂР°СЃС‹.\n\r", ch);
 	    return;
 	}
 

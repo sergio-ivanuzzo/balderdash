@@ -255,17 +255,17 @@ void do_outfit(CHAR_DATA *ch, char *argument)
 
     if (ch->level > LEVEL_NEWBIE || IS_NPC(ch))
     {
-	send_to_char("Найди это самостоятельно!\n\r", ch);
+	send_to_char("РќР°Р№РґРё СЌС‚Рѕ СЃР°РјРѕСЃС‚РѕСЏС‚РµР»СЊРЅРѕ!\n\r", ch);
 	return;
     }
 
     if (ch->carry_number >= can_carry_n(ch) || ch->carry_weight >= can_carry_w(ch))
     {
-	send_to_char("Ты несешь слишком много вещей!\n\r", ch);
+	send_to_char("РўС‹ РЅРµСЃРµС€СЊ СЃР»РёС€РєРѕРј РјРЅРѕРіРѕ РІРµС‰РµР№!\n\r", ch);
 	return;
     }
 
-    send_to_char("Ты получаешь от Богов простенькую экипировку.\n\r", ch);
+    send_to_char("РўС‹ РїРѕР»СѓС‡Р°РµС€СЊ РѕС‚ Р‘РѕРіРѕРІ РїСЂРѕСЃС‚РµРЅСЊРєСѓСЋ СЌРєРёРїРёСЂРѕРІРєСѓ.\n\r", ch);
 
     if ((obj = get_eq_char(ch, WEAR_LIGHT)) == NULL)
     {
@@ -351,7 +351,7 @@ long get_next_seconds(char *argument, CHAR_DATA *ch)
     {
 	if (!is_number(buf))
 	{
-	    send_to_char("Второй аргумент должен быть числовым!\n\r", ch);
+	    send_to_char("Р’С‚РѕСЂРѕР№ Р°СЂРіСѓРјРµРЅС‚ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ С‡РёСЃР»РѕРІС‹Рј!\n\r", ch);
 	    return 0;
 	}
 	days = atoi(buf);
@@ -374,28 +374,28 @@ void do_nochannels(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0')
     {
-	send_to_char("Отобрать каналы у кого?\n\r", ch);
+	send_to_char("РћС‚РѕР±СЂР°С‚СЊ РєР°РЅР°Р»С‹ Сѓ РєРѕРіРѕ?\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg)) == NULL || IS_NPC(victim))
     {
-	send_to_char("Таких нет в этом мире.\n\r", ch);
+	send_to_char("РўР°РєРёС… РЅРµС‚ РІ СЌС‚РѕРј РјРёСЂРµ.\n\r", ch);
 	return;
     }
 
     if (IS_IMMORTAL(victim) && (get_trust(victim) >= get_trust(ch)))
     {
-	send_to_char("Не получилось.\n\r", ch);
+	send_to_char("РќРµ РїРѕР»СѓС‡РёР»РѕСЃСЊ.\n\r", ch);
 	return;
     }
 
     if (IS_SET(victim->comm, COMM_NOCHANNELS))
     {
 	REMOVE_BIT(victim->comm, COMM_NOCHANNELS);
-	send_to_char("Боги вернули тебе привилегию пользования каналами.\n\r", victim);
+	send_to_char("Р‘РѕРіРё РІРµСЂРЅСѓР»Рё С‚РµР±Рµ РїСЂРёРІРёР»РµРіРёСЋ РїРѕР»СЊР·РѕРІР°РЅРёСЏ РєР°РЅР°Р»Р°РјРё.\n\r", victim);
 	send_to_char("NOCHANNELS removed.\n\r", ch);
-	sprintf(buf, "$N возвращает %s право пользования каналами", cases(victim->name, 2));
+	sprintf(buf, "$N РІРѕР·РІСЂР°С‰Р°РµС‚ %s РїСЂР°РІРѕ РїРѕР»СЊР·РѕРІР°РЅРёСЏ РєР°РЅР°Р»Р°РјРё", cases(victim->name, 2));
 	wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
 	victim->pcdata->nochan = 0;
     }
@@ -403,9 +403,9 @@ void do_nochannels(CHAR_DATA *ch, char *argument)
     {
 	victim->pcdata->nochan = get_next_seconds(argument, ch);
 	SET_BIT(victim->comm, COMM_NOCHANNELS);
-	send_to_char("Боги отобрали у тебя привилегию пользования каналами.\n\r", victim);
+	send_to_char("Р‘РѕРіРё РѕС‚РѕР±СЂР°Р»Рё Сѓ С‚РµР±СЏ РїСЂРёРІРёР»РµРіРёСЋ РїРѕР»СЊР·РѕРІР°РЅРёСЏ РєР°РЅР°Р»Р°РјРё.\n\r", victim);
 	send_to_char("NOCHANNELS set.\n\r", ch);
-	sprintf(buf, "$N лишает %s права пользоваться каналами.", cases(victim->name, 1));
+	sprintf(buf, "$N Р»РёС€Р°РµС‚ %s РїСЂР°РІР° РїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РєР°РЅР°Р»Р°РјРё.", cases(victim->name, 1));
 	wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
     }
 
@@ -421,19 +421,19 @@ void do_extranochannels(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0')
     {
-	send_to_char("Скрыть каналы у кого?\n\r", ch);
+	send_to_char("РЎРєСЂС‹С‚СЊ РєР°РЅР°Р»С‹ Сѓ РєРѕРіРѕ?\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg)) == NULL || IS_NPC(victim))
     {
-	send_to_char("Таких нет в этом мире.\n\r", ch);
+	send_to_char("РўР°РєРёС… РЅРµС‚ РІ СЌС‚РѕРј РјРёСЂРµ.\n\r", ch);
 	return;
     }
 
     if (IS_IMMORTAL(victim) && (get_trust(victim) >= get_trust(ch)))
     {
-	send_to_char("Не получилось.\n\r", ch);
+	send_to_char("РќРµ РїРѕР»СѓС‡РёР»РѕСЃСЊ.\n\r", ch);
 	return;
     }
 
@@ -441,14 +441,14 @@ void do_extranochannels(CHAR_DATA *ch, char *argument)
     {
 	REMOVE_BIT(victim->comm, COMM_EXTRANOCHANNELS);
 	send_to_char("EXTRANOCHANNELS removed.\n\r", ch);
-	sprintf(buf, "$N возвращает %s ВИДИМОСТЬ каналов", cases(victim->name, 2));
+	sprintf(buf, "$N РІРѕР·РІСЂР°С‰Р°РµС‚ %s Р’РР”РРњРћРЎРўР¬ РєР°РЅР°Р»РѕРІ", cases(victim->name, 2));
 	wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
     }
     else
     {
 	SET_BIT(victim->comm, COMM_EXTRANOCHANNELS);
 	send_to_char("EXTRANOCHANNELS set.\n\r", ch);
-	sprintf(buf, "$N лишает %s видимости каналов.", cases(victim->name, 1));
+	sprintf(buf, "$N Р»РёС€Р°РµС‚ %s РІРёРґРёРјРѕСЃС‚Рё РєР°РЅР°Р»РѕРІ.", cases(victim->name, 1));
 	wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
     }
 
@@ -467,19 +467,19 @@ void do_extranochannels(CHAR_DATA *ch, char *argument)
 
  if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE))
  {
- send_to_char("Ты не можешь показывать свои эмоции.\n\r", ch);
+ send_to_char("РўС‹ РЅРµ РјРѕР¶РµС€СЊ РїРѕРєР°Р·С‹РІР°С‚СЊ СЃРІРѕРё СЌРјРѕС†РёРё.\n\r", ch);
  return;
  }
 
  if (argument[0] == '\0')
  {
- send_to_char("Показать что?\n\r", ch);
+ send_to_char("РџРѕРєР°Р·Р°С‚СЊ С‡С‚Рѕ?\n\r", ch);
  return;
  }
 
  if (strstr(argument, ch->name) == NULL)
  {
- send_to_char("Ты должен включить свое имя в команду smote.\n\r", ch);
+ send_to_char("РўС‹ РґРѕР»Р¶РµРЅ РІРєР»СЋС‡РёС‚СЊ СЃРІРѕРµ РёРјСЏ РІ РєРѕРјР°РЅРґСѓ smote.\n\r", ch);
  return;
  }
 
@@ -562,21 +562,21 @@ void do_bamfin(CHAR_DATA *ch, char *argument)
 
 	if (argument[0] == '\0')
 	{
-	    sprintf(buf, "Твое появление выглядит так:\n\r%s\n\r", ch->pcdata->bamfin);
+	    sprintf(buf, "РўРІРѕРµ РїРѕСЏРІР»РµРЅРёРµ РІС‹РіР»СЏРґРёС‚ С‚Р°Рє:\n\r%s\n\r", ch->pcdata->bamfin);
 	    send_to_char(buf, ch);
 	    return;
 	}
 
 	if (strstr(argument, ch->name) == NULL)
 	{
-	    send_to_char("Ты должен включить свое имя в аргумент.\n\r", ch);
+	    send_to_char("РўС‹ РґРѕР»Р¶РµРЅ РІРєР»СЋС‡РёС‚СЊ СЃРІРѕРµ РёРјСЏ РІ Р°СЂРіСѓРјРµРЅС‚.\n\r", ch);
 	    return;
 	}
 
 	free_string(ch->pcdata->bamfin);
 	ch->pcdata->bamfin = str_dup(argument);
 
-	sprintf(buf, "Твое появление теперь выглядит так:\n\r%s\n\r", ch->pcdata->bamfin);
+	sprintf(buf, "РўРІРѕРµ РїРѕСЏРІР»РµРЅРёРµ С‚РµРїРµСЂСЊ РІС‹РіР»СЏРґРёС‚ С‚Р°Рє:\n\r%s\n\r", ch->pcdata->bamfin);
 	send_to_char(buf, ch);
     }
     return;
@@ -592,21 +592,21 @@ void do_bamfout(CHAR_DATA *ch, char *argument)
 
 	if (argument[0] == '\0')
 	{
-	    sprintf(buf, "Ты исчезаешь так:\n\r%s\n\r", ch->pcdata->bamfout);
+	    sprintf(buf, "РўС‹ РёСЃС‡РµР·Р°РµС€СЊ С‚Р°Рє:\n\r%s\n\r", ch->pcdata->bamfout);
 	    send_to_char(buf, ch);
 	    return;
 	}
 
 	if (strstr(argument, ch->name) == NULL)
 	{
-	    send_to_char("Ты должен включить свое имя в аргумент.\n\r", ch);
+	    send_to_char("РўС‹ РґРѕР»Р¶РµРЅ РІРєР»СЋС‡РёС‚СЊ СЃРІРѕРµ РёРјСЏ РІ Р°СЂРіСѓРјРµРЅС‚.\n\r", ch);
 	    return;
 	}
 
 	free_string(ch->pcdata->bamfout);
 	ch->pcdata->bamfout = str_dup(argument);
 
-	sprintf(buf, "Теперь ты будешь исчезать так:\n\r%s\n\r", ch->pcdata->bamfout);
+	sprintf(buf, "РўРµРїРµСЂСЊ С‚С‹ Р±СѓРґРµС€СЊ РёСЃС‡РµР·Р°С‚СЊ С‚Р°Рє:\n\r%s\n\r", ch->pcdata->bamfout);
 	send_to_char(buf, ch);
     }
     return;
@@ -623,45 +623,45 @@ void do_cemail(CHAR_DATA *ch, char *argument)
 
     if (IS_NULLSTR(argument))
     {
-		send_to_char("Синтаксис: cemail <char name> <email>.\n\r", ch);
+		send_to_char("РЎРёРЅС‚Р°РєСЃРёСЃ: cemail <char name> <email>.\n\r", ch);
 		return;
     }
 
     argument = one_argument(argument, arg1);
 	if (IS_NULLSTR(arg1))
 	{
-	    send_to_char("Введи имя чара, которому меняешь адрес email.\n\r", ch);
+	    send_to_char("Р’РІРµРґРё РёРјСЏ С‡Р°СЂР°, РєРѕС‚РѕСЂРѕРјСѓ РјРµРЅСЏРµС€СЊ Р°РґСЂРµСЃ email.\n\r", ch);
 	    return;
 	}
 
 	if ((victim = get_char_world(ch, arg1)) == NULL || (IS_NPC(victim)))
 	{
-	    send_to_char("Таких в мире нет.\n\r", ch);
+	    send_to_char("РўР°РєРёС… РІ РјРёСЂРµ РЅРµС‚.\n\r", ch);
 	    return;
 	}
 
 	if (IS_IMMORTAL(victim))
 	{
-	    send_to_char("Только не имморталу.\n\r", ch);
+	    send_to_char("РўРѕР»СЊРєРѕ РЅРµ РёРјРјРѕСЂС‚Р°Р»Сѓ.\n\r", ch);
 	    return;
 	}
 
     argument = one_argument(argument, arg2);
 	if (IS_NULLSTR(arg2))
 	{
-	    send_to_char("Введи адрес email.\n\r", ch);
+	    send_to_char("Р’РІРµРґРё Р°РґСЂРµСЃ email.\n\r", ch);
 	    return;
 	}
 	if (!CHECK_EMAIL(arg2))
 	{
-	    send_to_char("Таких адресов не бывает... Попробуй еще.\n\r", ch);
+	    send_to_char("РўР°РєРёС… Р°РґСЂРµСЃРѕРІ РЅРµ Р±С‹РІР°РµС‚... РџРѕРїСЂРѕР±СѓР№ РµС‰Рµ.\n\r", ch);
 	    return;
 	}
 
 	free_string(victim->pcdata->email);
 	victim->pcdata->email = str_dup(arg2);
 	
-	send_to_char("Адрес email успешно изменен.\n\r", ch);
+	send_to_char("РђРґСЂРµСЃ email СѓСЃРїРµС€РЅРѕ РёР·РјРµРЅРµРЅ.\n\r", ch);
 	return;
 }
 
@@ -675,25 +675,25 @@ void do_deny(CHAR_DATA *ch, char *argument)
     one_argument(argument, arg);
     if (arg[0] == '\0')
     {
-	send_to_char("Запретить/разрешить вход кому?\n\r", ch);
+	send_to_char("Р—Р°РїСЂРµС‚РёС‚СЊ/СЂР°Р·СЂРµС€РёС‚СЊ РІС…РѕРґ РєРѕРјСѓ?\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg)) == NULL)
     {
-	send_to_char("Таких здесь нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     if (IS_NPC(victim))
     {
-	send_to_char("Только не моба.\n\r", ch);
+	send_to_char("РўРѕР»СЊРєРѕ РЅРµ РјРѕР±Р°.\n\r", ch);
 	return;
     }
 
     if (get_trust(victim) >= get_trust(ch))
     {
-	send_to_char("Не получилось.\n\r", ch);
+	send_to_char("РќРµ РїРѕР»СѓС‡РёР»РѕСЃСЊ.\n\r", ch);
 	return;
     }
 
@@ -701,8 +701,8 @@ void do_deny(CHAR_DATA *ch, char *argument)
     if (!IS_SET(victim->act, PLR_DENY))
     {
 	SET_BIT(victim->act, PLR_DENY);
-	send_to_char("Боги отказали тебе в доступе в этот мир!\n\r", victim);
-	sprintf(buf, "$N закрывает доступ %s", cases(victim->name, 2));
+	send_to_char("Р‘РѕРіРё РѕС‚РєР°Р·Р°Р»Рё С‚РµР±Рµ РІ РґРѕСЃС‚СѓРїРµ РІ СЌС‚РѕС‚ РјРёСЂ!\n\r", victim);
+	sprintf(buf, "$N Р·Р°РєСЂС‹РІР°РµС‚ РґРѕСЃС‚СѓРї %s", cases(victim->name, 2));
 	wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
 	send_to_char("Deny set.\n\r", ch);
 	save_char_obj(victim, FALSE);
@@ -712,8 +712,8 @@ void do_deny(CHAR_DATA *ch, char *argument)
     else
     {
 	REMOVE_BIT(victim->act, PLR_DENY);
-	send_to_char("Боги разрешили тебе доступ в этот мир!\n\r", victim);
-	sprintf(buf, "$N открывает доступ для %s", cases(victim->name, 1));
+	send_to_char("Р‘РѕРіРё СЂР°Р·СЂРµС€РёР»Рё С‚РµР±Рµ РґРѕСЃС‚СѓРї РІ СЌС‚РѕС‚ РјРёСЂ!\n\r", victim);
+	sprintf(buf, "$N РѕС‚РєСЂС‹РІР°РµС‚ РґРѕСЃС‚СѓРї РґР»СЏ %s", cases(victim->name, 1));
 	wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
 	send_to_char("Deny removed.\n\r", ch);
 	save_char_obj(victim, FALSE);
@@ -730,44 +730,44 @@ void do_nopk(CHAR_DATA *ch, char *argument)
     one_argument(argument, arg);
     if (arg[0] == '\0')
     {
-	send_to_char("Запретить/разрешить убивать кого?\n\r", ch);
+	send_to_char("Р—Р°РїСЂРµС‚РёС‚СЊ/СЂР°Р·СЂРµС€РёС‚СЊ СѓР±РёРІР°С‚СЊ РєРѕРіРѕ?\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg)) == NULL)
     {
-	send_to_char("Таких здесь нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     if (IS_NPC(victim))
     {
-	send_to_char("Только не моба.\n\r", ch);
+	send_to_char("РўРѕР»СЊРєРѕ РЅРµ РјРѕР±Р°.\n\r", ch);
 	return;
     }
 
     if (get_trust(victim) >= get_trust(ch))
     {
-	send_to_char("Не получилось.\n\r", ch);
+	send_to_char("РќРµ РїРѕР»СѓС‡РёР»РѕСЃСЊ.\n\r", ch);
 	return;
     }
 
     if (!IS_SET(victim->act, PLR_NOPK))
     {
 	SET_BIT(victim->act, PLR_NOPK);
-	send_to_char("{RТеперь тебя не сможет убить чар.{x\n\r", victim);
-	sprintf(buf, "$N запрещает убивать игрокам %s", cases(victim->name, 1));
+	send_to_char("{RРўРµРїРµСЂСЊ С‚РµР±СЏ РЅРµ СЃРјРѕР¶РµС‚ СѓР±РёС‚СЊ С‡Р°СЂ.{x\n\r", victim);
+	sprintf(buf, "$N Р·Р°РїСЂРµС‰Р°РµС‚ СѓР±РёРІР°С‚СЊ РёРіСЂРѕРєР°Рј %s", cases(victim->name, 1));
 	wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
-	send_to_char("Флаг НЕУБИТЬ установлен.\n\r", ch);
+	send_to_char("Р¤Р»Р°Рі РќР•РЈР‘РРўР¬ СѓСЃС‚Р°РЅРѕРІР»РµРЅ.\n\r", ch);
 	save_char_obj(victim, FALSE);
     }
     else
     {
 	REMOVE_BIT(victim->act, PLR_NOPK);
-	send_to_char("{RТеперь чары смогут тебя убивать.{x\n\r", victim);
-	sprintf(buf, "$N разрешает убивать игрокам %s", cases(victim->name, 1));
+	send_to_char("{RРўРµРїРµСЂСЊ С‡Р°СЂС‹ СЃРјРѕРіСѓС‚ С‚РµР±СЏ СѓР±РёРІР°С‚СЊ.{x\n\r", victim);
+	sprintf(buf, "$N СЂР°Р·СЂРµС€Р°РµС‚ СѓР±РёРІР°С‚СЊ РёРіСЂРѕРєР°Рј %s", cases(victim->name, 1));
 	wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
-	send_to_char("Флаг НЕУБИТЬ снят.\n\r", ch);
+	send_to_char("Р¤Р»Р°Рі РќР•РЈР‘РРўР¬ СЃРЅСЏС‚.\n\r", ch);
 	save_char_obj(victim, FALSE);
     }
     return;
@@ -779,39 +779,39 @@ void do_success(CHAR_DATA *ch, char *argument) {
 
     one_argument(argument, arg);
     if (arg[0] == '\0') {
-		send_to_char("Одобрить кого?\n\r", ch);
+		send_to_char("РћРґРѕР±СЂРёС‚СЊ РєРѕРіРѕ?\n\r", ch);
 		return;
     }
 
     if ((victim = get_char_world(ch, arg)) == NULL){
-		send_to_char("Таких здесь нет.\n\r", ch);
+		send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 		return;
     }
 
     if (IS_NPC(victim)){
-		send_to_char("Только не моба.\n\r", ch);
+		send_to_char("РўРѕР»СЊРєРѕ РЅРµ РјРѕР±Р°.\n\r", ch);
 		return;
     }
 
     if (get_trust(victim) > get_trust(ch)){
-		send_to_char("Не получилось.\n\r", ch);
+		send_to_char("РќРµ РїРѕР»СѓС‡РёР»РѕСЃСЊ.\n\r", ch);
 		return;
     }
 
 
     if (victim->pcdata->successed == 0){
 		victim->pcdata->successed = 1;
-		send_to_char("{RБоги одобрили твое пребывание в этом мире.{x\n\r", victim);
-		sprintf(buf, "$N одобрил %s", cases(victim->name, 1));
+		send_to_char("{RР‘РѕРіРё РѕРґРѕР±СЂРёР»Рё С‚РІРѕРµ РїСЂРµР±С‹РІР°РЅРёРµ РІ СЌС‚РѕРј РјРёСЂРµ.{x\n\r", victim);
+		sprintf(buf, "$N РѕРґРѕР±СЂРёР» %s", cases(victim->name, 1));
 		wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
-		send_to_char("Одобрение прошло успешно.\n\r", ch);
+		send_to_char("РћРґРѕР±СЂРµРЅРёРµ РїСЂРѕС€Р»Рѕ СѓСЃРїРµС€РЅРѕ.\n\r", ch);
 		save_char_obj(victim, FALSE);
     } else {
 		victim->pcdata->successed = 0;
-		send_to_char("{RБоги перестали одобрять твое пребывание в этом мире.{x\n\r", victim);
-		sprintf(buf, "$N снял одобрение %s", cases(victim->name, 1));
+		send_to_char("{RР‘РѕРіРё РїРµСЂРµСЃС‚Р°Р»Рё РѕРґРѕР±СЂСЏС‚СЊ С‚РІРѕРµ РїСЂРµР±С‹РІР°РЅРёРµ РІ СЌС‚РѕРј РјРёСЂРµ.{x\n\r", victim);
+		sprintf(buf, "$N СЃРЅСЏР» РѕРґРѕР±СЂРµРЅРёРµ %s", cases(victim->name, 1));
 		wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
-		send_to_char("Снятие одобрения прошло успешно.\n\r", ch);
+		send_to_char("РЎРЅСЏС‚РёРµ РѕРґРѕР±СЂРµРЅРёСЏ РїСЂРѕС€Р»Рѕ СѓСЃРїРµС€РЅРѕ.\n\r", ch);
 		save_char_obj(victim, FALSE);
     }
 
@@ -828,34 +828,34 @@ void do_full_silence(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0')
     {
-	send_to_char("Кому установить полное молчание?\n\r", ch);
+	send_to_char("РљРѕРјСѓ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РїРѕР»РЅРѕРµ РјРѕР»С‡Р°РЅРёРµ?\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg)) == NULL)
     {
-	send_to_char("Таких здесь нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     if (IS_NPC(victim))
     {
-	send_to_char("Только не мобу.\n\r", ch);
+	send_to_char("РўРѕР»СЊРєРѕ РЅРµ РјРѕР±Сѓ.\n\r", ch);
 	return;
     }
 
     if (!IS_SET(victim->act, PLR_FULL_SILENCE))
     {
 	SET_BIT(victim->act, PLR_FULL_SILENCE);
-	send_to_char("{RТеперь ты навсегда молчишь.{x\n\r", victim);
-	send_to_char("Флаг МОЛЧАНИЯ установлен.\n\r", ch);
+	send_to_char("{RРўРµРїРµСЂСЊ С‚С‹ РЅР°РІСЃРµРіРґР° РјРѕР»С‡РёС€СЊ.{x\n\r", victim);
+	send_to_char("Р¤Р»Р°Рі РњРћР›Р§РђРќРРЇ СѓСЃС‚Р°РЅРѕРІР»РµРЅ.\n\r", ch);
 	save_char_obj(victim, FALSE);
     }
     else
     {
 	REMOVE_BIT(victim->act, PLR_FULL_SILENCE);
-	send_to_char("{RТеперь ты снова говоришь.{x\n\r", victim);
-	send_to_char("Флаг МОЛЧАНИЯ снят.\n\r", ch);
+	send_to_char("{RРўРµРїРµСЂСЊ С‚С‹ СЃРЅРѕРІР° РіРѕРІРѕСЂРёС€СЊ.{x\n\r", victim);
+	send_to_char("Р¤Р»Р°Рі РњРћР›Р§РђРќРРЇ СЃРЅСЏС‚.\n\r", ch);
 	save_char_obj(victim, FALSE);
     }
     return;
@@ -870,7 +870,7 @@ void do_disconnect(CHAR_DATA *ch, char *argument)
     one_argument(argument, arg);
     if (arg[0] == '\0')
     {
-	send_to_char("Отключить кого?\n\r", ch);
+	send_to_char("РћС‚РєР»СЋС‡РёС‚СЊ РєРѕРіРѕ?\n\r", ch);
 	return;
     }
 
@@ -892,7 +892,7 @@ void do_disconnect(CHAR_DATA *ch, char *argument)
 
     if ((victim = get_char_world(ch, arg)) == NULL)
     {
-	send_to_char("Таких здесь нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
@@ -930,69 +930,69 @@ void do_pardon(CHAR_DATA *ch, char *argument)
 
     if (arg1[0] == '\0' || arg2[0] == '\0')
     {
-	send_to_char("Syntax: простить <character> <убийца|вор|еретик|братоубийца>.\n\r", ch);
+	send_to_char("Syntax: РїСЂРѕСЃС‚РёС‚СЊ <character> <СѓР±РёР№С†Р°|РІРѕСЂ|РµСЂРµС‚РёРє|Р±СЂР°С‚РѕСѓР±РёР№С†Р°>.\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg1)) == NULL)
     {
-	send_to_char("Таких здесь нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     if (IS_NPC(victim))
     {
-	send_to_char("Только не моба.\n\r", ch);
+	send_to_char("РўРѕР»СЊРєРѕ РЅРµ РјРѕР±Р°.\n\r", ch);
 	return;
     }
 
-    if (!str_cmp(arg2, "killer") || !str_cmp(arg2, "убийца"))
+    if (!str_cmp(arg2, "killer") || !str_cmp(arg2, "СѓР±РёР№С†Р°"))
     {
 	if (IS_SET(victim->act, PLR_KILLER))
 	{
 	    REMOVE_BIT(victim->act, PLR_KILLER);
-	    send_to_char("Флаг 'Убийца' снят.\n\r", ch);
-	    send_to_char("{RБоги простили тебе твои убийства.{c\n\r", victim);
+	    send_to_char("Р¤Р»Р°Рі 'РЈР±РёР№С†Р°' СЃРЅСЏС‚.\n\r", ch);
+	    send_to_char("{RР‘РѕРіРё РїСЂРѕСЃС‚РёР»Рё С‚РµР±Рµ С‚РІРѕРё СѓР±РёР№СЃС‚РІР°.{c\n\r", victim);
 	}
 	return;
     }
 
 
-    if (!str_cmp(arg2, "thief") || !str_cmp(arg2, "вор"))
+    if (!str_cmp(arg2, "thief") || !str_cmp(arg2, "РІРѕСЂ"))
     {
 	if (IS_SET(victim->act, PLR_THIEF))
 	{
 	    REMOVE_BIT(victim->act, PLR_THIEF);
-	    send_to_char("Флаг 'Вор' снят.\n\r", ch);
-	    send_to_char("{RБоги простили тебе твое воровство.{x\n\r", victim);
+	    send_to_char("Р¤Р»Р°Рі 'Р’РѕСЂ' СЃРЅСЏС‚.\n\r", ch);
+	    send_to_char("{RР‘РѕРіРё РїСЂРѕСЃС‚РёР»Рё С‚РµР±Рµ С‚РІРѕРµ РІРѕСЂРѕРІСЃС‚РІРѕ.{x\n\r", victim);
 	}
 	return;
     }
 
-    if (!str_cmp(arg2, "еретик"))
+    if (!str_cmp(arg2, "РµСЂРµС‚РёРє"))
     {
 	if (victim->count_holy_attacks > 0)
 	{
 	    victim->count_holy_attacks = 0;
-	    send_to_char("Флаг 'Еретик' снят.\n\r", ch);
-	    send_to_char("{RБоги простили тебе твое еретичество.{c\n\r", victim);
+	    send_to_char("Р¤Р»Р°Рі 'Р•СЂРµС‚РёРє' СЃРЅСЏС‚.\n\r", ch);
+	    send_to_char("{RР‘РѕРіРё РїСЂРѕСЃС‚РёР»Рё С‚РµР±Рµ С‚РІРѕРµ РµСЂРµС‚РёС‡РµСЃС‚РІРѕ.{c\n\r", victim);
 	}
 	return;
     }
 
-    if (!str_cmp(arg2, "братоубийца"))
+    if (!str_cmp(arg2, "Р±СЂР°С‚РѕСѓР±РёР№С†Р°"))
     {
 	if (victim->count_guild_attacks > 0)
 	{
 	    victim->count_guild_attacks = 0;
-	    send_to_char("Флаг 'Братоубийца' снят.\n\r", ch);
-	    send_to_char("{RГильдия простила тебя.{c\n\r", victim);
+	    send_to_char("Р¤Р»Р°Рі 'Р‘СЂР°С‚РѕСѓР±РёР№С†Р°' СЃРЅСЏС‚.\n\r", ch);
+	    send_to_char("{RР“РёР»СЊРґРёСЏ РїСЂРѕСЃС‚РёР»Р° С‚РµР±СЏ.{c\n\r", victim);
 	}
 	return;
     }
 
 
-    send_to_char("Syntax: простить <character> <убийца|вор|еретик|братоубийца>.\n\r", ch);
+    send_to_char("Syntax: РїСЂРѕСЃС‚РёС‚СЊ <character> <СѓР±РёР№С†Р°|РІРѕСЂ|РµСЂРµС‚РёРє|Р±СЂР°С‚РѕСѓР±РёР№С†Р°>.\n\r", ch);
     return;
 }
 
@@ -1004,7 +1004,7 @@ void do_echo(CHAR_DATA *ch, char *argument)
 
     if (argument[0] == '\0')
     {
-	send_to_char("Сказать всему миру что?\n\r", ch);
+	send_to_char("РЎРєР°Р·Р°С‚СЊ РІСЃРµРјСѓ РјРёСЂСѓ С‡С‚Рѕ?\n\r", ch);
 	return;
     }
 
@@ -1031,7 +1031,7 @@ void do_recho(CHAR_DATA *ch, char *argument)
 
     if (argument[0] == '\0')
     {
-	send_to_char("Сказать локально что?\n\r", ch);
+	send_to_char("РЎРєР°Р·Р°С‚СЊ Р»РѕРєР°Р»СЊРЅРѕ С‡С‚Рѕ?\n\r", ch);
 
 	return;
     }
@@ -1057,7 +1057,7 @@ void do_zecho(CHAR_DATA *ch, char *argument)
 
     if (argument[0] == '\0')
     {
-	send_to_char("Сказать на всю зону что?\n\r", ch);
+	send_to_char("РЎРєР°Р·Р°С‚СЊ РЅР° РІСЃСЋ Р·РѕРЅСѓ С‡С‚Рѕ?\n\r", ch);
 	return;
     }
 
@@ -1084,13 +1084,13 @@ void do_pecho(CHAR_DATA *ch, char *argument)
 
     if (argument[0] == '\0' || arg[0] == '\0')
     {
-	send_to_char("Что ты хотел сказать персонально?\n\r", ch);
+	send_to_char("Р§С‚Рѕ С‚С‹ С…РѕС‚РµР» СЃРєР°Р·Р°С‚СЊ РїРµСЂСЃРѕРЅР°Р»СЊРЅРѕ?\n\r", ch);
 	return;
     }
 
     if  ((victim = get_char_world(ch, arg)) == NULL)
     {
-	send_to_char("Таких не найдено.\n\r", ch);
+	send_to_char("РўР°РєРёС… РЅРµ РЅР°Р№РґРµРЅРѕ.\n\r", ch);
 	return;
     }
 
@@ -1137,11 +1137,11 @@ void do_transfer(CHAR_DATA *ch, char *argument)
 
     if (arg1[0] == '\0')
     {
-	send_to_char("Переместить кого и куда?\n\r", ch);
+	send_to_char("РџРµСЂРµРјРµСЃС‚РёС‚СЊ РєРѕРіРѕ Рё РєСѓРґР°?\n\r", ch);
 	return;
     }
 
-    if (!str_cmp(arg1, "all") || !str_cmp(arg1, "всех"))
+    if (!str_cmp(arg1, "all") || !str_cmp(arg1, "РІСЃРµС…"))
     {
 	SLIST_FOREACH(d, &descriptor_list, link)
 	{
@@ -1164,7 +1164,7 @@ void do_transfer(CHAR_DATA *ch, char *argument)
 
     if ((victim = get_char_world(ch, arg1)) == NULL)
     {
-	send_to_char("Таких здесь нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
@@ -1172,11 +1172,11 @@ void do_transfer(CHAR_DATA *ch, char *argument)
     {
 	location = ch->in_room;
     }
-    else if (!str_prefix(arg2, "recall") || !str_prefix(arg2, "возврат"))
+    else if (!str_prefix(arg2, "recall") || !str_prefix(arg2, "РІРѕР·РІСЂР°С‚"))
     {
 	if (IS_NPC(victim))
 	{
-	    send_to_char("У мобов возврат не работает.\n\r", ch);
+	    send_to_char("РЈ РјРѕР±РѕРІ РІРѕР·РІСЂР°С‚ РЅРµ СЂР°Р±РѕС‚Р°РµС‚.\n\r", ch);
 	    return;
 	}
 
@@ -1186,13 +1186,13 @@ void do_transfer(CHAR_DATA *ch, char *argument)
     {
 	if ((location = find_location(ch, arg2)) == NULL)
 	{
-	    send_to_char("Комнаты с таким номером не обнаружено!\n\r", ch);
+	    send_to_char("РљРѕРјРЅР°С‚С‹ СЃ С‚Р°РєРёРј РЅРѕРјРµСЂРѕРј РЅРµ РѕР±РЅР°СЂСѓР¶РµРЅРѕ!\n\r", ch);
 	    return;
 	}
 
 	if (room_is_private(location, MOUNTED(victim))&&  get_trust(ch) < MAX_LEVEL)
 	{
-	    send_to_char("Это место сейчас занято.\n\r", ch);
+	    send_to_char("Р­С‚Рѕ РјРµСЃС‚Рѕ СЃРµР№С‡Р°СЃ Р·Р°РЅСЏС‚Рѕ.\n\r", ch);
 	    return;
 	}
 
@@ -1200,7 +1200,7 @@ void do_transfer(CHAR_DATA *ch, char *argument)
 
     if (victim->in_room == NULL)
     {
-	send_to_char("Похоже, этот игрок в Лимбо.\n\r", ch);
+	send_to_char("РџРѕС…РѕР¶Рµ, СЌС‚РѕС‚ РёРіСЂРѕРє РІ Р›РёРјР±Рѕ.\n\r", ch);
 	return;
     }
 
@@ -1211,7 +1211,7 @@ void do_transfer(CHAR_DATA *ch, char *argument)
     {
 	char_from_room(MOUNTED(victim));
 	char_to_room(MOUNTED(victim), location, TRUE);
-	send_to_char("Твоего всадника переместили, поэтому ты следуешь за ним.\n\r", MOUNTED(victim));
+	send_to_char("РўРІРѕРµРіРѕ РІСЃР°РґРЅРёРєР° РїРµСЂРµРјРµСЃС‚РёР»Рё, РїРѕСЌС‚РѕРјСѓ С‚С‹ СЃР»РµРґСѓРµС€СЊ Р·Р° РЅРёРј.\n\r", MOUNTED(victim));
 	kick_pet(MOUNTED(victim));
     }
 
@@ -1222,22 +1222,22 @@ void do_transfer(CHAR_DATA *ch, char *argument)
 	kick_pet(victim->pet);
     }
 
-    /* Если в иммовском инвизе, то чару и пикнуть не должны, что в его
-     * комнате был имм!
+    /* Р•СЃР»Рё РІ РёРјРјРѕРІСЃРєРѕРј РёРЅРІРёР·Рµ, С‚Рѕ С‡Р°СЂСѓ Рё РїРёРєРЅСѓС‚СЊ РЅРµ РґРѕР»Р¶РЅС‹, С‡С‚Рѕ РІ РµРіРѕ
+     * РєРѕРјРЅР°С‚Рµ Р±С‹Р» РёРјРј!
      */
     LIST_FOREACH_SAFE(rch, &victim->in_room->people, room_link, safe_rch)
     {
 	if (get_trust(rch) >= victim->invis_level)
-	    act("$n внезапно исчезает в легкой дымке.", victim, NULL, rch, TO_VICT);
+	    act("$n РІРЅРµР·Р°РїРЅРѕ РёСЃС‡РµР·Р°РµС‚ РІ Р»РµРіРєРѕР№ РґС‹РјРєРµ.", victim, NULL, rch, TO_VICT);
     }
 
     if (ch != victim)
-	act("$n перемещает тебя!", ch, NULL, victim, TO_VICT);
+	act("$n РїРµСЂРµРјРµС‰Р°РµС‚ С‚РµР±СЏ!", ch, NULL, victim, TO_VICT);
 
     LIST_FOREACH_SAFE(rch, &location->people, room_link, safe_rch)
     {
 	if (get_trust(rch) > victim->invis_level)
-	    act("$N внезапно появляется в клубах дыма.", rch, NULL, victim, TO_CHAR);
+	    act("$N РІРЅРµР·Р°РїРЅРѕ РїРѕСЏРІР»СЏРµС‚СЃСЏ РІ РєР»СѓР±Р°С… РґС‹РјР°.", rch, NULL, victim, TO_CHAR);
     }
 
     char_from_room(victim);
@@ -1261,19 +1261,19 @@ void do_at(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0' || argument[0] == '\0')
     {
-	send_to_char("Выполнить какую команду где?\n\r", ch);
+	send_to_char("Р’С‹РїРѕР»РЅРёС‚СЊ РєР°РєСѓСЋ РєРѕРјР°РЅРґСѓ РіРґРµ?\n\r", ch);
 	return;
     }
 
     if ((location = find_location(ch, arg)) == NULL)
     {
-	send_to_char("Нет такой комнаты.\n\r", ch);
+	send_to_char("РќРµС‚ С‚Р°РєРѕР№ РєРѕРјРЅР°С‚С‹.\n\r", ch);
 	return;
     }
 
     if (room_is_private(location, NULL) &&  get_trust(ch) < MAX_LEVEL)
     {
-	send_to_char("Эта комната сейчас занята.\n\r", ch);
+	send_to_char("Р­С‚Р° РєРѕРјРЅР°С‚Р° СЃРµР№С‡Р°СЃ Р·Р°РЅСЏС‚Р°.\n\r", ch);
 	return;
     }
 
@@ -1322,13 +1322,13 @@ void do_goto(CHAR_DATA *ch, char *argument)
 
     if (argument[0] == '\0')
     {
-	send_to_char("Переместиться куда?\n\r", ch);
+	send_to_char("РџРµСЂРµРјРµСЃС‚РёС‚СЊСЃСЏ РєСѓРґР°?\n\r", ch);
 	return;
     }
 
     if ((location = find_location(ch, argument)) == NULL)
     {
-	send_to_char("Нет такой комнаты.\n\r", ch);
+	send_to_char("РќРµС‚ С‚Р°РєРѕР№ РєРѕРјРЅР°С‚С‹.\n\r", ch);
 	return;
     }
 
@@ -1339,7 +1339,7 @@ void do_goto(CHAR_DATA *ch, char *argument)
     if (room_is_private(location, MOUNTED(ch))
 	&& (count > 1 || get_trust(ch) < MAX_LEVEL))
     {
-	send_to_char("Эта комната сейчас занята.\n\r", ch);
+	send_to_char("Р­С‚Р° РєРѕРјРЅР°С‚Р° СЃРµР№С‡Р°СЃ Р·Р°РЅСЏС‚Р°.\n\r", ch);
 	return;
     }
 
@@ -1353,7 +1353,7 @@ void do_goto(CHAR_DATA *ch, char *argument)
 	    if (ch->pcdata != NULL && ch->pcdata->bamfout[0] != '\0')
 		act("$t", ch, ch->pcdata->bamfout, rch, TO_VICT);
 	    else
-		act("$n исчезает в клубах дыма.", ch, NULL, rch, TO_VICT);
+		act("$n РёСЃС‡РµР·Р°РµС‚ РІ РєР»СѓР±Р°С… РґС‹РјР°.", ch, NULL, rch, TO_VICT);
 	}
     }
 
@@ -1369,7 +1369,7 @@ void do_goto(CHAR_DATA *ch, char *argument)
     {
 	char_from_room(MOUNTED(ch));
 	char_to_room(MOUNTED(ch), location, TRUE);
-	send_to_char("Твой всадник - бессмертный, и прыгнул куда-то, поэтому ты следуешь за ним.\n\r", MOUNTED(ch));
+	send_to_char("РўРІРѕР№ РІСЃР°РґРЅРёРє - Р±РµСЃСЃРјРµСЂС‚РЅС‹Р№, Рё РїСЂС‹РіРЅСѓР» РєСѓРґР°-С‚Рѕ, РїРѕСЌС‚РѕРјСѓ С‚С‹ СЃР»РµРґСѓРµС€СЊ Р·Р° РЅРёРј.\n\r", MOUNTED(ch));
     }
 
     LIST_FOREACH_SAFE(rch, &location->people, room_link, safe_rch)
@@ -1379,7 +1379,7 @@ void do_goto(CHAR_DATA *ch, char *argument)
 	    if (ch->pcdata != NULL && ch->pcdata->bamfin[0] != '\0')
 		act("$t", rch, ch->pcdata->bamfin, ch, TO_CHAR);
 	    else
-		act("$n появляется в клубах дыма.", ch, NULL, rch, TO_VICT);
+		act("$n РїРѕСЏРІР»СЏРµС‚СЃСЏ РІ РєР»СѓР±Р°С… РґС‹РјР°.", ch, NULL, rch, TO_VICT);
 	}
     }
 
@@ -1395,19 +1395,19 @@ void do_violate(CHAR_DATA *ch, char *argument)
 
     if (argument[0] == '\0')
     {
-	send_to_char("Переместиться куда?\n\r", ch);
+	send_to_char("РџРµСЂРµРјРµСЃС‚РёС‚СЊСЃСЏ РєСѓРґР°?\n\r", ch);
 	return;
     }
 
     if ((location = find_location(ch, argument)) == NULL)
     {
-	send_to_char("Нет такой комнаты.\n\r", ch);
+	send_to_char("РќРµС‚ С‚Р°РєРѕР№ РєРѕРјРЅР°С‚С‹.\n\r", ch);
 	return;
     }
 
     if (!room_is_private(location, NULL))
     {
-	send_to_char("Эта комната не приватная.\n\r", ch);
+	send_to_char("Р­С‚Р° РєРѕРјРЅР°С‚Р° РЅРµ РїСЂРёРІР°С‚РЅР°СЏ.\n\r", ch);
 	return;
     }
 
@@ -1421,7 +1421,7 @@ void do_violate(CHAR_DATA *ch, char *argument)
 	    if (ch->pcdata != NULL && ch->pcdata->bamfout[0] != '\0')
 		act("$t", ch, ch->pcdata->bamfout, rch, TO_VICT);
 	    else
-		act("$n исчезает в клубах дыма.", ch, NULL, rch, TO_VICT);
+		act("$n РёСЃС‡РµР·Р°РµС‚ РІ РєР»СѓР±Р°С… РґС‹РјР°.", ch, NULL, rch, TO_VICT);
 	}
     }
 
@@ -1432,7 +1432,7 @@ void do_violate(CHAR_DATA *ch, char *argument)
 	    if (ch->pcdata != NULL && ch->pcdata->bamfin[0] != '\0')
 		act("$t", ch, ch->pcdata->bamfin, rch, TO_VICT);
 	    else
-		act("$n появляется в клубах дыма.", ch, NULL, rch, TO_VICT);
+		act("$n РїРѕСЏРІР»СЏРµС‚СЃСЏ РІ РєР»СѓР±Р°С… РґС‹РјР°.", ch, NULL, rch, TO_VICT);
 	}
     }
 
@@ -1460,38 +1460,38 @@ void do_stat(CHAR_DATA *ch, char *argument)
 	send_to_char("  stat obj <name>\n\r", ch);
 	send_to_char("  stat mob <name>\n\r", ch);
 	send_to_char("  stat room <number>\n\r", ch);
-	send_to_char("  статистика <name>\n\r", ch);
-	send_to_char("  статистика объект <name>\n\r", ch);
-	send_to_char("  статистика моб <name>\n\r", ch);
-	send_to_char("  статистика комната <number>\n\r", ch);
+	send_to_char("  СЃС‚Р°С‚РёСЃС‚РёРєР° <name>\n\r", ch);
+	send_to_char("  СЃС‚Р°С‚РёСЃС‚РёРєР° РѕР±СЉРµРєС‚ <name>\n\r", ch);
+	send_to_char("  СЃС‚Р°С‚РёСЃС‚РёРєР° РјРѕР± <name>\n\r", ch);
+	send_to_char("  СЃС‚Р°С‚РёСЃС‚РёРєР° РєРѕРјРЅР°С‚Р° <number>\n\r", ch);
 	return;
     }
 
-    if (!str_cmp(arg, "room") || !str_prefix(arg, "комната"))
+    if (!str_cmp(arg, "room") || !str_prefix(arg, "РєРѕРјРЅР°С‚Р°"))
     {
 	location = IS_NULLSTR(argument) ? NULL : find_location(ch, argument);
 	do_rstat(ch, location);
 	return;
     }
 
-    if (!str_cmp(arg, "obj") || !str_prefix(arg, "объект"))
+    if (!str_cmp(arg, "obj") || !str_prefix(arg, "РѕР±СЉРµРєС‚"))
     {
 	if ((obj = get_obj_world(ch, argument)) != NULL)
 	    do_ostat(ch, obj);
 	else
-	    printf_to_char("Объект не найден.\n\r", ch);
+	    printf_to_char("РћР±СЉРµРєС‚ РЅРµ РЅР°Р№РґРµРЅ.\n\r", ch);
 	return;
     }
 
     if (!str_cmp(arg, "char")
 	|| !str_cmp(arg, "mob")
-	|| !str_cmp(arg, "чар")
-	|| !str_cmp(arg, "моб"))
+	|| !str_cmp(arg, "С‡Р°СЂ")
+	|| !str_cmp(arg, "РјРѕР±"))
     {
 	if ((victim = get_char_world(ch, argument)) != NULL)
 	    do_mstat(ch, victim);
 	else
-	    printf_to_char("Чар/моб не найден.\n\r", ch);
+	    printf_to_char("Р§Р°СЂ/РјРѕР± РЅРµ РЅР°Р№РґРµРЅ.\n\r", ch);
 	return;
     }
 
@@ -1517,7 +1517,7 @@ void do_stat(CHAR_DATA *ch, char *argument)
 	return;
     }
 
-    send_to_char("Ничего с таким именем не найдено.\n\r", ch);
+    send_to_char("РќРёС‡РµРіРѕ СЃ С‚Р°РєРёРј РёРјРµРЅРµРј РЅРµ РЅР°Р№РґРµРЅРѕ.\n\r", ch);
 }
 
 void do_rstat(CHAR_DATA *ch, ROOM_INDEX_DATA *location)
@@ -1532,7 +1532,7 @@ void do_rstat(CHAR_DATA *ch, ROOM_INDEX_DATA *location)
     location = (location == NULL) ? ch->in_room : location;
     if (location == NULL)
     {
-	send_to_char("Нет такой комнаты.\n\r", ch);
+	send_to_char("РќРµС‚ С‚Р°РєРѕР№ РєРѕРјРЅР°С‚С‹.\n\r", ch);
 	return;
     }
 
@@ -1540,7 +1540,7 @@ void do_rstat(CHAR_DATA *ch, ROOM_INDEX_DATA *location)
 	 && room_is_private(location, NULL)
 	 && !is_granted(ch, "violate"))
     {
-	send_to_char("Это место сейчас занято.\n\r", ch);
+	send_to_char("Р­С‚Рѕ РјРµСЃС‚Рѕ СЃРµР№С‡Р°СЃ Р·Р°РЅСЏС‚Рѕ.\n\r", ch);
 	return;
     }
 
@@ -1652,15 +1652,15 @@ void do_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 		   ch, obj->pIndexData->vnum, obj->pIndexData->new_format ? "new" : "old",
 		   item_name(obj->item_type, 1), obj->pIndexData->reset_num);
 
-    // вставил выдачу сообщения, если вещь была улучшена
+    // РІСЃС‚Р°РІРёР» РІС‹РґР°С‡Сѓ СЃРѕРѕР±С‰РµРЅРёСЏ, РµСЃР»Рё РІРµС‰СЊ Р±С‹Р»Р° СѓР»СѓС‡С€РµРЅР°
     if (obj->enchanted)
     {
-	send_to_char("{RЭта вещь была улучшена артефактом/кастом.{x\n\r", ch);
+	send_to_char("{RР­С‚Р° РІРµС‰СЊ Р±С‹Р»Р° СѓР»СѓС‡С€РµРЅР° Р°СЂС‚РµС„Р°РєС‚РѕРј/РєР°СЃС‚РѕРј.{x\n\r", ch);
     }
 
     if (obj->pIndexData->edited)
     {
-	printf_to_char("{RЭта вещь редактируется в OLC (%d).{x\n\r", ch, obj->pIndexData->edited);
+	printf_to_char("{RР­С‚Р° РІРµС‰СЊ СЂРµРґР°РєС‚РёСЂСѓРµС‚СЃСЏ РІ OLC (%d).{x\n\r", ch, obj->pIndexData->edited);
     }
 
     printf_to_char("Short description: %s\n\rLong description: %s\n\r",
@@ -1947,10 +1947,10 @@ void do_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 
     if (is_limit(obj) != -1)
     {
-	send_to_char("\n\r{RВ этом мире количество этих вещей ограничено.\n\r{x", ch);
+	send_to_char("\n\r{RР’ СЌС‚РѕРј РјРёСЂРµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЌС‚РёС… РІРµС‰РµР№ РѕРіСЂР°РЅРёС‡РµРЅРѕ.\n\r{x", ch);
 	if (obj->lifetime > 0)
 	{
-	    printf_to_char("{rВремя жизни:{x %s", ch, ctime(&obj->lifetime));
+	    printf_to_char("{rР’СЂРµРјСЏ Р¶РёР·РЅРё:{x %s", ch, ctime(&obj->lifetime));
 	}
     }
 
@@ -2032,7 +2032,7 @@ void do_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 
     if (!IS_NPC(ch))
     {
-	sprintf(buf, "{wPractices: {y%2d{x Trains: {y%2d{x   Еретичество: {r%d{x  Братоубийство: {r%d{x Atheist: {r%s{x\n\r",
+	sprintf(buf, "{wPractices: {y%2d{x Trains: {y%2d{x   Р•СЂРµС‚РёС‡РµСЃС‚РІРѕ: {r%d{x  Р‘СЂР°С‚РѕСѓР±РёР№СЃС‚РІРѕ: {r%d{x Atheist: {r%s{x\n\r",
 		victim->practice, victim->train,
 		victim->count_holy_attacks,
 		victim->count_guild_attacks,
@@ -2193,7 +2193,7 @@ void do_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 	    victim->mount 	    ? victim->mount->name    : "(none)");
     send_to_char(buf, ch);
 
-    //вставил - для чара показывается имя супруга, если таковый есть. Ну и показывается ответ на вопрос.
+    //РІСЃС‚Р°РІРёР» - РґР»СЏ С‡Р°СЂР° РїРѕРєР°Р·С‹РІР°РµС‚СЃСЏ РёРјСЏ СЃСѓРїСЂСѓРіР°, РµСЃР»Рё С‚Р°РєРѕРІС‹Р№ РµСЃС‚СЊ. РќСѓ Рё РїРѕРєР°Р·С‹РІР°РµС‚СЃСЏ РѕС‚РІРµС‚ РЅР° РІРѕРїСЂРѕСЃ.
     if (!IS_NPC(victim))
     {
 	sprintf(buf, "Marry: %s \n\r",
@@ -2208,7 +2208,7 @@ void do_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
     }
 
 
-    //Для чаров показывается наличие дома. Если такой есть, если же внум 0 - то нету.
+    //Р”Р»СЏ С‡Р°СЂРѕРІ РїРѕРєР°Р·С‹РІР°РµС‚СЃСЏ РЅР°Р»РёС‡РёРµ РґРѕРјР°. Р•СЃР»Рё С‚Р°РєРѕР№ РµСЃС‚СЊ, РµСЃР»Рё Р¶Рµ РІРЅСѓРј 0 - С‚Рѕ РЅРµС‚Сѓ.
     if (!IS_NPC(victim))
     {
 	sprintf(buf, "House: %d \n\r",	victim->pcdata->vnum_house);
@@ -2260,7 +2260,7 @@ void do_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 	{
 	    sprintf(buf, "Memory: {r%s{x\n\r",
 		    (gch = pc_id_lookup(mem->id))
-		    ? gch->name : "{R(жертвы нет в Мире)");
+		    ? gch->name : "{R(Р¶РµСЂС‚РІС‹ РЅРµС‚ РІ РњРёСЂРµ)");
 	    send_to_char(buf, ch);
 	}
     }
@@ -2313,9 +2313,9 @@ void do_vnum(CHAR_DATA *ch, char *argument)
 	send_to_char("  vnum obj <name>\n\r", ch);
 	send_to_char("  vnum mob <name>\n\r", ch);
 	send_to_char("  vnum skill <skill or spell>\n\r", ch);
-	send_to_char("  внум объект <name>\n\r", ch);
-	send_to_char("  внум моб <name>\n\r", ch);
-	send_to_char("  внум умение <skill or spell>\n\r", ch);
+	send_to_char("  РІРЅСѓРј РѕР±СЉРµРєС‚ <name>\n\r", ch);
+	send_to_char("  РІРЅСѓРј РјРѕР± <name>\n\r", ch);
+	send_to_char("  РІРЅСѓРј СѓРјРµРЅРёРµ <skill or spell>\n\r", ch);
 	return;
     }
 
@@ -2325,21 +2325,21 @@ void do_vnum(CHAR_DATA *ch, char *argument)
 	return;
     }
 
-    if (!str_cmp(arg, "mob") || !str_cmp(arg, "char") || !str_cmp(arg, "моб") || !str_cmp(arg, "чар"))
+    if (!str_cmp(arg, "mob") || !str_cmp(arg, "char") || !str_cmp(arg, "РјРѕР±") || !str_cmp(arg, "С‡Р°СЂ"))
     {
 	do_function(ch, &do_mfind, string);
 	return;
     }
 
-    if (!str_cmp(arg, "skill") || !str_cmp(arg, "spell") || !str_prefix(arg, "умения") || !str_prefix(arg, "заклинание"))
+    if (!str_cmp(arg, "skill") || !str_cmp(arg, "spell") || !str_prefix(arg, "СѓРјРµРЅРёСЏ") || !str_prefix(arg, "Р·Р°РєР»РёРЅР°РЅРёРµ"))
     {
 	do_function (ch, &do_slookup, string);
 	return;
     }
     /* do both */
-    send_to_char("Мобы:\n\r", ch);
+    send_to_char("РњРѕР±С‹:\n\r", ch);
     do_function(ch, &do_mfind, argument);
-    send_to_char("\n\rОбъекты:\n\r", ch);
+    send_to_char("\n\rРћР±СЉРµРєС‚С‹:\n\r", ch);
     do_function(ch, &do_ofind, argument);
 }
 
@@ -2357,7 +2357,7 @@ void do_mfind(CHAR_DATA *ch, char *argument)
     one_argument(argument, arg);
     if (arg[0] == '\0')
     {
-	send_to_char("Найти кого?\n\r", ch);
+	send_to_char("РќР°Р№С‚Рё РєРѕРіРѕ?\n\r", ch);
 	return;
     }
 
@@ -2389,7 +2389,7 @@ void do_mfind(CHAR_DATA *ch, char *argument)
     }
 
     if (!found)
-	send_to_char("Не найдено никого с таким именем.\n\r", ch);
+	send_to_char("РќРµ РЅР°Р№РґРµРЅРѕ РЅРёРєРѕРіРѕ СЃ С‚Р°РєРёРј РёРјРµРЅРµРј.\n\r", ch);
 
     return;
 }
@@ -2409,7 +2409,7 @@ void do_ofind(CHAR_DATA *ch, char *argument)
     one_argument(argument, arg);
     if (arg[0] == '\0')
     {
-	send_to_char("Найти что?\n\r", ch);
+	send_to_char("РќР°Р№С‚Рё С‡С‚Рѕ?\n\r", ch);
 	return;
     }
 
@@ -2441,7 +2441,7 @@ void do_ofind(CHAR_DATA *ch, char *argument)
     }
 
     if (!found)
-	send_to_char("Нет объектов с таким именем.\n\r", ch);
+	send_to_char("РќРµС‚ РѕР±СЉРµРєС‚РѕРІ СЃ С‚Р°РєРёРј РёРјРµРЅРµРј.\n\r", ch);
 
     return;
 }
@@ -2466,7 +2466,7 @@ void do_owhere(CHAR_DATA *ch, char *argument)
 
     if (argument[0] == '\0')
     {
-	send_to_char("Найти что?\n\r", ch);
+	send_to_char("РќР°Р№С‚Рё С‡С‚Рѕ?\n\r", ch);
 	free_buf(buffer);
 	return;
     }
@@ -2523,7 +2523,7 @@ void do_owhere(CHAR_DATA *ch, char *argument)
     }
 
     if (!found)
-	send_to_char("Ничего подобного нет ни на небесах, ни на земле.\n\r", ch);
+	send_to_char("РќРёС‡РµРіРѕ РїРѕРґРѕР±РЅРѕРіРѕ РЅРµС‚ РЅРё РЅР° РЅРµР±РµСЃР°С…, РЅРё РЅР° Р·РµРјР»Рµ.\n\r", ch);
     else
 	page_to_char(buf_string(buffer), ch);
 
@@ -2597,7 +2597,7 @@ void do_mwhere(CHAR_DATA *ch, char *argument)
     }
 
     if (!found)
-	act("Ты не находишь ни одного '$T'.", ch, NULL, argument, TO_CHAR);
+	act("РўС‹ РЅРµ РЅР°С…РѕРґРёС€СЊ РЅРё РѕРґРЅРѕРіРѕ '$T'.", ch, NULL, argument, TO_CHAR);
     else
 	page_to_char(buf_string(buffer), ch);
 
@@ -2610,7 +2610,7 @@ void do_mwhere(CHAR_DATA *ch, char *argument)
 
 void do_reboo(CHAR_DATA *ch, char *argument)
 {
-    send_to_char("{RЕсли ты хочешь перезагрузиться, напиши команду полностью.{x\n\r", ch);
+    send_to_char("{RР•СЃР»Рё С‚С‹ С…РѕС‡РµС€СЊ РїРµСЂРµР·Р°РіСЂСѓР·РёС‚СЊСЃСЏ, РЅР°РїРёС€Рё РєРѕРјР°РЅРґСѓ РїРѕР»РЅРѕСЃС‚СЊСЋ.{x\n\r", ch);
     return;
 }
 
@@ -2635,7 +2635,7 @@ void for_reboot(CHAR_DATA *ch, char *buf)
 	vch = CH(d);
 
 	if (vch != NULL) {
-	    check_auctions(vch, NULL, "перезагрузки сервера");
+	    check_auctions(vch, NULL, "РїРµСЂРµР·Р°РіСЂСѓР·РєРё СЃРµСЂРІРµСЂР°");
 	    save_char_obj(vch, FALSE);	    
 	}
 
@@ -2655,7 +2655,7 @@ void do_reboot(CHAR_DATA *ch, char *argument)
 
 	if (!is_number(buf))
 	{
-	    send_to_char("Ты должен ввести числовой аргумент.\n\r", ch);
+	    send_to_char("РўС‹ РґРѕР»Р¶РµРЅ РІРІРµСЃС‚Рё С‡РёСЃР»РѕРІРѕР№ Р°СЂРіСѓРјРµРЅС‚.\n\r", ch);
 	    return;
 	}
 
@@ -2687,11 +2687,11 @@ void do_reboot(CHAR_DATA *ch, char *argument)
 	    {
 		fprintf(fp, "\n");
 		file_close(fp);
-		send_to_char("Файл copy.txt создан.\n\r", ch);
+		send_to_char("Р¤Р°Р№Р» copy.txt СЃРѕР·РґР°РЅ.\n\r", ch);
 	    }
 	    else
 	    {
-		send_to_char("Невозможно создать файл copy.txt.\n\r", ch);
+		send_to_char("РќРµРІРѕР·РјРѕР¶РЅРѕ СЃРѕР·РґР°С‚СЊ С„Р°Р№Р» copy.txt.\n\r", ch);
 		return;
 	    }
 	}
@@ -2706,7 +2706,7 @@ void do_reboot(CHAR_DATA *ch, char *argument)
     }
 
     strcat(buf,
-	   "Внимание, ПЕРЕЗАГРУЗКА!\n\rНе волнуйтесь, все будет в порядке.\n\r");
+	   "Р’РЅРёРјР°РЅРёРµ, РџР•Р Р•Р—РђР“Р РЈР—РљРђ!\n\rРќРµ РІРѕР»РЅСѓР№С‚РµСЃСЊ, РІСЃРµ Р±СѓРґРµС‚ РІ РїРѕСЂСЏРґРєРµ.\n\r");
 
 
     for_reboot(ch, buf);
@@ -2716,7 +2716,7 @@ void do_reboot(CHAR_DATA *ch, char *argument)
 
 void do_shutdow(CHAR_DATA *ch, char *argument)
 {
-    send_to_char("Если хочешь выключить сервер, напиши команду полностью!\n\r",
+    send_to_char("Р•СЃР»Рё С…РѕС‡РµС€СЊ РІС‹РєР»СЋС‡РёС‚СЊ СЃРµСЂРІРµСЂ, РЅР°РїРёС€Рё РєРѕРјР°РЅРґСѓ РїРѕР»РЅРѕСЃС‚СЊСЋ!\n\r",
 		 ch);
     return;
 }
@@ -2730,7 +2730,7 @@ void do_shutdown(CHAR_DATA *ch, char *argument)
 	sprintf(buf, "Shutdown by %s.\n\r", ch->name);
 
     append_file(ch, SHUTDOWN_FILE, buf);
-    strcat(buf, "Внимание, сервер будет ВЫКЛЮЧЕН!!!\n\r");
+    strcat(buf, "Р’РЅРёРјР°РЅРёРµ, СЃРµСЂРІРµСЂ Р±СѓРґРµС‚ Р’Р«РљР›Р®Р§Р•Рќ!!!\n\r");
 
     for_reboot(ch, buf);
 }
@@ -2741,26 +2741,26 @@ void do_protect(CHAR_DATA *ch, char *argument)
 
     if (argument[0] == '\0')
     {
-	send_to_char("Защитить кого от подглядывания?\n\r", ch);
+	send_to_char("Р—Р°С‰РёС‚РёС‚СЊ РєРѕРіРѕ РѕС‚ РїРѕРґРіР»СЏРґС‹РІР°РЅРёСЏ?\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, argument)) == NULL)
     {
-	send_to_char("Таких здесь нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     if (IS_SET(victim->comm, COMM_SNOOP_PROOF))
     {
-	act_new("$N больше не защищен от любопытных.", ch, NULL, victim, TO_CHAR, POS_DEAD);
-	send_to_char("Твоя защита от любопытных была снята.\n\r", victim);
+	act_new("$N Р±РѕР»СЊС€Рµ РЅРµ Р·Р°С‰РёС‰РµРЅ РѕС‚ Р»СЋР±РѕРїС‹С‚РЅС‹С….", ch, NULL, victim, TO_CHAR, POS_DEAD);
+	send_to_char("РўРІРѕСЏ Р·Р°С‰РёС‚Р° РѕС‚ Р»СЋР±РѕРїС‹С‚РЅС‹С… Р±С‹Р»Р° СЃРЅСЏС‚Р°.\n\r", victim);
 	REMOVE_BIT(victim->comm, COMM_SNOOP_PROOF);
     }
     else
     {
-	act_new("$N теперь защищен от любопытных.", ch, NULL, victim, TO_CHAR, POS_DEAD);
-	send_to_char("Ты теперь защищен от любопытных.\n\r", victim);
+	act_new("$N С‚РµРїРµСЂСЊ Р·Р°С‰РёС‰РµРЅ РѕС‚ Р»СЋР±РѕРїС‹С‚РЅС‹С….", ch, NULL, victim, TO_CHAR, POS_DEAD);
+	send_to_char("РўС‹ С‚РµРїРµСЂСЊ Р·Р°С‰РёС‰РµРЅ РѕС‚ Р»СЋР±РѕРїС‹С‚РЅС‹С….\n\r", victim);
 	SET_BIT(victim->comm, COMM_SNOOP_PROOF);
     }
 }
@@ -2778,13 +2778,13 @@ void do_snoop(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0')
     {
-	send_to_char("Подсмотреть за кем?\n\r", ch);
+	send_to_char("РџРѕРґСЃРјРѕС‚СЂРµС‚СЊ Р·Р° РєРµРј?\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg)) == NULL)
     {
-	send_to_char("Таких нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… РЅРµС‚.\n\r", ch);
 	return;
     }
 
@@ -2796,8 +2796,8 @@ void do_snoop(CHAR_DATA *ch, char *argument)
 
     if (victim == ch)
     {
-	send_to_char("Ты больше не подглядываешь.\n\r", ch);
-	wiznet("$N перестает подглядывать.",
+	send_to_char("РўС‹ Р±РѕР»СЊС€Рµ РЅРµ РїРѕРґРіР»СЏРґС‹РІР°РµС€СЊ.\n\r", ch);
+	wiznet("$N РїРµСЂРµСЃС‚Р°РµС‚ РїРѕРґРіР»СЏРґС‹РІР°С‚СЊ.",
 	       ch, NULL, WIZ_SNOOPS, WIZ_SECURE, get_trust(ch));
 	SLIST_FOREACH(d, &descriptor_list, link)
 	{
@@ -2809,8 +2809,8 @@ void do_snoop(CHAR_DATA *ch, char *argument)
 
     if (victim->desc->snoop_by == ch->desc)
     {
-	act("Ты больше не подглядываешь за $N4.", ch, NULL, victim, TO_CHAR);
-	sprintf(buf, "$N перестает подглядывать за %s.",
+	act("РўС‹ Р±РѕР»СЊС€Рµ РЅРµ РїРѕРґРіР»СЏРґС‹РІР°РµС€СЊ Р·Р° $N4.", ch, NULL, victim, TO_CHAR);
+	sprintf(buf, "$N РїРµСЂРµСЃС‚Р°РµС‚ РїРѕРґРіР»СЏРґС‹РІР°С‚СЊ Р·Р° %s.",
 		(IS_NPC(victim)
 		 ? cases(victim->short_descr, 4)
 		 : cases(victim->name, 4)));
@@ -2822,7 +2822,7 @@ void do_snoop(CHAR_DATA *ch, char *argument)
 
     if (victim->desc->snoop_by != NULL)
     {
-	send_to_char("За ним уже подглядывают.\n\r", ch);
+	send_to_char("Р—Р° РЅРёРј СѓР¶Рµ РїРѕРґРіР»СЏРґС‹РІР°СЋС‚.\n\r", ch);
 	return;
     }
 
@@ -2830,14 +2830,14 @@ void do_snoop(CHAR_DATA *ch, char *argument)
 	 && room_is_private(victim->in_room, NULL)
 	 && !IS_TRUSTED(ch, IMPLEMENTOR))
     {
-	send_to_char("Этот персонаж в приватной комнате!\n\r", ch);
+	send_to_char("Р­С‚РѕС‚ РїРµСЂСЃРѕРЅР°Р¶ РІ РїСЂРёРІР°С‚РЅРѕР№ РєРѕРјРЅР°С‚Рµ!\n\r", ch);
 	return;
     }
 
     if (get_trust(victim) > get_trust(ch)
 	|| IS_SET(victim->comm, COMM_SNOOP_PROOF))
     {
-	send_to_char("Не получается.\n\r", ch);
+	send_to_char("РќРµ РїРѕР»СѓС‡Р°РµС‚СЃСЏ.\n\r", ch);
 	return;
     }
 
@@ -2854,7 +2854,7 @@ void do_snoop(CHAR_DATA *ch, char *argument)
     }
 
     victim->desc->snoop_by = ch->desc;
-    sprintf(buf, "$N начинает подглядывать за %s",
+    sprintf(buf, "$N РЅР°С‡РёРЅР°РµС‚ РїРѕРґРіР»СЏРґС‹РІР°С‚СЊ Р·Р° %s",
 	    (IS_NPC(victim)
 	     ? cases(victim->short_descr, 4)
 	     : cases(victim->name, 4)));
@@ -2874,7 +2874,7 @@ void do_switch(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0')
     {
-	send_to_char("Переключиться в кого?\n\r", ch);
+	send_to_char("РџРµСЂРµРєР»СЋС‡РёС‚СЊСЃСЏ РІ РєРѕРіРѕ?\n\r", ch);
 	return;
     }
 
@@ -2883,13 +2883,13 @@ void do_switch(CHAR_DATA *ch, char *argument)
 
     if (ch->desc->original != NULL)
     {
-	send_to_char("Ты уже переключился в кого-то.\n\r", ch);
+	send_to_char("РўС‹ СѓР¶Рµ РїРµСЂРµРєР»СЋС‡РёР»СЃСЏ РІ РєРѕРіРѕ-С‚Рѕ.\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg)) == NULL)
     {
-	send_to_char("Таких здесь нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
@@ -2901,24 +2901,24 @@ void do_switch(CHAR_DATA *ch, char *argument)
 
     if (!IS_NPC(victim))
     {
-	send_to_char("Ты можешь переключаться только в мобов.\n\r", ch);
+	send_to_char("РўС‹ РјРѕР¶РµС€СЊ РїРµСЂРµРєР»СЋС‡Р°С‚СЊСЃСЏ С‚РѕР»СЊРєРѕ РІ РјРѕР±РѕРІ.\n\r", ch);
 	return;
     }
 
     if (ch->in_room != victim->in_room
 	&&  room_is_private(victim->in_room, NULL) && !IS_TRUSTED(ch, IMPLEMENTOR))
     {
-	send_to_char("Этот персонаж в приватной комнате.\n\r", ch);
+	send_to_char("Р­С‚РѕС‚ РїРµСЂСЃРѕРЅР°Р¶ РІ РїСЂРёРІР°С‚РЅРѕР№ РєРѕРјРЅР°С‚Рµ.\n\r", ch);
 	return;
     }
 
     if (victim->desc != NULL)
     {
-	send_to_char("Этот персонаж уже занят.\n\r", ch);
+	send_to_char("Р­С‚РѕС‚ РїРµСЂСЃРѕРЅР°Р¶ СѓР¶Рµ Р·Р°РЅСЏС‚.\n\r", ch);
 	return;
     }
 
-    sprintf(buf, "$N переключается в %s", cases(victim->short_descr, 1));
+    sprintf(buf, "$N РїРµСЂРµРєР»СЋС‡Р°РµС‚СЃСЏ РІ %s", cases(victim->short_descr, 1));
     wiznet(buf, ch, NULL, WIZ_SWITCHES, WIZ_SECURE, get_trust(ch));
 
     ch->desc->character = victim;
@@ -2948,18 +2948,18 @@ void do_return(CHAR_DATA *ch, char *argument)
 
     if (ch->desc->original == NULL)
     {
-	send_to_char("Ты ни в кого не переключался.\n\r", ch);
+	send_to_char("РўС‹ РЅРё РІ РєРѕРіРѕ РЅРµ РїРµСЂРµРєР»СЋС‡Р°Р»СЃСЏ.\n\r", ch);
 	return;
     }
 
-    send_to_char("Ты возвращаешься в свое тело. Набери 'воспроизвести' для просмотра пропущенных разговоров.\n\r", ch);
+    send_to_char("РўС‹ РІРѕР·РІСЂР°С‰Р°РµС€СЊСЃСЏ РІ СЃРІРѕРµ С‚РµР»Рѕ. РќР°Р±РµСЂРё 'РІРѕСЃРїСЂРѕРёР·РІРµСЃС‚Рё' РґР»СЏ РїСЂРѕСЃРјРѕС‚СЂР° РїСЂРѕРїСѓС‰РµРЅРЅС‹С… СЂР°Р·РіРѕРІРѕСЂРѕРІ.\n\r", ch);
     if (ch->prompt != NULL)
     {
 	free_string(ch->prompt);
 	ch->prompt = NULL;
     }
 
-    sprintf(buf, "$N возвращается в свое тело из %s.", cases(ch->short_descr, 1));
+    sprintf(buf, "$N РІРѕР·РІСЂР°С‰Р°РµС‚СЃСЏ РІ СЃРІРѕРµ С‚РµР»Рѕ РёР· %s.", cases(ch->short_descr, 1));
     wiznet(buf, ch->desc->original, 0, WIZ_SWITCHES, WIZ_SECURE, get_trust(ch));
 
     char_from_room(ch->desc->original);
@@ -2999,7 +2999,7 @@ void recursive_clone(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *clone)
 	{
 	    if (check_reset_for_limit(c_obj, TRUE))
 	    {
-		act("Лимит $p1 превышен.", ch, c_obj, NULL, TO_CHAR);
+		act("Р›РёРјРёС‚ $p1 РїСЂРµРІС‹С€РµРЅ.", ch, c_obj, NULL, TO_CHAR);
 		continue;
 	    }
 
@@ -3023,27 +3023,27 @@ void do_clone(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0')
     {
-	send_to_char("Клонировать что?\n\r", ch);
+	send_to_char("РљР»РѕРЅРёСЂРѕРІР°С‚СЊ С‡С‚Рѕ?\n\r", ch);
 	return;
     }
 
-    if (!str_prefix(arg, "object") || !str_prefix(arg, "объект"))
+    if (!str_prefix(arg, "object") || !str_prefix(arg, "РѕР±СЉРµРєС‚"))
     {
 	mob = NULL;
 	obj = get_obj_here(ch, NULL, rest);
 	if (obj == NULL)
 	{
-	    send_to_char("Ты не видишь этого здесь.\n\r", ch);
+	    send_to_char("РўС‹ РЅРµ РІРёРґРёС€СЊ СЌС‚РѕРіРѕ Р·РґРµСЃСЊ.\n\r", ch);
 	    return;
 	}
     }
-    else if (!str_prefix(arg, "mobile") || !str_prefix(arg, "character") || !str_prefix(arg, "моб") || !str_prefix(arg, "чар"))
+    else if (!str_prefix(arg, "mobile") || !str_prefix(arg, "character") || !str_prefix(arg, "РјРѕР±") || !str_prefix(arg, "С‡Р°СЂ"))
     {
 	obj = NULL;
 	mob = get_char_room(ch, NULL, rest, FALSE);
 	if (mob == NULL)
 	{
-	    send_to_char("Ты не видишь этого здесь.\n\r", ch);
+	    send_to_char("РўС‹ РЅРµ РІРёРґРёС€СЊ СЌС‚РѕРіРѕ Р·РґРµСЃСЊ.\n\r", ch);
 	    return;
 	}
     }
@@ -3053,7 +3053,7 @@ void do_clone(CHAR_DATA *ch, char *argument)
 	obj = get_obj_here(ch, NULL, argument);
 	if (mob == NULL && obj == NULL)
 	{
-	    send_to_char("Ты не видишь этого здесь.\n\r", ch);
+	    send_to_char("РўС‹ РЅРµ РІРёРґРёС€СЊ СЌС‚РѕРіРѕ Р·РґРµСЃСЊ.\n\r", ch);
 	    return;
 	}
     }
@@ -3065,13 +3065,13 @@ void do_clone(CHAR_DATA *ch, char *argument)
 
 	if (!obj_check(ch, obj))
 	{
-	    send_to_char("Твоей энергии не хватает для этого.\n\r", ch);
+	    send_to_char("РўРІРѕРµР№ СЌРЅРµСЂРіРёРё РЅРµ С…РІР°С‚Р°РµС‚ РґР»СЏ СЌС‚РѕРіРѕ.\n\r", ch);
 	    return;
 	}
 
 	if (check_reset_for_limit(obj, TRUE))
 	{
-	    act("Лимит $p1 превышен.", ch, obj, NULL, TO_CHAR);
+	    act("Р›РёРјРёС‚ $p1 РїСЂРµРІС‹С€РµРЅ.", ch, obj, NULL, TO_CHAR);
 	    return;
 	}
 
@@ -3083,9 +3083,9 @@ void do_clone(CHAR_DATA *ch, char *argument)
 	    obj_to_room(clone, ch->in_room);
 	recursive_clone(ch, obj, clone);
 
-	act("$n создает $p6.", ch, clone, NULL, TO_ROOM);
-	act("Ты клонируешь $p6.", ch, clone, NULL, TO_CHAR);
-	wiznet("$N клонирует $p6.", ch, clone, WIZ_LOAD, WIZ_SECURE, get_trust(ch));
+	act("$n СЃРѕР·РґР°РµС‚ $p6.", ch, clone, NULL, TO_ROOM);
+	act("РўС‹ РєР»РѕРЅРёСЂСѓРµС€СЊ $p6.", ch, clone, NULL, TO_CHAR);
+	wiznet("$N РєР»РѕРЅРёСЂСѓРµС‚ $p6.", ch, clone, WIZ_LOAD, WIZ_SECURE, get_trust(ch));
 	return;
     }
     else if (mob != NULL)
@@ -3096,7 +3096,7 @@ void do_clone(CHAR_DATA *ch, char *argument)
 
 	if (!IS_NPC(mob))
 	{
-	    send_to_char("Ты можешь клонировать только мобов.\n\r", ch);
+	    send_to_char("РўС‹ РјРѕР¶РµС€СЊ РєР»РѕРЅРёСЂРѕРІР°С‚СЊ С‚РѕР»СЊРєРѕ РјРѕР±РѕРІ.\n\r", ch);
 	    return;
 	}
 
@@ -3106,7 +3106,7 @@ void do_clone(CHAR_DATA *ch, char *argument)
 	    ||  (mob->level >  0 && !IS_TRUSTED(ch, ANGEL))
 	    ||  !IS_TRUSTED(ch, AVATAR))
 	{
-	    send_to_char("Твоей энергии не хватает для этого..\n\r", ch);
+	    send_to_char("РўРІРѕРµР№ СЌРЅРµСЂРіРёРё РЅРµ С…РІР°С‚Р°РµС‚ РґР»СЏ СЌС‚РѕРіРѕ..\n\r", ch);
 	    return;
 	}
 
@@ -3119,7 +3119,7 @@ void do_clone(CHAR_DATA *ch, char *argument)
 	    {
 		if (check_reset_for_limit(obj, TRUE))
 		{
-		    act("Лимит $p1 превышен.", ch, obj, NULL, TO_CHAR);
+		    act("Р›РёРјРёС‚ $p1 РїСЂРµРІС‹С€РµРЅ.", ch, obj, NULL, TO_CHAR);
 		    continue;
 		}
 
@@ -3131,9 +3131,9 @@ void do_clone(CHAR_DATA *ch, char *argument)
 	    }
 	}
 	char_to_room(clone, ch->in_room, TRUE);
-	act("$n создает $N3.", ch, NULL, clone, TO_ROOM);
-	act("Ты клонируешь $N3.", ch, NULL, clone, TO_CHAR);
-	sprintf(buf, "$N клонирует %s.", cases(clone->short_descr, 3));
+	act("$n СЃРѕР·РґР°РµС‚ $N3.", ch, NULL, clone, TO_ROOM);
+	act("РўС‹ РєР»РѕРЅРёСЂСѓРµС€СЊ $N3.", ch, NULL, clone, TO_CHAR);
+	sprintf(buf, "$N РєР»РѕРЅРёСЂСѓРµС‚ %s.", cases(clone->short_descr, 3));
 	wiznet(buf, ch, NULL, WIZ_LOAD, WIZ_SECURE, get_trust(ch));
 	return;
     }
@@ -3152,21 +3152,21 @@ void do_load(CHAR_DATA *ch, char *argument)
 	send_to_char("Syntax:\n\r", ch);
 	send_to_char("  load mob <vnum> <count>\n\r", ch);
 	send_to_char("  load obj <vnum> <count> <level>\n\r", ch);
-	send_to_char("  загрузить моб <vnum> <count>\n\r", ch);
-	send_to_char("  загрузить объект <vnum> <count> <level>\n\r", ch);
+	send_to_char("  Р·Р°РіСЂСѓР·РёС‚СЊ РјРѕР± <vnum> <count>\n\r", ch);
+	send_to_char("  Р·Р°РіСЂСѓР·РёС‚СЊ РѕР±СЉРµРєС‚ <vnum> <count> <level>\n\r", ch);
 	return;
     }
 
     if (!str_cmp(arg, "mob")
 	|| !str_cmp(arg, "char")
-	|| !str_cmp(arg, "моб")
-	|| !str_cmp(arg, "чар"))
+	|| !str_cmp(arg, "РјРѕР±")
+	|| !str_cmp(arg, "С‡Р°СЂ"))
     {
 	do_function(ch, &do_mload, argument);
 	return;
     }
 
-    if (!str_cmp(arg, "obj") || !str_prefix(arg, "объект"))
+    if (!str_cmp(arg, "obj") || !str_prefix(arg, "РѕР±СЉРµРєС‚"))
     {
 	do_function(ch, &do_oload, argument);
 	return;
@@ -3189,7 +3189,7 @@ void do_mload(CHAR_DATA *ch, char *argument)
     if (arg[0] == '\0' || !is_number(arg))
     {
 	send_to_char("Syntax: load mob <vnum> <count>.\n\r", ch);
-	send_to_char("        загрузить моб <vnum> <count>.\n\r", ch);
+	send_to_char("        Р·Р°РіСЂСѓР·РёС‚СЊ РјРѕР± <vnum> <count>.\n\r", ch);
 	return;
     }
 
@@ -3198,7 +3198,7 @@ void do_mload(CHAR_DATA *ch, char *argument)
 
     if ((pMobIndex = get_mob_index(atoi(arg))) == NULL)
     {
-	send_to_char("Нет моба с таким номером (vnum).\n\r", ch);
+	send_to_char("РќРµС‚ РјРѕР±Р° СЃ С‚Р°РєРёРј РЅРѕРјРµСЂРѕРј (vnum).\n\r", ch);
 	return;
     }
 
@@ -3207,8 +3207,8 @@ void do_mload(CHAR_DATA *ch, char *argument)
 	victim = create_mobile(pMobIndex);
 	char_to_room(victim, ch->in_room, TRUE);
     }
-    act("$n создает $N3!", ch, NULL, victim, TO_ROOM);
-    sprintf(buf, "$N загружает %d %s.", num, cases(victim->short_descr, 3));
+    act("$n СЃРѕР·РґР°РµС‚ $N3!", ch, NULL, victim, TO_ROOM);
+    sprintf(buf, "$N Р·Р°РіСЂСѓР¶Р°РµС‚ %d %s.", num, cases(victim->short_descr, 3));
     wiznet(buf, ch, NULL, WIZ_LOAD, WIZ_SECURE, get_trust(ch));
     send_to_char("Ok.\n\r", ch);
     return;
@@ -3230,7 +3230,7 @@ void do_oload(CHAR_DATA *ch, char *argument)
     if (arg1[0] == '\0' || !is_number(arg1))
     {
 	send_to_char("Syntax: load obj <vnum> <count> <level>.\n\r", ch);
-	send_to_char("        загрузить объект <vnum> <count> <level>.\n\r", ch);
+	send_to_char("        Р·Р°РіСЂСѓР·РёС‚СЊ РѕР±СЉРµРєС‚ <vnum> <count> <level>.\n\r", ch);
 	return;
     }
 
@@ -3246,14 +3246,14 @@ void do_oload(CHAR_DATA *ch, char *argument)
 	level = atoi(argument);
 	if (level < 0 || level > get_trust(ch))
 	{
-	    send_to_char("Уровень дожен быть от 0 до твоего.\n\r", ch);
+	    send_to_char("РЈСЂРѕРІРµРЅСЊ РґРѕР¶РµРЅ Р±С‹С‚СЊ РѕС‚ 0 РґРѕ С‚РІРѕРµРіРѕ.\n\r", ch);
 	    return;
 	}
     }
 
     if ((pObjIndex = get_obj_index(atoi(arg1))) == NULL)
     {
-	send_to_char("Объектов с таким vnum не найдено.\n\r", ch);
+	send_to_char("РћР±СЉРµРєС‚РѕРІ СЃ С‚Р°РєРёРј vnum РЅРµ РЅР°Р№РґРµРЅРѕ.\n\r", ch);
 	return;
     }
 
@@ -3269,15 +3269,15 @@ void do_oload(CHAR_DATA *ch, char *argument)
 	{
 	    obj_to_room(obj, ch->in_room);
 	    if (obj->item_type == ITEM_CHEST && obj->in_room != NULL)
-		save_chest(obj->id);	// Сохраняем сундук в файл
+		save_chest(obj->id);	// РЎРѕС…СЂР°РЅСЏРµРј СЃСѓРЅРґСѓРє РІ С„Р°Р№Р»
 	}
 
 	if ((level = is_limit(obj)) != -1)
 	    limits[level+1]++;
     }
 
-    act("$n создает $p6!", ch, obj, NULL, TO_ROOM);
-    sprintf(buf, "$N загружает %d %s.", num, cases(obj->short_descr, 3));
+    act("$n СЃРѕР·РґР°РµС‚ $p6!", ch, obj, NULL, TO_ROOM);
+    sprintf(buf, "$N Р·Р°РіСЂСѓР¶Р°РµС‚ %d %s.", num, cases(obj->short_descr, 3));
     wiznet(buf, ch, NULL, WIZ_LOAD, WIZ_SECURE, get_trust(ch));
     send_to_char("Ok.\n\r", ch);
     return;
@@ -3317,13 +3317,13 @@ void do_purge(CHAR_DATA *ch, char *argument)
 	    if (!IS_OBJ_STAT(obj, ITEM_NOPURGE))
 	    {
 		if (obj->item_type == ITEM_CHEST && obj->in_room != NULL)
-		    continue;			/* Не пуржим сундук */
+		    continue;			/* РќРµ РїСѓСЂР¶РёРј СЃСѓРЅРґСѓРє */
 
 		extract_obj(obj, TRUE, FALSE);
 	    }
 	}
 
-	act("$n очищает комнату от хлама! :-)", ch, NULL, NULL, TO_ROOM);
+	act("$n РѕС‡РёС‰Р°РµС‚ РєРѕРјРЅР°С‚Сѓ РѕС‚ С…Р»Р°РјР°! :-)", ch, NULL, NULL, TO_ROOM);
 	send_to_char("Ok.\n\r", ch);
 	return;
     }
@@ -3333,7 +3333,7 @@ void do_purge(CHAR_DATA *ch, char *argument)
 
     if (!obj && !victim)
     {
-	send_to_char("Этого здесь нет.\n\r", ch);
+	send_to_char("Р­С‚РѕРіРѕ Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
@@ -3344,19 +3344,19 @@ void do_purge(CHAR_DATA *ch, char *argument)
 
 	    if (ch == victim)
 	    {
-		send_to_char("Ты в этом уверен?\n\r", ch);
+		send_to_char("РўС‹ РІ СЌС‚РѕРј СѓРІРµСЂРµРЅ?\n\r", ch);
 		return;
 	    }
 
 	    if (get_trust(ch) < get_trust(victim))
 	    {
-		send_to_char("Это не очень хорошая идея...\n\r", ch);
-		sprintf(buf, "%s пытается превратить тебя в пыль!\n\r", ch->name);
+		send_to_char("Р­С‚Рѕ РЅРµ РѕС‡РµРЅСЊ С…РѕСЂРѕС€Р°СЏ РёРґРµСЏ...\n\r", ch);
+		sprintf(buf, "%s РїС‹С‚Р°РµС‚СЃСЏ РїСЂРµРІСЂР°С‚РёС‚СЊ С‚РµР±СЏ РІ РїС‹Р»СЊ!\n\r", ch->name);
 		send_to_char(buf, victim);
 		return;
 	    }
 
-	    act("{R$n обращает в пыль $N3!{x", ch, 0, victim, TO_NOTVICT);
+	    act("{R$n РѕР±СЂР°С‰Р°РµС‚ РІ РїС‹Р»СЊ $N3!{x", ch, 0, victim, TO_NOTVICT);
 
 	    if (victim->level > 1)
 		save_char_obj(victim, FALSE);
@@ -3368,7 +3368,7 @@ void do_purge(CHAR_DATA *ch, char *argument)
 	    return;
 	}
 
-	act("{R$n превращает в пыль $N3!{x", ch, NULL, victim, TO_NOTVICT);
+	act("{R$n РїСЂРµРІСЂР°С‰Р°РµС‚ РІ РїС‹Р»СЊ $N3!{x", ch, NULL, victim, TO_NOTVICT);
 	extract_char(victim, TRUE);
 	return;
     }
@@ -3398,38 +3398,38 @@ void do_advance(CHAR_DATA *ch, char *argument)
     if (arg1[0] == '\0' || arg2[0] == '\0' || !is_number(arg2))
     {
 	send_to_char("Syntax: advance <char> <level>.\n\r", ch);
-	send_to_char("        левел   <char> <level>.\n\r", ch);
+	send_to_char("        Р»РµРІРµР»   <char> <level>.\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg1)) == NULL)
     {
-	send_to_char("Этого персонажа нет в игре.\n\r", ch);
+	send_to_char("Р­С‚РѕРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р° РЅРµС‚ РІ РёРіСЂРµ.\n\r", ch);
 	return;
     }
 
     if (IS_NPC(victim))
     {
-	send_to_char("Только не с мобом.\n\r", ch);
+	send_to_char("РўРѕР»СЊРєРѕ РЅРµ СЃ РјРѕР±РѕРј.\n\r", ch);
 	return;
     }
 
     if ((level = atoi(arg2)) < 1 || level > MAX_LEVEL)
     {
-	sprintf(buf, "Уровень должен быть от 1 до %d.\n\r", MAX_LEVEL);
+	sprintf(buf, "РЈСЂРѕРІРµРЅСЊ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РѕС‚ 1 РґРѕ %d.\n\r", MAX_LEVEL);
 	send_to_char(buf, ch);
 	return;
     }
 
     if (level > get_trust(ch))
     {
-	send_to_char("Ограничено твоим trust-уровнем.\n\r", ch);
+	send_to_char("РћРіСЂР°РЅРёС‡РµРЅРѕ С‚РІРѕРёРј trust-СѓСЂРѕРІРЅРµРј.\n\r", ch);
 	return;
     }
 
     if (get_trust(ch) < get_trust(victim))
     {
-	send_to_char("Лучше не стоит...\n\r", ch);
+	send_to_char("Р›СѓС‡С€Рµ РЅРµ СЃС‚РѕРёС‚...\n\r", ch);
 	return;
     }
 
@@ -3444,8 +3444,8 @@ void do_advance(CHAR_DATA *ch, char *argument)
     {
 	/*        int temp_prac; */
 
-	send_to_char("Понижение уровня!\n\r", ch);
-	send_to_char("{R**** О-О-О-О-О  Н-Н-Н-Е-Е-Е-Т-Т-Т ****{x\n\r", victim);
+	send_to_char("РџРѕРЅРёР¶РµРЅРёРµ СѓСЂРѕРІРЅСЏ!\n\r", ch);
+	send_to_char("{R**** Рћ-Рћ-Рћ-Рћ-Рћ  Рќ-Рќ-Рќ-Р•-Р•-Р•-Рў-Рў-Рў ****{x\n\r", victim);
 	/*	temp_prac = victim->practice;
 	 victim->level    = 1;
 	 victim->exp      = exp_per_level(victim, victim->pcdata->points);
@@ -3462,8 +3462,8 @@ void do_advance(CHAR_DATA *ch, char *argument)
     }
     else
     {
-	send_to_char("Повышение уровня!\n\r", ch);
-	send_to_char("{R**** О-О-О-О-О  Y-Y-Y-E-E-E-A-A-A !!! ****{x\n\r", victim);
+	send_to_char("РџРѕРІС‹С€РµРЅРёРµ СѓСЂРѕРІРЅСЏ!\n\r", ch);
+	send_to_char("{R**** Рћ-Рћ-Рћ-Рћ-Рћ  Y-Y-Y-E-E-E-A-A-A !!! ****{x\n\r", victim);
 	for (iLevel = victim->level ; iLevel < level; iLevel++)
 	{
 	    victim->level++;
@@ -3471,7 +3471,7 @@ void do_advance(CHAR_DATA *ch, char *argument)
 	}
     }
 
-    sprintf(buf, "Ты теперь %d уровень.\n\r", victim->level);
+    sprintf(buf, "РўС‹ С‚РµРїРµСЂСЊ %d СѓСЂРѕРІРµРЅСЊ.\n\r", victim->level);
     send_to_char(buf, victim);
     victim->exp   = exp_per_level(victim, victim->pcdata->points) * UMAX(1, victim->level);
     victim->trust = 0;
@@ -3497,26 +3497,26 @@ void do_trust(CHAR_DATA *ch, char *argument)
     if (arg1[0] == '\0' || arg2[0] == '\0' || !is_number(arg2))
     {
 	send_to_char("Syntax: trust    <char> <level>.\n\r", ch);
-	send_to_char("        доверить <char> <level>.\n\r", ch);
+	send_to_char("        РґРѕРІРµСЂРёС‚СЊ <char> <level>.\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg1)) == NULL)
     {
-	send_to_char("Таких игроков нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… РёРіСЂРѕРєРѕРІ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     if ((level = atoi(arg2)) < 0 || level > MAX_LEVEL)
     {
-	sprintf(buf, "Уровень должен быть от 0 (очистить) или 1 до %d.\n\r", MAX_LEVEL);
+	sprintf(buf, "РЈСЂРѕРІРµРЅСЊ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РѕС‚ 0 (РѕС‡РёСЃС‚РёС‚СЊ) РёР»Рё 1 РґРѕ %d.\n\r", MAX_LEVEL);
 	send_to_char(buf, ch);
 	return;
     }
 
     if (level > get_trust(ch))
     {
-	send_to_char("Ограничено твоим trust-левелом.\n\r", ch);
+	send_to_char("РћРіСЂР°РЅРёС‡РµРЅРѕ С‚РІРѕРёРј trust-Р»РµРІРµР»РѕРј.\n\r", ch);
 	return;
     }
 
@@ -3540,7 +3540,7 @@ void restore(CHAR_DATA *ch, CHAR_DATA *victim)
     update_pos(victim);
 
     if (victim->in_room != NULL)
-	act("$n полностью восстанавливает тебя.", ch, NULL, victim, TO_VICT);
+	act("$n РїРѕР»РЅРѕСЃС‚СЊСЋ РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ С‚РµР±СЏ.", ch, NULL, victim, TO_VICT);
 }
 
 void do_restore(CHAR_DATA *ch, char *argument)
@@ -3552,22 +3552,22 @@ void do_restore(CHAR_DATA *ch, char *argument)
 
     one_argument(argument, arg);
 
-    if (arg[0] == '\0' || !str_cmp(arg, "room") || !str_prefix(arg, "комната"))
+    if (arg[0] == '\0' || !str_cmp(arg, "room") || !str_prefix(arg, "РєРѕРјРЅР°С‚Р°"))
     {
 	/* cure room */
 
 	LIST_FOREACH(vch, &ch->in_room->people, room_link)
 	    restore(ch, vch);
 
-	sprintf(buf, "$N восстанавливает комнату %d.", ch->in_room->vnum);
+	sprintf(buf, "$N РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РєРѕРјРЅР°С‚Сѓ %d.", ch->in_room->vnum);
 	wiznet(buf, ch, NULL, WIZ_RESTORE, WIZ_SECURE, get_trust(ch));
 
-	send_to_char("Комната восстановлена.\n\r", ch);
+	send_to_char("РљРѕРјРЅР°С‚Р° РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅР°.\n\r", ch);
 	return;
 
     }
 
-    if ((!str_cmp(arg, "all") || !str_cmp(arg, "все")))
+    if ((!str_cmp(arg, "all") || !str_cmp(arg, "РІСЃРµ")))
     {
 	/* cure all */
 
@@ -3580,19 +3580,19 @@ void do_restore(CHAR_DATA *ch, char *argument)
 
 	    restore(ch, victim);
 	}
-	send_to_char("Все игроки в мире полностью восстановлены.\n\r", ch);
+	send_to_char("Р’СЃРµ РёРіСЂРѕРєРё РІ РјРёСЂРµ РїРѕР»РЅРѕСЃС‚СЊСЋ РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅС‹.\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg)) == NULL)
     {
-	send_to_char("Таких здесь нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     restore(ch, victim);
 
-    sprintf(buf, "$N восстанавливает %s.",
+    sprintf(buf, "$N РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ %s.",
 	    IS_NPC(victim) ? cases(victim->short_descr, 3) : cases(victim->name, 3));
     wiznet(buf, ch, NULL, WIZ_RESTORE, WIZ_SECURE, get_trust(ch));
     send_to_char("Ok.\n\r", ch);
@@ -3612,25 +3612,25 @@ void do_freeze(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0')
     {
-	send_to_char("Заморозить кого?\n\r", ch);
+	send_to_char("Р—Р°РјРѕСЂРѕР·РёС‚СЊ РєРѕРіРѕ?\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg)) == NULL)
     {
-	send_to_char("Таких здесь нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     if (IS_NPC(victim))
     {
-	send_to_char("Только не моба.\n\r", ch);
+	send_to_char("РўРѕР»СЊРєРѕ РЅРµ РјРѕР±Р°.\n\r", ch);
 	return;
     }
 
     if (get_trust(victim) >= get_trust(ch))
     {
-	send_to_char("Не получилось.\n\r", ch);
+	send_to_char("РќРµ РїРѕР»СѓС‡РёР»РѕСЃСЊ.\n\r", ch);
 	return;
     }
 
@@ -3639,9 +3639,9 @@ void do_freeze(CHAR_DATA *ch, char *argument)
     if (IS_SET(victim->act, PLR_FREEZE))
     {
 	REMOVE_BIT(victim->act, PLR_FREEZE);
-	send_to_char("{RТы сможешь опять играть.{x\n\r", victim);
-	send_to_char("Флаг FREEZE снят.\n\r", ch);
-	sprintf(arg, "$N размораживает %s.", cases(victim->name, 1));
+	send_to_char("{RРўС‹ СЃРјРѕР¶РµС€СЊ РѕРїСЏС‚СЊ РёРіСЂР°С‚СЊ.{x\n\r", victim);
+	send_to_char("Р¤Р»Р°Рі FREEZE СЃРЅСЏС‚.\n\r", ch);
+	sprintf(arg, "$N СЂР°Р·РјРѕСЂР°Р¶РёРІР°РµС‚ %s.", cases(victim->name, 1));
 	wiznet(arg, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
 	victim->pcdata->freeze = 0;
     }
@@ -3653,9 +3653,9 @@ void do_freeze(CHAR_DATA *ch, char *argument)
 	victim->pcdata->freeze_who = str_dup(ch->name);
 
 	SET_BIT(victim->act, PLR_FREEZE);
-	send_to_char("{RТы не можешь пошевелиться!{x\n\r", victim);
-	send_to_char("Флаг FREEZE установлен.\n\r", ch);
-	sprintf(arg, "$N замораживает %s.", cases(victim->name, 1));
+	send_to_char("{RРўС‹ РЅРµ РјРѕР¶РµС€СЊ РїРѕС€РµРІРµР»РёС‚СЊСЃСЏ!{x\n\r", victim);
+	send_to_char("Р¤Р»Р°Рі FREEZE СѓСЃС‚Р°РЅРѕРІР»РµРЅ.\n\r", ch);
+	sprintf(arg, "$N Р·Р°РјРѕСЂР°Р¶РёРІР°РµС‚ %s.", cases(victim->name, 1));
 	wiznet(arg, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
     }
 
@@ -3675,13 +3675,13 @@ void do_log(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0')
     {
-	send_to_char("Вести лог за кем?\n\r", ch);
+	send_to_char("Р’РµСЃС‚Рё Р»РѕРі Р·Р° РєРµРј?\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg)) == NULL || IS_NPC(victim))
     {
-	send_to_char("Таких нет в этом мире.\n\r", ch);
+	send_to_char("РўР°РєРёС… РЅРµС‚ РІ СЌС‚РѕРј РјРёСЂРµ.\n\r", ch);
 	return;
     }
 
@@ -3714,23 +3714,23 @@ void do_noemote(CHAR_DATA *ch, char *argument)
 
     if ((victim = get_char_world(ch, arg)) == NULL || IS_NPC(victim))
     {
-	send_to_char("Таких здесь нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
 
     if (get_trust(victim) >= get_trust(ch))
     {
-	send_to_char("Не получилось.\n\r", ch);
+	send_to_char("РќРµ РїРѕР»СѓС‡РёР»РѕСЃСЊ.\n\r", ch);
 	return;
     }
 
     if (IS_SET(victim->comm, COMM_NOEMOTE))
     {
 	REMOVE_BIT(victim->comm, COMM_NOEMOTE);
-	send_to_char("{RТы сможешь показывать свои эмоции снова.{x\n\r", victim);
+	send_to_char("{RРўС‹ СЃРјРѕР¶РµС€СЊ РїРѕРєР°Р·С‹РІР°С‚СЊ СЃРІРѕРё СЌРјРѕС†РёРё СЃРЅРѕРІР°.{x\n\r", victim);
 	send_to_char("NOEMOTE removed.\n\r", ch);
-	sprintf(buf, "$N восстанавливает эмоции %s.", cases(victim->name, 2));
+	sprintf(buf, "$N РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ СЌРјРѕС†РёРё %s.", cases(victim->name, 2));
 	wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
 	victim->pcdata->nochan = 0;
     }
@@ -3738,9 +3738,9 @@ void do_noemote(CHAR_DATA *ch, char *argument)
     {
 	SET_BIT(victim->comm, COMM_NOEMOTE);
 	victim->pcdata->nochan = get_next_seconds(argument, ch);
-	send_to_char("{RТы теперь не сможешь показывать свои эмоции!{x\n\r", victim);
+	send_to_char("{RРўС‹ С‚РµРїРµСЂСЊ РЅРµ СЃРјРѕР¶РµС€СЊ РїРѕРєР°Р·С‹РІР°С‚СЊ СЃРІРѕРё СЌРјРѕС†РёРё!{x\n\r", victim);
 	send_to_char("NOEMOTE set.\n\r", ch);
-	sprintf(buf, "$N отбирает право пользования эмоциями у %s.", cases(victim->name, 1));
+	sprintf(buf, "$N РѕС‚Р±РёСЂР°РµС‚ РїСЂР°РІРѕ РїРѕР»СЊР·РѕРІР°РЅРёСЏ СЌРјРѕС†РёСЏРјРё Сѓ %s.", cases(victim->name, 1));
 	wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
     }
 
@@ -3764,26 +3764,26 @@ void do_noshout(CHAR_DATA *ch, char *argument)
 
     if ((victim = get_char_world(ch, arg)) == NULL)
     {
-	send_to_char("Таких здесь нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     if (IS_NPC(victim))
     {
-	send_to_char("Только не на моба.\n\r", ch);
+	send_to_char("РўРѕР»СЊРєРѕ РЅРµ РЅР° РјРѕР±Р°.\n\r", ch);
 	return;
     }
 
     if (IS_IMMORTAL(victim) && (get_trust(victim) >= get_trust(ch)))
     {
-	send_to_char("Не получается.\n\r", ch);
+	send_to_char("РќРµ РїРѕР»СѓС‡Р°РµС‚СЃСЏ.\n\r", ch);
 	return;
     }
 
     if (IS_SET(victim->comm, COMM_NOSHOUT))
     {
 	REMOVE_BIT(victim->comm, COMM_NOSHOUT);
-	send_to_char("{RТы снова можешь орать.{x\n\r", victim);
+	send_to_char("{RРўС‹ СЃРЅРѕРІР° РјРѕР¶РµС€СЊ РѕСЂР°С‚СЊ.{x\n\r", victim);
 	send_to_char("NOSHOUT removed.\n\r", ch);
 	sprintf(buf, "$N restores shouts to %s.", victim->name);
 	wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
@@ -3793,7 +3793,7 @@ void do_noshout(CHAR_DATA *ch, char *argument)
     {
 	SET_BIT(victim->comm, COMM_NOSHOUT);
 	victim->pcdata->nochan = get_next_seconds(argument, ch);
-	send_to_char("{RТы не сможешь орать!{x\n\r", victim);
+	send_to_char("{RРўС‹ РЅРµ СЃРјРѕР¶РµС€СЊ РѕСЂР°С‚СЊ!{x\n\r", victim);
 	send_to_char("NOSHOUT set.\n\r", ch);
 	sprintf(buf, "$N revokes %s's shouts.", victim->name);
 	wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
@@ -3813,28 +3813,28 @@ void do_notell(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0')
     {
-	send_to_char("Кому выключить приватный канал?", ch);
+	send_to_char("РљРѕРјСѓ РІС‹РєР»СЋС‡РёС‚СЊ РїСЂРёРІР°С‚РЅС‹Р№ РєР°РЅР°Р»?", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg)) == NULL || IS_NPC(victim))
     {
-	send_to_char("Таких здесь нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     if (get_trust(victim) >= get_trust(ch))
     {
-	send_to_char("Не получилось.\n\r", ch);
+	send_to_char("РќРµ РїРѕР»СѓС‡РёР»РѕСЃСЊ.\n\r", ch);
 	return;
     }
 
     if (IS_SET(victim->comm, COMM_NOTELL))
     {
 	REMOVE_BIT(victim->comm, COMM_NOTELL);
-	send_to_char("{RТы снова можешь говорить.{x\n\r", victim);
+	send_to_char("{RРўС‹ СЃРЅРѕРІР° РјРѕР¶РµС€СЊ РіРѕРІРѕСЂРёС‚СЊ.{x\n\r", victim);
 	send_to_char("NOTELL removed.\n\r", ch);
-	sprintf(buf, "$N возвращает приватный канал %s.", cases(victim->name, 2));
+	sprintf(buf, "$N РІРѕР·РІСЂР°С‰Р°РµС‚ РїСЂРёРІР°С‚РЅС‹Р№ РєР°РЅР°Р» %s.", cases(victim->name, 2));
 	wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
 	victim->pcdata->nochan = 0;
     }
@@ -3842,9 +3842,9 @@ void do_notell(CHAR_DATA *ch, char *argument)
     {
 	SET_BIT(victim->comm, COMM_NOTELL);
 	victim->pcdata->nochan = get_next_seconds(argument, ch);
-	send_to_char("{RТеперь ты не сможешь говорить!{x\n\r", victim);
+	send_to_char("{RРўРµРїРµСЂСЊ С‚С‹ РЅРµ СЃРјРѕР¶РµС€СЊ РіРѕРІРѕСЂРёС‚СЊ!{x\n\r", victim);
 	send_to_char("NOTELL set.\n\r", ch);
-	sprintf(buf, "$N запрещает %s пользоваться приватным каналом.", cases(victim->name, 2));
+	sprintf(buf, "$N Р·Р°РїСЂРµС‰Р°РµС‚ %s РїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РїСЂРёРІР°С‚РЅС‹Рј РєР°РЅР°Р»РѕРј.", cases(victim->name, 2));
 	wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
     }
 
@@ -4163,7 +4163,7 @@ void do_mset(CHAR_DATA *ch, char *argument)
     {
 		if (IS_IMMORTAL(victim))
 		{
-			send_to_char("Только не имморталу.\n\r", ch);
+			send_to_char("РўРѕР»СЊРєРѕ РЅРµ РёРјРјРѕСЂС‚Р°Р»Сѓ.\n\r", ch);
 			return;
 		}
 
@@ -4177,13 +4177,13 @@ void do_mset(CHAR_DATA *ch, char *argument)
     {
 	if (IS_NPC(ch))
 	{
-	    send_to_char("Ты моб.\n\r", ch);
+	    send_to_char("РўС‹ РјРѕР±.\n\r", ch);
 	    return;
 	}
 
 	if (IS_NPC(victim))
 	{
-	    send_to_char("Не мобу же?\n\r", ch);
+	    send_to_char("РќРµ РјРѕР±Сѓ Р¶Рµ?\n\r", ch);
 	    return;
 	}
 
@@ -4945,25 +4945,25 @@ void do_force(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0' || argument[0] == '\0')
     {
-	send_to_char("Заставить кого сделать что?\n\r", ch);
+	send_to_char("Р—Р°СЃС‚Р°РІРёС‚СЊ РєРѕРіРѕ СЃРґРµР»Р°С‚СЊ С‡С‚Рѕ?\n\r", ch);
 	return;
     }
 
     one_argument(argument, arg2);
 
     if (!str_cmp(arg2, "delete") || !str_prefix(arg2, "mob") ||
-	!str_cmp(arg2, "удалить")/* больно не бить 8) (С)Викус */)
+	!str_cmp(arg2, "СѓРґР°Р»РёС‚СЊ")/* Р±РѕР»СЊРЅРѕ РЅРµ Р±РёС‚СЊ 8) (РЎ)Р’РёРєСѓСЃ */)
 	{
-	    send_to_char("Этого не будет сделано.\n\r", ch);
+	    send_to_char("Р­С‚РѕРіРѕ РЅРµ Р±СѓРґРµС‚ СЃРґРµР»Р°РЅРѕ.\n\r", ch);
 	    return;
 	}
 
-    sprintf(buf, "$n принуждает тебя сделать '%s'.", argument);
+    sprintf(buf, "$n РїСЂРёРЅСѓР¶РґР°РµС‚ С‚РµР±СЏ СЃРґРµР»Р°С‚СЊ '%s'.", argument);
 
     if (!str_cmp(arg, "all")
-	|| !str_cmp(arg, "всех")
+	|| !str_cmp(arg, "РІСЃРµС…")
 	|| !str_cmp(arg, "players")
-	|| !str_cmp(arg, "игроков"))
+	|| !str_cmp(arg, "РёРіСЂРѕРєРѕРІ"))
     {
 	DESCRIPTOR_DATA *desc, *desc_next;
 
@@ -4977,7 +4977,7 @@ void do_force(CHAR_DATA *ch, char *argument)
 	    }
 	}
     }
-    else if (!str_cmp(arg, "gods") || !str_cmp(arg, "богов"))
+    else if (!str_cmp(arg, "gods") || !str_cmp(arg, "Р±РѕРіРѕРІ"))
     {
 	DESCRIPTOR_DATA *desc, *desc_next;
 	if (get_trust(ch) < MAX_LEVEL - 2)
@@ -5006,13 +5006,13 @@ void do_force(CHAR_DATA *ch, char *argument)
 
 	if ((victim = get_char_world(ch, arg)) == NULL)
 	{
-	    send_to_char("Таких здесь нет.\n\r", ch);
+	    send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	    return;
 	}
 
 	if (victim == ch)
 	{
-	    send_to_char("Ага, уже бегу исполнять!\n\r", ch);
+	    send_to_char("РђРіР°, СѓР¶Рµ Р±РµРіСѓ РёСЃРїРѕР»РЅСЏС‚СЊ!\n\r", ch);
 	    return;
 	}
 
@@ -5020,16 +5020,16 @@ void do_force(CHAR_DATA *ch, char *argument)
 	     && room_is_private(victim->in_room, NULL)
 	     && !IS_TRUSTED(ch, IMPLEMENTOR))
 	{
-	    send_to_char("Этот игрок в приватной комнате сейчас.\n\r", ch);
+	    send_to_char("Р­С‚РѕС‚ РёРіСЂРѕРє РІ РїСЂРёРІР°С‚РЅРѕР№ РєРѕРјРЅР°С‚Рµ СЃРµР№С‡Р°СЃ.\n\r", ch);
 	    return;
 	}
 
 	if (get_trust(victim) > get_trust(ch))
 	{
-	    send_to_char("Делай это сам!\n\r", ch);
+	    send_to_char("Р”РµР»Р°Р№ СЌС‚Рѕ СЃР°Рј!\n\r", ch);
 	    return;
 	}
-	/* А нафиг force вообще тогда нужен? *//*
+	/* Рђ РЅР°С„РёРі force РІРѕРѕР±С‰Рµ С‚РѕРіРґР° РЅСѓР¶РµРЅ? *//*
 	if (!IS_NPC(victim) && get_trust(ch) < MAX_LEVEL -3)
 	{
 	    send_to_char("Not at your level!\n\r", ch);
@@ -5056,7 +5056,7 @@ void do_invis(CHAR_DATA *ch, char *argument)
 
     if (IS_SET(ch->act, PLR_FULL_SILENCE))
     {
-	send_to_char("Ты навсегда скрыт.\n\r", ch);
+	send_to_char("РўС‹ РЅР°РІСЃРµРіРґР° СЃРєСЂС‹С‚.\n\r", ch);
 	return;
     }
 
@@ -5069,14 +5069,14 @@ void do_invis(CHAR_DATA *ch, char *argument)
 	if (ch->invis_level)
 	{
 	    ch->invis_level = 0;
-	    act("$n медленно проявляется.", ch, NULL, NULL, TO_ROOM);
-	    send_to_char("Ты медленно проявляешься.\n\r", ch);
+	    act("$n РјРµРґР»РµРЅРЅРѕ РїСЂРѕСЏРІР»СЏРµС‚СЃСЏ.", ch, NULL, NULL, TO_ROOM);
+	    send_to_char("РўС‹ РјРµРґР»РµРЅРЅРѕ РїСЂРѕСЏРІР»СЏРµС€СЊСЃСЏ.\n\r", ch);
 	}
 	else
 	{
 	    ch->invis_level = /*get_trust(ch)*/ LEVEL_IMMORTAL;
-	    act("$n медленно растворяется в воздухе.", ch, NULL, NULL, TO_ROOM);
-	    send_to_char("Ты медленно растворяешься в воздухе.\n\r", ch);
+	    act("$n РјРµРґР»РµРЅРЅРѕ СЂР°СЃС‚РІРѕСЂСЏРµС‚СЃСЏ РІ РІРѕР·РґСѓС…Рµ.", ch, NULL, NULL, TO_ROOM);
+	    send_to_char("РўС‹ РјРµРґР»РµРЅРЅРѕ СЂР°СЃС‚РІРѕСЂСЏРµС€СЊСЃСЏ РІ РІРѕР·РґСѓС…Рµ.\n\r", ch);
 	}
     else
 	/* do the level thing */
@@ -5091,8 +5091,8 @@ void do_invis(CHAR_DATA *ch, char *argument)
 	{
 	    ch->reply = NULL;
 	    ch->invis_level = level;
-	    act("$n медленно растворяется в воздухе.", ch, NULL, NULL, TO_ROOM);
-	    send_to_char("Ты медленно растворяешься в воздухе.\n\r", ch);
+	    act("$n РјРµРґР»РµРЅРЅРѕ СЂР°СЃС‚РІРѕСЂСЏРµС‚СЃСЏ РІ РІРѕР·РґСѓС…Рµ.", ch, NULL, NULL, TO_ROOM);
+	    send_to_char("РўС‹ РјРµРґР»РµРЅРЅРѕ СЂР°СЃС‚РІРѕСЂСЏРµС€СЊСЃСЏ РІ РІРѕР·РґСѓС…Рµ.\n\r", ch);
 	}
     }
 
@@ -5116,16 +5116,16 @@ void do_incognito(CHAR_DATA *ch, char *argument)
 	    char buf[30];
 
 	    ch->incog_level = 0;
-	    sprintf(buf, "$n теперь будет замет%s.", ch->sex == SEX_MALE ? "ен" :
-		    ch->sex == SEX_FEMALE ? "на" : "но");
+	    sprintf(buf, "$n С‚РµРїРµСЂСЊ Р±СѓРґРµС‚ Р·Р°РјРµС‚%s.", ch->sex == SEX_MALE ? "РµРЅ" :
+		    ch->sex == SEX_FEMALE ? "РЅР°" : "РЅРѕ");
 	    act(buf, ch, NULL, NULL, TO_ROOM);
-	    send_to_char("Ты больше не скрываешь своего присутствия.\n\r", ch);
+	    send_to_char("РўС‹ Р±РѕР»СЊС€Рµ РЅРµ СЃРєСЂС‹РІР°РµС€СЊ СЃРІРѕРµРіРѕ РїСЂРёСЃСѓС‚СЃС‚РІРёСЏ.\n\r", ch);
 	}
 	else
 	{
 	    ch->incog_level = /*get_trust(ch)*/ LEVEL_IMMORTAL;
-	    act("$n маскирует свое существование.", ch, NULL, NULL, TO_ROOM);
-	    send_to_char("Ты скрываешь свое присутствие.\n\r", ch);
+	    act("$n РјР°СЃРєРёСЂСѓРµС‚ СЃРІРѕРµ СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёРµ.", ch, NULL, NULL, TO_ROOM);
+	    send_to_char("РўС‹ СЃРєСЂС‹РІР°РµС€СЊ СЃРІРѕРµ РїСЂРёСЃСѓС‚СЃС‚РІРёРµ.\n\r", ch);
 	}
     else
 	/* do the level thing */
@@ -5140,8 +5140,8 @@ void do_incognito(CHAR_DATA *ch, char *argument)
 	{
 	    ch->reply = NULL;
 	    ch->incog_level = level;
-	    act("$n маскирует свое существование.", ch, NULL, NULL, TO_ROOM);
-	    send_to_char("Ты скрываешь свое присутствие.\n\r", ch);
+	    act("$n РјР°СЃРєРёСЂСѓРµС‚ СЃРІРѕРµ СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёРµ.", ch, NULL, NULL, TO_ROOM);
+	    send_to_char("РўС‹ СЃРєСЂС‹РІР°РµС€СЊ СЃРІРѕРµ РїСЂРёСЃСѓС‚СЃС‚РІРёРµ.\n\r", ch);
 	}
     }
 
@@ -5212,24 +5212,24 @@ void do_cases(CHAR_DATA *ch, char *argument)
 {
     char buf[MAX_STRING_LENGTH];
 
-    if (argument[0] == '\0') {send_to_char("Что ты хотел посклонять?\n\r", ch); return; }
+    if (argument[0] == '\0') {send_to_char("Р§С‚Рѕ С‚С‹ С…РѕС‚РµР» РїРѕСЃРєР»РѕРЅСЏС‚СЊ?\n\r", ch); return; }
 
-    sprintf(buf, "Кто/что             : {Y%s{x\n\r", argument);
+    sprintf(buf, "РљС‚Рѕ/С‡С‚Рѕ             : {Y%s{x\n\r", argument);
     send_to_char(buf, ch);
-    sprintf(buf, "Взять из кого/чего  : {Y%s{x\n\r", cases(argument, 1));
+    sprintf(buf, "Р’Р·СЏС‚СЊ РёР· РєРѕРіРѕ/С‡РµРіРѕ  : {Y%s{x\n\r", cases(argument, 1));
     send_to_char(buf, ch);
-    sprintf(buf, "Дать кому/чему      : {Y%s{x\n\r", cases(argument, 2));
+    sprintf(buf, "Р”Р°С‚СЊ РєРѕРјСѓ/С‡РµРјСѓ      : {Y%s{x\n\r", cases(argument, 2));
     send_to_char(buf, ch);
-    sprintf(buf, "Ударить кого/что    : {Y%s{x\n\r", cases(argument, 3));
+    sprintf(buf, "РЈРґР°СЂРёС‚СЊ РєРѕРіРѕ/С‡С‚Рѕ    : {Y%s{x\n\r", cases(argument, 3));
     send_to_char(buf, ch);
-    sprintf(buf, "Ударить кем/чем     : {Y%s{x\n\r", cases(argument, 4));
+    sprintf(buf, "РЈРґР°СЂРёС‚СЊ РєРµРј/С‡РµРј     : {Y%s{x\n\r", cases(argument, 4));
     send_to_char(buf, ch);
-    sprintf(buf, "Говорить о ком/о чем: {Y%s{x\n\r", cases(argument, 5));
+    sprintf(buf, "Р“РѕРІРѕСЂРёС‚СЊ Рѕ РєРѕРј/Рѕ С‡РµРј: {Y%s{x\n\r", cases(argument, 5));
     send_to_char(buf, ch);
-    sprintf(buf, "Взять кого/что      : {Y%s{x\n\r", cases(argument, 6));
+    sprintf(buf, "Р’Р·СЏС‚СЊ РєРѕРіРѕ/С‡С‚Рѕ      : {Y%s{x\n\r", cases(argument, 6));
     send_to_char(buf, ch);
 
-    sprintf(buf, "\n\rГлагол              : {Y%s развалива{x%s{Yся{x\n\r",
+    sprintf(buf, "\n\rР“Р»Р°РіРѕР»              : {Y%s СЂР°Р·РІР°Р»РёРІР°{x%s{YСЃСЏ{x\n\r",
 	    argument, decompose_end(argument));
     send_to_char(buf, ch);
 }
@@ -5251,7 +5251,7 @@ void do_rename(CHAR_DATA* ch, char* argument)
     /* Trivial checks */
     if (!old_name[0])
     {
-	send_to_char ("Переименовать кого?\n\r", ch);
+	send_to_char ("РџРµСЂРµРёРјРµРЅРѕРІР°С‚СЊ РєРѕРіРѕ?\n\r", ch);
 	return;
     }
 
@@ -5259,13 +5259,13 @@ void do_rename(CHAR_DATA* ch, char* argument)
 
     if (!victim)
     {
-	send_to_char ("Таких здесь нет.\n\r", ch);
+	send_to_char ("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     if (IS_NPC(victim))
     {
-	send_to_char ("Ты не можешь переименовывать мобов.\n\r", ch);
+	send_to_char ("РўС‹ РЅРµ РјРѕР¶РµС€СЊ РїРµСЂРµРёРјРµРЅРѕРІС‹РІР°С‚СЊ РјРѕР±РѕРІ.\n\r", ch);
 	return;
     }
 
@@ -5274,26 +5274,26 @@ void do_rename(CHAR_DATA* ch, char* argument)
     /* allow rename self new_name, but otherwise only lower level */
     if (get_trust(victim) > get_trust(ch))
     {
-	send_to_char("Не получилось.\n\r", ch);
+	send_to_char("РќРµ РїРѕР»СѓС‡РёР»РѕСЃСЊ.\n\r", ch);
 	return;
     }
 
     /*	if (!victim->desc || (victim->desc->connected != CON_PLAYING))
      {
-     send_to_char ("Этот персонаж потерял связь (или что-то подобное).\n\r", ch);
+     send_to_char ("Р­С‚РѕС‚ РїРµСЂСЃРѕРЅР°Р¶ РїРѕС‚РµСЂСЏР» СЃРІСЏР·СЊ (РёР»Рё С‡С‚Рѕ-С‚Рѕ РїРѕРґРѕР±РЅРѕРµ).\n\r", ch);
      return;
      } */
 
     if (IS_NULLSTR(new_name))
     {
-	send_to_char ("Переименовать в какое имя?\n\r", ch);
+	send_to_char ("РџРµСЂРµРёРјРµРЅРѕРІР°С‚СЊ РІ РєР°РєРѕРµ РёРјСЏ?\n\r", ch);
 	return;
     }
 
 
     if (!check_parse_name(new_name, TRUE))
     {
-	send_to_char ("Недопустимое имя, выбери другое.\n\r", ch);
+	send_to_char ("РќРµРґРѕРїСѓСЃС‚РёРјРѕРµ РёРјСЏ, РІС‹Р±РµСЂРё РґСЂСѓРіРѕРµ.\n\r", ch);
 	return;
     }
 
@@ -5308,14 +5308,14 @@ void do_rename(CHAR_DATA* ch, char* argument)
 	one_argument(argument, arg);
 	if (arg[0] == '\0')
 	{
-	    send_to_char("Какой падеж ты хотел сменить?\n\r", ch);
+	    send_to_char("РљР°РєРѕР№ РїР°РґРµР¶ С‚С‹ С…РѕС‚РµР» СЃРјРµРЅРёС‚СЊ?\n\r", ch);
 	    return;
 	}
 	numb=number_argument(arg, arg1);
 	convert_name(arg1);
 	switch(numb)
 	{
-	default: send_to_char("Номер падежа должен быть в пределах от 1 до 5.\n\r", ch); return;
+	default: send_to_char("РќРѕРјРµСЂ РїР°РґРµР¶Р° РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РІ РїСЂРµРґРµР»Р°С… РѕС‚ 1 РґРѕ 5.\n\r", ch); return;
 	case 1:
 		 free_string(victim->pcdata->cases[0]);
 		 victim->pcdata->cases[0] = str_dup(arg1);
@@ -5337,7 +5337,7 @@ void do_rename(CHAR_DATA* ch, char* argument)
 		 victim->pcdata->cases[4] = str_dup(arg1);
 		 break;
 	}
-	sprintf(arg, "Игрок %s - Падеж %d установлен в %s.\n\r", victim->name, numb, arg1);
+	sprintf(arg, "РРіСЂРѕРє %s - РџР°РґРµР¶ %d СѓСЃС‚Р°РЅРѕРІР»РµРЅ РІ %s.\n\r", victim->name, numb, arg1);
 	send_to_char(arg, ch);
 	VALIDATE(victim);
 	save_char_obj(victim, FALSE);
@@ -5346,7 +5346,7 @@ void do_rename(CHAR_DATA* ch, char* argument)
 
     if (!check_parse_name(new_name, TRUE))
     {
-	send_to_char ("Новое имя неправильно.\n\r", ch);
+	send_to_char ("РќРѕРІРѕРµ РёРјСЏ РЅРµРїСЂР°РІРёР»СЊРЅРѕ.\n\r", ch);
 	return;
     }
 
@@ -5363,7 +5363,7 @@ void do_rename(CHAR_DATA* ch, char* argument)
 
     if (exist)
     {
-	send_to_char ("Игрок с таким именем уже существует!\n\r", ch);
+	send_to_char ("РРіСЂРѕРє СЃ С‚Р°РєРёРј РёРјРµРЅРµРј СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!\n\r", ch);
 	return;
     }
 
@@ -5380,13 +5380,13 @@ void do_rename(CHAR_DATA* ch, char* argument)
 
     if (exist)
     {
-	send_to_char ("Игрок с таким именем уже есть в сжатом файле!\n\r", ch);
+	send_to_char ("РРіСЂРѕРє СЃ С‚Р°РєРёРј РёРјРµРЅРµРј СѓР¶Рµ РµСЃС‚СЊ РІ СЃР¶Р°С‚РѕРј С„Р°Р№Р»Рµ!\n\r", ch);
 	return;
     }
 
     if (get_char_world(NULL, new_name)) /* check for playing level-1 non-saved */
     {
-	send_to_char ("Игрок с таким именем уже существует!\n\r", ch);
+	send_to_char ("РРіСЂРѕРє СЃ С‚Р°РєРёРј РёРјРµРЅРµРј СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!\n\r", ch);
 	return;
     }
 
@@ -5418,11 +5418,11 @@ void do_rename(CHAR_DATA* ch, char* argument)
 
     /* That's it! */
 
-    send_to_char ("Персонаж переименован. Не забудь поменять падежи!\n\r", ch);
+    send_to_char ("РџРµСЂСЃРѕРЅР°Р¶ РїРµСЂРµРёРјРµРЅРѕРІР°РЅ. РќРµ Р·Р°Р±СѓРґСЊ РїРѕРјРµРЅСЏС‚СЊ РїР°РґРµР¶Рё!\n\r", ch);
 
     /*	victim->position = POS_STANDING; */ /* I am laaazy */
     victim->position = pos;
-    act ("$n дает тебе новое имя - $N!", ch, NULL, victim, TO_VICT);
+    act ("$n РґР°РµС‚ С‚РµР±Рµ РЅРѕРІРѕРµ РёРјСЏ - $N!", ch, NULL, victim, TO_VICT);
 
 } /* do_rename */
 
@@ -5430,7 +5430,7 @@ void do_rename(CHAR_DATA* ch, char* argument)
 bool can_create_socket(OBJ_DATA *obj);
 
 
-// #Добавить
+// #Р”РѕР±Р°РІРёС‚СЊ
 void do_addapply(CHAR_DATA *ch, char *argument){
     OBJ_DATA *obj;
     CHAR_DATA *victim;
@@ -5452,11 +5452,11 @@ void do_addapply(CHAR_DATA *ch, char *argument){
     argument = one_argument(argument, arg3);
 
     if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0'){
-        send_to_char("Синтаксис: добавить <объект> <параметр> <значение>\n\r"
-                     "или      : добавить <чар> qp/bronze <значение>\n\r\n\r", ch);
+        send_to_char("РЎРёРЅС‚Р°РєСЃРёСЃ: РґРѕР±Р°РІРёС‚СЊ <РѕР±СЉРµРєС‚> <РїР°СЂР°РјРµС‚СЂ> <Р·РЅР°С‡РµРЅРёРµ>\n\r"
+                     "РёР»Рё      : РґРѕР±Р°РІРёС‚СЊ <С‡Р°СЂ> qp/bronze <Р·РЅР°С‡РµРЅРёРµ>\n\r\n\r", ch);
 
         if (IS_NPC(ch) || get_trust(ch) > MAX_LEVEL - 5)
-            send_to_char("Параметр: hp str dex int wis "
+            send_to_char("РџР°СЂР°РјРµС‚СЂ: hp str dex int wis "
                  "con mana move ac hitroll damroll saves name short "
                  "desc level timer cond owner socket\n\r", ch);
         else
@@ -5471,24 +5471,24 @@ void do_addapply(CHAR_DATA *ch, char *argument){
 		bool fFree = FALSE;
 
 		if (!is_number(arg3)){
-	    	send_to_char("Третий аргумент должен быть числовым!\n\r", ch);
+	    	send_to_char("РўСЂРµС‚РёР№ Р°СЂРіСѓРјРµРЅС‚ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ С‡РёСЃР»РѕРІС‹Рј!\n\r", ch);
 	    	return;
 		}
 
 		qp = atoi(arg3);
 
-		// Если чара нет в мире - загрузим его
+		// Р•СЃР»Рё С‡Р°СЂР° РЅРµС‚ РІ РјРёСЂРµ - Р·Р°РіСЂСѓР·РёРј РµРіРѕ
 		if ((victim = get_char_world(NULL, arg1)) == NULL || IS_NPC(victim)){
 	    	d = new_descriptor();
 
 	    	if (!load_char_obj(d, arg1, FALSE, FALSE)){
-				send_to_char("Таких нет в этом мире.\n\r", ch);
+				send_to_char("РўР°РєРёС… РЅРµС‚ РІ СЌС‚РѕРј РјРёСЂРµ.\n\r", ch);
 				free_descriptor(d);
 				return;
 	    	}
 
 	    	victim = d->character;
-	    	fFree = TRUE;				// флаг, что чара нужно будет выгрузить
+	    	fFree = TRUE;				// С„Р»Р°Рі, С‡С‚Рѕ С‡Р°СЂР° РЅСѓР¶РЅРѕ Р±СѓРґРµС‚ РІС‹РіСЂСѓР·РёС‚СЊ
 
 	    	check_light_status(victim);
 
@@ -5501,9 +5501,9 @@ void do_addapply(CHAR_DATA *ch, char *argument){
 
 		if (!fFree){
 	    	if (qp > 0)
-				sprintf(arg1, "{GБоги дают тебе за твои старания %d удачи.{x\n\r", qp);
+				sprintf(arg1, "{GР‘РѕРіРё РґР°СЋС‚ С‚РµР±Рµ Р·Р° С‚РІРѕРё СЃС‚Р°СЂР°РЅРёСЏ %d СѓРґР°С‡Рё.{x\n\r", qp);
 	    	else
-				sprintf(arg1, "{GБоги изымают у тебя %d удачи.{x\n\r", -qp);
+				sprintf(arg1, "{GР‘РѕРіРё РёР·С‹РјР°СЋС‚ Сѓ С‚РµР±СЏ %d СѓРґР°С‡Рё.{x\n\r", -qp);
 	    		send_to_char(arg1, victim);
 		} else {
 	    	save_char_obj(victim, FALSE);
@@ -5523,7 +5523,7 @@ void do_addapply(CHAR_DATA *ch, char *argument){
 		bool fFree = FALSE;
 
 		if (!is_number(arg3)){
-	    	send_to_char("Третий аргумент должен быть числовым!\n\r", ch);
+	    	send_to_char("РўСЂРµС‚РёР№ Р°СЂРіСѓРјРµРЅС‚ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ С‡РёСЃР»РѕРІС‹Рј!\n\r", ch);
 	    	return;
 		}
 
@@ -5534,7 +5534,7 @@ void do_addapply(CHAR_DATA *ch, char *argument){
 
 	    	if (!load_char_obj(d, arg1, FALSE, FALSE))
 	    	{
-				send_to_char("Таких нет в этом мире.\n\r", ch);
+				send_to_char("РўР°РєРёС… РЅРµС‚ РІ СЌС‚РѕРј РјРёСЂРµ.\n\r", ch);
 				free_descriptor(d);
 				return;
 	    	}
@@ -5553,9 +5553,9 @@ void do_addapply(CHAR_DATA *ch, char *argument){
 
 		if (!fFree){
 	    	if (bronze > 0)
-				sprintf(arg1, "{GБоги дают тебе за твои старания %d бронзы.{x\n\r", bronze);
+				sprintf(arg1, "{GР‘РѕРіРё РґР°СЋС‚ С‚РµР±Рµ Р·Р° С‚РІРѕРё СЃС‚Р°СЂР°РЅРёСЏ %d Р±СЂРѕРЅР·С‹.{x\n\r", bronze);
 	    	else
-				sprintf(arg1, "{GБоги изымают у тебя %d бронзы.{x\n\r", -bronze);
+				sprintf(arg1, "{GР‘РѕРіРё РёР·С‹РјР°СЋС‚ Сѓ С‚РµР±СЏ %d Р±СЂРѕРЅР·С‹.{x\n\r", -bronze);
 	    	send_to_char(arg1, victim);
 		}
 		else
@@ -5571,12 +5571,12 @@ void do_addapply(CHAR_DATA *ch, char *argument){
     }
 
     if ((obj = get_obj_carry(ch, arg1, ch)) == NULL){
-		send_to_char("У тебя этого нет.\n\r", ch);
+		send_to_char("РЈ С‚РµР±СЏ СЌС‚РѕРіРѕ РЅРµС‚.\n\r", ch);
 		return;
     }
 
     if (obj->pIndexData->edited){
-		send_to_char("Подожди, этот объект сейчас редактируется в OLC.\n\r", ch);
+		send_to_char("РџРѕРґРѕР¶РґРё, СЌС‚РѕС‚ РѕР±СЉРµРєС‚ СЃРµР№С‡Р°СЃ СЂРµРґР°РєС‚РёСЂСѓРµС‚СЃСЏ РІ OLC.\n\r", ch);
 		return;
     }
 
@@ -5613,12 +5613,12 @@ void do_addapply(CHAR_DATA *ch, char *argument){
 				obj->level = lvl;
 				send_to_char("Ok.\n\r", ch);
 			} else {
-				send_to_char("Уровень должен быть в разумных пределах.\n\r", ch);
+				send_to_char("РЈСЂРѕРІРµРЅСЊ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РІ СЂР°Р·СѓРјРЅС‹С… РїСЂРµРґРµР»Р°С….\n\r", ch);
 			}
 
 		}
 		else
-			send_to_char("Значение должно быть числовым.\n\r", ch);
+			send_to_char("Р—РЅР°С‡РµРЅРёРµ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ С‡РёСЃР»РѕРІС‹Рј.\n\r", ch);
 		return;
     }
     else if (!str_cmp(arg2, "desc"))
@@ -5644,11 +5644,11 @@ void do_addapply(CHAR_DATA *ch, char *argument){
     }
     else if (!str_cmp(arg2, "socket")){
 		if (!can_create_socket(obj)){
-			send_to_char("В этой вещи нельзя проделать гнездо.\n\r", ch);
+			send_to_char("Р’ СЌС‚РѕР№ РІРµС‰Рё РЅРµР»СЊР·СЏ РїСЂРѕРґРµР»Р°С‚СЊ РіРЅРµР·РґРѕ.\n\r", ch);
 			return;
 		}
 
-		// Отладка, fprintf(fp, "ExtF %lu\n",	obj->extra_flags);
+		// РћС‚Р»Р°РґРєР°, fprintf(fp, "ExtF %lu\n",	obj->extra_flags);
 		sprintf(buf, "ExtF %lu\n\r",	obj->extra_flags);
 		send_to_char(buf, ch);
 
@@ -5657,7 +5657,7 @@ void do_addapply(CHAR_DATA *ch, char *argument){
 		SET_BIT(obj->extra_flags, ITEM_HAS_SOCKET);
 		send_to_char("Ok.\n\r", ch);
 
-		// Отладка
+		// РћС‚Р»Р°РґРєР°
 		sprintf(buf, "ExtF %lu\n\r",	obj->extra_flags);
 		send_to_char(buf, ch);
 
@@ -5672,10 +5672,10 @@ void do_addapply(CHAR_DATA *ch, char *argument){
 				obj->timer = tmr;
 				send_to_char("Ok.\n\r", ch);
 			} else {
-				send_to_char("Таймер должен быть больше либо равен нулю.\n\r", ch);
+				send_to_char("РўР°Р№РјРµСЂ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ Р±РѕР»СЊС€Рµ Р»РёР±Рѕ СЂР°РІРµРЅ РЅСѓР»СЋ.\n\r", ch);
 			}
 		} else {
-			send_to_char("Значение должно быть числовым.\n\r", ch);
+			send_to_char("Р—РЅР°С‡РµРЅРёРµ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ С‡РёСЃР»РѕРІС‹Рј.\n\r", ch);
 		}
 
 		return;
@@ -5691,11 +5691,11 @@ void do_addapply(CHAR_DATA *ch, char *argument){
 			}
 			else
 			{
-			send_to_char("Состояние должно быть больше либо равно "
-					 "нулю.\n\r", ch);
+			send_to_char("РЎРѕСЃС‚РѕСЏРЅРёРµ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ Р±РѕР»СЊС€Рµ Р»РёР±Рѕ СЂР°РІРЅРѕ "
+					 "РЅСѓР»СЋ.\n\r", ch);
 			}
 		} else {
-			send_to_char("Значение должно быть числовым.\n\r", ch);
+			send_to_char("Р—РЅР°С‡РµРЅРёРµ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ С‡РёСЃР»РѕРІС‹Рј.\n\r", ch);
 		}
 		return;
     } else if (!str_cmp(arg2, "owner")){
@@ -5765,13 +5765,13 @@ void do_wpeace(CHAR_DATA *ch, char *argument)
 
 	if (rch->fighting)
 	{
-	    sprintf(buf, "%s объявляет всеобщий мир.\n\r", ch->name);
+	    sprintf(buf, "%s РѕР±СЉСЏРІР»СЏРµС‚ РІСЃРµРѕР±С‰РёР№ РјРёСЂ.\n\r", ch->name);
 	    send_to_char(buf, rch);
 	    stop_fighting(rch, TRUE);
 	}
     }
 
-    send_to_char("Ты объявляешь всеобщий мир.\n\r", ch);
+    send_to_char("РўС‹ РѕР±СЉСЏРІР»СЏРµС€СЊ РІСЃРµРѕР±С‰РёР№ РјРёСЂ.\n\r", ch);
     return;
 }
 
@@ -5786,11 +5786,11 @@ void close_quest()
 
     strftime(tm, 50, "%d.%m %H:%M", localtime(&current_time));
 
-    sprintf(buf, "Последний квест был закончен %s.\n\rОписание: %s\n\rСчет: %d %s\n\rКто объявил: %s\n\r",
+    sprintf(buf, "РџРѕСЃР»РµРґРЅРёР№ РєРІРµСЃС‚ Р±С‹Р» Р·Р°РєРѕРЅС‡РµРЅ %s.\n\rРћРїРёСЃР°РЅРёРµ: %s\n\rРЎС‡РµС‚: %d %s\n\rРљС‚Рѕ РѕР±СЉСЏРІРёР»: %s\n\r",
 	    tm,
 	    immquest.desc,
 	    immquest.max_score,
-	    (immquest.max_score == 0) ? "(без счета)" : "",
+	    (immquest.max_score == 0) ? "(Р±РµР· СЃС‡РµС‚Р°)" : "",
 	    immquest.who_claim->name);
 
     immquest.last_quest = str_dup(buf);
@@ -5809,7 +5809,7 @@ void close_quest()
 	{
 	    if (d->connected == CON_PLAYING)
 	    {
-		send_to_char("{RКлановые войны вступают в силу.{x\n\r",
+		send_to_char("{RРљР»Р°РЅРѕРІС‹Рµ РІРѕР№РЅС‹ РІСЃС‚СѓРїР°СЋС‚ РІ СЃРёР»Сѓ.{x\n\r",
 			     d->character);
 	    }
 	}
@@ -5836,29 +5836,29 @@ void do_immquest(CHAR_DATA *ch, char *argument)
     argument = one_argument(argument, arg);
     if (arg[0] != '\0')
     {
-	if (!str_prefix(arg, "объявить") || !str_prefix(arg, "claim"))
+	if (!str_prefix(arg, "РѕР±СЉСЏРІРёС‚СЊ") || !str_prefix(arg, "claim"))
 	{
 	    if (immquest.is_quest)
 	    {
-		send_to_char("Подожди, пока закончится текущий квест.\n\r", ch);
+		send_to_char("РџРѕРґРѕР¶РґРё, РїРѕРєР° Р·Р°РєРѕРЅС‡РёС‚СЃСЏ С‚РµРєСѓС‰РёР№ РєРІРµСЃС‚.\n\r", ch);
 		return;
 	    }
 	    argument = one_argument(argument, arg);
 	    if (!is_number(arg) || (immquest.max_score = atoi(arg)) < 0)
 	    {
-		send_to_char("Счет должен быть числовым и быть больше либо равным 0.\n\r", ch);
+		send_to_char("РЎС‡РµС‚ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ С‡РёСЃР»РѕРІС‹Рј Рё Р±С‹С‚СЊ Р±РѕР»СЊС€Рµ Р»РёР±Рѕ СЂР°РІРЅС‹Рј 0.\n\r", ch);
 		return;
 	    }
 	    argument=one_argument(argument, arg);
 	    if (!is_number(arg) || (immquest.timer = atoi(arg)) < 0)
 	    {
-		send_to_char("Таймер должен быть числовым и быть больше либо равным 0.\n\r", ch);
+		send_to_char("РўР°Р№РјРµСЂ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ С‡РёСЃР»РѕРІС‹Рј Рё Р±С‹С‚СЊ Р±РѕР»СЊС€Рµ Р»РёР±Рѕ СЂР°РІРЅС‹Рј 0.\n\r", ch);
 		return;
 	    }
 
 	    one_argument(argument, arg);
 
-	    if (!str_cmp(arg, "nowar") || !str_cmp(arg, "война"))
+	    if (!str_cmp(arg, "nowar") || !str_cmp(arg, "РІРѕР№РЅР°"))
 	    {
 		argument = one_argument(argument, arg);
 
@@ -5873,21 +5873,21 @@ void do_immquest(CHAR_DATA *ch, char *argument)
 	    immquest.who_claim = ch;
 	    immquest.is_quest = TRUE;
 	    do_function(ch, &do_immquest, "show");
-	    sprintf(arg, "%s объявляет квест: {G%s{x{*\n\r", immquest.who_claim->name, immquest.desc);
+	    sprintf(arg, "%s РѕР±СЉСЏРІР»СЏРµС‚ РєРІРµСЃС‚: {G%s{x{*\n\r", immquest.who_claim->name, immquest.desc);
 	    do_function(ch, &do_echo, arg);
 	    return;
 	}
 
-	if (!str_prefix(arg, "удвоение") || !str_prefix(arg, "double"))
+	if (!str_prefix(arg, "СѓРґРІРѕРµРЅРёРµ") || !str_prefix(arg, "double"))
 	    num = 2;
 
-	if (!str_prefix(arg, "утроение") || !str_prefix(arg, "trouble"))
+	if (!str_prefix(arg, "СѓС‚СЂРѕРµРЅРёРµ") || !str_prefix(arg, "trouble"))
 	    num = 3;
 
-	if (!str_prefix(arg, "квадро"))
+	if (!str_prefix(arg, "РєРІР°РґСЂРѕ"))
 	    num = 4;
 	    
-	if (!str_prefix(arg, "квинто"))
+	if (!str_prefix(arg, "РєРІРёРЅС‚Рѕ"))
 	    num = 5;
 	
 	    
@@ -5895,7 +5895,7 @@ void do_immquest(CHAR_DATA *ch, char *argument)
 	{
 	    if (immquest.is_quest)
 	    {
-		send_to_char("Подожди, пока закончится текущий квест.\n\r", ch);
+		send_to_char("РџРѕРґРѕР¶РґРё, РїРѕРєР° Р·Р°РєРѕРЅС‡РёС‚СЃСЏ С‚РµРєСѓС‰РёР№ РєРІРµСЃС‚.\n\r", ch);
 		return;
 	    }
     
@@ -5912,30 +5912,30 @@ void do_immquest(CHAR_DATA *ch, char *argument)
 		{
 		    qp = num;
 		    free_string(msg);
-		    msg = str_dup("удачи");
+		    msg = str_dup("СѓРґР°С‡Рё");
 		}
 		if (!str_prefix(arg, "exp"))
 		{
 		    exp = num;
 		    free_string(msg);
-		    msg = str_dup("опыта");
+		    msg = str_dup("РѕРїС‹С‚Р°");
 		}
 		if (qp > 1 && exp > 1)
 		{
 		    free_string(msg);
-		    msg = str_dup("удачи, опыта");
+		    msg = str_dup("СѓРґР°С‡Рё, РѕРїС‹С‚Р°");
 		}
 		if (!str_prefix(arg, "skill"))
 		{
 		    skill = num;
 		    free_string(msg2);
-		    msg2 = str_dup("скорости обучения");
+		    msg2 = str_dup("СЃРєРѕСЂРѕСЃС‚Рё РѕР±СѓС‡РµРЅРёСЏ");
 		}
 	    }
 
 	    if (qp == 1 && exp == 1 && skill == 1)
 	    {
-		send_to_char("Доступные параметры: QP, EXP, SKILL.\n\r",ch);
+		send_to_char("Р”РѕСЃС‚СѓРїРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹: QP, EXP, SKILL.\n\r",ch);
 		return;
 	    }		
 
@@ -5943,13 +5943,13 @@ void do_immquest(CHAR_DATA *ch, char *argument)
 
 	    if (!is_number(arg) || (immquest.timer = atoi(arg)) < 0)
 	    {
-		send_to_char("Таймер должен быть числовым и быть больше либо равным 0.\n\r", ch);
+		send_to_char("РўР°Р№РјРµСЂ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ С‡РёСЃР»РѕРІС‹Рј Рё Р±С‹С‚СЊ Р±РѕР»СЊС€Рµ Р»РёР±Рѕ СЂР°РІРЅС‹Рј 0.\n\r", ch);
 		return;
 	    }
 
 	    one_argument(argument, arg);
 
-	    if (!str_cmp(arg, "nowar") || !str_cmp(arg, "война"))
+	    if (!str_cmp(arg, "nowar") || !str_cmp(arg, "РІРѕР№РЅР°"))
 	    {
 		argument = one_argument(argument, arg);
 
@@ -5963,16 +5963,16 @@ void do_immquest(CHAR_DATA *ch, char *argument)
 	    immquest.who_claim    = ch;
 	    if (qp > 1 || exp > 1)
 	    {
-		sprintf(immquest.desc, num == 2 ? "Малое усиление получаемых очков %s%s%s." : "Большое усиление получаемых очков %s%s%s.", msg, (skill > 1 ? " и " : ""), msg2);
-		sprintf(arg, "%s объявляет о %s получаемых очков %s%s%s!{x{*\n\r", immquest.who_claim->name,
-				num == 2 ? "малом усилении" : "большом усилении", msg, (skill > 1 ? " и " : ""), msg2);
+		sprintf(immquest.desc, num == 2 ? "РњР°Р»РѕРµ СѓСЃРёР»РµРЅРёРµ РїРѕР»СѓС‡Р°РµРјС‹С… РѕС‡РєРѕРІ %s%s%s." : "Р‘РѕР»СЊС€РѕРµ СѓСЃРёР»РµРЅРёРµ РїРѕР»СѓС‡Р°РµРјС‹С… РѕС‡РєРѕРІ %s%s%s.", msg, (skill > 1 ? " Рё " : ""), msg2);
+		sprintf(arg, "%s РѕР±СЉСЏРІР»СЏРµС‚ Рѕ %s РїРѕР»СѓС‡Р°РµРјС‹С… РѕС‡РєРѕРІ %s%s%s!{x{*\n\r", immquest.who_claim->name,
+				num == 2 ? "РјР°Р»РѕРј СѓСЃРёР»РµРЅРёРё" : "Р±РѕР»СЊС€РѕРј СѓСЃРёР»РµРЅРёРё", msg, (skill > 1 ? " Рё " : ""), msg2);
 	    }
 	    else
 	    {
 		sprintf(immquest.desc, 
-		    num == 2 ? "Малое усиление %s." : "Большое усиление %s.", msg2);
-		sprintf(arg, "%s объявляет о %s %s!{x{*\n\r", immquest.who_claim->name,
-		    num == 2 ? "малом усилении" : "большом усилении", msg2);
+		    num == 2 ? "РњР°Р»РѕРµ СѓСЃРёР»РµРЅРёРµ %s." : "Р‘РѕР»СЊС€РѕРµ СѓСЃРёР»РµРЅРёРµ %s.", msg2);
+		sprintf(arg, "%s РѕР±СЉСЏРІР»СЏРµС‚ Рѕ %s %s!{x{*\n\r", immquest.who_claim->name,
+		    num == 2 ? "РјР°Р»РѕРј СѓСЃРёР»РµРЅРёРё" : "Р±РѕР»СЊС€РѕРј СѓСЃРёР»РµРЅРёРё", msg2);
 	    }
 	    immquest.is_quest     = TRUE;
 	    immquest.double_qp    = qp;
@@ -5983,52 +5983,52 @@ void do_immquest(CHAR_DATA *ch, char *argument)
 	    return;
 	}
 
-	if (!str_prefix(arg, "последний") || !str_prefix(arg, "last"))
+	if (!str_prefix(arg, "РїРѕСЃР»РµРґРЅРёР№") || !str_prefix(arg, "last"))
 	{
 	    printf_to_char("%s\n\r", ch,
 			   IS_NULLSTR(immquest.last_quest)
-			   ? "Квестов после ребута объявлено не было."
+			   ? "РљРІРµСЃС‚РѕРІ РїРѕСЃР»Рµ СЂРµР±СѓС‚Р° РѕР±СЉСЏРІР»РµРЅРѕ РЅРµ Р±С‹Р»Рѕ."
 			   : immquest.last_quest);
 	    return;
 	}
 
 	if (!immquest.is_quest)
 	{
-	    send_to_char("Пока никаких квестов не объявлено.\n\r", ch);
+	    send_to_char("РџРѕРєР° РЅРёРєР°РєРёС… РєРІРµСЃС‚РѕРІ РЅРµ РѕР±СЉСЏРІР»РµРЅРѕ.\n\r", ch);
 	    return;
 	}
-	else if (!str_prefix(arg, "показать") || !str_prefix(arg, "show"))
+	else if (!str_prefix(arg, "РїРѕРєР°Р·Р°С‚СЊ") || !str_prefix(arg, "show"))
 	{
-	    sprintf(arg, "Объявлен квест:\n\rОписание: %s\n\rСчет: %d %s\n\rТаймер: %d %s\n\rКто объявил: %s\n\r",
+	    sprintf(arg, "РћР±СЉСЏРІР»РµРЅ РєРІРµСЃС‚:\n\rРћРїРёСЃР°РЅРёРµ: %s\n\rРЎС‡РµС‚: %d %s\n\rРўР°Р№РјРµСЂ: %d %s\n\rРљС‚Рѕ РѕР±СЉСЏРІРёР»: %s\n\r",
 		    immquest.desc,
 		    immquest.max_score,
-		    (immquest.max_score == 0) ? "(без счета)" : "",
+		    (immquest.max_score == 0) ? "(Р±РµР· СЃС‡РµС‚Р°)" : "",
 		    immquest.timer,
-		    (immquest.timer == 0) ? "(без ограничения времени)" : "",
+		    (immquest.timer == 0) ? "(Р±РµР· РѕРіСЂР°РЅРёС‡РµРЅРёСЏ РІСЂРµРјРµРЅРё)" : "",
 		    immquest.who_claim->name);
 	    send_to_char(arg, ch);
 	    return;
 	}
-	else if (!str_prefix(arg, "закончить") || !str_prefix(arg, "end"))
+	else if (!str_prefix(arg, "Р·Р°РєРѕРЅС‡РёС‚СЊ") || !str_prefix(arg, "end"))
 	{
 	    if (ch != immquest.who_claim && ch->level < MAX_LEVEL)
 	    {
-		send_to_char("Извини, ты не можешь этого сделать\n\r", ch);
+		send_to_char("РР·РІРёРЅРё, С‚С‹ РЅРµ РјРѕР¶РµС€СЊ СЌС‚РѕРіРѕ СЃРґРµР»Р°С‚СЊ\n\r", ch);
 		return;
 	    }
-	    sprintf(arg, "%s объявляет квест '%s' закрытым.\n\r", ch->name, immquest.desc);
+	    sprintf(arg, "%s РѕР±СЉСЏРІР»СЏРµС‚ РєРІРµСЃС‚ '%s' Р·Р°РєСЂС‹С‚С‹Рј.\n\r", ch->name, immquest.desc);
 	    do_function(ch, &do_echo, arg);
 	    close_quest();
 	    return;
 	}
-	else if (!str_prefix(arg, "добавить") || !str_prefix(arg, "add"))
+	else if (!str_prefix(arg, "РґРѕР±Р°РІРёС‚СЊ") || !str_prefix(arg, "add"))
 	{
 	    CHAR_DATA *wch;
 	    int i, delta = 0, fNull;
 
 	    if (immquest.double_qp > 1 || immquest.double_exp > 1)
 	    {
-		send_to_char("Это бессмысленно.\n\r", ch);
+		send_to_char("Р­С‚Рѕ Р±РµСЃСЃРјС‹СЃР»РµРЅРЅРѕ.\n\r", ch);
 		return;
 	    }
 
@@ -6036,7 +6036,7 @@ void do_immquest(CHAR_DATA *ch, char *argument)
 
 	    if ((wch = get_char_world(ch, arg)) == NULL || IS_NPC(wch))
 	    {
-		send_to_char("Извини, таких игроков сейчас нет в мире.\n\r", ch);
+		send_to_char("РР·РІРёРЅРё, С‚Р°РєРёС… РёРіСЂРѕРєРѕРІ СЃРµР№С‡Р°СЃ РЅРµС‚ РІ РјРёСЂРµ.\n\r", ch);
 		return;
 	    }
 
@@ -6045,7 +6045,7 @@ void do_immquest(CHAR_DATA *ch, char *argument)
 		delta = atoi(arg);
 	    else
 	    {
-		send_to_char("Ты должен дать числовой аргумент.\n\r", ch);
+		send_to_char("РўС‹ РґРѕР»Р¶РµРЅ РґР°С‚СЊ С‡РёСЃР»РѕРІРѕР№ Р°СЂРіСѓРјРµРЅС‚.\n\r", ch);
 		return;
 	    }
 
@@ -6065,7 +6065,7 @@ void do_immquest(CHAR_DATA *ch, char *argument)
 
 	    if (fNull == MAX_IN_QUEST)
 	    {
-		send_to_char("Слишком много игроков занято в квесте...\n\r", ch);
+		send_to_char("РЎР»РёС€РєРѕРј РјРЅРѕРіРѕ РёРіСЂРѕРєРѕРІ Р·Р°РЅСЏС‚Рѕ РІ РєРІРµСЃС‚Рµ...\n\r", ch);
 		return;
 	    }
 
@@ -6074,7 +6074,7 @@ void do_immquest(CHAR_DATA *ch, char *argument)
 
 	    if (immquest.player[fNull].score >= immquest.max_score)
 	    {
-		sprintf(arg, "{gКвест '%s' объявляется закрытым.\n\rПобедитель - {G%s{x",
+		sprintf(arg, "{gРљРІРµСЃС‚ '%s' РѕР±СЉСЏРІР»СЏРµС‚СЃСЏ Р·Р°РєСЂС‹С‚С‹Рј.\n\rРџРѕР±РµРґРёС‚РµР»СЊ - {G%s{x",
 			immquest.desc, immquest.player[fNull].name);
 		do_function(ch, &do_echo, arg);
 		close_quest();
@@ -6084,17 +6084,17 @@ void do_immquest(CHAR_DATA *ch, char *argument)
 	    do_function(ch, &do_immquest, "score");
 	    return;
 	}
-	else if (!str_prefix(arg, "счет") || !str_prefix(arg, "score"))
+	else if (!str_prefix(arg, "СЃС‡РµС‚") || !str_prefix(arg, "score"))
 	{
 	    int i;
 
 	    if (immquest.double_qp > 1 || immquest.double_exp > 1)
 	    {
-		send_to_char("Это бессмысленно.\n\r", ch);
+		send_to_char("Р­С‚Рѕ Р±РµСЃСЃРјС‹СЃР»РµРЅРЅРѕ.\n\r", ch);
 		return;
 	    }
 
-	    sprintf(arg, "Текущий счет:\n\r");
+	    sprintf(arg, "РўРµРєСѓС‰РёР№ СЃС‡РµС‚:\n\r");
 	    for (i=0; i < MAX_IN_QUEST; i++)
 	    {
 		char buf1[MAX_STRING_LENGTH];
@@ -6107,14 +6107,14 @@ void do_immquest(CHAR_DATA *ch, char *argument)
 	    send_to_char(arg, ch);
 	    return;
 	}
-	else if (!str_prefix(arg, "контейнер") || !str_prefix(arg, "container"))
+	else if (!str_prefix(arg, "РєРѕРЅС‚РµР№РЅРµСЂ") || !str_prefix(arg, "container"))
 	{
 	    OBJ_DATA *obj;
 	    CHAR_DATA *victim;
 
 	    if (immquest.double_qp > 1 || immquest.double_exp > 1)
 	    {
-		send_to_char("Это бессмысленно.\n\r", ch);
+		send_to_char("Р­С‚Рѕ Р±РµСЃСЃРјС‹СЃР»РµРЅРЅРѕ.\n\r", ch);
 		return;
 	    }
 
@@ -6122,13 +6122,13 @@ void do_immquest(CHAR_DATA *ch, char *argument)
 
 	    if ((victim = get_char_world(ch, arg)) == NULL || IS_NPC(victim))
 	    {
-		send_to_char("Извини, таких игроков сейчас нет в мире.\n\r", ch);
+		send_to_char("РР·РІРёРЅРё, С‚Р°РєРёС… РёРіСЂРѕРєРѕРІ СЃРµР№С‡Р°СЃ РЅРµС‚ РІ РјРёСЂРµ.\n\r", ch);
 		return;
 	    }
 
 	    if (get_obj_carry(ch, victim->name, ch) != NULL)
 	    {
-		send_to_char("У тебя уже есть такой контейнер.\n\r", ch);
+		send_to_char("РЈ С‚РµР±СЏ СѓР¶Рµ РµСЃС‚СЊ С‚Р°РєРѕР№ РєРѕРЅС‚РµР№РЅРµСЂ.\n\r", ch);
 		return;
 	    }
 
@@ -6136,7 +6136,7 @@ void do_immquest(CHAR_DATA *ch, char *argument)
 	    free_string(obj->name);
 	    obj->name = str_dup(victim->name);
 
-	    sprintf(arg, "что принес %s", victim->name);
+	    sprintf(arg, "С‡С‚Рѕ РїСЂРёРЅРµСЃ %s", victim->name);
 	    free_string(obj->short_descr);
 	    obj->short_descr = str_dup(arg);
 	    obj->value[0] = obj->value[3] = 99999;
@@ -6144,17 +6144,17 @@ void do_immquest(CHAR_DATA *ch, char *argument)
 	    return;
 	}
     }
-    send_to_char("Нет такой команды. Список доступных:\n\r"
-		 "иммквест объявить  <счет> <таймер> [nowar] <описание>\n\r"
-		 "иммквест добавить  <имя игрока> <количество>\n\r"
-		 "иммквест контейнер <имя игрока>\n\r"
-		 "иммквест закончить\n\r"
-		 "иммквест показать\n\r"
-		 "иммквест счет\n\r"
-		 "иммквест последний\n\r"
-		 "иммквест удвоение [qp] [exp] [skill] <timer> [nowar]\n\r"
-		 "при необходимости дать удвоение/утроение на несколько параметров\n\r"
-		 "их писать следует через пробел ({yиммквест удвоение qp exp skill ...{x)\n\r", ch);
+    send_to_char("РќРµС‚ С‚Р°РєРѕР№ РєРѕРјР°РЅРґС‹. РЎРїРёСЃРѕРє РґРѕСЃС‚СѓРїРЅС‹С…:\n\r"
+		 "РёРјРјРєРІРµСЃС‚ РѕР±СЉСЏРІРёС‚СЊ  <СЃС‡РµС‚> <С‚Р°Р№РјРµСЂ> [nowar] <РѕРїРёСЃР°РЅРёРµ>\n\r"
+		 "РёРјРјРєРІРµСЃС‚ РґРѕР±Р°РІРёС‚СЊ  <РёРјСЏ РёРіСЂРѕРєР°> <РєРѕР»РёС‡РµСЃС‚РІРѕ>\n\r"
+		 "РёРјРјРєРІРµСЃС‚ РєРѕРЅС‚РµР№РЅРµСЂ <РёРјСЏ РёРіСЂРѕРєР°>\n\r"
+		 "РёРјРјРєРІРµСЃС‚ Р·Р°РєРѕРЅС‡РёС‚СЊ\n\r"
+		 "РёРјРјРєРІРµСЃС‚ РїРѕРєР°Р·Р°С‚СЊ\n\r"
+		 "РёРјРјРєРІРµСЃС‚ СЃС‡РµС‚\n\r"
+		 "РёРјРјРєРІРµСЃС‚ РїРѕСЃР»РµРґРЅРёР№\n\r"
+		 "РёРјРјРєРІРµСЃС‚ СѓРґРІРѕРµРЅРёРµ [qp] [exp] [skill] <timer> [nowar]\n\r"
+		 "РїСЂРё РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё РґР°С‚СЊ СѓРґРІРѕРµРЅРёРµ/СѓС‚СЂРѕРµРЅРёРµ РЅР° РЅРµСЃРєРѕР»СЊРєРѕ РїР°СЂР°РјРµС‚СЂРѕРІ\n\r"
+		 "РёС… РїРёСЃР°С‚СЊ СЃР»РµРґСѓРµС‚ С‡РµСЂРµР· РїСЂРѕР±РµР» ({yРёРјРјРєРІРµСЃС‚ СѓРґРІРѕРµРЅРёРµ qp exp skill ...{x)\n\r", ch);
     return;
 }
 
@@ -6166,7 +6166,7 @@ void do_setalign(CHAR_DATA *ch, char *argument)
 
     if (argument[0] == '\0')
     {
-	send_to_char("Синтаксис: натура <игрок> <origin|current> <alignment>.\n\r", ch);
+	send_to_char("РЎРёРЅС‚Р°РєСЃРёСЃ: РЅР°С‚СѓСЂР° <РёРіСЂРѕРє> <origin|current> <alignment>.\n\r", ch);
 	return;
     }
 
@@ -6174,13 +6174,13 @@ void do_setalign(CHAR_DATA *ch, char *argument)
 
     if ((vch=get_char_world(ch, arg)) == NULL || IS_NPC(vch))
     {
-	send_to_char("Таких нет в этом мире.\n\r", ch);
+	send_to_char("РўР°РєРёС… РЅРµС‚ РІ СЌС‚РѕРј РјРёСЂРµ.\n\r", ch);
 	return;
     }
 
     if (get_trust(vch) >= get_trust(ch))
     {
-	send_to_char("Не выходит.\n\r", ch);
+	send_to_char("РќРµ РІС‹С…РѕРґРёС‚.\n\r", ch);
 	return;
     }
 
@@ -6191,7 +6191,7 @@ void do_setalign(CHAR_DATA *ch, char *argument)
 	align=atoi(argument);
 	if (align < -1000 || align > 1000)
 	{
-	    send_to_char("Ты должен ввести разумный параметр (от -1000 до 1000).\n\r", ch);
+	    send_to_char("РўС‹ РґРѕР»Р¶РµРЅ РІРІРµСЃС‚Рё СЂР°Р·СѓРјРЅС‹Р№ РїР°СЂР°РјРµС‚СЂ (РѕС‚ -1000 РґРѕ 1000).\n\r", ch);
 	    return;
 	}
 	if (!str_prefix(arg, "current"))
@@ -6200,13 +6200,13 @@ void do_setalign(CHAR_DATA *ch, char *argument)
 	    vch->pcdata->orig_align = align;
 	else
 	{
-	    send_to_char("Второй параметр может быть либо current, либо origin.\n\r", ch);
+	    send_to_char("Р’С‚РѕСЂРѕР№ РїР°СЂР°РјРµС‚СЂ РјРѕР¶РµС‚ Р±С‹С‚СЊ Р»РёР±Рѕ current, Р»РёР±Рѕ origin.\n\r", ch);
 	    return;
 	}
 	send_to_char("Ok.\n\r", ch);
     }
     else
-	send_to_char("Ты должен ввести числовой аргумент.\n\r", ch);
+	send_to_char("РўС‹ РґРѕР»Р¶РµРЅ РІРІРµСЃС‚Рё С‡РёСЃР»РѕРІРѕР№ Р°СЂРіСѓРјРµРЅС‚.\n\r", ch);
 }
 
 void do_olevel(CHAR_DATA *ch, char *argument)
@@ -6230,9 +6230,9 @@ void do_olevel(CHAR_DATA *ch, char *argument)
     argument = one_argument(argument, level);
     if (IS_NULLSTR(level))
     {
-	send_to_char("Синтаксис: олевел <level>\n\r", ch);
-	send_to_char("           олевел <level> <name>\n\r", ch);
-	send_to_char("           олевел <level> type <type> [<wear>]\n\r", ch);
+	send_to_char("РЎРёРЅС‚Р°РєСЃРёСЃ: РѕР»РµРІРµР» <level>\n\r", ch);
+	send_to_char("           РѕР»РµРІРµР» <level> <name>\n\r", ch);
+	send_to_char("           РѕР»РµРІРµР» <level> type <type> [<wear>]\n\r", ch);
 	return;
     }
 
@@ -6243,14 +6243,14 @@ void do_olevel(CHAR_DATA *ch, char *argument)
 
 	if (IS_NULLSTR(stype))
 	{
-	    send_to_char("Не указан тип.\n\r", ch);
+	    send_to_char("РќРµ СѓРєР°Р·Р°РЅ С‚РёРї.\n\r", ch);
 	    return;
 	}
 
 	type = flag_lookup(stype, type_flags);
 	if (type == NO_FLAG)
 	{
-	    send_to_char("Неизвестный тип.\n\r", ch);
+	    send_to_char("РќРµРёР·РІРµСЃС‚РЅС‹Р№ С‚РёРї.\n\r", ch);
 	    return;
 	}
 
@@ -6341,7 +6341,7 @@ void do_mlevel(CHAR_DATA *ch, char *argument)
 
     if (!is_number(argument))
     {
-	send_to_char("Аргумент должен быть числовым!\n\r", ch);
+	send_to_char("РђСЂРіСѓРјРµРЅС‚ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ С‡РёСЃР»РѕРІС‹Рј!\n\r", ch);
 	return;
     }
 
@@ -6349,7 +6349,7 @@ void do_mlevel(CHAR_DATA *ch, char *argument)
 
     if (level < 1 || level > MAX_LEVEL)
     {
-	send_to_char("Уровень должен быть в разумных пределах!\n\r", ch);
+	send_to_char("РЈСЂРѕРІРµРЅСЊ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РІ СЂР°Р·СѓРјРЅС‹С… РїСЂРµРґРµР»Р°С…!\n\r", ch);
 	return;
     }
 
@@ -6451,7 +6451,7 @@ void do_otype(CHAR_DATA *ch, char *argument)
 
     if (type == -999 && (arg2[0] == '\0' || type2 == ITEM_TAKE))
     {
-	send_to_char("Слишком большой список. Уточни параметры.\n\r", ch);
+	send_to_char("РЎР»РёС€РєРѕРј Р±РѕР»СЊС€РѕР№ СЃРїРёСЃРѕРє. РЈС‚РѕС‡РЅРё РїР°СЂР°РјРµС‚СЂС‹.\n\r", ch);
 	return;
     }
 
@@ -6489,7 +6489,7 @@ void do_otype(CHAR_DATA *ch, char *argument)
 	add_buf(buffer, buf);
     }
 
-    sprintf(buf, "\n\rНайдено: %d\n\r", count);
+    sprintf(buf, "\n\rРќР°Р№РґРµРЅРѕ: %d\n\r", count);
     add_buf(buffer, buf);
 
     page_to_char(buf_string(buffer), ch);
@@ -6505,13 +6505,13 @@ void do_immtitle (CHAR_DATA* ch, char* argument)
 
     if ((victim=get_char_world(ch, name)) == NULL || IS_NPC(victim))
     {
-	send_to_char("Таких нет в этом мире.\n\r", ch);
+	send_to_char("РўР°РєРёС… РЅРµС‚ РІ СЌС‚РѕРј РјРёСЂРµ.\n\r", ch);
 	return;
     }
 
     if (get_trust(victim) >= get_trust(ch) && victim != ch)
     {
-	send_to_char("Не получается.\n\r", ch);
+	send_to_char("РќРµ РїРѕР»СѓС‡Р°РµС‚СЃСЏ.\n\r", ch);
 	return;
     }
 
@@ -6540,8 +6540,8 @@ bool excempt(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *lobj, char *argument, i
 	    obj_from_char(lobj, TRUE);
 
 	obj_to_char(lobj, ch);
-	act("$n изымает у тебя $p6.", ch, lobj, victim, TO_VICT);
-	act("Ты изымаешь у $N1 $p6.", ch, lobj, victim, TO_CHAR);
+	act("$n РёР·С‹РјР°РµС‚ Сѓ С‚РµР±СЏ $p6.", ch, lobj, victim, TO_VICT);
+	act("РўС‹ РёР·С‹РјР°РµС€СЊ Сѓ $N1 $p6.", ch, lobj, victim, TO_CHAR);
 	return TRUE;
     }
     return FALSE;
@@ -6558,7 +6558,7 @@ void do_excempt(CHAR_DATA *ch, char *argument)
 
     if (argument[0] == '\0')
     {
-	send_to_char("Синтаксис: изъять <имя игрока> <имя вещи>|<vnum вещи>\n\r", ch);
+	send_to_char("РЎРёРЅС‚Р°РєСЃРёСЃ: РёР·СЉСЏС‚СЊ <РёРјСЏ РёРіСЂРѕРєР°> <РёРјСЏ РІРµС‰Рё>|<vnum РІРµС‰Рё>\n\r", ch);
 	return;
     }
 
@@ -6566,19 +6566,19 @@ void do_excempt(CHAR_DATA *ch, char *argument)
 
     if ((victim = get_char_world(ch, name)) == NULL)
     {
-	send_to_char("Таких нет в этом мире.\n\r", ch);
+	send_to_char("РўР°РєРёС… РЅРµС‚ РІ СЌС‚РѕРј РјРёСЂРµ.\n\r", ch);
 	return;
     }
 
     if (victim != ch && get_trust(victim) > get_trust(ch))
     {
-	send_to_char("Не получается.\n\r", ch);
+	send_to_char("РќРµ РїРѕР»СѓС‡Р°РµС‚СЃСЏ.\n\r", ch);
 	return;
     }
 
     if (argument[0] == '\0')
     {
-	send_to_char("Что ты хотел изъять у этого игрока?\n\r", ch);
+	send_to_char("Р§С‚Рѕ С‚С‹ С…РѕС‚РµР» РёР·СЉСЏС‚СЊ Сѓ СЌС‚РѕРіРѕ РёРіСЂРѕРєР°?\n\r", ch);
 	return;
     }
 
@@ -6601,7 +6601,7 @@ void do_excempt(CHAR_DATA *ch, char *argument)
 		return;
 	}
     }
-    send_to_char("У этого игрока нет такой вещи.\n\r", ch);
+    send_to_char("РЈ СЌС‚РѕРіРѕ РёРіСЂРѕРєР° РЅРµС‚ С‚Р°РєРѕР№ РІРµС‰Рё.\n\r", ch);
 }
 
 void do_arealinks(CHAR_DATA *ch, char *argument)
@@ -7006,7 +7006,7 @@ void do_check(CHAR_DATA *ch, char *argument)
 		{
 		    sprintf(buf, "  Memory: {r%s{x\n\r",
 			    (vch = pc_id_lookup(mem->id))
-			    ? vch->name : "(вышел)");
+			    ? vch->name : "(РІС‹С€РµР»)");
 		    add_buf(buffer, buf);
 		}
 		page_to_char(buf_string(buffer), ch);
@@ -7014,7 +7014,7 @@ void do_check(CHAR_DATA *ch, char *argument)
 	    }
 
 	if (!found)
-	    send_to_char("Не найдено.\n\r", ch);
+	    send_to_char("РќРµ РЅР°Р№РґРµРЅРѕ.\n\r", ch);
 
 	return;
     }
@@ -7039,25 +7039,25 @@ void do_doas (CHAR_DATA *ch, char *argument)
 
     if ((vic = get_char_world(ch, arg)) == NULL)
     {
-	send_to_char("Таких нет в этом мире.\n\r", ch);
+	send_to_char("РўР°РєРёС… РЅРµС‚ РІ СЌС‚РѕРј РјРёСЂРµ.\n\r", ch);
 	return;
     }
 
     if (IS_NPC(vic))
     {
-	send_to_char("Ты не можешь выполнить эту команду на моба.\n\r", ch);
+	send_to_char("РўС‹ РЅРµ РјРѕР¶РµС€СЊ РІС‹РїРѕР»РЅРёС‚СЊ СЌС‚Сѓ РєРѕРјР°РЅРґСѓ РЅР° РјРѕР±Р°.\n\r", ch);
 	return;
     }
 
     if (get_trust(ch) <= get_trust(vic))
     {
-	send_to_char("Не получается.\n\r", ch);
+	send_to_char("РќРµ РїРѕР»СѓС‡Р°РµС‚СЃСЏ.\n\r", ch);
 	return;
     }
 
-    if (is_name(argument, "quit конец delete удалить"))
+    if (is_name(argument, "quit РєРѕРЅРµС† delete СѓРґР°Р»РёС‚СЊ"))
     {
-	send_to_char("Такая команда не разрешена.\n\r", ch);
+	send_to_char("РўР°РєР°СЏ РєРѕРјР°РЅРґР° РЅРµ СЂР°Р·СЂРµС€РµРЅР°.\n\r", ch);
 	return;
     }
 
@@ -7098,7 +7098,7 @@ void do_security(CHAR_DATA *ch, char *argument)
     }
     if ((victim = get_char_world(ch, arg1)) == NULL)
     {
-	send_to_char("Таких здесь нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
     /* clear zones for mobs */
@@ -7109,7 +7109,7 @@ void do_security(CHAR_DATA *ch, char *argument)
      */
     if (IS_NPC(victim))
     {
-	send_to_char("Мобам секьюрити не устанавливается!", ch);
+	send_to_char("РњРѕР±Р°Рј СЃРµРєСЊСЋСЂРёС‚Рё РЅРµ СѓСЃС‚Р°РЅР°РІР»РёРІР°РµС‚СЃСЏ!", ch);
 	return;
     }
 
@@ -7122,7 +7122,7 @@ void do_security(CHAR_DATA *ch, char *argument)
 	 *  level check  => I have stuff
 	 *   to keep lower level imms in check
 	 */
-	send_to_char("Не получается!\n\r", ch);
+	send_to_char("РќРµ РїРѕР»СѓС‡Р°РµС‚СЃСЏ!\n\r", ch);
 	return;
     }
     if (value > ch->pcdata->security && ch->level < IMPLEMENTOR)
@@ -7131,7 +7131,7 @@ void do_security(CHAR_DATA *ch, char *argument)
 	 *  security level check and to
 	 *   see if not an IMPLEMENTOR
 	 */
-	sprintf(buf, "Твой уровень недостаточен для установки %d-го уровня секретности.\n\r"
+	sprintf(buf, "РўРІРѕР№ СѓСЂРѕРІРµРЅСЊ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РµРЅ РґР»СЏ СѓСЃС‚Р°РЅРѕРІРєРё %d-РіРѕ СѓСЂРѕРІРЅСЏ СЃРµРєСЂРµС‚РЅРѕСЃС‚Рё.\n\r"
 		, ch->pcdata->security);
 	send_to_char(buf, ch);
 	return;
@@ -7143,7 +7143,7 @@ void do_security(CHAR_DATA *ch, char *argument)
 	 *   the player of new status
 	 */
 	victim->pcdata->security = value;
-	send_to_char("Твой уровень секретности изменен.\n\r", victim);
+	send_to_char("РўРІРѕР№ СѓСЂРѕРІРµРЅСЊ СЃРµРєСЂРµС‚РЅРѕСЃС‚Рё РёР·РјРµРЅРµРЅ.\n\r", victim);
 	sprintf(buf, "You changed %s's security rating.\n\r", victim->name);
 	send_to_char(buf, ch);
     }
@@ -7164,14 +7164,14 @@ void do_whowas(CHAR_DATA *ch, char *argument){
     }
 
     if ((victim = get_char_world(NULL, arg)) != NULL && !IS_NPC(victim)){
-        send_to_char("Этот персонаж сейчас в игре.\n\r", ch);
+        send_to_char("Р­С‚РѕС‚ РїРµСЂСЃРѕРЅР°Р¶ СЃРµР№С‡Р°СЃ РІ РёРіСЂРµ.\n\r", ch);
         return;
     }
 
     d = new_descriptor();
 
     if (!load_char_obj(d, arg, FALSE, FALSE)){
-        send_to_char("Таких нет в этом мире.\n\r", ch);
+        send_to_char("РўР°РєРёС… РЅРµС‚ РІ СЌС‚РѕРј РјРёСЂРµ.\n\r", ch);
         free_descriptor(d);
         return;
     }
@@ -7181,7 +7181,7 @@ void do_whowas(CHAR_DATA *ch, char *argument){
     check_light_status(victim);
 
     if (get_trust(victim) > get_trust(ch)){
-        send_to_char("Таких нет в этом мире.\n\r", ch);
+        send_to_char("РўР°РєРёС… РЅРµС‚ РІ СЌС‚РѕРј РјРёСЂРµ.\n\r", ch);
         goto WHOWAS_EXIT;
     }
 
@@ -7247,7 +7247,7 @@ void do_pass(CHAR_DATA *ch, char *argument)
 
     if (argument[0] == '\0')
     {
-	send_to_char("Синтаксис: иммпароль <имя> [<имя>] [<имя>] .....\n\r", ch);
+	send_to_char("РЎРёРЅС‚Р°РєСЃРёСЃ: РёРјРјРїР°СЂРѕР»СЊ <РёРјСЏ> [<РёРјСЏ>] [<РёРјСЏ>] .....\n\r", ch);
 	return;
     }
 
@@ -7257,9 +7257,9 @@ void do_pass(CHAR_DATA *ch, char *argument)
 	    break;
 
 	if ((victim=get_char_world(ch, arg)) == NULL || IS_NPC(victim))
-	    sprintf(bfr, "%-12s: {Dтаких нет в этом мире.{x\n\r", capitalize(arg));
+	    sprintf(bfr, "%-12s: {DС‚Р°РєРёС… РЅРµС‚ РІ СЌС‚РѕРј РјРёСЂРµ.{x\n\r", capitalize(arg));
 	else if (ch != victim && get_trust(victim) > LEVEL_HERO)
-	    sprintf(bfr, "%-12s: {Dне получается узнать пароль.{x\n\r", victim->name);
+	    sprintf(bfr, "%-12s: {DРЅРµ РїРѕР»СѓС‡Р°РµС‚СЃСЏ СѓР·РЅР°С‚СЊ РїР°СЂРѕР»СЊ.{x\n\r", victim->name);
 	else
 	    sprintf(bfr, "%-12s: %s\n\r", victim->name, victim->pcdata->pwd);
 
@@ -7552,19 +7552,19 @@ void do_noreply(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0')
     {
-	send_to_char("Кому ты хотел запретить отвечать тебе?\n\r", ch);
+	send_to_char("РљРѕРјСѓ С‚С‹ С…РѕС‚РµР» Р·Р°РїСЂРµС‚РёС‚СЊ РѕС‚РІРµС‡Р°С‚СЊ С‚РµР±Рµ?\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg)) == NULL)
     {
-	send_to_char("Таких здесь нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     if (victim->reply != ch)
     {
-	send_to_char("Этот персонаж уже и так отвечает не тебе.\n\r", ch);
+	send_to_char("Р­С‚РѕС‚ РїРµСЂСЃРѕРЅР°Р¶ СѓР¶Рµ Рё С‚Р°Рє РѕС‚РІРµС‡Р°РµС‚ РЅРµ С‚РµР±Рµ.\n\r", ch);
 	return;
     }
 
@@ -7581,30 +7581,30 @@ void do_immdamage(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0')
     {
-	send_to_char("Собственно кому?\n\r", ch);
+	send_to_char("РЎРѕР±СЃС‚РІРµРЅРЅРѕ РєРѕРјСѓ?\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg)) == NULL || IS_NPC(victim))
     {
-	send_to_char("Таких здесь нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     if (IS_SET(victim->act, PLR_SHOW_DAMAGE))
     {
 	REMOVE_BIT(victim->act, PLR_SHOW_DAMAGE);
-	send_to_char("Теперь ты не будешь видеть повреждений.\n\r", victim);
+	send_to_char("РўРµРїРµСЂСЊ С‚С‹ РЅРµ Р±СѓРґРµС€СЊ РІРёРґРµС‚СЊ РїРѕРІСЂРµР¶РґРµРЅРёР№.\n\r", victim);
 	if (victim != ch)
-	    act("Теперь $N не будет видеть повреждения.",
+	    act("РўРµРїРµСЂСЊ $N РЅРµ Р±СѓРґРµС‚ РІРёРґРµС‚СЊ РїРѕРІСЂРµР¶РґРµРЅРёСЏ.",
 		ch, NULL, victim, TO_CHAR);
     }
     else
     {
 	SET_BIT(victim->act, PLR_SHOW_DAMAGE);
-	send_to_char("Теперь ты будешь видеть повреждения.\n\r", victim);
+	send_to_char("РўРµРїРµСЂСЊ С‚С‹ Р±СѓРґРµС€СЊ РІРёРґРµС‚СЊ РїРѕРІСЂРµР¶РґРµРЅРёСЏ.\n\r", victim);
 	if (victim != ch)
-	    act("Теперь $N будет видеть повреждения.",
+	    act("РўРµРїРµСЂСЊ $N Р±СѓРґРµС‚ РІРёРґРµС‚СЊ РїРѕРІСЂРµР¶РґРµРЅРёСЏ.",
 		ch, NULL, victim, TO_CHAR);
     }
 }
@@ -7622,7 +7622,7 @@ void do_tick(CHAR_DATA *ch, char *argument)
 	count = 1;
     else if (!is_number(arg))
     {
-	send_to_char("Аргумент должен быть цифровым!\n\r", ch);
+	send_to_char("РђСЂРіСѓРјРµРЅС‚ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ С†РёС„СЂРѕРІС‹Рј!\n\r", ch);
 	return;
     }
     else
@@ -7630,10 +7630,10 @@ void do_tick(CHAR_DATA *ch, char *argument)
 
     if (count < 1 || count > 100)
     {
-	send_to_char("Будь благоразумен!\n\r", ch);
+	send_to_char("Р‘СѓРґСЊ Р±Р»Р°РіРѕСЂР°Р·СѓРјРµРЅ!\n\r", ch);
 	return;
     }
-    send_to_char("Ты заставляешь время пойти немного вперед...\n\r", ch);
+    send_to_char("РўС‹ Р·Р°СЃС‚Р°РІР»СЏРµС€СЊ РІСЂРµРјСЏ РїРѕР№С‚Рё РЅРµРјРЅРѕРіРѕ РІРїРµСЂРµРґ...\n\r", ch);
 
     for (i = 0; i < count; i++)
     {
@@ -7652,20 +7652,20 @@ void do_nocast(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0')
     {
-	send_to_char("У кого ты хочешь отобрать привелегию колдовства?\n\r",
+	send_to_char("РЈ РєРѕРіРѕ С‚С‹ С…РѕС‡РµС€СЊ РѕС‚РѕР±СЂР°С‚СЊ РїСЂРёРІРµР»РµРіРёСЋ РєРѕР»РґРѕРІСЃС‚РІР°?\n\r",
 		     ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg))==NULL)
     {
-	send_to_char("Таких здесь нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     if (get_trust(ch) < get_trust(victim))
     {
-	send_to_char("Не получается.\n\r", ch);
+	send_to_char("РќРµ РїРѕР»СѓС‡Р°РµС‚СЃСЏ.\n\r", ch);
 	return;
     }
 
@@ -7679,9 +7679,9 @@ void do_nocast(CHAR_DATA *ch, char *argument)
     {
 	REMOVE_BIT(victim->act, PLR_NOCAST);
 	affect_strip(victim, gsn_nocast);
-	act("Ты возвращаешь $N2 возможность пользоваться магией.",
+	act("РўС‹ РІРѕР·РІСЂР°С‰Р°РµС€СЊ $N2 РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РјР°РіРёРµР№.",
 	    ch, NULL, victim, TO_CHAR);
-	act("{R$n разрешает тебе пользоваться магией.{x",
+	act("{R$n СЂР°Р·СЂРµС€Р°РµС‚ С‚РµР±Рµ РїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РјР°РіРёРµР№.{x",
 	    ch, NULL, victim, TO_VICT);
 	return;
     }
@@ -7702,9 +7702,9 @@ void do_nocast(CHAR_DATA *ch, char *argument)
     af.caster_id = get_id(ch);
     affect_to_char(victim, &af);
 
-    act("Ты отбираешь у $N1 возможность колдовать!",
+    act("РўС‹ РѕС‚Р±РёСЂР°РµС€СЊ Сѓ $N1 РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РєРѕР»РґРѕРІР°С‚СЊ!",
 	ch, NULL, victim, TO_CHAR);
-    act("{R$n отбирает у тебя возможность колдовать!{x",
+    act("{R$n РѕС‚Р±РёСЂР°РµС‚ Сѓ С‚РµР±СЏ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РєРѕР»РґРѕРІР°С‚СЊ!{x",
 	ch, NULL, victim, TO_VICT);
     return;
 }
@@ -7719,19 +7719,19 @@ void do_gods_curse(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0')
     {
-	send_to_char("Кого ты хочешь проклясть?\n\r", ch);
+	send_to_char("РљРѕРіРѕ С‚С‹ С…РѕС‡РµС€СЊ РїСЂРѕРєР»СЏСЃС‚СЊ?\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg))==NULL)
     {
-	send_to_char("Таких здесь нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     if (get_trust(ch) < get_trust(victim))
     {
-	send_to_char("Не получается.\n\r", ch);
+	send_to_char("РќРµ РїРѕР»СѓС‡Р°РµС‚СЃСЏ.\n\r", ch);
 	return;
     }
 
@@ -7748,7 +7748,7 @@ void do_gods_curse(CHAR_DATA *ch, char *argument)
 		if (is_affected(victim, gsn_gods_curse))
     	{
 		    affect_strip(victim, gsn_gods_curse);
-			send_to_char("Ты прощаешь.\n\r", ch);
+			send_to_char("РўС‹ РїСЂРѕС‰Р°РµС€СЊ.\n\r", ch);
 			return;
 		}
 		else
@@ -7768,8 +7768,8 @@ void do_gods_curse(CHAR_DATA *ch, char *argument)
     af.caster_id = get_id(ch);
     affect_to_char(victim, &af);
 
-    act("Ты проклинаешь $N3!",  ch, NULL, victim, TO_CHAR);
-    act("{R$n проклинает тебя!{x",  ch, NULL, victim, TO_VICT);
+    act("РўС‹ РїСЂРѕРєР»РёРЅР°РµС€СЊ $N3!",  ch, NULL, victim, TO_CHAR);
+    act("{R$n РїСЂРѕРєР»РёРЅР°РµС‚ С‚РµР±СЏ!{x",  ch, NULL, victim, TO_VICT);
 
     if (victim->in_room != NULL
 	&& (IS_SET(victim->in_room->room_flags, ROOM_SAFE)
@@ -7781,10 +7781,10 @@ void do_gods_curse(CHAR_DATA *ch, char *argument)
 	while ((pRoomIndex = get_random_room(victim)) == NULL || pRoomIndex->clan != 0)
 	    ;
 
-	act("$n исчезает!", victim, NULL, NULL, TO_ROOM);
+	act("$n РёСЃС‡РµР·Р°РµС‚!", victim, NULL, NULL, TO_ROOM);
 
 	if (!LIST_EMPTY(&pRoomIndex->people))
-	    act("$n появляется здесь.", LIST_FIRST(&pRoomIndex->people), NULL, NULL, TO_ALL);
+	    act("$n РїРѕСЏРІР»СЏРµС‚СЃСЏ Р·РґРµСЃСЊ.", LIST_FIRST(&pRoomIndex->people), NULL, NULL, TO_ALL);
 
 	char_from_room(victim);
 	char_to_room(victim, pRoomIndex, TRUE);
@@ -7806,19 +7806,19 @@ void do_skillaffect(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0')
     {
-	send_to_char("У кого ты хочешь изменить умения?\n\r", ch);
+	send_to_char("РЈ РєРѕРіРѕ С‚С‹ С…РѕС‡РµС€СЊ РёР·РјРµРЅРёС‚СЊ СѓРјРµРЅРёСЏ?\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg)) == NULL)
     {
-	send_to_char("Таких здесь нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     if (get_trust(ch) < get_trust(victim))
     {
-	send_to_char("Не получается.\n\r", ch);
+	send_to_char("РќРµ РїРѕР»СѓС‡Р°РµС‚СЃСЏ.\n\r", ch);
 	return;
     }
 
@@ -7832,7 +7832,7 @@ void do_skillaffect(CHAR_DATA *ch, char *argument)
 
     if ((sn = skill_lookup(arg)) < 0)
     {
-	send_to_char("Нет таких умений!\n\r", ch);
+	send_to_char("РќРµС‚ С‚Р°РєРёС… СѓРјРµРЅРёР№!\n\r", ch);
 	return;
     }
 
@@ -7843,8 +7843,8 @@ void do_skillaffect(CHAR_DATA *ch, char *argument)
 	|| (mod = atoi(arg)) < -100
 	|| mod > 100)
     {
-	send_to_char("Модификатор должен быть числовым и "
-		     "быть в пределах от -100 до +100!\n\r", ch);
+	send_to_char("РњРѕРґРёС„РёРєР°С‚РѕСЂ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ С‡РёСЃР»РѕРІС‹Рј Рё "
+		     "Р±С‹С‚СЊ РІ РїСЂРµРґРµР»Р°С… РѕС‚ -100 РґРѕ +100!\n\r", ch);
 	return;
     }
 
@@ -7854,8 +7854,8 @@ void do_skillaffect(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0' || !is_number(arg))
     {
-	send_to_char("Время должно быть числовым. Если хочешь "
-		     "постоянный аффект, введи -1.\n\r", ch);
+	send_to_char("Р’СЂРµРјСЏ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ С‡РёСЃР»РѕРІС‹Рј. Р•СЃР»Рё С…РѕС‡РµС€СЊ "
+		     "РїРѕСЃС‚РѕСЏРЅРЅС‹Р№ Р°С„С„РµРєС‚, РІРІРµРґРё -1.\n\r", ch);
 	return;
     }
 
@@ -7869,9 +7869,9 @@ void do_skillaffect(CHAR_DATA *ch, char *argument)
     af.caster_id = get_id(ch);
     affect_to_char(victim, &af);
 
-    act("Ты изменяешь у $N1 умение '$t'!",
+    act("РўС‹ РёР·РјРµРЅСЏРµС€СЊ Сѓ $N1 СѓРјРµРЅРёРµ '$t'!",
 	ch, skill_table[sn].rname, victim, TO_CHAR);
-    act("{R$n изменяет твои способности в умении '$t'!{x",
+    act("{R$n РёР·РјРµРЅСЏРµС‚ С‚РІРѕРё СЃРїРѕСЃРѕР±РЅРѕСЃС‚Рё РІ СѓРјРµРЅРёРё '$t'!{x",
 	ch, skill_table[sn].rname, victim, TO_VICT);
     return;
 }
@@ -7899,7 +7899,7 @@ void do_deathtraps(CHAR_DATA *ch, char *argument)
 
 	    if (IS_SET(room->room_flags, ROOM_NOFLY_DT))
 	    {
-		sprintf(buf, "%5d  %-30s   %-30s   (для нелетающих)\n\r",
+		sprintf(buf, "%5d  %-30s   %-30s   (РґР»СЏ РЅРµР»РµС‚Р°СЋС‰РёС…)\n\r",
 			room->vnum, room->name, room->area->name);
 		add_buf(output, buf);
 		found = TRUE;
@@ -7908,11 +7908,11 @@ void do_deathtraps(CHAR_DATA *ch, char *argument)
 
     if (found)
     {
-	send_to_char("Внумы ловушек:\n\r\n\r", ch);
+	send_to_char("Р’РЅСѓРјС‹ Р»РѕРІСѓС€РµРє:\n\r\n\r", ch);
 	page_to_char(buf_string(output), ch);
     }
     else
-	send_to_char("Ловушек не найдено.\n\r", ch);
+	send_to_char("Р›РѕРІСѓС€РµРє РЅРµ РЅР°Р№РґРµРЅРѕ.\n\r", ch);
 
     free_buf(output);
 }
@@ -7937,7 +7937,7 @@ void do_rwhere(CHAR_DATA *ch, char *argument)
     
     vnum = atoi(argument);
     
-    if (!str_cmp(arg, "area") || !str_cmp(arg, "зона"))
+    if (!str_cmp(arg, "area") || !str_cmp(arg, "Р·РѕРЅР°"))
     {
 	if ((area = get_area_data(vnum)) == NULL)
 	{
@@ -7945,7 +7945,7 @@ void do_rwhere(CHAR_DATA *ch, char *argument)
 	    return;
 	}
     }
-    else if (!str_cmp(arg, "mob") || !str_cmp(arg, "моб"))
+    else if (!str_cmp(arg, "mob") || !str_cmp(arg, "РјРѕР±"))
     {
 	if ((mob = get_mob_index(vnum)) == NULL)
 	{
@@ -7953,7 +7953,7 @@ void do_rwhere(CHAR_DATA *ch, char *argument)
 	    return;
 	}
     }
-    else if (!str_cmp(arg, "obj") || !str_prefix(arg, "объект"))
+    else if (!str_cmp(arg, "obj") || !str_prefix(arg, "РѕР±СЉРµРєС‚"))
     {
 	if ((obj = get_obj_index(vnum)) == NULL)
 	{
@@ -8195,7 +8195,7 @@ void do_immskills(CHAR_DATA *ch, char *argument)
 
     if ((victim = get_char_world(ch, arg)) == NULL)
     {
-	send_to_char("Таких в Мире нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… РІ РњРёСЂРµ РЅРµС‚.\n\r", ch);
 	return;
     }
 
@@ -8211,7 +8211,7 @@ void do_immspells(CHAR_DATA *ch, char *argument)
 
     if ((victim = get_char_world(ch, arg)) == NULL)
     {
-	send_to_char("Таких в Мире нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… РІ РњРёСЂРµ РЅРµС‚.\n\r", ch);
 	return;
     }
 
@@ -8276,32 +8276,32 @@ void do_grant(CHAR_DATA *ch, char *argument)
 
     if (buf[0] == '\0')
     {
-	send_to_char("У кого ты хотел посмотреть доверенные команды?\n\r", ch);
+	send_to_char("РЈ РєРѕРіРѕ С‚С‹ С…РѕС‚РµР» РїРѕСЃРјРѕС‚СЂРµС‚СЊ РґРѕРІРµСЂРµРЅРЅС‹Рµ РєРѕРјР°РЅРґС‹?\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, buf)) == NULL)
     {
-	send_to_char("Таких в Мире нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… РІ РњРёСЂРµ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     if (IS_NPC(victim))
     {
-	send_to_char("Ну не мобу же?!\n\r", ch);
+	send_to_char("РќСѓ РЅРµ РјРѕР±Сѓ Р¶Рµ?!\n\r", ch);
 	return;
     }
 
     if (get_trust(ch) < get_trust(victim)
 	&& ch != victim)
     {
-	send_to_char("Не советую... Съедят!\n\r", ch);
+	send_to_char("РќРµ СЃРѕРІРµС‚СѓСЋ... РЎСЉРµРґСЏС‚!\n\r", ch);
 	return;
     }
 
     if (argument[0] == '\0')
     {
-	act("Команды, доверенные $N2:", ch, NULL, victim, TO_CHAR);
+	act("РљРѕРјР°РЅРґС‹, РґРѕРІРµСЂРµРЅРЅС‹Рµ $N2:", ch, NULL, victim, TO_CHAR);
 	send_to_char(victim->pcdata->grants, ch);
 	send_to_char("\n\r", ch);
 
@@ -8315,7 +8315,7 @@ void do_grant(CHAR_DATA *ch, char *argument)
     {
 	grant_all(victim);
 	send_to_char("Ok.\n\r", ch);
-	send_to_char("{RТебе дан доступ ко всем командам.\n\r{x", victim);
+	send_to_char("{RРўРµР±Рµ РґР°РЅ РґРѕСЃС‚СѓРї РєРѕ РІСЃРµРј РєРѕРјР°РЅРґР°Рј.\n\r{x", victim);
 	return;
     }
 
@@ -8324,7 +8324,7 @@ void do_grant(CHAR_DATA *ch, char *argument)
 	free_string(victim->pcdata->grants);
 	victim->pcdata->grants = str_dup("");
 	send_to_char("Ok.\n\r", ch);
-	send_to_char("{RУ тебя отобран доступ ко всем командам.\n\r{x", victim);
+	send_to_char("{RРЈ С‚РµР±СЏ РѕС‚РѕР±СЂР°РЅ РґРѕСЃС‚СѓРї РєРѕ РІСЃРµРј РєРѕРјР°РЅРґР°Рј.\n\r{x", victim);
 	return;
     }
 
@@ -8335,12 +8335,12 @@ void do_grant(CHAR_DATA *ch, char *argument)
 	level = atoi(argument);
 	if (level <= LEVEL_HERO || level > MAX_LEVEL)
 	{
-	    send_to_char("А смысл?\n\r", ch);
+	    send_to_char("Рђ СЃРјС‹СЃР»?\n\r", ch);
 	    return;
 	}
 	grant_level(victim, level);
 	send_to_char("Ok.\n\r", ch);
-	printf_to_char("{RТебе дан доступ ко всем командам уровня %d.\n\r{x",
+	printf_to_char("{RРўРµР±Рµ РґР°РЅ РґРѕСЃС‚СѓРї РєРѕ РІСЃРµРј РєРѕРјР°РЅРґР°Рј СѓСЂРѕРІРЅСЏ %d.\n\r{x",
 		       victim, level);
 	return;
     }
@@ -8403,22 +8403,22 @@ void do_grant(CHAR_DATA *ch, char *argument)
 
     if (revoked[0] != '\0')
     {
-	printf_to_char("{RУ тебя отобрали доступ к следующим командам:{x\n\r  %s\n\r",
+	printf_to_char("{RРЈ С‚РµР±СЏ РѕС‚РѕР±СЂР°Р»Рё РґРѕСЃС‚СѓРї Рє СЃР»РµРґСѓСЋС‰РёРј РєРѕРјР°РЅРґР°Рј:{x\n\r  %s\n\r",
 		       victim, revoked);
     }
     if (granted[0] != '\0')
     {
-	printf_to_char("{RТебе дали доступ к следующим командам:{x\n\r  %s\n\r",
+	printf_to_char("{RРўРµР±Рµ РґР°Р»Рё РґРѕСЃС‚СѓРї Рє СЃР»РµРґСѓСЋС‰РёРј РєРѕРјР°РЅРґР°Рј:{x\n\r  %s\n\r",
 		       victim, granted);
     }
     if (spec_revoked[0] != '\0')
     {
-	printf_to_char("{RУ тебя отобрали доступ к следующим спец. возможностям:{x\n\r  %s\n\r",
+	printf_to_char("{RРЈ С‚РµР±СЏ РѕС‚РѕР±СЂР°Р»Рё РґРѕСЃС‚СѓРї Рє СЃР»РµРґСѓСЋС‰РёРј СЃРїРµС†. РІРѕР·РјРѕР¶РЅРѕСЃС‚СЏРј:{x\n\r  %s\n\r",
 		       victim, spec_revoked);
     }
     if (spec_granted[0] != '\0')
     {
-	printf_to_char("{RТебе дали доступ к следующим спец. возможностям:{x\n\r  %s\n\r",
+	printf_to_char("{RРўРµР±Рµ РґР°Р»Рё РґРѕСЃС‚СѓРї Рє СЃР»РµРґСѓСЋС‰РёРј СЃРїРµС†. РІРѕР·РјРѕР¶РЅРѕСЃС‚СЏРј:{x\n\r  %s\n\r",
 		       victim, spec_granted);
     }
 
@@ -8432,16 +8432,16 @@ void do_immprompt(CHAR_DATA *ch, char *argument)
 
     if (argument[0] == '\0')
     {
-	send_to_char("Синтаксис: иммпромпт <имя> [<имя>] [<имя>] .....\n\r", ch);
+	send_to_char("РЎРёРЅС‚Р°РєСЃРёСЃ: РёРјРјРїСЂРѕРјРїС‚ <РёРјСЏ> [<РёРјСЏ>] [<РёРјСЏ>] .....\n\r", ch);
 	return;
     }
 
     for (argument = one_argument(argument, arg); arg[0] != '\0'; argument = one_argument(argument, arg))
     {
 	if ((victim=get_char_world(ch, arg)) == NULL || IS_NPC(victim))
-	    sprintf(bfr, "%-12s: {Dтаких нет в этом мире.{x\n\r", capitalize(arg));
+	    sprintf(bfr, "%-12s: {DС‚Р°РєРёС… РЅРµС‚ РІ СЌС‚РѕРј РјРёСЂРµ.{x\n\r", capitalize(arg));
 	else if (ch != victim && get_trust(victim) > LEVEL_HERO)
-	    sprintf(bfr, "%-12s: {Dне получается узнать промпт.{x\n\r", victim->name);
+	    sprintf(bfr, "%-12s: {DРЅРµ РїРѕР»СѓС‡Р°РµС‚СЃСЏ СѓР·РЅР°С‚СЊ РїСЂРѕРјРїС‚.{x\n\r", victim->name);
 	else
 	    sprintf(bfr, "%-12s: %s\n\r", victim->name, victim->prompt);
 
@@ -8459,28 +8459,28 @@ void do_pload(CHAR_DATA *ch, char *argument)
 
     if (argument[0] == '\0')
     {
-	send_to_char("Загрузить кого?\n\r", ch);
+	send_to_char("Р—Р°РіСЂСѓР·РёС‚СЊ РєРѕРіРѕ?\n\r", ch);
 	return;
     }
 
     argument[0] = UPPER(argument[0]);
     argument = one_argument(argument, name);
 
-    /* Не будем загружать вторую копию игрока, если он уже играет! */
+    /* РќРµ Р±СѓРґРµРј Р·Р°РіСЂСѓР¶Р°С‚СЊ РІС‚РѕСЂСѓСЋ РєРѕРїРёСЋ РёРіСЂРѕРєР°, РµСЃР»Рё РѕРЅ СѓР¶Рµ РёРіСЂР°РµС‚! */
     if (get_char_world(NULL, name) != NULL)
     {
-	send_to_char("Эта персона уже играет!\n\r", ch);
+	send_to_char("Р­С‚Р° РїРµСЂСЃРѕРЅР° СѓР¶Рµ РёРіСЂР°РµС‚!\n\r", ch);
 	return;
     }
 
     d.original = NULL;
     d.ip = "127.0.0.1";
 
-    isChar = load_char_obj(&d, name, TRUE, TRUE); /* файл игрока существует? */
+    isChar = load_char_obj(&d, name, TRUE, TRUE); /* С„Р°Р№Р» РёРіСЂРѕРєР° СЃСѓС‰РµСЃС‚РІСѓРµС‚? */
 
     if (!isChar)
     {
-	send_to_char("Такая персона не найдена.\n\r", ch);
+	send_to_char("РўР°РєР°СЏ РїРµСЂСЃРѕРЅР° РЅРµ РЅР°Р№РґРµРЅР°.\n\r", ch);
 	return;
     }
 
@@ -8493,7 +8493,7 @@ void do_pload(CHAR_DATA *ch, char *argument)
     reset_char(wch);
 
 
-    /* Перемещаем игрока к имму */
+    /* РџРµСЂРµРјРµС‰Р°РµРј РёРіСЂРѕРєР° Рє РёРјРјСѓ */
     if (wch->in_room != NULL)
     {
 	wch->was_in_room = wch->in_room;
@@ -8501,17 +8501,17 @@ void do_pload(CHAR_DATA *ch, char *argument)
 	char_to_room(wch, ch->in_room, FALSE);
     }	
 
-    send_to_char("Ок.\n\r", ch);
-    act("$n вытягивает $N4 из небытия!", ch, NULL, wch, TO_ROOM);
+    send_to_char("РћРє.\n\r", ch);
+    act("$n РІС‹С‚СЏРіРёРІР°РµС‚ $N4 РёР· РЅРµР±С‹С‚РёСЏ!", ch, NULL, wch, TO_ROOM);
 
-    sprintf(buf, "[R: %d] %s загружает %s в мир.", ch->in_room ? ch->in_room->vnum : 0, ch->name, cases(wch->name, 3));
+    sprintf(buf, "[R: %d] %s Р·Р°РіСЂСѓР¶Р°РµС‚ %s РІ РјРёСЂ.", ch->in_room ? ch->in_room->vnum : 0, ch->name, cases(wch->name, 3));
     wiznet(buf, ch, NULL, WIZ_LOGINS, 0, 0);
 
     if (wch->pet != NULL)
     {
 	char_from_room(wch->pet);
 	char_to_room(wch->pet, wch->in_room, FALSE);
-	act("$n входит в этот мир.", wch->pet, NULL, NULL, TO_ROOM);
+	act("$n РІС…РѕРґРёС‚ РІ СЌС‚РѕС‚ РјРёСЂ.", wch->pet, NULL, NULL, TO_ROOM);
     }
 }
 
@@ -8525,20 +8525,20 @@ void do_punload(CHAR_DATA *ch, char *argument)
 
     if ((victim = get_char_world(NULL, who)) == NULL)
     {
-	send_to_char("Таких здесь нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
-    /* Игрок не был загружен командой! */
-    /* Заодно и потерявшие связь вылетят.. */
-    /* Да и фиг с ними! 8) */
+    /* РРіСЂРѕРє РЅРµ Р±С‹Р» Р·Р°РіСЂСѓР¶РµРЅ РєРѕРјР°РЅРґРѕР№! */
+    /* Р—Р°РѕРґРЅРѕ Рё РїРѕС‚РµСЂСЏРІС€РёРµ СЃРІСЏР·СЊ РІС‹Р»РµС‚СЏС‚.. */
+    /* Р”Р° Рё С„РёРі СЃ РЅРёРјРё! 8) */
     if (victim->desc != NULL)
     {
-	send_to_char("Я думаю это будет не очень хорошей идеей...\n\r", ch);
+	send_to_char("РЇ РґСѓРјР°СЋ СЌС‚Рѕ Р±СѓРґРµС‚ РЅРµ РѕС‡РµРЅСЊ С…РѕСЂРѕС€РµР№ РёРґРµРµР№...\n\r", ch);
 	return;
     }
 
-    /* Возвращаем игрока и очарика в исходную комнату */
+    /* Р’РѕР·РІСЂР°С‰Р°РµРј РёРіСЂРѕРєР° Рё РѕС‡Р°СЂРёРєР° РІ РёСЃС…РѕРґРЅСѓСЋ РєРѕРјРЅР°С‚Сѓ */
     if (victim->was_in_room != NULL)
     {
 	char_from_room(victim);
@@ -8552,20 +8552,20 @@ void do_punload(CHAR_DATA *ch, char *argument)
 
     VALIDATE(victim);
 
-    sprintf(buf, "[R: %d] %s выгружает %s из мира.",
+    sprintf(buf, "[R: %d] %s РІС‹РіСЂСѓР¶Р°РµС‚ %s РёР· РјРёСЂР°.",
 	    ch->in_room ? ch->in_room->vnum : 0,
 	    ch->name, cases(victim->name, 3));
     wiznet(buf, ch, NULL, WIZ_LOGINS, 0, 0);
 
-    send_to_char("Ок.\n\r", ch);
-    act("$n отправляет $N3 обратно в небытие.",
+    send_to_char("РћРє.\n\r", ch);
+    act("$n РѕС‚РїСЂР°РІР»СЏРµС‚ $N3 РѕР±СЂР°С‚РЅРѕ РІ РЅРµР±С‹С‚РёРµ.",
 	ch, NULL, victim, TO_ROOM);
 
     do_quit(victim, "_silent_quit");
 
 }
 
-/* Проверочная функция */
+/* РџСЂРѕРІРµСЂРѕС‡РЅР°СЏ С„СѓРЅРєС†РёСЏ */
 void do_immcompare(CHAR_DATA *ch, char *argument)
 {
     char arg1[MAX_INPUT_LENGTH];
@@ -8578,13 +8578,13 @@ void do_immcompare(CHAR_DATA *ch, char *argument)
     argument = one_argument(argument, arg2);
     if (arg1[0] == '\0')
     {
-	send_to_char("Сравнить что с чем?\n\r", ch);
+	send_to_char("РЎСЂР°РІРЅРёС‚СЊ С‡С‚Рѕ СЃ С‡РµРј?\n\r", ch);
 	return;
     }
 
     if ((obj1 = get_obj_carry(ch, arg1, ch)) == NULL)
     {
-	send_to_char("Ты не несешь этого.\n\r", ch);
+	send_to_char("РўС‹ РЅРµ РЅРµСЃРµС€СЊ СЌС‚РѕРіРѕ.\n\r", ch);
 	return;
     }
 
@@ -8603,13 +8603,13 @@ void do_immcompare(CHAR_DATA *ch, char *argument)
 
 	if (obj2 == NULL)
 	{
-	    send_to_char("На тебе нет ничего сравнимого.\n\r", ch);
+	    send_to_char("РќР° С‚РµР±Рµ РЅРµС‚ РЅРёС‡РµРіРѕ СЃСЂР°РІРЅРёРјРѕРіРѕ.\n\r", ch);
 	    return;
 	}
     }
     else if ((obj2 = get_obj_carry(ch, arg2, ch)) == NULL)
     {
-	send_to_char("У тебя нет этого.\n\r", ch);
+	send_to_char("РЈ С‚РµР±СЏ РЅРµС‚ СЌС‚РѕРіРѕ.\n\r", ch);
 	return;
     }
 
@@ -8617,7 +8617,7 @@ void do_immcompare(CHAR_DATA *ch, char *argument)
 
     if (obj1 == obj2)
     {
-	msg = "Ты сравниваешь $p с ним же. Выглядит одинаково.";
+	msg = "РўС‹ СЃСЂР°РІРЅРёРІР°РµС€СЊ $p СЃ РЅРёРј Р¶Рµ. Р’С‹РіР»СЏРґРёС‚ РѕРґРёРЅР°РєРѕРІРѕ.";
     }
 
     if (msg == NULL)
@@ -8625,12 +8625,12 @@ void do_immcompare(CHAR_DATA *ch, char *argument)
 	if (obj1 == get_best_object(obj1, obj2)
 	    && obj2 == get_best_object(obj2, obj1))
 	{
-	    msg = "$p и $P выглядят одинаково.";
+	    msg = "$p Рё $P РІС‹РіР»СЏРґСЏС‚ РѕРґРёРЅР°РєРѕРІРѕ.";
 	}
 	else if (obj1 == get_best_object(obj1, obj2))
-	    msg = "$p выглядит лучше, чем $P.";
+	    msg = "$p РІС‹РіР»СЏРґРёС‚ Р»СѓС‡С€Рµ, С‡РµРј $P.";
 	else
-	    msg = "$p выглядит хуже, чем $P.";
+	    msg = "$p РІС‹РіР»СЏРґРёС‚ С…СѓР¶Рµ, С‡РµРј $P.";
     }
 
     act(msg, ch, obj1, obj2, TO_CHAR);
@@ -8793,7 +8793,7 @@ void do_players(CHAR_DATA *ch, char *argument)
 	send_to_char(buf, ch);
     }
 
-    sprintf(buf, "\n\rНайдено всего: %d\n\r", matches);
+    sprintf(buf, "\n\rРќР°Р№РґРµРЅРѕ РІСЃРµРіРѕ: %d\n\r", matches);
 
     send_to_char(buf, ch);
     closedir(dp);
@@ -8808,29 +8808,29 @@ void do_nonotes(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0')
     {
-	send_to_char("У кого отобрать возможность писать сообщения?\n\r", ch);
+	send_to_char("РЈ РєРѕРіРѕ РѕС‚РѕР±СЂР°С‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРёСЃР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёСЏ?\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg)) == NULL || IS_NPC(victim))
     {
-	send_to_char("Таких нет в этом мире.\n\r", ch);
+	send_to_char("РўР°РєРёС… РЅРµС‚ РІ СЌС‚РѕРј РјРёСЂРµ.\n\r", ch);
 	return;
     }
 
     if (get_trust(victim) >= get_trust(ch))
     {
-	send_to_char("Съедят ведь... И не почешутся.\n\r", ch);
+	send_to_char("РЎСЉРµРґСЏС‚ РІРµРґСЊ... Р РЅРµ РїРѕС‡РµС€СѓС‚СЃСЏ.\n\r", ch);
 	return;
     }
 
     if (IS_SET(victim->comm, COMM_NONOTES))
     {
 	REMOVE_BIT(victim->comm, COMM_NONOTES);
-	send_to_char("{RБоги вернули тебе возможность писать сообщения.{x\n\r",
+	send_to_char("{RР‘РѕРіРё РІРµСЂРЅСѓР»Рё С‚РµР±Рµ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРёСЃР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёСЏ.{x\n\r",
 		     victim);
 	send_to_char("NONOTES removed.\n\r", ch);
-	sprintf(buf, "$N возвращает %s право пользования письмами",
+	sprintf(buf, "$N РІРѕР·РІСЂР°С‰Р°РµС‚ %s РїСЂР°РІРѕ РїРѕР»СЊР·РѕРІР°РЅРёСЏ РїРёСЃСЊРјР°РјРё",
 		cases(victim->name, 2));
 	wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
 	victim->pcdata->nonotes = 0;
@@ -8839,10 +8839,10 @@ void do_nonotes(CHAR_DATA *ch, char *argument)
     {
 	victim->pcdata->nonotes = get_next_seconds(argument, ch);
 	SET_BIT(victim->comm, COMM_NONOTES);
-	send_to_char("{RБоги отобрали у тебя возможность писать сообщения.{x\n\r",
+	send_to_char("{RР‘РѕРіРё РѕС‚РѕР±СЂР°Р»Рё Сѓ С‚РµР±СЏ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРёСЃР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёСЏ.{x\n\r",
 		     victim);
 	send_to_char("NONOTES set.\n\r", ch);
-	sprintf(buf, "$N лишает %s права пользоваться письмами.",
+	sprintf(buf, "$N Р»РёС€Р°РµС‚ %s РїСЂР°РІР° РїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РїРёСЃСЊРјР°РјРё.",
 		cases(victim->name, 1));
 	wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
     }
@@ -8859,29 +8859,29 @@ void do_notitle(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0')
     {
-	send_to_char("У кого отобрать право выбирать себе титул?\n\r", ch);
+	send_to_char("РЈ РєРѕРіРѕ РѕС‚РѕР±СЂР°С‚СЊ РїСЂР°РІРѕ РІС‹Р±РёСЂР°С‚СЊ СЃРµР±Рµ С‚РёС‚СѓР»?\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg)) == NULL || IS_NPC(victim))
     {
-	send_to_char("Таких нет в этом мире.\n\r", ch);
+	send_to_char("РўР°РєРёС… РЅРµС‚ РІ СЌС‚РѕРј РјРёСЂРµ.\n\r", ch);
 	return;
     }
 
     if (get_trust(victim) >= get_trust(ch))
     {
-	send_to_char("А не страшно? Больно же будет...\n\r", ch);
+	send_to_char("Рђ РЅРµ СЃС‚СЂР°С€РЅРѕ? Р‘РѕР»СЊРЅРѕ Р¶Рµ Р±СѓРґРµС‚...\n\r", ch);
 	return;
     }
 
     if (IS_SET(victim->comm, COMM_NOTITLE))
     {
 	REMOVE_BIT(victim->comm, COMM_NOTITLE);
-	send_to_char("{RБоги вернули тебе право выбирать себе титул.{x\n\r",
+	send_to_char("{RР‘РѕРіРё РІРµСЂРЅСѓР»Рё С‚РµР±Рµ РїСЂР°РІРѕ РІС‹Р±РёСЂР°С‚СЊ СЃРµР±Рµ С‚РёС‚СѓР».{x\n\r",
 		     victim);
 	send_to_char("NOTITLE removed.\n\r", ch);
-	sprintf(buf, "$N возвращает %s право выбирать себе титул",
+	sprintf(buf, "$N РІРѕР·РІСЂР°С‰Р°РµС‚ %s РїСЂР°РІРѕ РІС‹Р±РёСЂР°С‚СЊ СЃРµР±Рµ С‚РёС‚СѓР»",
 		cases(victim->name, 2));
 	wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
 	victim->pcdata->notitle = 0;
@@ -8890,10 +8890,10 @@ void do_notitle(CHAR_DATA *ch, char *argument)
     {
 	victim->pcdata->notitle = get_next_seconds(argument, ch);
 	SET_BIT(victim->comm, COMM_NOTITLE);
-	send_to_char("{RБоги отобрали у тебя право выбирать себе титул.{x\n\r",
+	send_to_char("{RР‘РѕРіРё РѕС‚РѕР±СЂР°Р»Рё Сѓ С‚РµР±СЏ РїСЂР°РІРѕ РІС‹Р±РёСЂР°С‚СЊ СЃРµР±Рµ С‚РёС‚СѓР».{x\n\r",
 		     victim);
 	send_to_char("NOTITLE set.\n\r", ch);
-	sprintf(buf, "$N лишает %s право выбирать себе титул.",
+	sprintf(buf, "$N Р»РёС€Р°РµС‚ %s РїСЂР°РІРѕ РІС‹Р±РёСЂР°С‚СЊ СЃРµР±Рµ С‚РёС‚СѓР».",
 		cases(victim->name, 1));
 	wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
     }
@@ -8921,9 +8921,9 @@ void do_arena(CHAR_DATA *ch, char *argument)
     argument = one_argument(argument, arg3);
     argument = one_argument(argument, arg4);
 
-    if (arg1[0] == '\0' || !str_prefix(arg1, "статистика")
+    if (arg1[0] == '\0' || !str_prefix(arg1, "СЃС‚Р°С‚РёСЃС‚РёРєР°")
 	|| !str_prefix(arg1, "stat")
-	|| !str_prefix(arg1, "инфо")
+	|| !str_prefix(arg1, "РёРЅС„Рѕ")
 	|| !str_prefix(arg1, "info"))
     {
 	for (challenger  = challenger_list;
@@ -8931,49 +8931,49 @@ void do_arena(CHAR_DATA *ch, char *argument)
 	     challenger  = challenger->next)
 
 	{
-	    sprintf(buf, "Участник: {R%s{x\n\r", challenger->name);
+	    sprintf(buf, "РЈС‡Р°СЃС‚РЅРёРє: {R%s{x\n\r", challenger->name);
 	    send_to_char(buf,ch);
 	    for (score = challenger->score; score; score = score->next)
 	    {
-		sprintf(buf, "Дата дуэли     : {Y%s{x", c_time(&score->time));
+		sprintf(buf, "Р”Р°С‚Р° РґСѓСЌР»Рё     : {Y%s{x", c_time(&score->time));
 		send_to_char(buf,ch);
-		sprintf(buf, "Противник      : {Y%s{x\n\r", score->opponent);
+		sprintf(buf, "РџСЂРѕС‚РёРІРЅРёРє      : {Y%s{x\n\r", score->opponent);
 		send_to_char(buf,ch);
-		sprintf(buf, "Дуэль выиграна?: {Y%s{x\n\r", 
-				score->won == 2 ? "Да" 
-				  	       : (score->won == 1 ? "Ничья" : "Нет"));
+		sprintf(buf, "Р”СѓСЌР»СЊ РІС‹РёРіСЂР°РЅР°?: {Y%s{x\n\r", 
+				score->won == 2 ? "Р”Р°" 
+				  	       : (score->won == 1 ? "РќРёС‡СЊСЏ" : "РќРµС‚"));
 		send_to_char(buf,ch);
 	    }
-	    sprintf(buf, "Общий результат: {Y%d{x\n\r", challenger->ball);
+	    sprintf(buf, "РћР±С‰РёР№ СЂРµР·СѓР»СЊС‚Р°С‚: {Y%d{x\n\r", challenger->ball);
 	    send_to_char(buf,ch);
 	    send_to_char("{G---------------------------------{x\n\r\n\r", ch);
 	}
     }
-    else if ((!str_prefix(arg1, "список") || !str_prefix(arg1, "list"))
+    else if ((!str_prefix(arg1, "СЃРїРёСЃРѕРє") || !str_prefix(arg1, "list"))
 	     && get_trust(ch) >= ANGEL )
     {
-	if (arg2[0] == '\0') //Себе
+	if (arg2[0] == '\0') //РЎРµР±Рµ
 	{
-		send_to_char("ТУРНИРНАЯ ТАБЛИЦА\n\r",ch);
-		send_to_char("|Место|Участник ----------|Боев|Очки|\n\r",ch);
+		send_to_char("РўРЈР РќРР РќРђРЇ РўРђР‘Р›РР¦Рђ\n\r",ch);
+		send_to_char("|РњРµСЃС‚Рѕ|РЈС‡Р°СЃС‚РЅРёРє ----------|Р‘РѕРµРІ|РћС‡РєРё|\n\r",ch);
 	}
 	else
-	if (!str_prefix(arg2, "мир") || !str_prefix(arg2, "world") || !str_prefix(arg2, "gecho")) //На мир
+	if (!str_prefix(arg2, "РјРёСЂ") || !str_prefix(arg2, "world") || !str_prefix(arg2, "gecho")) //РќР° РјРёСЂ
 	{
-		do_echo(ch,"ТУРНИРНАЯ ТАБЛИЦА");
-		do_echo(ch,"|Место|Участник ----------|Боев|Очки|");
+		do_echo(ch,"РўРЈР РќРР РќРђРЇ РўРђР‘Р›РР¦Рђ");
+		do_echo(ch,"|РњРµСЃС‚Рѕ|РЈС‡Р°СЃС‚РЅРёРє ----------|Р‘РѕРµРІ|РћС‡РєРё|");
 	}
 	else
-	if (!str_prefix(arg2, "рум") || !str_prefix(arg2, "room"))	//Локально
+	if (!str_prefix(arg2, "СЂСѓРј") || !str_prefix(arg2, "room"))	//Р›РѕРєР°Р»СЊРЅРѕ
 	{
-		do_recho(ch,"ТУРНИРНАЯ ТАБЛИЦА");
-		do_recho(ch,"|Место|Участник ----------|Боев|Очки|");
+		do_recho(ch,"РўРЈР РќРР РќРђРЇ РўРђР‘Р›РР¦Рђ");
+		do_recho(ch,"|РњРµСЃС‚Рѕ|РЈС‡Р°СЃС‚РЅРёРє ----------|Р‘РѕРµРІ|РћС‡РєРё|");
 	}
 	else
-	if (!str_prefix(arg2, "зона") || !str_prefix(arg2, "zone"))	//На зону
+	if (!str_prefix(arg2, "Р·РѕРЅР°") || !str_prefix(arg2, "zone"))	//РќР° Р·РѕРЅСѓ
 	{
-		do_zecho(ch,"ТУРНИРНАЯ ТАБЛИЦА");
-		do_zecho(ch,"|Место|Участник ----------|Боев|Очки|");
+		do_zecho(ch,"РўРЈР РќРР РќРђРЇ РўРђР‘Р›РР¦Рђ");
+		do_zecho(ch,"|РњРµСЃС‚Рѕ|РЈС‡Р°СЃС‚РЅРёРє ----------|Р‘РѕРµРІ|РћС‡РєРё|");
 	}
 
 	for (challenger  = challenger_list;
@@ -9003,7 +9003,7 @@ void do_arena(CHAR_DATA *ch, char *argument)
 				challengerp = challenger;
 		}
 
-		if (arg2[0] == '\0') //Себе
+		if (arg2[0] == '\0') //РЎРµР±Рµ
 		{
 	    		sprintf(buf, "| %-3d | %-17s | %-3d| %-3d|\n\r",num, 
 				challengerp->name,challengerp->game,challengerp->ball);
@@ -9013,20 +9013,20 @@ void do_arena(CHAR_DATA *ch, char *argument)
 		{
     			sprintf(buf, "| %-3d | %-17s | %-3d| %-3d|",num, 
 				challengerp->name,challengerp->game,challengerp->ball);
-			if (!str_prefix(arg2, "мир") 
+			if (!str_prefix(arg2, "РјРёСЂ") 
 			|| !str_prefix(arg2, "world") 
-			|| !str_prefix(arg2, "gecho")) //На мир
+			|| !str_prefix(arg2, "gecho")) //РќР° РјРёСЂ
 				do_echo(ch,buf);
-			if (!str_prefix(arg2, "рум") || !str_prefix(arg2, "room"))	//Локально
+			if (!str_prefix(arg2, "СЂСѓРј") || !str_prefix(arg2, "room"))	//Р›РѕРєР°Р»СЊРЅРѕ
 				do_recho(ch,buf);
-			if (!str_prefix(arg2, "зона") || !str_prefix(arg2, "zone"))	//На зону
+			if (!str_prefix(arg2, "Р·РѕРЅР°") || !str_prefix(arg2, "zone"))	//РќР° Р·РѕРЅСѓ
 				do_zecho(ch,buf);
 		}
 	    	challenger2 = challengerp;
 	    	challengerp = NULL;
 	}
     }
-    else if ((!str_prefix(arg1, "добавить") || !str_prefix(arg1, "add"))
+    else if ((!str_prefix(arg1, "РґРѕР±Р°РІРёС‚СЊ") || !str_prefix(arg1, "add"))
 	     && get_trust(ch) >= ANGEL )
     {
 	short int won;
@@ -9037,21 +9037,21 @@ void do_arena(CHAR_DATA *ch, char *argument)
 		if ((challenger = find_challenger(arg2)) == NULL)
 		{
 	   		challenger = add_challenger(capitalize(arg2));
-			send_to_char("Участник добавлен.\n\r", ch);
+			send_to_char("РЈС‡Р°СЃС‚РЅРёРє РґРѕР±Р°РІР»РµРЅ.\n\r", ch);
 		}
 		else
-			send_to_char("Такой участник уже есть.\n\r", ch);
+			send_to_char("РўР°РєРѕР№ СѓС‡Р°СЃС‚РЅРёРє СѓР¶Рµ РµСЃС‚СЊ.\n\r", ch);
 		return;
 	}
 
 	if (arg2[0] == '\0' || arg3[0] == '\0' || arg4[0] == '\0' ||
 	    !is_number(arg4))
 	{
-	    send_to_char("Синтаксис:\n\r"
-			 " арена добавить <участник> [<противник> <счет>]\n\r"
-			 "\tучастник  - имя участника, при указании противника нужно добавить счет.\n\r"
-			 "\tпротивник - имя противника, с которым сражался участник.\n\r"
-			 "\tсчет      - в чью пользу закончился поединок: 2 - участник, 1 - ничья, 0 - противник.\n\r", ch);
+	    send_to_char("РЎРёРЅС‚Р°РєСЃРёСЃ:\n\r"
+			 " Р°СЂРµРЅР° РґРѕР±Р°РІРёС‚СЊ <СѓС‡Р°СЃС‚РЅРёРє> [<РїСЂРѕС‚РёРІРЅРёРє> <СЃС‡РµС‚>]\n\r"
+			 "\tСѓС‡Р°СЃС‚РЅРёРє  - РёРјСЏ СѓС‡Р°СЃС‚РЅРёРєР°, РїСЂРё СѓРєР°Р·Р°РЅРёРё РїСЂРѕС‚РёРІРЅРёРєР° РЅСѓР¶РЅРѕ РґРѕР±Р°РІРёС‚СЊ СЃС‡РµС‚.\n\r"
+			 "\tРїСЂРѕС‚РёРІРЅРёРє - РёРјСЏ РїСЂРѕС‚РёРІРЅРёРєР°, СЃ РєРѕС‚РѕСЂС‹Рј СЃСЂР°Р¶Р°Р»СЃСЏ СѓС‡Р°СЃС‚РЅРёРє.\n\r"
+			 "\tСЃС‡РµС‚      - РІ С‡СЊСЋ РїРѕР»СЊР·Сѓ Р·Р°РєРѕРЅС‡РёР»СЃСЏ РїРѕРµРґРёРЅРѕРє: 2 - СѓС‡Р°СЃС‚РЅРёРє, 1 - РЅРёС‡СЊСЏ, 0 - РїСЂРѕС‚РёРІРЅРёРє.\n\r", ch);
 	    return;
 	}
 
@@ -9059,7 +9059,7 @@ void do_arena(CHAR_DATA *ch, char *argument)
 
 	if ( won < 0 || won > 2 )
 	{
-	    send_to_char("Счет должен быть 2(победа участника), 1(ничья) или 0(проигрыш)!\n\t", ch);
+	    send_to_char("РЎС‡РµС‚ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ 2(РїРѕР±РµРґР° СѓС‡Р°СЃС‚РЅРёРєР°), 1(РЅРёС‡СЊСЏ) РёР»Рё 0(РїСЂРѕРёРіСЂС‹С€)!\n\t", ch);
 	    return;
 	}
 
@@ -9071,38 +9071,38 @@ void do_arena(CHAR_DATA *ch, char *argument)
 	if ( (challenger2 = find_challenger(arg3)) == NULL)
 	    challenger2 = add_challenger(capitalize(arg3));
 	add_score(challenger2, time, capitalize(arg2), won == 2 ? 0 : (won == 1 ? 1 : 2));
-	send_to_char("Данные поединка добавлены.\n\r", ch);
+	send_to_char("Р”Р°РЅРЅС‹Рµ РїРѕРµРґРёРЅРєР° РґРѕР±Р°РІР»РµРЅС‹.\n\r", ch);
     }
-    else if ((!str_prefix(arg1, "удалить") || !str_prefix(arg1, "delete"))
+    else if ((!str_prefix(arg1, "СѓРґР°Р»РёС‚СЊ") || !str_prefix(arg1, "delete"))
 	     && get_trust(ch) >= ANGEL )
     {
 	if (arg2[0] == '\0')
 	{
-	    send_to_char("Синтаксис:\n\r"
-			 " арена удалить <участник> [счет] [<дата&время>]\n\r"
-			 "\tучастник   - имя участника, которого нужно удалить\n\r"
-			 "\t             или у которого нужно удалить счет.\n\r"
-			 "\tсчет       - указывается если необходимо удалить счет,\n\r"
-			 "\t             а не участника.\n\r"
-			 "\tдата&время - Дата и время удаляемого счета в формате:\n\r"
-			 "\t             'ДД.ММ.ГГ-чч:мм:сс'.\n\r", ch);
+	    send_to_char("РЎРёРЅС‚Р°РєСЃРёСЃ:\n\r"
+			 " Р°СЂРµРЅР° СѓРґР°Р»РёС‚СЊ <СѓС‡Р°СЃС‚РЅРёРє> [СЃС‡РµС‚] [<РґР°С‚Р°&РІСЂРµРјСЏ>]\n\r"
+			 "\tСѓС‡Р°СЃС‚РЅРёРє   - РёРјСЏ СѓС‡Р°СЃС‚РЅРёРєР°, РєРѕС‚РѕСЂРѕРіРѕ РЅСѓР¶РЅРѕ СѓРґР°Р»РёС‚СЊ\n\r"
+			 "\t             РёР»Рё Сѓ РєРѕС‚РѕСЂРѕРіРѕ РЅСѓР¶РЅРѕ СѓРґР°Р»РёС‚СЊ СЃС‡РµС‚.\n\r"
+			 "\tСЃС‡РµС‚       - СѓРєР°Р·С‹РІР°РµС‚СЃСЏ РµСЃР»Рё РЅРµРѕР±С…РѕРґРёРјРѕ СѓРґР°Р»РёС‚СЊ СЃС‡РµС‚,\n\r"
+			 "\t             Р° РЅРµ СѓС‡Р°СЃС‚РЅРёРєР°.\n\r"
+			 "\tРґР°С‚Р°&РІСЂРµРјСЏ - Р”Р°С‚Р° Рё РІСЂРµРјСЏ СѓРґР°Р»СЏРµРјРѕРіРѕ СЃС‡РµС‚Р° РІ С„РѕСЂРјР°С‚Рµ:\n\r"
+			 "\t             'Р”Р”.РњРњ.Р“Р“-С‡С‡:РјРј:СЃСЃ'.\n\r", ch);
 	}
 	if ((challenger = find_challenger(arg2)) == NULL)
 	{
-	    send_to_char("Такого участника нет.\n\r", ch);
+	    send_to_char("РўР°РєРѕРіРѕ СѓС‡Р°СЃС‚РЅРёРєР° РЅРµС‚.\n\r", ch);
 	    return;
 	}
 	else if ( arg3[0] == '\0')
 	{
 	    delete_challenger(challenger);
-	    send_to_char("Участник удален.\n\r", ch);
+	    send_to_char("РЈС‡Р°СЃС‚РЅРёРє СѓРґР°Р»РµРЅ.\n\r", ch);
 	    return;
 	}
-	else if (!str_prefix(arg3, "счет") || !str_prefix(arg1, "score"))
+	else if (!str_prefix(arg3, "СЃС‡РµС‚") || !str_prefix(arg1, "score"))
 	{
 	    if (arg4[0] == '\0')
 	    {
-		send_to_char("Необходимо ввести дату удаляемого счета.\n\r", ch);
+		send_to_char("РќРµРѕР±С…РѕРґРёРјРѕ РІРІРµСЃС‚Рё РґР°С‚Сѓ СѓРґР°Р»СЏРµРјРѕРіРѕ СЃС‡РµС‚Р°.\n\r", ch);
 		return;
 	    }
 	    else
@@ -9117,7 +9117,7 @@ void do_arena(CHAR_DATA *ch, char *argument)
 		    year < 0 || year > 100 || hour  < 0 || hour  > 23 ||
 		    min  < 0 || min  > 59  || sec   < 0 || sec   > 59)
 		{
-		    send_to_char("Неверная или недопустимая дата.\n\r", ch);
+		    send_to_char("РќРµРІРµСЂРЅР°СЏ РёР»Рё РЅРµРґРѕРїСѓСЃС‚РёРјР°СЏ РґР°С‚Р°.\n\r", ch);
 		    return;
 		}
 
@@ -9131,22 +9131,22 @@ void do_arena(CHAR_DATA *ch, char *argument)
 
 		if ((stime = mktime(&tp)) == -1)
 		{
-		    send_to_char("Неверная или недопустимая дата.\n\r", ch);
+		    send_to_char("РќРµРІРµСЂРЅР°СЏ РёР»Рё РЅРµРґРѕРїСѓСЃС‚РёРјР°СЏ РґР°С‚Р°.\n\r", ch);
 		    return;
 		}
 
 		if ((score = find_score_by_time(challenger, stime)) == NULL)
 		{
-		    send_to_char("Нет счета по введеной дате.\n\r", ch);
+		    send_to_char("РќРµС‚ СЃС‡РµС‚Р° РїРѕ РІРІРµРґРµРЅРѕР№ РґР°С‚Рµ.\n\r", ch);
 		    return;
 		}
 		else
 		{
 		    delete_score(challenger, score->time);
-		    send_to_char("Результат поединка удалет.\n\r", ch);
+		    send_to_char("Р РµР·СѓР»СЊС‚Р°С‚ РїРѕРµРґРёРЅРєР° СѓРґР°Р»РµС‚.\n\r", ch);
 		    if (challenger->score == NULL)
 		    {
-			send_to_char("У участника не осталось счета.\n\rУдаление участника...\n\rOk.\n\r", ch);
+			send_to_char("РЈ СѓС‡Р°СЃС‚РЅРёРєР° РЅРµ РѕСЃС‚Р°Р»РѕСЃСЊ СЃС‡РµС‚Р°.\n\rРЈРґР°Р»РµРЅРёРµ СѓС‡Р°СЃС‚РЅРёРєР°...\n\rOk.\n\r", ch);
 			delete_challenger(challenger);
 		    }
 		    return;
@@ -9252,27 +9252,27 @@ void do_popularity(CHAR_DATA *ch, char *argument)
     int what = POPUL_VISIT;
 
     argument = one_argument(argument, buf);
-    if (IS_NULLSTR(buf) || !str_cmp(buf, "visit") || !str_cmp(buf, "визиты"))
+    if (IS_NULLSTR(buf) || !str_cmp(buf, "visit") || !str_cmp(buf, "РІРёР·РёС‚С‹"))
     {
 	cmpfunc = compare_popularity_v;
 	what = POPUL_VISIT;
     }
-    else if (!str_cmp(buf, "pk") || !str_cmp(buf, "пк"))
+    else if (!str_cmp(buf, "pk") || !str_cmp(buf, "РїРє"))
     {
 	cmpfunc = compare_popularity_p;
 	what = POPUL_PK;
     }
-    else if (!str_cmp(buf, "mob") || !str_cmp(buf, "моб"))
+    else if (!str_cmp(buf, "mob") || !str_cmp(buf, "РјРѕР±"))
     {
 	cmpfunc = compare_popularity_k;
 	what = POPUL_KILL;
     }
-    else if (!str_cmp(buf, "death") || !str_cmp(buf, "смерти"))
+    else if (!str_cmp(buf, "death") || !str_cmp(buf, "СЃРјРµСЂС‚Рё"))
     {
 	cmpfunc = compare_popularity_d;
 	what = POPUL_DEATH;
     }
-    else if (!str_cmp(buf, "reset") || !str_cmp(buf, "сброс"))
+    else if (!str_cmp(buf, "reset") || !str_cmp(buf, "СЃР±СЂРѕСЃ"))
     {
 	for (area = area_first; area != NULL; area = area->next)
 	    for (i = 0; i < MAX_POPUL; i++)
@@ -9283,13 +9283,13 @@ void do_popularity(CHAR_DATA *ch, char *argument)
     }
     else
     {
-	send_to_char("Применение: популярность <тип> [<кол-во показываемых элементов>],\n\r"
-		     "где <тип> может иметь значения:\n\r"
-		     "визиты - популярность зон по нахождению в ней игроков;\n\r"
-		     "пк     - -------\"-------- по ПК;\n\r"
-		     "моб    - -------\"-------- по убийству мобов в зоне.\n\r"
-		     "смерти - -------\"-------- по смерти игроков.\n\r"
-		     "сброс  - сбросить накопленную статистику.\n\r" , ch);
+	send_to_char("РџСЂРёРјРµРЅРµРЅРёРµ: РїРѕРїСѓР»СЏСЂРЅРѕСЃС‚СЊ <С‚РёРї> [<РєРѕР»-РІРѕ РїРѕРєР°Р·С‹РІР°РµРјС‹С… СЌР»РµРјРµРЅС‚РѕРІ>],\n\r"
+		     "РіРґРµ <С‚РёРї> РјРѕР¶РµС‚ РёРјРµС‚СЊ Р·РЅР°С‡РµРЅРёСЏ:\n\r"
+		     "РІРёР·РёС‚С‹ - РїРѕРїСѓР»СЏСЂРЅРѕСЃС‚СЊ Р·РѕРЅ РїРѕ РЅР°С…РѕР¶РґРµРЅРёСЋ РІ РЅРµР№ РёРіСЂРѕРєРѕРІ;\n\r"
+		     "РїРє     - -------\"-------- РїРѕ РџРљ;\n\r"
+		     "РјРѕР±    - -------\"-------- РїРѕ СѓР±РёР№СЃС‚РІСѓ РјРѕР±РѕРІ РІ Р·РѕРЅРµ.\n\r"
+		     "СЃРјРµСЂС‚Рё - -------\"-------- РїРѕ СЃРјРµСЂС‚Рё РёРіСЂРѕРєРѕРІ.\n\r"
+		     "СЃР±СЂРѕСЃ  - СЃР±СЂРѕСЃРёС‚СЊ РЅР°РєРѕРїР»РµРЅРЅСѓСЋ СЃС‚Р°С‚РёСЃС‚РёРєСѓ.\n\r" , ch);
 	return;
     }
 
@@ -9343,12 +9343,12 @@ void do_save(CHAR_DATA *ch, char *argument)
 
     one_argument(argument, arg);
 
-    if (arg[0] == '\0' || !str_cmp(arg, "all") || !str_cmp(arg, "всех"))
+    if (arg[0] == '\0' || !str_cmp(arg, "all") || !str_cmp(arg, "РІСЃРµС…"))
     {
 	LIST_FOREACH(victim, &char_list, link)
 	    if (!IS_NPC(victim))
 	    {
-		send_to_char("Сохранение. Подожди немного.\n\r", victim);
+		send_to_char("РЎРѕС…СЂР°РЅРµРЅРёРµ. РџРѕРґРѕР¶РґРё РЅРµРјРЅРѕРіРѕ.\n\r", victim);
 		save_char_obj(victim, FALSE);
 	    }
     }
@@ -9356,11 +9356,11 @@ void do_save(CHAR_DATA *ch, char *argument)
     {
 	if ((victim = get_char_world(ch, arg)) == NULL || IS_NPC(victim))
 	{
-	    send_to_char("Таких нет в этом мире.\n\r", ch);
+	    send_to_char("РўР°РєРёС… РЅРµС‚ РІ СЌС‚РѕРј РјРёСЂРµ.\n\r", ch);
 	    return;
 	}
 
-	send_to_char("Сохранение. Подожди немного.\n\r", victim);
+	send_to_char("РЎРѕС…СЂР°РЅРµРЅРёРµ. РџРѕРґРѕР¶РґРё РЅРµРјРЅРѕРіРѕ.\n\r", victim);
 	save_char_obj(victim, FALSE);
     }
 
@@ -9403,7 +9403,7 @@ void do_promote(CHAR_DATA *ch, char *argument)
 
     grant_all(ch);
     ch->pcdata->security = 9;
-    send_to_char("Теперь тебе доступны все команды.\n\r", ch);
+    send_to_char("РўРµРїРµСЂСЊ С‚РµР±Рµ РґРѕСЃС‚СѓРїРЅС‹ РІСЃРµ РєРѕРјР°РЅРґС‹.\n\r", ch);
 }
 #endif
 
@@ -9420,20 +9420,20 @@ void do_house(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0')
     {
-	send_to_char("Синтаксис: дом <char> <vnum>\n\r", ch);
-	send_to_char("Синтаксис: дом <char> NONE\n\r", ch);
+	send_to_char("РЎРёРЅС‚Р°РєСЃРёСЃ: РґРѕРј <char> <vnum>\n\r", ch);
+	send_to_char("РЎРёРЅС‚Р°РєСЃРёСЃ: РґРѕРј <char> NONE\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg)) == NULL)
     {
-	send_to_char("Таких в данный момент в мире нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… РІ РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ РІ РјРёСЂРµ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     if (IS_NPC(victim))
     {
-	send_to_char("Только не моба.\n\r", ch);
+	send_to_char("РўРѕР»СЊРєРѕ РЅРµ РјРѕР±Р°.\n\r", ch);
 	return;
     }
 
@@ -9441,7 +9441,7 @@ void do_house(CHAR_DATA *ch, char *argument)
 
     if (arg2[0] == '\0')
     {
-	send_to_char("А внум дома? Если хочешь снять внум, то укажи NONE.\n\r", ch);
+	send_to_char("Рђ РІРЅСѓРј РґРѕРјР°? Р•СЃР»Рё С…РѕС‡РµС€СЊ СЃРЅСЏС‚СЊ РІРЅСѓРј, С‚Рѕ СѓРєР°Р¶Рё NONE.\n\r", ch);
 	return;
     }
 
@@ -9454,7 +9454,7 @@ void do_house(CHAR_DATA *ch, char *argument)
 	vnum = atoi(arg2);
 	if ( vnum == 0 )
 	{
-	    send_to_char("Внум дома, указанный тобой, не является числом или параметром NONE.\n\r", ch);
+	    send_to_char("Р’РЅСѓРј РґРѕРјР°, СѓРєР°Р·Р°РЅРЅС‹Р№ С‚РѕР±РѕР№, РЅРµ СЏРІР»СЏРµС‚СЃСЏ С‡РёСЃР»РѕРј РёР»Рё РїР°СЂР°РјРµС‚СЂРѕРј NONE.\n\r", ch);
 	    return;
 	}
     }
@@ -9462,24 +9462,24 @@ void do_house(CHAR_DATA *ch, char *argument)
     if ((vnum < ROOM_VNUM_HOUSE) || (vnum > ROOM_VNUM_HOUSE + 1000))
 	if (vnum != 0)
 	{
-	    send_to_char("Внум дома, указанный тобой, не принадлежит к зоне домов.\n\r", ch);
+	    send_to_char("Р’РЅСѓРј РґРѕРјР°, СѓРєР°Р·Р°РЅРЅС‹Р№ С‚РѕР±РѕР№, РЅРµ РїСЂРёРЅР°РґР»РµР¶РёС‚ Рє Р·РѕРЅРµ РґРѕРјРѕРІ.\n\r", ch);
 	    return;
 	}
 
     if ((vnum != 0) && (victim->pcdata->vnum_house != 0))
     {
-	send_to_char("У этого чара уже есть дом. Если хочешь лишить его дома - сделай house <char> NONE.\n\r", ch);
+	send_to_char("РЈ СЌС‚РѕРіРѕ С‡Р°СЂР° СѓР¶Рµ РµСЃС‚СЊ РґРѕРј. Р•СЃР»Рё С…РѕС‡РµС€СЊ Р»РёС€РёС‚СЊ РµРіРѕ РґРѕРјР° - СЃРґРµР»Р°Р№ house <char> NONE.\n\r", ch);
 	return;
     }
 
     victim->pcdata->vnum_house = vnum;
 
     if (vnum == 0)
-	send_to_char("Внум дома чара снят.\n\r", ch);
+	send_to_char("Р’РЅСѓРј РґРѕРјР° С‡Р°СЂР° СЃРЅСЏС‚.\n\r", ch);
     else
     {
-	send_to_char("Внум дома установлен.\n\r", ch);
-	send_to_char("Внум твоего дома тебе установлен.\n\r", victim);
+	send_to_char("Р’РЅСѓРј РґРѕРјР° СѓСЃС‚Р°РЅРѕРІР»РµРЅ.\n\r", ch);
+	send_to_char("Р’РЅСѓРј С‚РІРѕРµРіРѕ РґРѕРјР° С‚РµР±Рµ СѓСЃС‚Р°РЅРѕРІР»РµРЅ.\n\r", victim);
     }
 
     return;
@@ -9490,14 +9490,14 @@ void do_whoislist(CHAR_DATA *ch, char *argument)
     char buf[MSL];
     int i;
 
-    send_to_char("Разрешенные IP адреса:\n\r", ch);
+    send_to_char("Р Р°Р·СЂРµС€РµРЅРЅС‹Рµ IP Р°РґСЂРµСЃР°:\n\r", ch);
     for (i = 0; i < MAX_WHOIS_ENTRIES && whiteip[i] != NULL; i++)
     {
 	sprintf(buf, "%s\n\r", whiteip[i]);
 	send_to_char(buf, ch);
     }
 
-    send_to_char("\n\rРазрешенные доменные суффиксы:\n\r", ch);
+    send_to_char("\n\rР Р°Р·СЂРµС€РµРЅРЅС‹Рµ РґРѕРјРµРЅРЅС‹Рµ СЃСѓС„С„РёРєСЃС‹:\n\r", ch);
     for (i = 0; i < MAX_WHOIS_ENTRIES && whitedomains[i] != NULL; i++)
     {
 	sprintf(buf, "%s  ", whitedomains[i]);
@@ -9516,21 +9516,21 @@ void do_recipe(CHAR_DATA *ch, char *argument)
 
     argument = one_argument(argument, arg1);
 
-    if (arg1[0] == '\0' || !str_prefix(arg1, "статистика")
+    if (arg1[0] == '\0' || !str_prefix(arg1, "СЃС‚Р°С‚РёСЃС‚РёРєР°")
 	|| !str_prefix(arg1, "stat")
-	|| !str_prefix(arg1, "инфо")
+	|| !str_prefix(arg1, "РёРЅС„Рѕ")
 	|| !str_prefix(arg1, "info"))
     {
 	list_recipe(ch);
     }
-    else if (!str_prefix(arg1, "create") || !str_prefix(arg1, "создать")
-	|| !str_prefix(arg1, "добавить") || !str_prefix(arg1, "add"))
+    else if (!str_prefix(arg1, "create") || !str_prefix(arg1, "СЃРѕР·РґР°С‚СЊ")
+	|| !str_prefix(arg1, "РґРѕР±Р°РІРёС‚СЊ") || !str_prefix(arg1, "add"))
     {
 	int sn;
 
 	if (argument[0] == '\0')
 	{
-	    send_to_char("Определите название.\n\r",ch);
+	    send_to_char("РћРїСЂРµРґРµР»РёС‚Рµ РЅР°Р·РІР°РЅРёРµ.\n\r",ch);
 	    return;
 	}
 
@@ -9538,19 +9538,19 @@ void do_recipe(CHAR_DATA *ch, char *argument)
 	&& skill_table[sn].spell_fun != spell_null)
 	{
 	    if ((recipe = find_recipe(skill_table[sn].rname)) != NULL)
-		send_to_char("{GТакой рецепт уже существует! Добавляем новый.\n\r{x",ch);
+		send_to_char("{GРўР°РєРѕР№ СЂРµС†РµРїС‚ СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚! Р”РѕР±Р°РІР»СЏРµРј РЅРѕРІС‹Р№.\n\r{x",ch);
 
 	    recipe = add_recipe(skill_table[sn].rname);
 	}
 	else
 	{
-	    send_to_char("Такого заклинания не существует, поэтому тип изначально защита.\n\r",ch);
+	    send_to_char("РўР°РєРѕРіРѕ Р·Р°РєР»РёРЅР°РЅРёСЏ РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚, РїРѕСЌС‚РѕРјСѓ С‚РёРї РёР·РЅР°С‡Р°Р»СЊРЅРѕ Р·Р°С‰РёС‚Р°.\n\r",ch);
 	    recipe = add_recipe(argument);
 	    recipe->type = RECIPE_TANK;
 	}
 	show_recipe(ch, recipe);
     }
-    else if (!str_prefix(arg1, "delete") || !str_prefix(arg1, "удалить"))
+    else if (!str_prefix(arg1, "delete") || !str_prefix(arg1, "СѓРґР°Р»РёС‚СЊ"))
     {
 	if (is_number(argument))
 	    recipe = get_recipe(atoi(argument));
@@ -9559,25 +9559,25 @@ void do_recipe(CHAR_DATA *ch, char *argument)
 
 	if (recipe == NULL)
 	{
-	    send_to_char("Такого рецепта нет.\n\r", ch);
+	    send_to_char("РўР°РєРѕРіРѕ СЂРµС†РµРїС‚Р° РЅРµС‚.\n\r", ch);
 	    return;
 	}
 	else
 	{
 	    delete_recipe(recipe);
-	    send_to_char("Рецепт удален.\n\r", ch);
+	    send_to_char("Р РµС†РµРїС‚ СѓРґР°Р»РµРЅ.\n\r", ch);
 	}
     }
-    else if (!str_prefix(arg1, "edit") || !str_prefix(arg1, "изменить"))
+    else if (!str_prefix(arg1, "edit") || !str_prefix(arg1, "РёР·РјРµРЅРёС‚СЊ"))
     {
 	edit_recipe(ch,argument);
     }
-    else if (!str_prefix(arg1, "save") || !str_prefix(arg1, "сохранить"))
+    else if (!str_prefix(arg1, "save") || !str_prefix(arg1, "СЃРѕС…СЂР°РЅРёС‚СЊ"))
     {
 	save_recipes();
-	send_to_char("Рецепты сохранены.\n\r", ch);
+	send_to_char("Р РµС†РµРїС‚С‹ СЃРѕС…СЂР°РЅРµРЅС‹.\n\r", ch);
     }
-    else if (!str_prefix(arg1, "show") || !str_prefix(arg1, "показать"))
+    else if (!str_prefix(arg1, "show") || !str_prefix(arg1, "РїРѕРєР°Р·Р°С‚СЊ"))
     {
 	if (is_number(argument))
 	    recipe = get_recipe(atoi(argument));
@@ -9586,12 +9586,12 @@ void do_recipe(CHAR_DATA *ch, char *argument)
 
 	if (recipe == NULL)
 	{
-	    send_to_char("Рецепт не найден.\n\r",ch);
+	    send_to_char("Р РµС†РµРїС‚ РЅРµ РЅР°Р№РґРµРЅ.\n\r",ch);
 	    return;
 	}
 	show_recipe(ch,recipe);
     }
-    else if (!str_prefix(arg1, "help") || !str_prefix(arg1, "помощь"))
+    else if (!str_prefix(arg1, "help") || !str_prefix(arg1, "РїРѕРјРѕС‰СЊ"))
     {
 	help_recipe(ch);
     }
@@ -9607,32 +9607,32 @@ void do_immnotepad(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0')
     {
-	send_to_char("Синтаксис: иммзаписи <char>\n\r", ch);
+	send_to_char("РЎРёРЅС‚Р°РєСЃРёСЃ: РёРјРјР·Р°РїРёСЃРё <char>\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg)) == NULL)
     {
-	send_to_char("Таких в данный момент в мире нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… РІ РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ РІ РјРёСЂРµ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     if (IS_NPC(victim))
     {
-	send_to_char("Только не моба.\n\r", ch);
+	send_to_char("РўРѕР»СЊРєРѕ РЅРµ РјРѕР±Р°.\n\r", ch);
 	return;
     }
 
     if (ch->level < victim->level)
     {
-	send_to_char("Твой уровень не позволяет смотреть эти записи.\n\r", ch);
+	send_to_char("РўРІРѕР№ СѓСЂРѕРІРµРЅСЊ РЅРµ РїРѕР·РІРѕР»СЏРµС‚ СЃРјРѕС‚СЂРµС‚СЊ СЌС‚Рё Р·Р°РїРёСЃРё.\n\r", ch);
 	return;
     }
 
-    printf_to_char("Записи, которые делает %s:\n\r", ch, capitalize(victim->name));
+    printf_to_char("Р—Р°РїРёСЃРё, РєРѕС‚РѕСЂС‹Рµ РґРµР»Р°РµС‚ %s:\n\r", ch, capitalize(victim->name));
     send_to_char(!IS_NULLSTR(victim->notepad)
 		? victim->notepad
-		: "(Записи отсутствуют).\n\r", ch);
+		: "(Р—Р°РїРёСЃРё РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚).\n\r", ch);
     return;
 }
 
@@ -9649,21 +9649,21 @@ void do_absolutely(CHAR_DATA *ch, char *argument)
    
 		victim   = CH(d);
 		
-		sprintf(buf, "%s кол спешка %s", victim->name, victim->name);
+		sprintf(buf, "%s РєРѕР» СЃРїРµС€РєР° %s", victim->name, victim->name);
 		do_at(ch, buf);
-		sprintf(buf, "%s кол гиг %s", victim->name, victim->name);
+		sprintf(buf, "%s РєРѕР» РіРёРі %s", victim->name, victim->name);
 		do_at(ch, buf);
-		sprintf(buf, "%s кол благо %s", victim->name, victim->name);
+		sprintf(buf, "%s РєРѕР» Р±Р»Р°РіРѕ %s", victim->name, victim->name);
 		do_at(ch, buf);
-		sprintf(buf, "%s кол ярость %s", victim->name, victim->name);
+		sprintf(buf, "%s РєРѕР» СЏСЂРѕСЃС‚СЊ %s", victim->name, victim->name);
 		do_at(ch, buf);
-		sprintf(buf, "%s кол щит %s", victim->name, victim->name);
+		sprintf(buf, "%s РєРѕР» С‰РёС‚ %s", victim->name, victim->name);
 		do_at(ch, buf);
-		sprintf(buf, "%s кол брон %s", victim->name, victim->name);
+		sprintf(buf, "%s РєРѕР» Р±СЂРѕРЅ %s", victim->name, victim->name);
 		do_at(ch, buf);
-		sprintf(buf, "%s кол призрач %s", victim->name, victim->name);
+		sprintf(buf, "%s РєРѕР» РїСЂРёР·СЂР°С‡ %s", victim->name, victim->name);
 		do_at(ch, buf);
-		sprintf(buf, "%s кол 'защита храма' %s", victim->name, victim->name);
+		sprintf(buf, "%s РєРѕР» 'Р·Р°С‰РёС‚Р° С…СЂР°РјР°' %s", victim->name, victim->name);
 		do_at(ch, buf);
 		}
 
@@ -9688,32 +9688,32 @@ void do_choice(CHAR_DATA *ch, char *argument)
 
     if (arg1[0] == '\0')
     {
-	send_to_char("Syntax: choice obj <Номер запроса>\n\r", ch);
-	send_to_char("        choice mob <Номер запроса>\n\r", ch);
+	send_to_char("Syntax: choice obj <РќРѕРјРµСЂ Р·Р°РїСЂРѕСЃР°>\n\r", ch);
+	send_to_char("        choice mob <РќРѕРјРµСЂ Р·Р°РїСЂРѕСЃР°>\n\r", ch);
 	send_to_char("        choice query [list]\n\r", ch);
-	send_to_char("        choice query add <Название запроса>\n\r", ch);
-	send_to_char("        choice query delete <Номер запроса>\n\r", ch);
-	send_to_char("        choice query edit <Номер запроса>\n\r", ch);
-	send_to_char("        choice query show <Номер запроса>\n\r", ch);
+	send_to_char("        choice query add <РќР°Р·РІР°РЅРёРµ Р·Р°РїСЂРѕСЃР°>\n\r", ch);
+	send_to_char("        choice query delete <РќРѕРјРµСЂ Р·Р°РїСЂРѕСЃР°>\n\r", ch);
+	send_to_char("        choice query edit <РќРѕРјРµСЂ Р·Р°РїСЂРѕСЃР°>\n\r", ch);
+	send_to_char("        choice query show <РќРѕРјРµСЂ Р·Р°РїСЂРѕСЃР°>\n\r", ch);
 	return;
     } else if (!str_prefix(arg1, "obj"))
     {
 
-//При изменении на запросы sql код отсюда править
+//РџСЂРё РёР·РјРµРЅРµРЅРёРё РЅР° Р·Р°РїСЂРѕСЃС‹ sql РєРѕРґ РѕС‚СЃСЋРґР° РїСЂР°РІРёС‚СЊ
 	OBJ_INDEX_DATA *obj, *array[top_vnum_obj];
 
 	buffer = new_buf();
 	
 	if (argument != '\0' && !is_number(argument))
 	{                 
-	    send_to_char("Введите номер запроса.\n\r",ch);
+	    send_to_char("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ Р·Р°РїСЂРѕСЃР°.\n\r",ch);
 	    return;
 	}
 
 	query = get_query(atoi(argument));
 	if (query == NULL)
 	{
-	    send_to_char("Неправильный запрос.\n\r",ch);
+	    send_to_char("РќРµРїСЂР°РІРёР»СЊРЅС‹Р№ Р·Р°РїСЂРѕСЃ.\n\r",ch);
 	    return;
 	}
 
@@ -9725,7 +9725,7 @@ void do_choice(CHAR_DATA *ch, char *argument)
 		array[count++] = obj;
 		if (count > 300)
 		{
-		    send_to_char("Найдено более 300 объектов. Уточните запрос.\n\r",ch);
+		    send_to_char("РќР°Р№РґРµРЅРѕ Р±РѕР»РµРµ 300 РѕР±СЉРµРєС‚РѕРІ. РЈС‚РѕС‡РЅРёС‚Рµ Р·Р°РїСЂРѕСЃ.\n\r",ch);
 		    return;
 		}
 		found = TRUE;
@@ -9734,7 +9734,7 @@ void do_choice(CHAR_DATA *ch, char *argument)
 
 	if (!found)
 	{
-	    send_to_char("Не найдено объектов, удовлетворяющих условию(ям).\n\r", ch);
+	    send_to_char("РќРµ РЅР°Р№РґРµРЅРѕ РѕР±СЉРµРєС‚РѕРІ, СѓРґРѕРІР»РµС‚РІРѕСЂСЏСЋС‰РёС… СѓСЃР»РѕРІРёСЋ(СЏРј).\n\r", ch);
 		    free_buf(buffer);
 	    return;
 	}
@@ -9749,21 +9749,21 @@ void do_choice(CHAR_DATA *ch, char *argument)
 	    add_buf(buffer, buf);
 	}
 
-//и до сюда
+//Рё РґРѕ СЃСЋРґР°
 
     } else if (!str_prefix(arg1, "mob"))
     {
-	//отключена
-	send_to_char("В разработке.\n\r",ch);
+	//РѕС‚РєР»СЋС‡РµРЅР°
+	send_to_char("Р’ СЂР°Р·СЂР°Р±РѕС‚РєРµ.\n\r",ch);
 	return;
-// Тут тоже самое, только с мобами
+// РўСѓС‚ С‚РѕР¶Рµ СЃР°РјРѕРµ, С‚РѕР»СЊРєРѕ СЃ РјРѕР±Р°РјРё
 	MOB_INDEX_DATA *mob, *array[top_vnum_mob];
 
 	buffer = new_buf();
 	
 	if (argument != '\0' && !is_number(argument))
 	{                 
-	    send_to_char("Введите номер запроса.\n\r",ch);
+	    send_to_char("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ Р·Р°РїСЂРѕСЃР°.\n\r",ch);
 	    return;
 	}
 
@@ -9777,7 +9777,7 @@ void do_choice(CHAR_DATA *ch, char *argument)
 		array[count++] = mob;
 		if (count > 300)
 		{
-		    send_to_char("Найдено более 300 мобов. Уточните запрос.\n\r",ch);
+		    send_to_char("РќР°Р№РґРµРЅРѕ Р±РѕР»РµРµ 300 РјРѕР±РѕРІ. РЈС‚РѕС‡РЅРёС‚Рµ Р·Р°РїСЂРѕСЃ.\n\r",ch);
 		    return;
 		}
 
@@ -9787,7 +9787,7 @@ void do_choice(CHAR_DATA *ch, char *argument)
 
 	if (!found)
 	{
-	    send_to_char("Не найдено мобов, удовлетворяющих условию(ям).\n\r", ch);
+	    send_to_char("РќРµ РЅР°Р№РґРµРЅРѕ РјРѕР±РѕРІ, СѓРґРѕРІР»РµС‚РІРѕСЂСЏСЋС‰РёС… СѓСЃР»РѕРІРёСЋ(СЏРј).\n\r", ch);
 		    free_buf(buffer);
 	    return;
 	}
@@ -9801,7 +9801,7 @@ void do_choice(CHAR_DATA *ch, char *argument)
 		array[vnum]->vnum, array[vnum]->area->name);
 	    add_buf(buffer, buf);
 	}
-//И до сюда
+//Р РґРѕ СЃСЋРґР°
 
     } else if (!str_prefix(arg1, "query"))
     {
@@ -9815,7 +9815,7 @@ void do_choice(CHAR_DATA *ch, char *argument)
 	{
 	    if (argument[0] == '\0')
 	    {
-		send_to_char("Определите название.\n\r",ch);
+		send_to_char("РћРїСЂРµРґРµР»РёС‚Рµ РЅР°Р·РІР°РЅРёРµ.\n\r",ch);
 		return;
 	    }
 	    query = add_query(argument);
@@ -9825,13 +9825,13 @@ void do_choice(CHAR_DATA *ch, char *argument)
 	} else if (!str_prefix(arg2, "save"))
 	{
 	    save_query();
-	    send_to_char("Запросы сохранены.\n\r", ch);
+	    send_to_char("Р—Р°РїСЂРѕСЃС‹ СЃРѕС…СЂР°РЅРµРЅС‹.\n\r", ch);
 	    return;
 	}
 
 	if (argument != '\0' && !is_number(argument))
 	{                 
-	    send_to_char("Введите номер запроса.\n\r",ch);
+	    send_to_char("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ Р·Р°РїСЂРѕСЃР°.\n\r",ch);
 	    return;
 	}
 
@@ -9841,11 +9841,11 @@ void do_choice(CHAR_DATA *ch, char *argument)
 		query = get_query(atoi(argument));
 	    if (query == NULL)
 	    {
-		send_to_char("Такого запроса нет.\n\r", ch);
+		send_to_char("РўР°РєРѕРіРѕ Р·Р°РїСЂРѕСЃР° РЅРµС‚.\n\r", ch);
 		return;
 	    }
 	    delete_query(query);
-	    send_to_char("Запрос удален.\n\r", ch);
+	    send_to_char("Р—Р°РїСЂРѕСЃ СѓРґР°Р»РµРЅ.\n\r", ch);
 
 	} else if (!str_prefix(arg2, "edit"))
 	{
@@ -9853,7 +9853,7 @@ void do_choice(CHAR_DATA *ch, char *argument)
 		query = get_query(atoi(argument));
 	    if (query == NULL)
 	    {
-		send_to_char("Запрос не найден.\n\r",ch);
+		send_to_char("Р—Р°РїСЂРѕСЃ РЅРµ РЅР°Р№РґРµРЅ.\n\r",ch);
 		return;
 	    }
 	    string_append(ch, &query->text);
@@ -9864,7 +9864,7 @@ void do_choice(CHAR_DATA *ch, char *argument)
 
 	    if (query == NULL)
 	    {
-		send_to_char("Запрос не найден.\n\r",ch);
+		send_to_char("Р—Р°РїСЂРѕСЃ РЅРµ РЅР°Р№РґРµРЅ.\n\r",ch);
 		return;
 	    }
 	    show_query(ch,query);
@@ -9873,7 +9873,7 @@ void do_choice(CHAR_DATA *ch, char *argument)
 
     if (!str_prefix(arg1, "obj") || !str_prefix(arg1, "mob"))
     {
-	sprintf(buf, "\n\rНайдено: %d.\n\r", count);
+	sprintf(buf, "\n\rРќР°Р№РґРµРЅРѕ: %d.\n\r", count);
 	add_buf(buffer, buf);
 
 	page_to_char(buf_string(buffer), ch);
@@ -9890,27 +9890,27 @@ void do_charquest(CHAR_DATA *ch, char *argument)
 	if (IS_NPC(ch)) 
 		return;
 
-	send_to_char("Квесты от игроков временно отключены в связи со вводом постоянного утроения.\n\r", ch);
+	send_to_char("РљРІРµСЃС‚С‹ РѕС‚ РёРіСЂРѕРєРѕРІ РІСЂРµРјРµРЅРЅРѕ РѕС‚РєР»СЋС‡РµРЅС‹ РІ СЃРІСЏР·Рё СЃРѕ РІРІРѕРґРѕРј РїРѕСЃС‚РѕСЏРЅРЅРѕРіРѕ СѓС‚СЂРѕРµРЅРёСЏ.\n\r", ch);
 	return;
 	
 
 	argument = one_argument(argument, arg);
 	if (arg[0] != '\0')
 	{
-		if (!str_prefix(arg, "удвоение") || !str_prefix(arg, "утроение"))
+		if (!str_prefix(arg, "СѓРґРІРѕРµРЅРёРµ") || !str_prefix(arg, "СѓС‚СЂРѕРµРЅРёРµ"))
 		{			
-			if (!str_prefix(arg,"удвоение"))
+			if (!str_prefix(arg,"СѓРґРІРѕРµРЅРёРµ"))
 			{
 				mult = 2;
 			}
-			if (!str_prefix(arg,"утроение"))
+			if (!str_prefix(arg,"СѓС‚СЂРѕРµРЅРёРµ"))
 			{
 				mult = 3;
 			}
 
 			if (immquest.is_quest)
 			{
-				send_to_char("Подожди, пока закончится текущий квест.\n\r", ch);
+				send_to_char("РџРѕРґРѕР¶РґРё, РїРѕРєР° Р·Р°РєРѕРЅС‡РёС‚СЃСЏ С‚РµРєСѓС‰РёР№ РєРІРµСЃС‚.\n\r", ch);
 				return;
 			}
 			
@@ -9939,7 +9939,7 @@ void do_charquest(CHAR_DATA *ch, char *argument)
 				}
 				if (qp == 1 && exp == 1 && skill == 1)
 				{
-					send_to_char("Доступные параметры: QP, EXP, SKILL.\n\r",ch);
+					send_to_char("Р”РѕСЃС‚СѓРїРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹: QP, EXP, SKILL.\n\r",ch);
 					return;
 				}		
 				
@@ -9947,41 +9947,41 @@ void do_charquest(CHAR_DATA *ch, char *argument)
 				
 				if (!is_number(arg) || (immquest.timer = atoi(arg)) <= 30)
 				{
-					send_to_char("Таймер должен быть числовым и быть больше 30.\n\r", ch);
+					send_to_char("РўР°Р№РјРµСЂ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ С‡РёСЃР»РѕРІС‹Рј Рё Р±С‹С‚СЊ Р±РѕР»СЊС€Рµ 30.\n\r", ch);
 					return;
 				}
 
 				if (atoi(arg) <= 30)
 				{
-					send_to_char("Таймер должен быть не больше 300.\n\r", ch);
+					send_to_char("РўР°Р№РјРµСЂ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РЅРµ Р±РѕР»СЊС€Рµ 300.\n\r", ch);
 					return;
 				}
 
 				if (atoi(arg) >= 300)
 				{
-					send_to_char("Таймер должен быть не больше 300.\n\r", ch);
+					send_to_char("РўР°Р№РјРµСЂ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РЅРµ Р±РѕР»СЊС€Рµ 300.\n\r", ch);
 					return;
 				}
 
 				if (ch->pcdata->bronze < (qp + skill + exp - 3) * immquest.timer) 
 				{
-					send_to_char("Бронзы недостаточно для такого времени.\n\r", ch);
+					send_to_char("Р‘СЂРѕРЅР·С‹ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґР»СЏ С‚Р°РєРѕРіРѕ РІСЂРµРјРµРЅРё.\n\r", ch);
 					return;		
 				}
 				
 				ch->pcdata->bronze -= ((qp + skill + exp - 3) * immquest.timer);
 
 				immquest.who_claim = ch;
-				sprintf(immquest.desc, "%s получаемых очков %s%s%s%s%s",
-				mult == 2 ? "Удвоение" : "Утроение",
-				(exp>1) ? "опыта" : "",
+				sprintf(immquest.desc, "%s РїРѕР»СѓС‡Р°РµРјС‹С… РѕС‡РєРѕРІ %s%s%s%s%s",
+				mult == 2 ? "РЈРґРІРѕРµРЅРёРµ" : "РЈС‚СЂРѕРµРЅРёРµ",
+				(exp>1) ? "РѕРїС‹С‚Р°" : "",
 				(exp>1 && qp>1) ? ", " : "",
-				(qp>1) ? "удачи" : "",
-				(exp>1 && qp>1 && skill>1) ? " и " : ((exp>1 || qp>1) && skill>1) ? " , " : "",
-				(skill>1) ? "скорости обучения" : ""
+				(qp>1) ? "СѓРґР°С‡Рё" : "",
+				(exp>1 && qp>1 && skill>1) ? " Рё " : ((exp>1 || qp>1) && skill>1) ? " , " : "",
+				(skill>1) ? "СЃРєРѕСЂРѕСЃС‚Рё РѕР±СѓС‡РµРЅРёСЏ" : ""
 				);
 				
-				sprintf(arg, "{G%s оплачивает: %s.{x{*\n\r", immquest.who_claim->name, immquest.desc);
+				sprintf(arg, "{G%s РѕРїР»Р°С‡РёРІР°РµС‚: %s.{x{*\n\r", immquest.who_claim->name, immquest.desc);
 				
 				
 				immquest.is_quest     = TRUE;
@@ -9995,16 +9995,16 @@ void do_charquest(CHAR_DATA *ch, char *argument)
 			}
 		}		
 	}	
-	send_to_char("Нет такой команды. Список доступных:\n\r"
-	"сквест удвоение|утроение [qp] [skill] [exp] <timer>\n\r"
-	"например: сквест утроение exp 60 -- запускает утроение экспы на 60 часов\n\r"
-	"Расход бронзы при удвоении 1/час, при утроении 2/час\n\r"
-	"за каждый параметр цена умножается на кол-во параметров: удвоение опыта стоит 1/час, утроение всего - 6/час\n\r", ch);
+	send_to_char("РќРµС‚ С‚Р°РєРѕР№ РєРѕРјР°РЅРґС‹. РЎРїРёСЃРѕРє РґРѕСЃС‚СѓРїРЅС‹С…:\n\r"
+	"СЃРєРІРµСЃС‚ СѓРґРІРѕРµРЅРёРµ|СѓС‚СЂРѕРµРЅРёРµ [qp] [skill] [exp] <timer>\n\r"
+	"РЅР°РїСЂРёРјРµСЂ: СЃРєРІРµСЃС‚ СѓС‚СЂРѕРµРЅРёРµ exp 60 -- Р·Р°РїСѓСЃРєР°РµС‚ СѓС‚СЂРѕРµРЅРёРµ СЌРєСЃРїС‹ РЅР° 60 С‡Р°СЃРѕРІ\n\r"
+	"Р Р°СЃС…РѕРґ Р±СЂРѕРЅР·С‹ РїСЂРё СѓРґРІРѕРµРЅРёРё 1/С‡Р°СЃ, РїСЂРё СѓС‚СЂРѕРµРЅРёРё 2/С‡Р°СЃ\n\r"
+	"Р·Р° РєР°Р¶РґС‹Р№ РїР°СЂР°РјРµС‚СЂ С†РµРЅР° СѓРјРЅРѕР¶Р°РµС‚СЃСЏ РЅР° РєРѕР»-РІРѕ РїР°СЂР°РјРµС‚СЂРѕРІ: СѓРґРІРѕРµРЅРёРµ РѕРїС‹С‚Р° СЃС‚РѕРёС‚ 1/С‡Р°СЃ, СѓС‚СЂРѕРµРЅРёРµ РІСЃРµРіРѕ - 6/С‡Р°СЃ\n\r", ch);
 	return;
 }
 
 
-/*ПОСМОТРЕТЬ ЭФФЕКТЫ НА ЧАРЕ*/
+/*РџРћРЎРњРћРўР Р•РўР¬ Р­Р¤Р¤Р•РљРўР« РќРђ Р§РђР Р•*/
 void do_immaffects(CHAR_DATA *ch, char *argument){
     CHAR_DATA *victim;
     AFFECT_DATA *paf;
@@ -10015,7 +10015,7 @@ void do_immaffects(CHAR_DATA *ch, char *argument){
 
     if ((victim = get_char_world(ch, arg)) == NULL)
     {
-	send_to_char("Таких в Мире нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… РІ РњРёСЂРµ РЅРµС‚.\n\r", ch);
 	return;
     }
 

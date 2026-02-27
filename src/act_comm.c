@@ -69,7 +69,7 @@ bool check_channel_level(CHAR_DATA *ch)
 {
     if (ch->level < PK_RANGE/2)
     {
-	send_to_char("Тебе нужно немного подрасти, чтобы начать пользоваться этим каналом.\n\r", ch);
+	send_to_char("РўРµР±Рµ РЅСѓР¶РЅРѕ РЅРµРјРЅРѕРіРѕ РїРѕРґСЂР°СЃС‚Рё, С‡С‚РѕР±С‹ РЅР°С‡Р°С‚СЊ РїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ СЌС‚РёРј РєР°РЅР°Р»РѕРј.\n\r", ch);
 	return FALSE;
     }
 
@@ -87,7 +87,7 @@ void do_quote(CHAR_DATA *ch)
 
     if (!IS_NULLSTR(quote_table[cn]))
     {
-	sprintf(buf, "\n\r{DФраза дня:{x {W%s{x\n\r\n\r", quote_table[cn]);
+	sprintf(buf, "\n\r{DР¤СЂР°Р·Р° РґРЅСЏ:{x {W%s{x\n\r\n\r", quote_table[cn]);
 	send_to_char(buf, ch);
     }
     return;
@@ -126,8 +126,8 @@ void extract_char_for_quit(CHAR_DATA *ch, bool show)
 	{
 	    if (show)
 	    {
-		act("Ты падаешь с $N1!", ch->mount, NULL, ch, TO_CHAR);
-		act("$n падает со спины $N1.", ch->mount, NULL, ch, TO_ROOM);
+		act("РўС‹ РїР°РґР°РµС€СЊ СЃ $N1!", ch->mount, NULL, ch, TO_CHAR);
+		act("$n РїР°РґР°РµС‚ СЃРѕ СЃРїРёРЅС‹ $N1.", ch->mount, NULL, ch, TO_ROOM);
 	    }
 	    ch->mount->riding = FALSE;
 	    if (!IS_IMMORTAL(ch->mount))
@@ -174,7 +174,7 @@ void extract_char_for_quit(CHAR_DATA *ch, bool show)
 
 void do_delet(CHAR_DATA *ch, char *argument)
 {
-    send_to_char("Для удаления персонажа надо написать команду ПОЛНОСТЬЮ.\n\r",
+    send_to_char("Р”Р»СЏ СѓРґР°Р»РµРЅРёСЏ РїРµСЂСЃРѕРЅР°Р¶Р° РЅР°РґРѕ РЅР°РїРёСЃР°С‚СЊ РєРѕРјР°РЅРґСѓ РџРћР›РќРћРЎРўР¬Р®.\n\r",
 		 ch);
 }
 
@@ -186,31 +186,31 @@ bool can_quit(CHAR_DATA *ch)
 
     if (POS_FIGHT(ch))
     {
-	send_to_char("Э, нет! Ты еще сражаешься!\n\r", ch);
+	send_to_char("Р­, РЅРµС‚! РўС‹ РµС‰Рµ СЃСЂР°Р¶Р°РµС€СЊСЃСЏ!\n\r", ch);
 	return FALSE;
     }
 
     if (ch->position <= POS_STUNNED )
     {
-	send_to_char("Дождись своей смерти.\n\r", ch);
+	send_to_char("Р”РѕР¶РґРёСЃСЊ СЃРІРѕРµР№ СЃРјРµСЂС‚Рё.\n\r", ch);
 	return FALSE;
     }
 
     if (IS_AFFECTED(ch, AFF_CHARM))
     {
-	send_to_char("Стоп, стоп. У тебя есть хозяин, дождись, пока он тебя отпустит.\n\r", ch);
+	send_to_char("РЎС‚РѕРї, СЃС‚РѕРї. РЈ С‚РµР±СЏ РµСЃС‚СЊ С…РѕР·СЏРёРЅ, РґРѕР¶РґРёСЃСЊ, РїРѕРєР° РѕРЅ С‚РµР±СЏ РѕС‚РїСѓСЃС‚РёС‚.\n\r", ch);
 	return FALSE;
     }
 
     if (IS_AFFECTED(ch, AFF_SLEEP))
     {
-	send_to_char("Ты не можешь проснуться!\n\r", ch);
+	send_to_char("РўС‹ РЅРµ РјРѕР¶РµС€СЊ РїСЂРѕСЃРЅСѓС‚СЊСЃСЏ!\n\r", ch);
 	return FALSE;
     }
 
     if (IS_SET(ch->act, PLR_EXCITED))
     {
-	sprintf(buf, "Ты слишком взволнован%s предыдущей дракой!\n\r",
+	sprintf(buf, "РўС‹ СЃР»РёС€РєРѕРј РІР·РІРѕР»РЅРѕРІР°РЅ%s РїСЂРµРґС‹РґСѓС‰РµР№ РґСЂР°РєРѕР№!\n\r",
 		SEX_ENDING(ch));
 	send_to_char(buf, ch);
 	return FALSE;
@@ -218,13 +218,13 @@ bool can_quit(CHAR_DATA *ch)
 
     if (ch == who_claim_reboot)
     {
-	send_to_char("Стоп-стоп, надо сначала завершить процесс перезагрузки!\n\r", ch);
+	send_to_char("РЎС‚РѕРї-СЃС‚РѕРї, РЅР°РґРѕ СЃРЅР°С‡Р°Р»Р° Р·Р°РІРµСЂС€РёС‚СЊ РїСЂРѕС†РµСЃСЃ РїРµСЂРµР·Р°РіСЂСѓР·РєРё!\n\r", ch);
 	return FALSE;
     }
 
     if (ch == immquest.who_claim)
     {
-	send_to_char("Стоп-стоп, надо сначала завершить квест, данный игрокам!\n\r", ch);
+	send_to_char("РЎС‚РѕРї-СЃС‚РѕРї, РЅР°РґРѕ СЃРЅР°С‡Р°Р»Р° Р·Р°РІРµСЂС€РёС‚СЊ РєРІРµСЃС‚, РґР°РЅРЅС‹Р№ РёРіСЂРѕРєР°Рј!\n\r", ch);
 	return FALSE;
     }
 
@@ -234,16 +234,16 @@ bool can_quit(CHAR_DATA *ch)
 	{
 	    if (auctions[i].buyer == ch)
 	    {
-	        sprintf (buf, "{aПодожди, ты сделал%s ставку на аукционе #%d. Дождись либо окончания аукциона, "
-		     "либо момента, когда твоя ставка будет перекрыта кем-нибудь.{x\n\r", SEX_ENDING(ch), i + 1);
+	        sprintf (buf, "{aРџРѕРґРѕР¶РґРё, С‚С‹ СЃРґРµР»Р°Р»%s СЃС‚Р°РІРєСѓ РЅР° Р°СѓРєС†РёРѕРЅРµ #%d. Р”РѕР¶РґРёСЃСЊ Р»РёР±Рѕ РѕРєРѕРЅС‡Р°РЅРёСЏ Р°СѓРєС†РёРѕРЅР°, "
+		     "Р»РёР±Рѕ РјРѕРјРµРЅС‚Р°, РєРѕРіРґР° С‚РІРѕСЏ СЃС‚Р°РІРєР° Р±СѓРґРµС‚ РїРµСЂРµРєСЂС‹С‚Р° РєРµРј-РЅРёР±СѓРґСЊ.{x\n\r", SEX_ENDING(ch), i + 1);
 	        send_to_char(buf, ch);
 	        return FALSE;
 	    }
 
 	    if (auctions[i].sender == ch)
 	    {
-	        sprintf (buf, "{aПодожди, ты поставил%s на аукцион #%d какую-то вещь. "
-	                      "Дождись окончания аукциона.{x" , SEX_ENDING(ch), i + 1);
+	        sprintf (buf, "{aРџРѕРґРѕР¶РґРё, С‚С‹ РїРѕСЃС‚Р°РІРёР»%s РЅР° Р°СѓРєС†РёРѕРЅ #%d РєР°РєСѓСЋ-С‚Рѕ РІРµС‰СЊ. "
+	                      "Р”РѕР¶РґРёСЃСЊ РѕРєРѕРЅС‡Р°РЅРёСЏ Р°СѓРєС†РёРѕРЅР°.{x" , SEX_ENDING(ch), i + 1);
 	        send_to_char(buf, ch);
 	        return FALSE;
 	    }
@@ -253,20 +253,20 @@ bool can_quit(CHAR_DATA *ch)
     if (IS_SET(ch->act, PLR_CHALLENGER)
 	&& IS_SET(ch->in_room->room_flags, ROOM_ARENA))
     {
-	send_to_char("Сначала закончи свои дела на арене!\n\r", ch);
+	send_to_char("РЎРЅР°С‡Р°Р»Р° Р·Р°РєРѕРЅС‡Рё СЃРІРѕРё РґРµР»Р° РЅР° Р°СЂРµРЅРµ!\n\r", ch);
 	return FALSE;
     }
 
     if ((ch->pcdata->questmob > 0 || ch->pcdata->questobj > 0)
 	&& ch->pcdata->countdown > 0)
     {
-	send_to_char("Тебе необходимо завершить квест.\n\r", ch);
+	send_to_char("РўРµР±Рµ РЅРµРѕР±С…РѕРґРёРјРѕ Р·Р°РІРµСЂС€РёС‚СЊ РєРІРµСЃС‚.\n\r", ch);
 	return FALSE;
     } 
 
     if (ch->desc && ch->desc->editor)
     {
-	send_to_char("Тебе необходимо закончить редактирование.\n\r", ch);
+	send_to_char("РўРµР±Рµ РЅРµРѕР±С…РѕРґРёРјРѕ Р·Р°РєРѕРЅС‡РёС‚СЊ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ.\n\r", ch);
 	return FALSE;
     } 
     
@@ -283,14 +283,14 @@ void do_delete(CHAR_DATA *ch, char *argument)
 
     if (IS_IMMORTAL(ch))
     {
-		send_to_char("Переговори с верховными Богами, возможно, эту проблему "
-		     "можно решить по-другому.\n\r", ch);
+		send_to_char("РџРµСЂРµРіРѕРІРѕСЂРё СЃ РІРµСЂС…РѕРІРЅС‹РјРё Р‘РѕРіР°РјРё, РІРѕР·РјРѕР¶РЅРѕ, СЌС‚Сѓ РїСЂРѕР±Р»РµРјСѓ "
+		     "РјРѕР¶РЅРѕ СЂРµС€РёС‚СЊ РїРѕ-РґСЂСѓРіРѕРјСѓ.\n\r", ch);
 		return;
     }
 
     if (is_clanmaster(ch))
     {
-		send_to_char("Сначала сними с себя полномочия кланмастера!\n\r", ch);
+		send_to_char("РЎРЅР°С‡Р°Р»Р° СЃРЅРёРјРё СЃ СЃРµР±СЏ РїРѕР»РЅРѕРјРѕС‡РёСЏ РєР»Р°РЅРјР°СЃС‚РµСЂР°!\n\r", ch);
 		return;
     }
 
@@ -298,8 +298,8 @@ void do_delete(CHAR_DATA *ch, char *argument)
 	|| is_affected(ch, gsn_gods_curse)
 	|| is_affected(ch, gsn_nocast))
     {
-		send_to_char("Ты был наказан Богами, сначала до конца отсиди "
-		     "положенное наказание.\n\r", ch);
+		send_to_char("РўС‹ Р±С‹Р» РЅР°РєР°Р·Р°РЅ Р‘РѕРіР°РјРё, СЃРЅР°С‡Р°Р»Р° РґРѕ РєРѕРЅС†Р° РѕС‚СЃРёРґРё "
+		     "РїРѕР»РѕР¶РµРЅРЅРѕРµ РЅР°РєР°Р·Р°РЅРёРµ.\n\r", ch);
 		return;
     }
 
@@ -312,14 +312,14 @@ void do_delete(CHAR_DATA *ch, char *argument)
 		{
 			if (strcmp(argument, ch->pcdata->reg_answer))
 			{
-				send_to_char("Статус удаления убран.\n\r", ch);
+				send_to_char("РЎС‚Р°С‚СѓСЃ СѓРґР°Р»РµРЅРёСЏ СѓР±СЂР°РЅ.\n\r", ch);
 				REMOVE_BIT(ch->act, PLR_CONFIRM_DELETE);
 				return;
 			}
 			else
 			{
 				sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(ch->name));
-				wiznet("$N удаляет себя.", ch, NULL, 0, 0, 0);
+				wiznet("$N СѓРґР°Р»СЏРµС‚ СЃРµР±СЏ.", ch, NULL, 0, 0, 0);
 		
 				if (is_clan(ch))
 					clan_table[ch->clan].count--;
@@ -332,27 +332,27 @@ void do_delete(CHAR_DATA *ch, char *argument)
 		}
 		else
 		{
-			send_to_char("У тебя отсутствует ответ на регистрационный вопрос.\n\r", ch);
-			send_to_char("Обратись к богам для решения этой проблемы.\n\r", ch);
+			send_to_char("РЈ С‚РµР±СЏ РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚ РѕС‚РІРµС‚ РЅР° СЂРµРіРёСЃС‚СЂР°С†РёРѕРЅРЅС‹Р№ РІРѕРїСЂРѕСЃ.\n\r", ch);
+			send_to_char("РћР±СЂР°С‚РёСЃСЊ Рє Р±РѕРіР°Рј РґР»СЏ СЂРµС€РµРЅРёСЏ СЌС‚РѕР№ РїСЂРѕР±Р»РµРјС‹.\n\r", ch);
 			return;
 		}
     }
 
     if (argument[0] != '\0')
     {
-		send_to_char("Просто напиши команду без аргументов.\n\r", ch);
+		send_to_char("РџСЂРѕСЃС‚Рѕ РЅР°РїРёС€Рё РєРѕРјР°РЅРґСѓ Р±РµР· Р°СЂРіСѓРјРµРЅС‚РѕРІ.\n\r", ch);
 		return;
     }
 
-    send_to_char("Наберите 'удалить <ваш ответ на регистрационный вопрос>' для подтверждения удаления "
-		 "персонажа.\n\r", ch);
-    send_to_char("{RВНИМАНИЕ: действие этой команды отменить нельзя!{x\n\r",
+    send_to_char("РќР°Р±РµСЂРёС‚Рµ 'СѓРґР°Р»РёС‚СЊ <РІР°С€ РѕС‚РІРµС‚ РЅР° СЂРµРіРёСЃС‚СЂР°С†РёРѕРЅРЅС‹Р№ РІРѕРїСЂРѕСЃ>' РґР»СЏ РїРѕРґС‚РІРµСЂР¶РґРµРЅРёСЏ СѓРґР°Р»РµРЅРёСЏ "
+		 "РїРµСЂСЃРѕРЅР°Р¶Р°.\n\r", ch);
+    send_to_char("{RР’РќРРњРђРќРР•: РґРµР№СЃС‚РІРёРµ СЌС‚РѕР№ РєРѕРјР°РЅРґС‹ РѕС‚РјРµРЅРёС‚СЊ РЅРµР»СЊР·СЏ!{x\n\r",
 		 ch);
-    send_to_char("(Наберите 'удалить' с аргументом, отличным от вашего ответа на регистрационный вопрос для "
-		 "отмены статуса удаления).\n\r", ch);
+    send_to_char("(РќР°Р±РµСЂРёС‚Рµ 'СѓРґР°Р»РёС‚СЊ' СЃ Р°СЂРіСѓРјРµРЅС‚РѕРј, РѕС‚Р»РёС‡РЅС‹Рј РѕС‚ РІР°С€РµРіРѕ РѕС‚РІРµС‚Р° РЅР° СЂРµРіРёСЃС‚СЂР°С†РёРѕРЅРЅС‹Р№ РІРѕРїСЂРѕСЃ РґР»СЏ "
+		 "РѕС‚РјРµРЅС‹ СЃС‚Р°С‚СѓСЃР° СѓРґР°Р»РµРЅРёСЏ).\n\r", ch);
 
     SET_BIT(ch->act, PLR_CONFIRM_DELETE);
-    wiznet("$N намеревается удалить себя.", ch, NULL, 0, 0, get_trust(ch));
+    wiznet("$N РЅР°РјРµСЂРµРІР°РµС‚СЃСЏ СѓРґР°Р»РёС‚СЊ СЃРµР±СЏ.", ch, NULL, 0, 0, get_trust(ch));
 }
 
 
@@ -363,10 +363,10 @@ void do_channels(CHAR_DATA *ch, char *argument)
     char buf[MAX_STRING_LENGTH];
 
     /* lists all channels and their status */
-    send_to_char("Канал        | Статус\n\r", ch);
+    send_to_char("РљР°РЅР°Р»        | РЎС‚Р°С‚СѓСЃ\n\r", ch);
     send_to_char("-------------+-------\n\r", ch);
 
-    send_to_char("{dБолтовня{x     | ", ch);
+    send_to_char("{dР‘РѕР»С‚РѕРІРЅСЏ{x     | ", ch);
     if (!IS_SET(ch->comm, COMM_NOGOSSIP))
 	send_to_char("ON\n\r", ch);
     else
@@ -378,32 +378,32 @@ void do_channels(CHAR_DATA *ch, char *argument)
     else
 	send_to_char("OFF\n\r", ch);
 
-    send_to_char("{aАукцион{x      | ", ch);
+    send_to_char("{aРђСѓРєС†РёРѕРЅ{x      | ", ch);
     if (!IS_SET(ch->comm, COMM_NOAUCTION))
 	send_to_char("ON\n\r", ch);
     else
 	send_to_char("OFF\n\r", ch);
 
-    send_to_char("{eМузыка{x       | ", ch);
+    send_to_char("{eРњСѓР·С‹РєР°{x       | ", ch);
     if (!IS_SET(ch->comm, COMM_NOMUSIC))
 	send_to_char("ON\n\r", ch);
     else
 	send_to_char("OFF\n\r", ch);
 
 
-    send_to_char("{eСквернословие{x| ", ch);
+    send_to_char("{eРЎРєРІРµСЂРЅРѕСЃР»РѕРІРёРµ{x| ", ch);
     if (!IS_SET(ch->comm, COMM_NOSLANG))
 	send_to_char("ON\n\r", ch);
     else
 	send_to_char("OFF\n\r", ch);
 
-    send_to_char("{gКлан{x         | ", ch);
+    send_to_char("{gРљР»Р°РЅ{x         | ", ch);
     if (!IS_SET(ch->comm, COMM_NOCLAN))
 	send_to_char("ON\n\r", ch);
     else
 	send_to_char("OFF\n\r", ch);
 
-    send_to_char("{GПоздравления{x | ", ch);
+    send_to_char("{GРџРѕР·РґСЂР°РІР»РµРЅРёСЏ{x | ", ch);
     if (!IS_SET(ch->comm, COMM_NOGRATS))
 	send_to_char("ON\n\r", ch);
     else
@@ -418,58 +418,58 @@ void do_channels(CHAR_DATA *ch, char *argument)
 	    send_to_char("OFF\n\r", ch);
     }
 
-    send_to_char("{MОрать{x        | ", ch);
+    send_to_char("{MРћСЂР°С‚СЊ{x        | ", ch);
     if (!IS_SET(ch->comm, COMM_SHOUTSOFF))
 	send_to_char("ON\n\r", ch);
     else
 	send_to_char("OFF\n\r", ch);
 
-    send_to_char("{RПриват{x       | ", ch);
+    send_to_char("{RРџСЂРёРІР°С‚{x       | ", ch);
     if (!IS_SET(ch->comm, COMM_DEAF))
 	send_to_char("ON\n\r", ch);
     else
 	send_to_char("OFF\n\r", ch);
 
-    send_to_char("{BПомощь{x       | ", ch);
+    send_to_char("{BРџРѕРјРѕС‰СЊ{x       | ", ch);
     if (IS_SET(ch->comm, COMM_HELPER))
 	send_to_char("ON\n\r", ch);
     else
 	send_to_char("OFF\n\r", ch);
 
-    send_to_char("\n\rТишина...    | ", ch);
+    send_to_char("\n\rРўРёС€РёРЅР°...    | ", ch);
     if (IS_SET(ch->comm, COMM_QUIET))
 	send_to_char("ON\n\r", ch);
     else
 	send_to_char("OFF\n\r", ch);
 
     if (IS_SET(ch->comm, COMM_AFK))
-	send_to_char("Включен статус ВОК.\n\r", ch);
+	send_to_char("Р’РєР»СЋС‡РµРЅ СЃС‚Р°С‚СѓСЃ Р’РћРљ.\n\r", ch);
 
     if (IS_SET(ch->comm, COMM_SNOOP_PROOF))
-	send_to_char("У тебя иммунитет к подглядыванию.\n\r", ch);
+	send_to_char("РЈ С‚РµР±СЏ РёРјРјСѓРЅРёС‚РµС‚ Рє РїРѕРґРіР»СЏРґС‹РІР°РЅРёСЋ.\n\r", ch);
 
     if (ch->lines != PAGELEN)
     {
 	if (ch->lines)
 	{
-	    sprintf(buf, "Вам показывается %d строк.\n\r", ch->lines+2);
+	    sprintf(buf, "Р’Р°Рј РїРѕРєР°Р·С‹РІР°РµС‚СЃСЏ %d СЃС‚СЂРѕРє.\n\r", ch->lines+2);
 	    send_to_char(buf, ch);
 	}
 	else
-	    send_to_char("Буфер прокрутки отключен.\n\r", ch);
+	    send_to_char("Р‘СѓС„РµСЂ РїСЂРѕРєСЂСѓС‚РєРё РѕС‚РєР»СЋС‡РµРЅ.\n\r", ch);
     }
 
     if (IS_SET(ch->comm, COMM_NOSHOUT))
-	send_to_char("Ты не можешь орать.\n\r", ch);
+	send_to_char("РўС‹ РЅРµ РјРѕР¶РµС€СЊ РѕСЂР°С‚СЊ.\n\r", ch);
 
     if (IS_SET(ch->comm, COMM_NOTELL))
-	send_to_char("Ты не можешь говорить.\n\r", ch);
+	send_to_char("РўС‹ РЅРµ РјРѕР¶РµС€СЊ РіРѕРІРѕСЂРёС‚СЊ.\n\r", ch);
 
     if (IS_SET(ch->comm, COMM_NOCHANNELS))
-	send_to_char("Ты не можешь использовать каналы.\n\r", ch);
+	send_to_char("РўС‹ РЅРµ РјРѕР¶РµС€СЊ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РєР°РЅР°Р»С‹.\n\r", ch);
 
     if (IS_SET(ch->comm, COMM_NOEMOTE))
-	send_to_char("Ты не можешь показывать свои эмоции.\n\r", ch);
+	send_to_char("РўС‹ РЅРµ РјРѕР¶РµС€СЊ РїРѕРєР°Р·С‹РІР°С‚СЊ СЃРІРѕРё СЌРјРѕС†РёРё.\n\r", ch);
 
 }
 
@@ -480,12 +480,12 @@ void do_deaf(CHAR_DATA *ch, char *argument)
 
     if (IS_SET(ch->comm, COMM_DEAF))
     {
-	send_to_char("Теперь ты снова можешь слышать, что тебе говорят.\n\r", ch);
+	send_to_char("РўРµРїРµСЂСЊ С‚С‹ СЃРЅРѕРІР° РјРѕР¶РµС€СЊ СЃР»С‹С€Р°С‚СЊ, С‡С‚Рѕ С‚РµР±Рµ РіРѕРІРѕСЂСЏС‚.\n\r", ch);
 	REMOVE_BIT(ch->comm, COMM_DEAF);
     }
     else
     {
-	send_to_char("Теперь ты не сможешь услышать, что тебе говорят.\n\r", ch);
+	send_to_char("РўРµРїРµСЂСЊ С‚С‹ РЅРµ СЃРјРѕР¶РµС€СЊ СѓСЃР»С‹С€Р°С‚СЊ, С‡С‚Рѕ С‚РµР±Рµ РіРѕРІРѕСЂСЏС‚.\n\r", ch);
 	SET_BIT(ch->comm, COMM_DEAF);
     }
 }
@@ -496,12 +496,12 @@ void do_quiet (CHAR_DATA *ch, char *argument)
 {
     if (IS_SET(ch->comm, COMM_QUIET))
     {
-	send_to_char("Режим тишины выключен.\n\r", ch);
+	send_to_char("Р РµР¶РёРј С‚РёС€РёРЅС‹ РІС‹РєР»СЋС‡РµРЅ.\n\r", ch);
 	REMOVE_BIT(ch->comm, COMM_QUIET);
     }
     else
     {
-	send_to_char("Теперь ты сможешь услышать только разговоры и эмоции.\n\r", ch);
+	send_to_char("РўРµРїРµСЂСЊ С‚С‹ СЃРјРѕР¶РµС€СЊ СѓСЃР»С‹С€Р°С‚СЊ С‚РѕР»СЊРєРѕ СЂР°Р·РіРѕРІРѕСЂС‹ Рё СЌРјРѕС†РёРё.\n\r", ch);
 	SET_BIT(ch->comm, COMM_QUIET);
     }
 }
@@ -515,12 +515,12 @@ void do_afk (CHAR_DATA *ch, char *argument)
 
     if (IS_SET(ch->comm, COMM_AFK))
     {
-	send_to_char("Режим ВОК отключен. Набери 'воспроизвести' для просмотра пропущенных сообщений.\n\r", ch);
+	send_to_char("Р РµР¶РёРј Р’РћРљ РѕС‚РєР»СЋС‡РµРЅ. РќР°Р±РµСЂРё 'РІРѕСЃРїСЂРѕРёР·РІРµСЃС‚Рё' РґР»СЏ РїСЂРѕСЃРјРѕС‚СЂР° РїСЂРѕРїСѓС‰РµРЅРЅС‹С… СЃРѕРѕР±С‰РµРЅРёР№.\n\r", ch);
 	REMOVE_BIT(ch->comm, COMM_AFK);
     }
     else
     {
-	send_to_char("Ты включаешь режим ВОК.\n\r", ch);
+	send_to_char("РўС‹ РІРєР»СЋС‡Р°РµС€СЊ СЂРµР¶РёРј Р’РћРљ.\n\r", ch);
 	SET_BIT(ch->comm, COMM_AFK);
     }
 }
@@ -530,13 +530,13 @@ void do_replay (CHAR_DATA *ch, char *argument)
 {
     if (IS_NPC(ch))
     {
-	send_to_char("Ты не можешь воспроизвести того, что тебе говорили.\n\r", ch);
+	send_to_char("РўС‹ РЅРµ РјРѕР¶РµС€СЊ РІРѕСЃРїСЂРѕРёР·РІРµСЃС‚Рё С‚РѕРіРѕ, С‡С‚Рѕ С‚РµР±Рµ РіРѕРІРѕСЂРёР»Рё.\n\r", ch);
 	return;
     }
 
     if (buf_string(ch->pcdata->buffer)[0] == '\0')
     {
-	send_to_char("Тебе ничего не говорили.\n\r", ch);
+	send_to_char("РўРµР±Рµ РЅРёС‡РµРіРѕ РЅРµ РіРѕРІРѕСЂРёР»Рё.\n\r", ch);
 	return;
     }
 
@@ -552,13 +552,13 @@ void do_gossip(CHAR_DATA *ch, char *argument)
 
     if (IS_SET(ch->act, PLR_FULL_SILENCE))
     {
-	send_to_char("Ты молчишь.\n\r", ch);
+	send_to_char("РўС‹ РјРѕР»С‡РёС€СЊ.\n\r", ch);
 	return;
     }
 
     if (!IS_NPC(ch) && ch->pcdata->successed == 0)
     {
-		send_to_char("Cначала получи одобрение у Богов. Набери {y? одобрение{x.\n\r", ch);
+		send_to_char("CРЅР°С‡Р°Р»Р° РїРѕР»СѓС‡Рё РѕРґРѕР±СЂРµРЅРёРµ Сѓ Р‘РѕРіРѕРІ. РќР°Р±РµСЂРё {y? РѕРґРѕР±СЂРµРЅРёРµ{x.\n\r", ch);
 		return;
     }
 
@@ -566,12 +566,12 @@ void do_gossip(CHAR_DATA *ch, char *argument)
     {
 	if (IS_SET(ch->comm, COMM_NOGOSSIP))
 	{
-	    send_to_char("Канал болтовни включен.\n\r", ch);
+	    send_to_char("РљР°РЅР°Р» Р±РѕР»С‚РѕРІРЅРё РІРєР»СЋС‡РµРЅ.\n\r", ch);
 	    REMOVE_BIT(ch->comm, COMM_NOGOSSIP);
 	}
 	else
 	{
-	    send_to_char("Дурацкая болтовня выключена.\n\r", ch);
+	    send_to_char("Р”СѓСЂР°С†РєР°СЏ Р±РѕР»С‚РѕРІРЅСЏ РІС‹РєР»СЋС‡РµРЅР°.\n\r", ch);
 	    SET_BIT(ch->comm, COMM_NOGOSSIP);
 	}
     }
@@ -582,13 +582,13 @@ void do_gossip(CHAR_DATA *ch, char *argument)
 
 	if (IS_SET(ch->comm, COMM_QUIET))
 	{
-	    send_to_char("Для начала выключи режим 'тихо'.\n\r", ch);
+	    send_to_char("Р”Р»СЏ РЅР°С‡Р°Р»Р° РІС‹РєР»СЋС‡Рё СЂРµР¶РёРј 'С‚РёС…Рѕ'.\n\r", ch);
 	    return;
 	}
 
 	if (IS_SET(ch->comm, COMM_NOCHANNELS))
 	{
-	    send_to_char("Боги отобрали у тебя право пользования этим каналом.\n\r", ch);
+	    send_to_char("Р‘РѕРіРё РѕС‚РѕР±СЂР°Р»Рё Сѓ С‚РµР±СЏ РїСЂР°РІРѕ РїРѕР»СЊР·РѕРІР°РЅРёСЏ СЌС‚РёРј РєР°РЅР°Р»РѕРј.\n\r", ch);
 	    return;
 
 	}
@@ -599,14 +599,14 @@ void do_gossip(CHAR_DATA *ch, char *argument)
 	    && IS_SET(ch->in_room->room_flags, ROOM_SILENCE)
 	    && !IS_IMMORTAL(ch))
 	{
-	    send_to_char("Это место заглушает все звуки...\n\r", ch);
+	    send_to_char("Р­С‚Рѕ РјРµСЃС‚Рѕ Р·Р°РіР»СѓС€Р°РµС‚ РІСЃРµ Р·РІСѓРєРё...\n\r", ch);
 	    return;
 	}
 
 	if (IS_DRUNK(ch))
 	    argument = makedrunk(argument, ch);
 
-	sprintf(buf, "Ты болтаешь: {d%s{x\n\r", argument);
+	sprintf(buf, "РўС‹ Р±РѕР»С‚Р°РµС€СЊ: {d%s{x\n\r", argument);
 	send_to_char(buf, ch);
 
 	SLIST_FOREACH_SAFE(d, &descriptor_list, link, safe_d)
@@ -623,10 +623,10 @@ void do_gossip(CHAR_DATA *ch, char *argument)
 		&& !check_filter(ch, victim))
 	    {
 		if (is_lycanthrope(ch) && !is_lycanthrope(victim) && !IS_IMMORTAL(victim))
-		    act_new("$n болтает: {d$t{x",
+		    act_new("$n Р±РѕР»С‚Р°РµС‚: {d$t{x",
 			ch, makehowl(argument,ch), d->character, TO_VICT, POS_RESTING);
 		else
-		    act_new("$n болтает: {d$t{x",
+		    act_new("$n Р±РѕР»С‚Р°РµС‚: {d$t{x",
 			ch, argument, d->character, TO_VICT, POS_RESTING);
 	    }
 	}
@@ -640,13 +640,13 @@ void do_ooc(CHAR_DATA *ch, char *argument)
 
     if (IS_SET(ch->act, PLR_FULL_SILENCE))
     {
-	send_to_char("Ты молчишь.\n\r", ch);
+	send_to_char("РўС‹ РјРѕР»С‡РёС€СЊ.\n\r", ch);
 	return;
     }
 
     if (!IS_NPC(ch) && ch->pcdata->successed == 0)
     {
-		send_to_char("Cначала получи одобрение у Богов. Набери {y? одобрение{x.\n\r", ch);
+		send_to_char("CРЅР°С‡Р°Р»Р° РїРѕР»СѓС‡Рё РѕРґРѕР±СЂРµРЅРёРµ Сѓ Р‘РѕРіРѕРІ. РќР°Р±РµСЂРё {y? РѕРґРѕР±СЂРµРЅРёРµ{x.\n\r", ch);
 		return;
     }
 
@@ -654,12 +654,12 @@ void do_ooc(CHAR_DATA *ch, char *argument)
     {
 	if (IS_SET(ch->comm, COMM_NOOOC))
 	{
-	    send_to_char("Канал болтовни, не относящейся к игре, включен.\n\r", ch);
+	    send_to_char("РљР°РЅР°Р» Р±РѕР»С‚РѕРІРЅРё, РЅРµ РѕС‚РЅРѕСЃСЏС‰РµР№СЃСЏ Рє РёРіСЂРµ, РІРєР»СЋС‡РµРЅ.\n\r", ch);
 	    REMOVE_BIT(ch->comm, COMM_NOOOC);
 	}
 	else
 	{
-	    send_to_char("Болтовня, не относящаяся к игре, выключена.\n\r", ch);
+	    send_to_char("Р‘РѕР»С‚РѕРІРЅСЏ, РЅРµ РѕС‚РЅРѕСЃСЏС‰Р°СЏСЃСЏ Рє РёРіСЂРµ, РІС‹РєР»СЋС‡РµРЅР°.\n\r", ch);
 	    SET_BIT(ch->comm, COMM_NOOOC);
 	}
     }
@@ -670,13 +670,13 @@ void do_ooc(CHAR_DATA *ch, char *argument)
 
 	if (IS_SET(ch->comm, COMM_QUIET))
 	{
-	    send_to_char("Для начала выключи режим 'тихо'.\n\r", ch);
+	    send_to_char("Р”Р»СЏ РЅР°С‡Р°Р»Р° РІС‹РєР»СЋС‡Рё СЂРµР¶РёРј 'С‚РёС…Рѕ'.\n\r", ch);
 	    return;
 	}
 
 	if (IS_SET(ch->comm, COMM_NOCHANNELS))
 	{
-	    send_to_char("Боги отобрали у тебя право пользования этим каналом.\n\r", ch);
+	    send_to_char("Р‘РѕРіРё РѕС‚РѕР±СЂР°Р»Рё Сѓ С‚РµР±СЏ РїСЂР°РІРѕ РїРѕР»СЊР·РѕРІР°РЅРёСЏ СЌС‚РёРј РєР°РЅР°Р»РѕРј.\n\r", ch);
 	    return;
 
 	}
@@ -685,11 +685,11 @@ void do_ooc(CHAR_DATA *ch, char *argument)
 
 	if (ch->in_room != NULL && IS_SET(ch->in_room->room_flags, ROOM_SILENCE) && !IS_IMMORTAL(ch))
 	{
-	    send_to_char("Это место заглушает все звуки...\n\r", ch);
+	    send_to_char("Р­С‚Рѕ РјРµСЃС‚Рѕ Р·Р°РіР»СѓС€Р°РµС‚ РІСЃРµ Р·РІСѓРєРё...\n\r", ch);
 	    return;
 	}
 
-	sprintf(buf, "{D[OOC] Ты трепешься: %s{x\n\r", argument);
+	sprintf(buf, "{D[OOC] РўС‹ С‚СЂРµРїРµС€СЊСЃСЏ: %s{x\n\r", argument);
 	send_to_char(buf, ch);
 
 	SLIST_FOREACH_SAFE(d, &descriptor_list, link, safe_d)
@@ -704,7 +704,7 @@ void do_ooc(CHAR_DATA *ch, char *argument)
 		!IS_SET(victim->comm, COMM_QUIET) &&
 		!check_filter(ch, victim))
 	    {
-		sprintf(buf, "{D[OOC] %s трепется: %s{x\n\r", capitalize(PERS(ch, d->character, 0)), argument);
+		sprintf(buf, "{D[OOC] %s С‚СЂРµРїРµС‚СЃСЏ: %s{x\n\r", capitalize(PERS(ch, d->character, 0)), argument);
 		send_to_char(buf, d->character);
 	    }
 	}
@@ -720,13 +720,13 @@ void do_slang(CHAR_DATA *ch, char *argument)
 
     if (IS_SET(ch->act, PLR_FULL_SILENCE))
     {
-	send_to_char("Ты молчишь.\n\r", ch);
+	send_to_char("РўС‹ РјРѕР»С‡РёС€СЊ.\n\r", ch);
 	return;
     }
 
     if (!IS_NPC(ch) && ch->pcdata->successed == 0)
     {
-		send_to_char("Cначала получи одобрение у Богов. Набери {y? одобрение{x.\n\r", ch);
+		send_to_char("CРЅР°С‡Р°Р»Р° РїРѕР»СѓС‡Рё РѕРґРѕР±СЂРµРЅРёРµ Сѓ Р‘РѕРіРѕРІ. РќР°Р±РµСЂРё {y? РѕРґРѕР±СЂРµРЅРёРµ{x.\n\r", ch);
 		return;
     }
 
@@ -734,12 +734,12 @@ void do_slang(CHAR_DATA *ch, char *argument)
     {
 	if (IS_SET(ch->comm, COMM_NOSLANG))
 	{
-	    send_to_char("Сквернословие включено.\n\r", ch);
+	    send_to_char("РЎРєРІРµСЂРЅРѕСЃР»РѕРІРёРµ РІРєР»СЋС‡РµРЅРѕ.\n\r", ch);
 	    REMOVE_BIT(ch->comm, COMM_NOSLANG);
 	}
 	else
 	{
-	    send_to_char("Сквернословие выключено.\n\r", ch);
+	    send_to_char("РЎРєРІРµСЂРЅРѕСЃР»РѕРІРёРµ РІС‹РєР»СЋС‡РµРЅРѕ.\n\r", ch);
 	    SET_BIT(ch->comm, COMM_NOSLANG);
 	}
     }
@@ -750,13 +750,13 @@ void do_slang(CHAR_DATA *ch, char *argument)
 
 	if (IS_SET(ch->comm, COMM_QUIET))
 	{
-	    send_to_char("Для начала выключи режим 'тихо'.\n\r", ch);
+	    send_to_char("Р”Р»СЏ РЅР°С‡Р°Р»Р° РІС‹РєР»СЋС‡Рё СЂРµР¶РёРј 'С‚РёС…Рѕ'.\n\r", ch);
 	    return;
 	}
 
 	if (IS_SET(ch->comm, COMM_NOCHANNELS))
 	{
-	    send_to_char("Боги отобрали у тебя право пользования этим каналом.\n\r", ch);
+	    send_to_char("Р‘РѕРіРё РѕС‚РѕР±СЂР°Р»Рё Сѓ С‚РµР±СЏ РїСЂР°РІРѕ РїРѕР»СЊР·РѕРІР°РЅРёСЏ СЌС‚РёРј РєР°РЅР°Р»РѕРј.\n\r", ch);
 	    return;
 
 	}
@@ -765,11 +765,11 @@ void do_slang(CHAR_DATA *ch, char *argument)
 
 	if (ch->in_room != NULL && IS_SET(ch->in_room->room_flags, ROOM_SILENCE) && !IS_IMMORTAL(ch))
 	{
-	    send_to_char("Это место заглушает все звуки...\n\r", ch);
+	    send_to_char("Р­С‚Рѕ РјРµСЃС‚Рѕ Р·Р°РіР»СѓС€Р°РµС‚ РІСЃРµ Р·РІСѓРєРё...\n\r", ch);
 	    return;
 	}
 
-	sprintf(buf, "{r Ты сквернословишь: %s{x\n\r", argument);
+	sprintf(buf, "{r РўС‹ СЃРєРІРµСЂРЅРѕСЃР»РѕРІРёС€СЊ: %s{x\n\r", argument);
 	send_to_char(buf, ch);
 
 	SLIST_FOREACH_SAFE(d, &descriptor_list, link, safe_d)
@@ -784,7 +784,7 @@ void do_slang(CHAR_DATA *ch, char *argument)
 		!IS_SET(victim->comm, COMM_QUIET) &&
 		!check_filter(ch, victim))
 	    {
-		sprintf(buf, "{r %s сквернословит: %s{x\n\r", capitalize(PERS(ch, d->character, 0)), argument);
+		sprintf(buf, "{r %s СЃРєРІРµСЂРЅРѕСЃР»РѕРІРёС‚: %s{x\n\r", capitalize(PERS(ch, d->character, 0)), argument);
 		send_to_char(buf, d->character);
 	    }
 	}
@@ -802,12 +802,12 @@ void do_grats(CHAR_DATA *ch, char *argument)
     {
 	if (IS_SET(ch->comm, COMM_NOGRATS))
 	{
-	    send_to_char("Канал поздравлений включен.\n\r", ch);
+	    send_to_char("РљР°РЅР°Р» РїРѕР·РґСЂР°РІР»РµРЅРёР№ РІРєР»СЋС‡РµРЅ.\n\r", ch);
 	    REMOVE_BIT(ch->comm, COMM_NOGRATS);
 	}
 	else
 	{
-	    send_to_char("Канал поздравлений теперь выключен.\n\r", ch);
+	    send_to_char("РљР°РЅР°Р» РїРѕР·РґСЂР°РІР»РµРЅРёР№ С‚РµРїРµСЂСЊ РІС‹РєР»СЋС‡РµРЅ.\n\r", ch);
 	    SET_BIT(ch->comm, COMM_NOGRATS);
 	}
     }
@@ -818,20 +818,20 @@ void do_grats(CHAR_DATA *ch, char *argument)
 
 	if (IS_SET(ch->comm, COMM_QUIET))
 	{
-	    send_to_char("Для начала выключи режим 'тихо'.\n\r", ch);
+	    send_to_char("Р”Р»СЏ РЅР°С‡Р°Р»Р° РІС‹РєР»СЋС‡Рё СЂРµР¶РёРј 'С‚РёС…Рѕ'.\n\r", ch);
 	    return;
 	}
 
 	if (IS_SET(ch->comm, COMM_NOCHANNELS))
 	{
-	    send_to_char("Боги отобрали право пользования этим каналом.\n\r", ch);
+	    send_to_char("Р‘РѕРіРё РѕС‚РѕР±СЂР°Р»Рё РїСЂР°РІРѕ РїРѕР»СЊР·РѕРІР°РЅРёСЏ СЌС‚РёРј РєР°РЅР°Р»РѕРј.\n\r", ch);
 	    return;
 
 	}
 
     if (!IS_NPC(ch) && ch->pcdata->successed == 0)
     {
-		send_to_char("Cначала получи одобрение у Богов. Набери {y? одобрение{x.\n\r", ch);
+		send_to_char("CРЅР°С‡Р°Р»Р° РїРѕР»СѓС‡Рё РѕРґРѕР±СЂРµРЅРёРµ Сѓ Р‘РѕРіРѕРІ. РќР°Р±РµСЂРё {y? РѕРґРѕР±СЂРµРЅРёРµ{x.\n\r", ch);
 		return;
     }	
 	
@@ -839,17 +839,17 @@ void do_grats(CHAR_DATA *ch, char *argument)
 
 	if (ch->in_room != NULL && IS_SET(ch->in_room->room_flags, ROOM_SILENCE) && !IS_IMMORTAL(ch))
 	{
-	    send_to_char("Это место заглушает все звуки...\n\r", ch);
+	    send_to_char("Р­С‚Рѕ РјРµСЃС‚Рѕ Р·Р°РіР»СѓС€Р°РµС‚ РІСЃРµ Р·РІСѓРєРё...\n\r", ch);
 	    return;
 	}
 
 	if (is_lycanthrope(ch))
 	{
-	    send_to_char("В таком обличии ты не можешь никого поздравить.\n\r", ch);
+	    send_to_char("Р’ С‚Р°РєРѕРј РѕР±Р»РёС‡РёРё С‚С‹ РЅРµ РјРѕР¶РµС€СЊ РЅРёРєРѕРіРѕ РїРѕР·РґСЂР°РІРёС‚СЊ.\n\r", ch);
 	    return;
 	}
 
-	sprintf(buf, "{GТы поздравляешь %s{x\n\r", argument);
+	sprintf(buf, "{GРўС‹ РїРѕР·РґСЂР°РІР»СЏРµС€СЊ %s{x\n\r", argument);
 	send_to_char(buf, ch);
 
 	SLIST_FOREACH_SAFE(d, &descriptor_list, link, safe_d)
@@ -865,7 +865,7 @@ void do_grats(CHAR_DATA *ch, char *argument)
 		!IS_SET(victim->comm, COMM_QUIET) &&
 		!check_filter(ch, victim))
 	    {
-		act_new("{G$n поздравляет $t{x",
+		act_new("{G$n РїРѕР·РґСЂР°РІР»СЏРµС‚ $t{x",
 			ch, argument, d->character, TO_VICT, POS_SLEEPING);
 	    }
 	}
@@ -885,12 +885,12 @@ void music_chan(CHAR_DATA *ch, char *argument, int type)
     {
 	if (IS_SET(ch->comm, COMM_NOMUSIC))
 	{
-	    send_to_char("Музыкальный канал включен.\n\r", ch);
+	    send_to_char("РњСѓР·С‹РєР°Р»СЊРЅС‹Р№ РєР°РЅР°Р» РІРєР»СЋС‡РµРЅ.\n\r", ch);
 	    REMOVE_BIT(ch->comm, COMM_NOMUSIC);
 	}
 	else
 	{
-	    send_to_char("Музыка теперь выключена.\n\r", ch);
+	    send_to_char("РњСѓР·С‹РєР° С‚РµРїРµСЂСЊ РІС‹РєР»СЋС‡РµРЅР°.\n\r", ch);
 	    SET_BIT(ch->comm, COMM_NOMUSIC);
 	}
     }
@@ -901,19 +901,19 @@ void music_chan(CHAR_DATA *ch, char *argument, int type)
 
 	if (IS_SET(ch->comm, COMM_QUIET))
 	{
-	    send_to_char("Для начала выключи режим 'тихо'.\n\r", ch);
+	    send_to_char("Р”Р»СЏ РЅР°С‡Р°Р»Р° РІС‹РєР»СЋС‡Рё СЂРµР¶РёРј 'С‚РёС…Рѕ'.\n\r", ch);
 	    return;
 	}
 
 	if (IS_SET(ch->comm, COMM_NOCHANNELS))
 	{
-	    send_to_char("Боги отобрали у тебя право пользования этим каналом.\n\r", ch);
+	    send_to_char("Р‘РѕРіРё РѕС‚РѕР±СЂР°Р»Рё Сѓ С‚РµР±СЏ РїСЂР°РІРѕ РїРѕР»СЊР·РѕРІР°РЅРёСЏ СЌС‚РёРј РєР°РЅР°Р»РѕРј.\n\r", ch);
 	    return;
 	}
 
     if (!IS_NPC(ch) && ch->pcdata->successed == 0)
     {
-		send_to_char("Cначала получи одобрение у Богов. Набери {y? одобрение{x.\n\r", ch);
+		send_to_char("CРЅР°С‡Р°Р»Р° РїРѕР»СѓС‡Рё РѕРґРѕР±СЂРµРЅРёРµ Сѓ Р‘РѕРіРѕРІ. РќР°Р±РµСЂРё {y? РѕРґРѕР±СЂРµРЅРёРµ{x.\n\r", ch);
 		return;
     }	
 
@@ -923,15 +923,15 @@ void music_chan(CHAR_DATA *ch, char *argument, int type)
 	    && IS_SET(ch->in_room->room_flags, ROOM_SILENCE)
 	    && !IS_IMMORTAL(ch))
 	{
-	    send_to_char("Это место заглушает все звуки...\n\r", ch);
+	    send_to_char("Р­С‚Рѕ РјРµСЃС‚Рѕ Р·Р°РіР»СѓС€Р°РµС‚ РІСЃРµ Р·РІСѓРєРё...\n\r", ch);
 	    return;
 	}
 
 	if (IS_DRUNK(ch))
 	    argument = makedrunk(argument, ch);
 
-	sprintf(buf, "Ты %s: {r%s{x\n\r",
-		type == MUS_MUSIC ? "музицируешь" : "декламируешь", argument);
+	sprintf(buf, "РўС‹ %s: {r%s{x\n\r",
+		type == MUS_MUSIC ? "РјСѓР·РёС†РёСЂСѓРµС€СЊ" : "РґРµРєР»Р°РјРёСЂСѓРµС€СЊ", argument);
 	send_to_char(buf, ch);
 
 	SLIST_FOREACH_SAFE(d, &descriptor_list, link, safe_d)
@@ -950,13 +950,13 @@ void music_chan(CHAR_DATA *ch, char *argument, int type)
 		if (is_lycanthrope(ch) && !is_lycanthrope(victim) && !IS_IMMORTAL(victim))
 		{
 		    sprintf(buf, "$n %s: {r$t{x",
-			type == MUS_MUSIC ? "музицирует" : "декламирует");
+			type == MUS_MUSIC ? "РјСѓР·РёС†РёСЂСѓРµС‚" : "РґРµРєР»Р°РјРёСЂСѓРµС‚");
 		    act_new(buf, ch, makehowl(argument,ch), d->character, TO_VICT, POS_SLEEPING);
 		}
 		else
 		{
 		    sprintf(buf, "$n %s: {r$t{x",
-			type == MUS_MUSIC ? "музицирует" : "декламирует");
+			type == MUS_MUSIC ? "РјСѓР·РёС†РёСЂСѓРµС‚" : "РґРµРєР»Р°РјРёСЂСѓРµС‚");
 		    act_new(buf, ch, argument, d->character, TO_VICT, POS_SLEEPING);
 		}
 	    }
@@ -982,19 +982,19 @@ void do_clantalk(CHAR_DATA *ch, char *argument)
 
     if (IS_SET(ch->act, PLR_FULL_SILENCE))
     {
-		send_to_char("Ты молчишь.\n\r", ch);
+		send_to_char("РўС‹ РјРѕР»С‡РёС€СЊ.\n\r", ch);
 		return;
     }
 
     if (!IS_NPC(ch) && ch->pcdata->successed == 0)
     {
-		send_to_char("Cначала получи одобрение у Богов. Набери {y? одобрение{x.\n\r", ch);
+		send_to_char("CРЅР°С‡Р°Р»Р° РїРѕР»СѓС‡Рё РѕРґРѕР±СЂРµРЅРёРµ Сѓ Р‘РѕРіРѕРІ. РќР°Р±РµСЂРё {y? РѕРґРѕР±СЂРµРЅРёРµ{x.\n\r", ch);
 		return;
     }
 
     if ((!is_clan(ch) || IS_INDEPEND(ch)) && !IS_IMMORTAL(ch))
     {
-	send_to_char("Но ты же не в клане!\n\r", ch);
+	send_to_char("РќРѕ С‚С‹ Р¶Рµ РЅРµ РІ РєР»Р°РЅРµ!\n\r", ch);
 	return;
     }
 
@@ -1002,7 +1002,7 @@ void do_clantalk(CHAR_DATA *ch, char *argument)
 	&& (!is_clan(ch) || IS_INDEPEND(ch))
 	&& argument[0] != '\0')
     {
-	send_to_char("Но ты же не в клане!\n\r", ch);
+	send_to_char("РќРѕ С‚С‹ Р¶Рµ РЅРµ РІ РєР»Р°РЅРµ!\n\r", ch);
 	return;
     }
 
@@ -1010,12 +1010,12 @@ void do_clantalk(CHAR_DATA *ch, char *argument)
     {
 	if (IS_SET(ch->comm, COMM_NOCLAN))
 	{
-	    send_to_char("Канал клана теперь ВКЛЮЧЕН.\n\r", ch);
+	    send_to_char("РљР°РЅР°Р» РєР»Р°РЅР° С‚РµРїРµСЂСЊ Р’РљР›Р®Р§Р•Рќ.\n\r", ch);
 	    REMOVE_BIT(ch->comm, COMM_NOCLAN);
 	}
 	else
 	{
-	    send_to_char("Канал клана теперь ВЫКЛЮЧЕН.\n\r", ch);
+	    send_to_char("РљР°РЅР°Р» РєР»Р°РЅР° С‚РµРїРµСЂСЊ Р’Р«РљР›Р®Р§Р•Рќ.\n\r", ch);
 	    SET_BIT(ch->comm, COMM_NOCLAN);
 	}
 	return;
@@ -1024,7 +1024,7 @@ void do_clantalk(CHAR_DATA *ch, char *argument)
 /*
     if (IS_SET(ch->comm, COMM_NOCHANNELS))
     {
-	send_to_char("Боги отобрали у тебя право пользования каналами.\n\r", ch);
+	send_to_char("Р‘РѕРіРё РѕС‚РѕР±СЂР°Р»Рё Сѓ С‚РµР±СЏ РїСЂР°РІРѕ РїРѕР»СЊР·РѕРІР°РЅРёСЏ РєР°РЅР°Р»Р°РјРё.\n\r", ch);
 	return;
     }
 */
@@ -1032,10 +1032,10 @@ void do_clantalk(CHAR_DATA *ch, char *argument)
     REMOVE_BIT(ch->comm, COMM_NOCLAN);
 
 
-    sprintf(buf, "Ты говоришь клану: {g%s{x\n\r", argument);
+    sprintf(buf, "РўС‹ РіРѕРІРѕСЂРёС€СЊ РєР»Р°РЅСѓ: {g%s{x\n\r", argument);
     send_to_char(buf, ch);
 
-    sprintf(buf, "[{p %s {P] $n говорит клану: {g$t{x", clan_table[ch->clan].short_descr);
+    sprintf(buf, "[{p %s {P] $n РіРѕРІРѕСЂРёС‚ РєР»Р°РЅСѓ: {g$t{x", clan_table[ch->clan].short_descr);
 
     SLIST_FOREACH_SAFE(d, &descriptor_list, link, safe_d)
     {
@@ -1048,7 +1048,7 @@ void do_clantalk(CHAR_DATA *ch, char *argument)
 	    !check_filter(ch, d->character))
 	{
 	    if (!IS_IMMORTAL(d->character))
-		act_new("$n говорит клану: {g$t{x", ch, argument, d->character, TO_VICT, POS_DEAD);
+		act_new("$n РіРѕРІРѕСЂРёС‚ РєР»Р°РЅСѓ: {g$t{x", ch, argument, d->character, TO_VICT, POS_DEAD);
 	    else
 		act_new(buf, ch, argument, d->character, TO_VICT, POS_DEAD);
 	}
@@ -1065,19 +1065,19 @@ void do_clantalkunion(CHAR_DATA *ch, char *argument)
 
     if (IS_SET(ch->act, PLR_FULL_SILENCE))
     {
-		send_to_char("Ты молчишь.\n\r", ch);
+		send_to_char("РўС‹ РјРѕР»С‡РёС€СЊ.\n\r", ch);
 		return;
     }
 
     if (!IS_NPC(ch) && ch->pcdata->successed == 0)
     {
-		send_to_char("Cначала получи одобрение у Богов. Набери {y? одобрение{x.\n\r", ch);
+		send_to_char("CРЅР°С‡Р°Р»Р° РїРѕР»СѓС‡Рё РѕРґРѕР±СЂРµРЅРёРµ Сѓ Р‘РѕРіРѕРІ. РќР°Р±РµСЂРё {y? РѕРґРѕР±СЂРµРЅРёРµ{x.\n\r", ch);
 		return;
     }
 
     if ((!is_clan(ch) || IS_INDEPEND(ch)) && !IS_IMMORTAL(ch))
     {
-	send_to_char("Но ты же не в клане!\n\r", ch);
+	send_to_char("РќРѕ С‚С‹ Р¶Рµ РЅРµ РІ РєР»Р°РЅРµ!\n\r", ch);
 	return;
     }
 
@@ -1085,7 +1085,7 @@ void do_clantalkunion(CHAR_DATA *ch, char *argument)
 	&& (!is_clan(ch) || IS_INDEPEND(ch))
 	&& argument[0] != '\0')
     {
-	send_to_char("Но ты же не в клане!\n\r", ch);
+	send_to_char("РќРѕ С‚С‹ Р¶Рµ РЅРµ РІ РєР»Р°РЅРµ!\n\r", ch);
 	return;
     }
 
@@ -1093,12 +1093,12 @@ void do_clantalkunion(CHAR_DATA *ch, char *argument)
     {
 	if (IS_SET(ch->comm, COMM_NOCLAN))
 	{
-	    send_to_char("Канал клана теперь ВКЛЮЧЕН.\n\r", ch);
+	    send_to_char("РљР°РЅР°Р» РєР»Р°РЅР° С‚РµРїРµСЂСЊ Р’РљР›Р®Р§Р•Рќ.\n\r", ch);
 	    REMOVE_BIT(ch->comm, COMM_NOCLAN);
 	}
 	else
 	{
-	    send_to_char("Канал клана теперь ВЫКЛЮЧЕН.\n\r", ch);
+	    send_to_char("РљР°РЅР°Р» РєР»Р°РЅР° С‚РµРїРµСЂСЊ Р’Р«РљР›Р®Р§Р•Рќ.\n\r", ch);
 	    SET_BIT(ch->comm, COMM_NOCLAN);
 	}
 	return;
@@ -1106,17 +1106,17 @@ void do_clantalkunion(CHAR_DATA *ch, char *argument)
 
     if (IS_SET(ch->comm, COMM_NOCHANNELS))
     {
-	send_to_char("Боги отобрали у тебя право пользования каналами.\n\r", ch);
+	send_to_char("Р‘РѕРіРё РѕС‚РѕР±СЂР°Р»Рё Сѓ С‚РµР±СЏ РїСЂР°РІРѕ РїРѕР»СЊР·РѕРІР°РЅРёСЏ РєР°РЅР°Р»Р°РјРё.\n\r", ch);
 	return;
     }
 
     REMOVE_BIT(ch->comm, COMM_NOCLAN);
 
 
-    sprintf(buf, "Ты говоришь клану и союзникам: {y%s{x\n\r", argument);
+    sprintf(buf, "РўС‹ РіРѕРІРѕСЂРёС€СЊ РєР»Р°РЅСѓ Рё СЃРѕСЋР·РЅРёРєР°Рј: {y%s{x\n\r", argument);
     send_to_char(buf, ch);
 
-    sprintf(buf, "[{p %s {P] $n говорит клану и союзникам: {y$t{x", clan_table[ch->clan].short_descr);
+    sprintf(buf, "[{p %s {P] $n РіРѕРІРѕСЂРёС‚ РєР»Р°РЅСѓ Рё СЃРѕСЋР·РЅРёРєР°Рј: {y$t{x", clan_table[ch->clan].short_descr);
 
     SLIST_FOREACH_SAFE(d, &descriptor_list, link, safe_d)
     {
@@ -1128,7 +1128,7 @@ void do_clantalkunion(CHAR_DATA *ch, char *argument)
 	    !check_filter(ch, d->character))
 	{
 	    if (!IS_IMMORTAL(d->character))
-		act_new("$n говорит клану и союзникам: {y$t{x", ch, argument, d->character, TO_VICT, POS_DEAD);
+		act_new("$n РіРѕРІРѕСЂРёС‚ РєР»Р°РЅСѓ Рё СЃРѕСЋР·РЅРёРєР°Рј: {y$t{x", ch, argument, d->character, TO_VICT, POS_DEAD);
 	    else
 		act_new(buf, ch, argument, d->character, TO_VICT, POS_DEAD);
 	}
@@ -1146,13 +1146,13 @@ void do_racetalk(CHAR_DATA *ch, char *argument)
 
     if (IS_SET(ch->act, PLR_FULL_SILENCE))
     {
-	send_to_char("Ты молчишь.\n\r", ch);
+	send_to_char("РўС‹ РјРѕР»С‡РёС€СЊ.\n\r", ch);
 	return;
     }
     
 	if (!IS_NPC(ch) && ch->pcdata->successed == 0)
     {
-		send_to_char("Cначала получи одобрение у Богов. Набери {y? одобрение{x.\n\r", ch);
+		send_to_char("CРЅР°С‡Р°Р»Р° РїРѕР»СѓС‡Рё РѕРґРѕР±СЂРµРЅРёРµ Сѓ Р‘РѕРіРѕРІ. РќР°Р±РµСЂРё {y? РѕРґРѕР±СЂРµРЅРёРµ{x.\n\r", ch);
 		return;
     }
 
@@ -1160,12 +1160,12 @@ void do_racetalk(CHAR_DATA *ch, char *argument)
     {
 	if (IS_SET(ch->comm, COMM_NORACE))
 	{
-	    send_to_char("Расовые разговоры теперь ВКЛЮЧЕНЫ.\n\r", ch);
+	    send_to_char("Р Р°СЃРѕРІС‹Рµ СЂР°Р·РіРѕРІРѕСЂС‹ С‚РµРїРµСЂСЊ Р’РљР›Р®Р§Р•РќР«.\n\r", ch);
 	    REMOVE_BIT(ch->comm, COMM_NORACE);
 	}
 	else
 	{
-	    send_to_char("Расовые разговоры теперь ВЫКЛЮЧЕНЫ.\n\r", ch);
+	    send_to_char("Р Р°СЃРѕРІС‹Рµ СЂР°Р·РіРѕРІРѕСЂС‹ С‚РµРїРµСЂСЊ Р’Р«РљР›Р®Р§Р•РќР«.\n\r", ch);
 	    SET_BIT(ch->comm, COMM_NORACE);
 	}
 	return;
@@ -1173,17 +1173,17 @@ void do_racetalk(CHAR_DATA *ch, char *argument)
 
     if (IS_SET(ch->comm, COMM_NOCHANNELS))
     {
-     send_to_char("Боги отобрали у тебя право пользования каналами.\n\r", ch);
+     send_to_char("Р‘РѕРіРё РѕС‚РѕР±СЂР°Р»Рё Сѓ С‚РµР±СЏ РїСЂР°РІРѕ РїРѕР»СЊР·РѕРІР°РЅРёСЏ РєР°РЅР°Р»Р°РјРё.\n\r", ch);
      return;
      }
 
     REMOVE_BIT(ch->comm, COMM_NORACE);
 
 
-    sprintf(buf, "Ты говоришь соплеменникам: {y%s{x\n\r", argument);
+    sprintf(buf, "РўС‹ РіРѕРІРѕСЂРёС€СЊ СЃРѕРїР»РµРјРµРЅРЅРёРєР°Рј: {y%s{x\n\r", argument);
     send_to_char(buf, ch);
 
-    sprintf(buf, "$n говорит соплеменникам: {y$t{x");
+    sprintf(buf, "$n РіРѕРІРѕСЂРёС‚ СЃРѕРїР»РµРјРµРЅРЅРёРєР°Рј: {y$t{x");
 
     SLIST_FOREACH_SAFE(d, &descriptor_list, link, safe_d)
     {
@@ -1203,9 +1203,9 @@ void do_racetalk(CHAR_DATA *ch, char *argument)
 
 static char * const racem[MAX_PC_RACE] =
 {
-"людей","эльфов","гномов","гигантов","орков",
-"троллей","змей","хоббитов","дроу","вампиров",
-"оборотней", "зомби", "тиггуанов"
+"Р»СЋРґРµР№","СЌР»СЊС„РѕРІ","РіРЅРѕРјРѕРІ","РіРёРіР°РЅС‚РѕРІ","РѕСЂРєРѕРІ",
+"С‚СЂРѕР»Р»РµР№","Р·РјРµР№","С…РѕР±Р±РёС‚РѕРІ","РґСЂРѕСѓ","РІР°РјРїРёСЂРѕРІ",
+"РѕР±РѕСЂРѕС‚РЅРµР№", "Р·РѕРјР±Рё", "С‚РёРіРіСѓР°РЅРѕРІ"
 };
 
 /* immrace channels */
@@ -1217,7 +1217,7 @@ void do_immracetalk(CHAR_DATA *ch, char *argument)
 
     if (IS_SET(ch->act, PLR_FULL_SILENCE))
     {
-	send_to_char("Ты молчишь.\n\r", ch);
+	send_to_char("РўС‹ РјРѕР»С‡РёС€СЊ.\n\r", ch);
 	return;
     }
 
@@ -1225,7 +1225,7 @@ void do_immracetalk(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0' || argument[0] == '\0')
     {
-	send_to_char("Говорить какой расе что?\n\r", ch);
+	send_to_char("Р“РѕРІРѕСЂРёС‚СЊ РєР°РєРѕР№ СЂР°СЃРµ С‡С‚Рѕ?\n\r", ch);
 	return;
     }
 
@@ -1236,22 +1236,22 @@ void do_immracetalk(CHAR_DATA *ch, char *argument)
 
     if (r == -1)
     {
-	send_to_char("Уточни с какой расой будешь говорить?\n\r", ch);
+	send_to_char("РЈС‚РѕС‡РЅРё СЃ РєР°РєРѕР№ СЂР°СЃРѕР№ Р±СѓРґРµС€СЊ РіРѕРІРѕСЂРёС‚СЊ?\n\r", ch);
 	return;
     }
 
     if (IS_SET(ch->comm, COMM_NOCHANNELS))
     {
-	send_to_char("Боги отобрали у тебя право пользования каналами.\n\r", ch);
+	send_to_char("Р‘РѕРіРё РѕС‚РѕР±СЂР°Р»Рё Сѓ С‚РµР±СЏ РїСЂР°РІРѕ РїРѕР»СЊР·РѕРІР°РЅРёСЏ РєР°РЅР°Р»Р°РјРё.\n\r", ch);
  	return;
     }
 
     REMOVE_BIT(ch->comm, COMM_NORACE);
 
-    sprintf(buf, "Ты говоришь расе %s: {y%s{x\n\r", racem[r-1], argument);
+    sprintf(buf, "РўС‹ РіРѕРІРѕСЂРёС€СЊ СЂР°СЃРµ %s: {y%s{x\n\r", racem[r-1], argument);
     send_to_char(buf, ch);
 
-    sprintf(buf, "$n говорит расе %s: {y$t{x",racem[r-1]);
+    sprintf(buf, "$n РіРѕРІРѕСЂРёС‚ СЂР°СЃРµ %s: {y$t{x",racem[r-1]);
 
     SLIST_FOREACH_SAFE(d, &descriptor_list, link, safe_d)
     {
@@ -1276,7 +1276,7 @@ void do_immclantalk(CHAR_DATA *ch, char *argument)
 
     if (IS_SET(ch->act, PLR_FULL_SILENCE))
     {
-	send_to_char("Ты молчишь.\n\r", ch);
+	send_to_char("РўС‹ РјРѕР»С‡РёС€СЊ.\n\r", ch);
 	return;
     }
 
@@ -1284,22 +1284,22 @@ void do_immclantalk(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0' || argument[0] == '\0')
     {
-	send_to_char("Говорить какому клану что?\n\r", ch);
+	send_to_char("Р“РѕРІРѕСЂРёС‚СЊ РєР°РєРѕРјСѓ РєР»Р°РЅСѓ С‡С‚Рѕ?\n\r", ch);
 	return;
     }
 
     if ( (clan = clan_lookup(arg)) == 0 )
     {
-	send_to_char("Таких кланов нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… РєР»Р°РЅРѕРІ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     REMOVE_BIT(ch->comm, COMM_NOCLAN);
 
-    sprintf(buf, "Ты говоришь клану [{p %s {P]{x: {G%s{x\n\r", clan_table[clan].short_descr, argument);
+    sprintf(buf, "РўС‹ РіРѕРІРѕСЂРёС€СЊ РєР»Р°РЅСѓ [{p %s {P]{x: {G%s{x\n\r", clan_table[clan].short_descr, argument);
     send_to_char(buf, ch);
 
-    sprintf(buf, "[{p %s {P] $n говорит клану: {G$t{x", clan_table[clan].short_descr);
+    sprintf(buf, "[{p %s {P] $n РіРѕРІРѕСЂРёС‚ РєР»Р°РЅСѓ: {G$t{x", clan_table[clan].short_descr);
 
     SLIST_FOREACH_SAFE(d, &descriptor_list, link, safe_d)
     {
@@ -1311,7 +1311,7 @@ void do_immclantalk(CHAR_DATA *ch, char *argument)
 	    !check_filter(ch, d->character))
 	{
 	    if (!IS_IMMORTAL(d->character))
-		act_new("$n говорит клану: {G$t{x", ch, argument, d->character, TO_VICT, POS_DEAD);
+		act_new("$n РіРѕРІРѕСЂРёС‚ РєР»Р°РЅСѓ: {G$t{x", ch, argument, d->character, TO_VICT, POS_DEAD);
 	    else
 		act_new(buf, ch, argument, d->character, TO_VICT, POS_DEAD);
 	}
@@ -1448,7 +1448,7 @@ void chatperform(CHAR_DATA *ch, CHAR_DATA *victim, char *msg, int action)
 	return;
     }
 
-    /* Добавить разгребание своего имени */
+    /* Р”РѕР±Р°РІРёС‚СЊ СЂР°Р·РіСЂРµР±Р°РЅРёРµ СЃРІРѕРµРіРѕ РёРјРµРЅРё */
     if ((action == CHAT_SAY || action == CHAT_EMOTE) && !is_name(ch->name, msg))
     {
 	CHAR_DATA *vch;
@@ -1493,7 +1493,7 @@ void chatperform(CHAR_DATA *ch, CHAR_DATA *victim, char *msg, int action)
 	    if (action == CHAT_TELL)
 	    {
 		send_to_char("\n\r", victim);
-		act("$n говорит тебе: {R$t{x", ch, reply, victim, TO_VICT);
+		act("$n РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {R$t{x", ch, reply, victim, TO_VICT);
 		victim->reply = ch;
 	    }
 	    else if (action == CHAT_SAY || action == CHAT_EMOTE)
@@ -1528,7 +1528,7 @@ void do_say(CHAR_DATA *ch, char *argument){
     char speak[40], *c;
 
     if (argument[0] == '\0'){
-        send_to_char("Сказать что?\n\r", ch);
+        send_to_char("РЎРєР°Р·Р°С‚СЊ С‡С‚Рѕ?\n\r", ch);
         return;
     }
 
@@ -1540,26 +1540,26 @@ void do_say(CHAR_DATA *ch, char *argument){
 	argument = makedrunk(argument, ch);
 
     if (*c == '!')
-	strcpy(speak, "восклицае");
+	strcpy(speak, "РІРѕСЃРєР»РёС†Р°Рµ");
     else if (*c == '?')
-	strcpy(speak, "спрашивае");
+	strcpy(speak, "СЃРїСЂР°С€РёРІР°Рµ");
     else if (*c == '&')
     {
-	strcpy(speak, "напевае");
+	strcpy(speak, "РЅР°РїРµРІР°Рµ");
 	*c = '\0';
     }
     else if (IS_DRUNK(ch))
-	strcpy(speak, "заплетающимся языком произноси");
+	strcpy(speak, "Р·Р°РїР»РµС‚Р°СЋС‰РёРјСЃСЏ СЏР·С‹РєРѕРј РїСЂРѕРёР·РЅРѕСЃРё");
     else
-	strcpy(speak, "произноси");
+	strcpy(speak, "РїСЂРѕРёР·РЅРѕСЃРё");
 
     MOBtrigger = FALSE;
     if (!IS_SET(ch->comm, COMM_EXTRANOCHANNELS))
     {
-	    act("$n $tт: {C$T{x", ch, speak, argument, TO_SOUND);
+	    act("$n $tС‚: {C$T{x", ch, speak, argument, TO_SOUND);
     }
 
-    act("Ты $tшь: {C$T{x", ch, speak, argument, TO_CHAR);
+    act("РўС‹ $tС€СЊ: {C$T{x", ch, speak, argument, TO_CHAR);
     MOBtrigger = TRUE;
 
     if (!IS_NPC(ch)){
@@ -1602,13 +1602,13 @@ void do_shout(CHAR_DATA *ch, char *argument)
 
     if (IS_SET(ch->act, PLR_FULL_SILENCE))
     {
-	send_to_char("Ты молчишь.\n\r", ch);
+	send_to_char("РўС‹ РјРѕР»С‡РёС€СЊ.\n\r", ch);
 	return;
     }
 
     if (!IS_NPC(ch) && ch->pcdata->successed == 0)
     {
-		send_to_char("Cначала получи одобрение у Богов. Набери {y? одобрение{x.\n\r", ch);
+		send_to_char("CРЅР°С‡Р°Р»Р° РїРѕР»СѓС‡Рё РѕРґРѕР±СЂРµРЅРёРµ Сѓ Р‘РѕРіРѕРІ. РќР°Р±РµСЂРё {y? РѕРґРѕР±СЂРµРЅРёРµ{x.\n\r", ch);
 		return;
     }
 
@@ -1616,12 +1616,12 @@ void do_shout(CHAR_DATA *ch, char *argument)
     {
 	if (IS_SET(ch->comm, COMM_SHOUTSOFF))
 	{
-	    send_to_char("Теперь ты снова можешь слышать крики.\n\r", ch);
+	    send_to_char("РўРµРїРµСЂСЊ С‚С‹ СЃРЅРѕРІР° РјРѕР¶РµС€СЊ СЃР»С‹С€Р°С‚СЊ РєСЂРёРєРё.\n\r", ch);
 	    REMOVE_BIT(ch->comm, COMM_SHOUTSOFF);
 	}
 	else
 	{
-	    send_to_char("Наконец-то ты не будешь слышать этот бесполезный ор.\n\r", ch);
+	    send_to_char("РќР°РєРѕРЅРµС†-С‚Рѕ С‚С‹ РЅРµ Р±СѓРґРµС€СЊ СЃР»С‹С€Р°С‚СЊ СЌС‚РѕС‚ Р±РµСЃРїРѕР»РµР·РЅС‹Р№ РѕСЂ.\n\r", ch);
 	    SET_BIT(ch->comm, COMM_SHOUTSOFF);
 	}
 	return;
@@ -1632,7 +1632,7 @@ void do_shout(CHAR_DATA *ch, char *argument)
 
     if (IS_SET(ch->comm, COMM_NOSHOUT))
     {
-	send_to_char("Ты не можешь орать.\n\r", ch);
+	send_to_char("РўС‹ РЅРµ РјРѕР¶РµС€СЊ РѕСЂР°С‚СЊ.\n\r", ch);
 	return;
     }
 
@@ -1640,7 +1640,7 @@ void do_shout(CHAR_DATA *ch, char *argument)
 
     if (ch->in_room != NULL && IS_SET(ch->in_room->room_flags, ROOM_SILENCE) && !IS_IMMORTAL(ch))
     {
-	send_to_char("Это место заглушает все звуки...\n\r", ch);
+	send_to_char("Р­С‚Рѕ РјРµСЃС‚Рѕ Р·Р°РіР»СѓС€Р°РµС‚ РІСЃРµ Р·РІСѓРєРё...\n\r", ch);
 	return;
     }
 
@@ -1649,7 +1649,7 @@ void do_shout(CHAR_DATA *ch, char *argument)
     if (IS_DRUNK(ch))
 	argument = makedrunk(argument, ch);
 
-    act("Ты орешь: {9$T{x", ch, NULL, argument, TO_CHAR);
+    act("РўС‹ РѕСЂРµС€СЊ: {9$T{x", ch, NULL, argument, TO_CHAR);
     SLIST_FOREACH_SAFE(d, &descriptor_list, link, safe_d)
     {
 	CHAR_DATA *victim;
@@ -1664,9 +1664,9 @@ void do_shout(CHAR_DATA *ch, char *argument)
 	    !check_filter(ch, victim))
 	{
 	    if (is_lycanthrope(ch) && !is_lycanthrope(victim) && !IS_IMMORTAL(victim))
-		act("$n орет: {9$t{x", ch, makehowl(argument,ch), d->character, TO_VICT);
+		act("$n РѕСЂРµС‚: {9$t{x", ch, makehowl(argument,ch), d->character, TO_VICT);
 	    else
-		act("$n орет: {9$t{x", ch, argument, d->character, TO_VICT);
+		act("$n РѕСЂРµС‚: {9$t{x", ch, argument, d->character, TO_VICT);
 	}
     }
 
@@ -1682,25 +1682,25 @@ void do_tell_(CHAR_DATA *ch, char *argument)
 
     if (IS_SET(ch->act, PLR_FULL_SILENCE))
     {
-	send_to_char("Ты молчишь.\n\r", ch);
+	send_to_char("РўС‹ РјРѕР»С‡РёС€СЊ.\n\r", ch);
 	return;
     }
 
     if (IS_SET(ch->comm, COMM_NOTELL) || IS_SET(ch->comm, COMM_DEAF))
     {
-	send_to_char("Твое сообщение не достигает адресата.\n\r", ch);
+	send_to_char("РўРІРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ РЅРµ РґРѕСЃС‚РёРіР°РµС‚ Р°РґСЂРµСЃР°С‚Р°.\n\r", ch);
 	return;
     }
 
     if (IS_SET(ch->comm, COMM_QUIET))
     {
-	send_to_char("Для начала выключи режим 'тихо'.\n\r", ch);
+	send_to_char("Р”Р»СЏ РЅР°С‡Р°Р»Р° РІС‹РєР»СЋС‡Рё СЂРµР¶РёРј 'С‚РёС…Рѕ'.\n\r", ch);
 	return;
     }
 
     if (IS_SET(ch->comm, COMM_DEAF))
     {
-	send_to_char("Выключи сначала режим 'глухой'.\n\r", ch);
+	send_to_char("Р’С‹РєР»СЋС‡Рё СЃРЅР°С‡Р°Р»Р° СЂРµР¶РёРј 'РіР»СѓС…РѕР№'.\n\r", ch);
 	return;
     }
 
@@ -1708,7 +1708,7 @@ void do_tell_(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0' || argument[0] == '\0')
     {
-	send_to_char("Говорить кому что?\n\r", ch);
+	send_to_char("Р“РѕРІРѕСЂРёС‚СЊ РєРѕРјСѓ С‡С‚Рѕ?\n\r", ch);
 	return;
     }
 
@@ -1719,14 +1719,14 @@ void do_tell_(CHAR_DATA *ch, char *argument)
     if ((victim = get_char_world(ch, arg)) == NULL
 	|| (IS_NPC(victim) && victim->in_room != ch->in_room))
     {
-	send_to_char("Таких здесь нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     if (victim->desc == NULL && !IS_NPC(victim))
     {
-	act("$N, похоже, потерял$t связь... попытайся позже.", ch, SEX_ENDING(victim), victim, TO_CHAR);
-	sprintf(buf, "%s говорит тебе: {R%s{x\n\r", PERS(ch, victim, 0), argument);
+	act("$N, РїРѕС…РѕР¶Рµ, РїРѕС‚РµСЂСЏР»$t СЃРІСЏР·СЊ... РїРѕРїС‹С‚Р°Р№СЃСЏ РїРѕР·Р¶Рµ.", ch, SEX_ENDING(victim), victim, TO_CHAR);
+	sprintf(buf, "%s РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {R%s{x\n\r", PERS(ch, victim, 0), argument);
 	buf[0] = UPPER(buf[0]);
 	add_buf(victim->pcdata->buffer, buf);
 	return;
@@ -1734,26 +1734,26 @@ void do_tell_(CHAR_DATA *ch, char *argument)
 
     if (!IS_NPC(ch) && (ch->pcdata->successed == 0) && !IS_IMMORTAL(victim))
     {
-		send_to_char("Cначала получи одобрение у Богов. Набери {y? одобрение{x.\n\r", ch);
+		send_to_char("CРЅР°С‡Р°Р»Р° РїРѕР»СѓС‡Рё РѕРґРѕР±СЂРµРЅРёРµ Сѓ Р‘РѕРіРѕРІ. РќР°Р±РµСЂРё {y? РѕРґРѕР±СЂРµРЅРёРµ{x.\n\r", ch);
 		return;
     }
 
 
     if (!(IS_IMMORTAL(ch) && ch->level > LEVEL_IMMORTAL) && !IS_AWAKE(victim))
     {
-	act("$E не может тебя слышать.", ch, 0, victim, TO_CHAR);
+	act("$E РЅРµ РјРѕР¶РµС‚ С‚РµР±СЏ СЃР»С‹С€Р°С‚СЊ.", ch, 0, victim, TO_CHAR);
 	return;
     }
 
     if (check_filter(ch, victim))
     {
-	act("$E не принимает твоих сообщений.", ch, 0, victim, TO_CHAR);
+	act("$E РЅРµ РїСЂРёРЅРёРјР°РµС‚ С‚РІРѕРёС… СЃРѕРѕР±С‰РµРЅРёР№.", ch, 0, victim, TO_CHAR);
 	return;
     }
 
     if ((IS_SET(victim->comm, COMM_QUIET) || IS_SET(victim->comm, COMM_DEAF)) && !IS_IMMORTAL(ch))
     {
-	act("$E не желает пока принимать какие бы то ни было сообщения.", ch, 0, victim, TO_CHAR);
+	act("$E РЅРµ Р¶РµР»Р°РµС‚ РїРѕРєР° РїСЂРёРЅРёРјР°С‚СЊ РєР°РєРёРµ Р±С‹ С‚Рѕ РЅРё Р±С‹Р»Рѕ СЃРѕРѕР±С‰РµРЅРёСЏ.", ch, 0, victim, TO_CHAR);
 	return;
     }
 
@@ -1761,17 +1761,17 @@ void do_tell_(CHAR_DATA *ch, char *argument)
     {
 	if (IS_NPC(victim))
 	{
-	    act("$E сейчас в ВОК и не принимает твоих сообщений.", ch, NULL, victim, TO_CHAR);
+	    act("$E СЃРµР№С‡Р°СЃ РІ Р’РћРљ Рё РЅРµ РїСЂРёРЅРёРјР°РµС‚ С‚РІРѕРёС… СЃРѕРѕР±С‰РµРЅРёР№.", ch, NULL, victim, TO_CHAR);
 	    return;
 	}
 
-	act("$E сейчас в ВОКе, но сможет прочесть твои сообщения, "
-	    "когда вернется.",
+	act("$E СЃРµР№С‡Р°СЃ РІ Р’РћРљРµ, РЅРѕ СЃРјРѕР¶РµС‚ РїСЂРѕС‡РµСЃС‚СЊ С‚РІРѕРё СЃРѕРѕР±С‰РµРЅРёСЏ, "
+	    "РєРѕРіРґР° РІРµСЂРЅРµС‚СЃСЏ.",
 	    ch, NULL, victim, TO_CHAR);
 	if (is_lycanthrope(ch) && !is_lycanthrope(victim) && !IS_IMMORTAL(victim))	
-	    sprintf(buf, "%s говорит тебе: {R%s{x\n\r",PERS(ch, victim, 0), makehowl(argument,ch));
+	    sprintf(buf, "%s РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {R%s{x\n\r",PERS(ch, victim, 0), makehowl(argument,ch));
 	else
-	    sprintf(buf, "%s говорит тебе: {R%s{x\n\r",PERS(ch, victim, 0), argument);
+	    sprintf(buf, "%s РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {R%s{x\n\r",PERS(ch, victim, 0), argument);
 	buf[0] = UPPER(buf[0]);
 	add_buf(victim->pcdata->buffer, buf);
 	victim->reply	= ch;
@@ -1779,10 +1779,10 @@ void do_tell_(CHAR_DATA *ch, char *argument)
     }
 
     MOBtrigger = FALSE;
-    act("Ты говоришь $N2: {R$t{x", ch, argument, victim, TO_CHAR);
+    act("РўС‹ РіРѕРІРѕСЂРёС€СЊ $N2: {R$t{x", ch, argument, victim, TO_CHAR);
     if (is_lycanthrope(ch) && !is_lycanthrope(victim) && !IS_IMMORTAL(victim))
 	argument = makehowl(argument,ch);
-    act_new("$n говорит тебе: {R$t{x", ch, argument, victim, TO_VICT, POS_DEAD);     
+    act_new("$n РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {R$t{x", ch, argument, victim, TO_VICT, POS_DEAD);     
     MOBtrigger = TRUE;
     victim->reply	= ch;
 
@@ -1803,26 +1803,26 @@ void do_reply(CHAR_DATA *ch, char *argument)
 
     if (IS_SET(ch->act, PLR_FULL_SILENCE))
     {
-	send_to_char("Ты молчишь.\n\r", ch);
+	send_to_char("РўС‹ РјРѕР»С‡РёС€СЊ.\n\r", ch);
 	return;
     }
 
     if (IS_SET(ch->comm, COMM_NOTELL))
     {
-	send_to_char("Твое сообщение не может достигнуть адресата.\n\r", ch);
+	send_to_char("РўРІРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ РЅРµ РјРѕР¶РµС‚ РґРѕСЃС‚РёРіРЅСѓС‚СЊ Р°РґСЂРµСЃР°С‚Р°.\n\r", ch);
 	return;
     }
 
     if ((victim = ch->reply) == NULL)
     {
-	send_to_char("Таких здесь нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     if (victim->desc == NULL && !IS_NPC(victim))
     {
-	act("$N похоже потерял$t связь... попытайся попозже.", ch, SEX_ENDING(victim), victim, TO_CHAR);
-	sprintf(buf, "{K%s говорит тебе: {k%s{x\n\r", PERS(ch, victim, 0), argument);
+	act("$N РїРѕС…РѕР¶Рµ РїРѕС‚РµСЂСЏР»$t СЃРІСЏР·СЊ... РїРѕРїС‹С‚Р°Р№СЃСЏ РїРѕРїРѕР·Р¶Рµ.", ch, SEX_ENDING(victim), victim, TO_CHAR);
+	sprintf(buf, "{K%s РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {k%s{x\n\r", PERS(ch, victim, 0), argument);
 	buf[0] = UPPER(buf[0]);
 	add_buf(victim->pcdata->buffer, buf);
 	return;
@@ -1830,27 +1830,27 @@ void do_reply(CHAR_DATA *ch, char *argument)
 
     if (!IS_NPC(ch) && (ch->pcdata->successed == 0) && !IS_IMMORTAL(victim))
     {
-		send_to_char("Cначала получи одобрение у Богов. Набери {y? одобрение{x.\n\r", ch);
+		send_to_char("CРЅР°С‡Р°Р»Р° РїРѕР»СѓС‡Рё РѕРґРѕР±СЂРµРЅРёРµ Сѓ Р‘РѕРіРѕРІ. РќР°Р±РµСЂРё {y? РѕРґРѕР±СЂРµРЅРёРµ{x.\n\r", ch);
 		return;
     }
 
 
     if (!IS_IMMORTAL(ch) && !IS_AWAKE(victim))
     {
-	act("$E не может слышать тебя.", ch, 0, victim, TO_CHAR);
+	act("$E РЅРµ РјРѕР¶РµС‚ СЃР»С‹С€Р°С‚СЊ С‚РµР±СЏ.", ch, 0, victim, TO_CHAR);
 	return;
     }
 
     if (((IS_SET(victim->comm, COMM_QUIET) || IS_SET(victim->comm, COMM_DEAF))
 	 && !IS_IMMORTAL(ch)) || check_filter(ch, victim))
     {
-	act_new("$E не принимает твоих сообщений.", ch, 0, victim, TO_CHAR, POS_DEAD);
+	act_new("$E РЅРµ РїСЂРёРЅРёРјР°РµС‚ С‚РІРѕРёС… СЃРѕРѕР±С‰РµРЅРёР№.", ch, 0, victim, TO_CHAR, POS_DEAD);
 	return;
     }
 
     if (!IS_IMMORTAL(victim) && !IS_AWAKE(ch))
     {
-	send_to_char("В твоих снах, или как?\n\r", ch);
+	send_to_char("Р’ С‚РІРѕРёС… СЃРЅР°С…, РёР»Рё РєР°Рє?\n\r", ch);
 	return;
     }
 
@@ -1858,26 +1858,26 @@ void do_reply(CHAR_DATA *ch, char *argument)
     {
 	if (IS_NPC(victim))
 	{
-	    act_new("$E в ВОКе, и не принимает твоих сообщений.",
+	    act_new("$E РІ Р’РћРљРµ, Рё РЅРµ РїСЂРёРЅРёРјР°РµС‚ С‚РІРѕРёС… СЃРѕРѕР±С‰РµРЅРёР№.",
 		    ch, NULL, victim, TO_CHAR, POS_DEAD);
 	    return;
 	}
 
-	act_new("$E сейчас в ВОКе, но сможет прочитать твое сообщение, когда вернется.",
+	act_new("$E СЃРµР№С‡Р°СЃ РІ Р’РћРљРµ, РЅРѕ СЃРјРѕР¶РµС‚ РїСЂРѕС‡РёС‚Р°С‚СЊ С‚РІРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ, РєРѕРіРґР° РІРµСЂРЅРµС‚СЃСЏ.",
 		ch, NULL, victim, TO_CHAR, POS_DEAD);
 	if (is_lycanthrope(ch) && !is_lycanthrope(victim) && !IS_IMMORTAL(victim))
-	    sprintf(buf, "{K%s говорит тебе: {k%s{x\n\r", PERS(ch, victim, 0), makehowl(argument,ch));
+	    sprintf(buf, "{K%s РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {k%s{x\n\r", PERS(ch, victim, 0), makehowl(argument,ch));
 	else
-	    sprintf(buf, "{K%s говорит тебе: {k%s{x\n\r", PERS(ch, victim, 0), argument);
+	    sprintf(buf, "{K%s РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {k%s{x\n\r", PERS(ch, victim, 0), argument);
 	buf[0] = UPPER(buf[0]);
 	add_buf(victim->pcdata->buffer, buf);
 	return;
     }
 
-    act_new("Ты говоришь $N2: {R$t{x", ch, argument, victim, TO_CHAR, POS_DEAD);
+    act_new("РўС‹ РіРѕРІРѕСЂРёС€СЊ $N2: {R$t{x", ch, argument, victim, TO_CHAR, POS_DEAD);
     if (is_lycanthrope(ch) && !is_lycanthrope(victim) && !IS_IMMORTAL(victim))
 	argument = makehowl(argument,ch);    
-    act_new("$n говорит тебе: {R$t{x", ch, argument, victim, TO_VICT, POS_DEAD);
+    act_new("$n РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {R$t{x", ch, argument, victim, TO_VICT, POS_DEAD);
     victim->reply	= ch;
 
     chatperform(victim,ch,argument,CHAT_TELL);
@@ -1891,38 +1891,38 @@ void do_yell(CHAR_DATA *ch, char *argument)
 
     if (IS_SET(ch->act, PLR_FULL_SILENCE))
     {
-	send_to_char("Ты молчишь.\n\r", ch);
+	send_to_char("РўС‹ РјРѕР»С‡РёС€СЊ.\n\r", ch);
 	return;
     }
 
     if (!IS_NPC(ch) && ch->pcdata->successed == 0)
     {
-		send_to_char("Cначала получи одобрение у Богов. Набери {y? одобрение{x.\n\r", ch);
+		send_to_char("CРЅР°С‡Р°Р»Р° РїРѕР»СѓС‡Рё РѕРґРѕР±СЂРµРЅРёРµ Сѓ Р‘РѕРіРѕРІ. РќР°Р±РµСЂРё {y? РѕРґРѕР±СЂРµРЅРёРµ{x.\n\r", ch);
 		return;
     }
 
     if ((IS_SET(ch->comm, COMM_NOSHOUT) && !IS_NPC(ch)))
     {
-	send_to_char("Ты не можешь вопить.\n\r", ch);
+	send_to_char("РўС‹ РЅРµ РјРѕР¶РµС€СЊ РІРѕРїРёС‚СЊ.\n\r", ch);
 	return;
     }
 
     if (argument[0] == '\0')
     {
-	send_to_char("Вопить что?\n\r", ch);
+	send_to_char("Р’РѕРїРёС‚СЊ С‡С‚Рѕ?\n\r", ch);
 	return;
     }
 
     if (ch->in_room != NULL && IS_SET(ch->in_room->room_flags, ROOM_SILENCE) && !IS_IMMORTAL(ch))
     {
-	send_to_char("Это место заглушает все звуки...\n\r", ch);
+	send_to_char("Р­С‚Рѕ РјРµСЃС‚Рѕ Р·Р°РіР»СѓС€Р°РµС‚ РІСЃРµ Р·РІСѓРєРё...\n\r", ch);
 	return;
     }
 
     if (IS_DRUNK(ch))
 	argument = makedrunk(argument, ch);
 
-    act("Ты вопишь: {9$t{x", ch, argument, NULL, TO_CHAR);
+    act("РўС‹ РІРѕРїРёС€СЊ: {9$t{x", ch, argument, NULL, TO_CHAR);
     SLIST_FOREACH_SAFE(d, &descriptor_list, link, safe_d)
     {
 	if (d->connected == CON_PLAYING
@@ -1933,14 +1933,14 @@ void do_yell(CHAR_DATA *ch, char *argument)
 	    &&   d->character->in_room->clan == ch->in_room->clan
 	    &&   !IS_SET(d->character->comm, COMM_QUIET)
 	    &&   d->character->position != POS_SLEEPING
-//убрал проверку на фильтр по просьбам игроков
+//СѓР±СЂР°Р» РїСЂРѕРІРµСЂРєСѓ РЅР° С„РёР»СЊС‚СЂ РїРѕ РїСЂРѕСЃСЊР±Р°Рј РёРіСЂРѕРєРѕРІ
 //	    &&   !check_filter(ch, d->character)
 	    &&   IS_NULLSTR(ch->in_room->owner))
 	{
 	    if (is_lycanthrope(ch) && !is_lycanthrope(d->character) && !IS_IMMORTAL(d->character))
-		act("$n вопит: {9$t{x", ch, makehowl(argument,ch), d->character, TO_VICT);
+		act("$n РІРѕРїРёС‚: {9$t{x", ch, makehowl(argument,ch), d->character, TO_VICT);
 	    else
-		act("$n вопит: {9$t{x", ch, argument, d->character, TO_VICT);
+		act("$n РІРѕРїРёС‚: {9$t{x", ch, argument, d->character, TO_VICT);
 	}
     }
 
@@ -1952,7 +1952,7 @@ void do_emote(CHAR_DATA *ch, char *argument)
 {
     if (argument[0] == '\0')
     {
-	send_to_char("Что именно?\n\r", ch);
+	send_to_char("Р§С‚Рѕ РёРјРµРЅРЅРѕ?\n\r", ch);
 	return;
     }
 
@@ -1964,7 +1964,7 @@ void do_emote(CHAR_DATA *ch, char *argument)
 	act("$n $T{x", ch, NULL, argument, TO_CHAR);
     }
     else if (IS_SET(ch->comm, COMM_NOEMOTE))
-	send_to_char("Ты не можешь показывать свои эмоции.\n\r", ch);
+	send_to_char("РўС‹ РЅРµ РјРѕР¶РµС€СЊ РїРѕРєР°Р·С‹РІР°С‚СЊ СЃРІРѕРё СЌРјРѕС†РёРё.\n\r", ch);
     	else
 	    {
 		if (!IS_SET(ch->comm, COMM_EXTRANOCHANNELS))
@@ -1991,13 +1991,13 @@ void do_emote(CHAR_DATA *ch, char *argument)
 
  if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE))
  {
- send_to_char("Ты не можешь показывать свои эмоции.\n\r", ch);
+ send_to_char("РўС‹ РЅРµ РјРѕР¶РµС€СЊ РїРѕРєР°Р·С‹РІР°С‚СЊ СЃРІРѕРё СЌРјРѕС†РёРё.\n\r", ch);
  return;
  }
 
  if (argument[0] == '\0')
  {
- send_to_char("Что именно?\n\r", ch);
+ send_to_char("Р§С‚Рѕ РёРјРµРЅРЅРѕ?\n\r", ch);
  return;
  }
  if (IS_NPC(ch))
@@ -2048,7 +2048,7 @@ void do_emote(CHAR_DATA *ch, char *argument)
  name++;
  if (matches == strlen(vch->name))
  {
- strcat(temp, "ты");
+ strcat(temp, "С‚С‹");
  last[0] = '\0';
  name = vch->name;
  continue;
@@ -2118,7 +2118,7 @@ bool for_bug(CHAR_DATA *ch, char *argument, char *filename)
 		}
 
 		if (j == 0)
-		    send_to_char("Нет необработанных сообщений.\n\r", ch);
+		    send_to_char("РќРµС‚ РЅРµРѕР±СЂР°Р±РѕС‚Р°РЅРЅС‹С… СЃРѕРѕР±С‰РµРЅРёР№.\n\r", ch);
 		else
 		    page_to_char(output->string, ch);
 
@@ -2128,13 +2128,13 @@ bool for_bug(CHAR_DATA *ch, char *argument, char *filename)
 	    file_close(fp);
 	}
 	else
-	    send_to_char("А где же ошибки?\n\r", ch);
+	    send_to_char("Рђ РіРґРµ Р¶Рµ РѕС€РёР±РєРё?\n\r", ch);
 	return TRUE;
     }
 
     arg_all = one_argument(argument, arg);
 
-    if (IS_IMMORTAL(ch) && (!str_cmp(arg, "удалить") || !str_cmp(arg, "delete")))
+    if (IS_IMMORTAL(ch) && (!str_cmp(arg, "СѓРґР°Р»РёС‚СЊ") || !str_cmp(arg, "delete")))
     {
 	int line;
 	FILE *fp;
@@ -2143,7 +2143,7 @@ bool for_bug(CHAR_DATA *ch, char *argument, char *filename)
 
 	if (!is_number(arg) || (line = atoi(arg)) < 0)
 	{
-	    send_to_char("Аргумент должен быть числовым и быть больше 0.\n\r", ch);
+	    send_to_char("РђСЂРіСѓРјРµРЅС‚ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ С‡РёСЃР»РѕРІС‹Рј Рё Р±С‹С‚СЊ Р±РѕР»СЊС€Рµ 0.\n\r", ch);
 	    return TRUE;
 	}
 
@@ -2222,7 +2222,7 @@ void do_bug(CHAR_DATA *ch, char *argument)
 	return;
 
     append_file(ch, BUG_FILE, argument);
-    send_to_char("Глюк записан. Спасибо!\n\r", ch);
+    send_to_char("Р“Р»СЋРє Р·Р°РїРёСЃР°РЅ. РЎРїР°СЃРёР±Рѕ!\n\r", ch);
     sprintf(bfr, "BUG:   [%5d] %s: %s\n", ch->in_room ? ch->in_room->vnum : 0, ch->name, argument);
     convert_dollars(bfr);
     wiznet(bfr, ch, NULL, WIZ_BUGS, 0, 0);
@@ -2237,7 +2237,7 @@ void do_todo(CHAR_DATA *ch, char *argument)
 	return;
 
     append_file(ch, TODO_FILE, argument);
-    send_to_char("TODO записан. Спасибо!\n\r", ch);
+    send_to_char("TODO Р·Р°РїРёСЃР°РЅ. РЎРїР°СЃРёР±Рѕ!\n\r", ch);
     sprintf(bfr, "TODO:   [%5d] %s: %s\n", ch->in_room ? ch->in_room->vnum : 0, ch->name, argument);
     convert_dollars(bfr);
     wiznet(bfr, ch, NULL, WIZ_BUGS, 0, 0);
@@ -2253,7 +2253,7 @@ void do_typo(CHAR_DATA *ch, char *argument)
 	return;
 
     append_file(ch, TYPO_FILE, argument);
-    send_to_char("Опечатка записана. Спасибо!\n\r", ch);
+    send_to_char("РћРїРµС‡Р°С‚РєР° Р·Р°РїРёСЃР°РЅР°. РЎРїР°СЃРёР±Рѕ!\n\r", ch);
     sprintf(bfr, "TYPO:   [%5d] %s: %s\n", ch->in_room ? ch->in_room->vnum : 0, ch->name, argument);
     convert_dollars(bfr);
     wiznet(bfr, ch, NULL, WIZ_BUGS, 0, 0);
@@ -2268,7 +2268,7 @@ void do_offense(CHAR_DATA *ch, char *argument)
 	return;
 
     append_file(ch, VIOLATE_FILE, argument);
-    send_to_char("Нарушение записано. Спасибо!\n\r", ch);
+    send_to_char("РќР°СЂСѓС€РµРЅРёРµ Р·Р°РїРёСЃР°РЅРѕ. РЎРїР°СЃРёР±Рѕ!\n\r", ch);
     sprintf(bfr, "VIOLATION:   [%5d] %s: %s\n", ch->in_room ? ch->in_room->vnum : 0, ch->name, argument);
     convert_dollars(bfr);
     wiznet(bfr, ch, NULL, WIZ_BUGS, 0, 0);
@@ -2284,21 +2284,21 @@ void do_last_com(CHAR_DATA *ch, char *argument)
 
 void do_rent(CHAR_DATA *ch, char *argument)
 {
-    send_to_char("В этом Мире отсутствует рента. Просто сохранись и выйди.\n\r", ch);
+    send_to_char("Р’ СЌС‚РѕРј РњРёСЂРµ РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚ СЂРµРЅС‚Р°. РџСЂРѕСЃС‚Рѕ СЃРѕС…СЂР°РЅРёСЃСЊ Рё РІС‹Р№РґРё.\n\r", ch);
     return;
 }
 
 
 void do_qui(CHAR_DATA *ch, char *argument)
 {
-    send_to_char("Если ты хочешь выйти, набери команду полностью.\n\r", ch);
+    send_to_char("Р•СЃР»Рё С‚С‹ С…РѕС‡РµС€СЊ РІС‹Р№С‚Рё, РЅР°Р±РµСЂРё РєРѕРјР°РЅРґСѓ РїРѕР»РЅРѕСЃС‚СЊСЋ.\n\r", ch);
     return;
 }
 
 static void quitdrop(CHAR_DATA *ch, OBJ_DATA *obj)
 {
-    act("$n бросает $p6.", ch, obj, NULL, TO_ROOM);
-    act("Ты выбрасываешь $p6, потому как данный предмет не может находится вне Мира.",
+    act("$n Р±СЂРѕСЃР°РµС‚ $p6.", ch, obj, NULL, TO_ROOM);
+    act("РўС‹ РІС‹Р±СЂР°СЃС‹РІР°РµС€СЊ $p6, РїРѕС‚РѕРјСѓ РєР°Рє РґР°РЅРЅС‹Р№ РїСЂРµРґРјРµС‚ РЅРµ РјРѕР¶РµС‚ РЅР°С…РѕРґРёС‚СЃСЏ РІРЅРµ РњРёСЂР°.",
 	ch, obj, NULL, TO_CHAR);
     
     obj_from_char(obj, TRUE);
@@ -2306,7 +2306,7 @@ static void quitdrop(CHAR_DATA *ch, OBJ_DATA *obj)
     
     if (IS_OBJ_STAT(obj, ITEM_MELT_DROP))
     {
-	act("$p исчеза$r в облачке дыма.", ch, obj, NULL, TO_ALL);
+	act("$p РёСЃС‡РµР·Р°$r РІ РѕР±Р»Р°С‡РєРµ РґС‹РјР°.", ch, obj, NULL, TO_ALL);
 	extract_obj(obj, TRUE, FALSE);
     }
 }
@@ -2340,7 +2340,7 @@ void do_quit(CHAR_DATA *ch, char *argument){
         time_t clock;
 
         clock = ((int)current_time + 60*60*24*7*ch->level);
-        sprintf(bfr, "Твой персонаж будет храниться до %s\n\r", ctime(&clock));
+        sprintf(bfr, "РўРІРѕР№ РїРµСЂСЃРѕРЅР°Р¶ Р±СѓРґРµС‚ С…СЂР°РЅРёС‚СЊСЃСЏ РґРѕ %s\n\r", ctime(&clock));
         send_to_char(bfr, ch);
         return_limit_from_char(ch, FALSE);
     //    save_chest(0);
@@ -2352,15 +2352,15 @@ void do_quit(CHAR_DATA *ch, char *argument){
 
     
     if (!silent_quit){
-        act("$n покидает этот мир.", ch, NULL, NULL, TO_SOUND /*TO_ROOM*/);
+        act("$n РїРѕРєРёРґР°РµС‚ СЌС‚РѕС‚ РјРёСЂ.", ch, NULL, NULL, TO_SOUND /*TO_ROOM*/);
     }
 
     sprintf(bfr, "%s has quit.", ch->name);
     log_string(bfr);
 
-    check_auctions(ch, NULL, "выхода владельца из игры");
+    check_auctions(ch, NULL, "РІС‹С…РѕРґР° РІР»Р°РґРµР»СЊС†Р° РёР· РёРіСЂС‹");
 
-    sprintf(bfr, "[R: %d] %s@%s выходит из игры.",
+    sprintf(bfr, "[R: %d] %s@%s РІС‹С…РѕРґРёС‚ РёР· РёРіСЂС‹.",
 	    ch->in_room ? ch->in_room->vnum : 0,
 	    ch->name,
 	    d != NULL ? d->ip : "unknown"
@@ -2422,19 +2422,19 @@ void do_follow(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0')
     {
-	send_to_char("Следовать за кем?\n\r", ch);
+	send_to_char("РЎР»РµРґРѕРІР°С‚СЊ Р·Р° РєРµРј?\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_room(ch, NULL, arg, FALSE)) == NULL)
     {
-	send_to_char("Таких здесь нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     if (IS_AFFECTED(ch, AFF_CHARM) && ch->master != NULL)
     {
-	act("Но ты предпочитаешь следовать за $N4!", ch, NULL, ch->master, TO_CHAR);
+	act("РќРѕ С‚С‹ РїСЂРµРґРїРѕС‡РёС‚Р°РµС€СЊ СЃР»РµРґРѕРІР°С‚СЊ Р·Р° $N4!", ch, NULL, ch->master, TO_CHAR);
 	return;
     }
 
@@ -2442,7 +2442,7 @@ void do_follow(CHAR_DATA *ch, char *argument)
     {
 	if (ch->master == NULL)
 	{
-	    act("Ты теперь сам$T по себе.", ch, NULL, SEX_ENDING(ch), TO_CHAR);
+	    act("РўС‹ С‚РµРїРµСЂСЊ СЃР°Рј$T РїРѕ СЃРµР±Рµ.", ch, NULL, SEX_ENDING(ch), TO_CHAR);
 	    return;
 	}
 	stop_follower(ch);
@@ -2450,8 +2450,8 @@ void do_follow(CHAR_DATA *ch, char *argument)
     }
     if (!IS_NPC(victim) && IS_SET(victim->act, PLR_NOFOLLOW))
     {
-	act("$N не желает, чтобы за $t следовали.\n\r", ch, 
-	    victim->sex == SEX_FEMALE ? "ней" : "ним", victim, TO_CHAR);
+	act("$N РЅРµ Р¶РµР»Р°РµС‚, С‡С‚РѕР±С‹ Р·Р° $t СЃР»РµРґРѕРІР°Р»Рё.\n\r", ch, 
+	    victim->sex == SEX_FEMALE ? "РЅРµР№" : "РЅРёРј", victim, TO_CHAR);
 	return;
     }
 
@@ -2477,9 +2477,9 @@ void add_follower(CHAR_DATA *ch, CHAR_DATA *master)
     ch->leader        = NULL;
 
     if (can_see(master, ch))
-	act("$n теперь следует за тобой.", ch, NULL, master, TO_VICT);
+	act("$n С‚РµРїРµСЂСЊ СЃР»РµРґСѓРµС‚ Р·Р° С‚РѕР±РѕР№.", ch, NULL, master, TO_VICT);
 
-    act("Теперь ты следуешь за $N4.",  ch, NULL, master, TO_CHAR);
+    act("РўРµРїРµСЂСЊ С‚С‹ СЃР»РµРґСѓРµС€СЊ Р·Р° $N4.",  ch, NULL, master, TO_CHAR);
 
     return;
 }
@@ -2502,8 +2502,8 @@ void stop_follower(CHAR_DATA *ch)
 
     if (can_see(ch->master, ch) && ch->in_room != NULL)
     {
-	act("$n прекращает следовать за тобой.",     ch, NULL, ch->master, TO_VICT   );
-    	act("Ты прекращаешь следовать за $N4.",      ch, NULL, ch->master, TO_CHAR   );
+	act("$n РїСЂРµРєСЂР°С‰Р°РµС‚ СЃР»РµРґРѕРІР°С‚СЊ Р·Р° С‚РѕР±РѕР№.",     ch, NULL, ch->master, TO_VICT   );
+    	act("РўС‹ РїСЂРµРєСЂР°С‰Р°РµС€СЊ СЃР»РµРґРѕРІР°С‚СЊ Р·Р° $N4.",      ch, NULL, ch->master, TO_CHAR   );
     }
     
     if (ch->master->pet == ch)
@@ -2529,7 +2529,7 @@ void nuke_pets(CHAR_DATA *ch)
     {
 	stop_follower(pet);
 	if (pet->in_room != NULL)
-	    act("$n медленно изчезает.", pet, NULL, NULL, TO_ROOM);
+	    act("$n РјРµРґР»РµРЅРЅРѕ РёР·С‡РµР·Р°РµС‚.", pet, NULL, NULL, TO_ROOM);
 	extract_char(pet, TRUE);
 	ch->pet = NULL;
     }
@@ -2538,7 +2538,7 @@ void nuke_pets(CHAR_DATA *ch)
     {
 	do_dismount(ch, "");
 	if (pet->in_room != NULL)
-	    act("$n медленно исчезает...", pet, NULL, NULL, TO_ROOM);
+	    act("$n РјРµРґР»РµРЅРЅРѕ РёСЃС‡РµР·Р°РµС‚...", pet, NULL, NULL, TO_ROOM);
 	else
 	    log_string("void nuke_pets: Extracting null pet");
 
@@ -2613,7 +2613,7 @@ bool check_wait(CHAR_DATA *och, CHAR_DATA *ch)
 {
     if (och->wait > 0)
     {
-	act("$N пока не в состоянии выполнить твой приказ.", ch, NULL, och, TO_CHAR);
+	act("$N РїРѕРєР° РЅРµ РІ СЃРѕСЃС‚РѕСЏРЅРёРё РІС‹РїРѕР»РЅРёС‚СЊ С‚РІРѕР№ РїСЂРёРєР°Р·.", ch, NULL, och, TO_CHAR);
 	return TRUE;
     }
 
@@ -2636,27 +2636,27 @@ void do_order(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0' || argument[0] == '\0')
     {
-	send_to_char("Приказать кому что?\n\r", ch);
+	send_to_char("РџСЂРёРєР°Р·Р°С‚СЊ РєРѕРјСѓ С‡С‚Рѕ?\n\r", ch);
 	return;
     }
 
 
     if (IS_SET(ch->in_room->room_flags, ROOM_HOLY))
     {
-	send_to_char("Не в Божьем доме.\n\r", ch);
+	send_to_char("РќРµ РІ Р‘РѕР¶СЊРµРј РґРѕРјРµ.\n\r", ch);
 	return;
     }
 
     if (IS_SET(ch->in_room->room_flags, ROOM_GUILD))
     {
-	send_to_char("Не в братской гильдии.\n\r", ch);
+	send_to_char("РќРµ РІ Р±СЂР°С‚СЃРєРѕР№ РіРёР»СЊРґРёРё.\n\r", ch);
 	return;
     }
 
 
     if (IS_AFFECTED(ch, AFF_CHARM))
     {
-	send_to_char("Ты чувствуешь себя готовым исполнять, а не отдавать приказы.\n\r", ch);
+	send_to_char("РўС‹ С‡СѓРІСЃС‚РІСѓРµС€СЊ СЃРµР±СЏ РіРѕС‚РѕРІС‹Рј РёСЃРїРѕР»РЅСЏС‚СЊ, Р° РЅРµ РѕС‚РґР°РІР°С‚СЊ РїСЂРёРєР°Р·С‹.\n\r", ch);
 	return;
     }
 
@@ -2664,12 +2664,12 @@ void do_order(CHAR_DATA *ch, char *argument)
 
     if (check_disallow(buf))
     {
-	send_to_char("Это не может быть сделано!\n\r", ch);
+	send_to_char("Р­С‚Рѕ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ СЃРґРµР»Р°РЅРѕ!\n\r", ch);
 	return;
     }
 
 
-    if (!str_cmp(arg, "all") || !str_cmp(arg, "все"))
+    if (!str_cmp(arg, "all") || !str_cmp(arg, "РІСЃРµ"))
     {
 	fAll   = TRUE;
 	victim = NULL;
@@ -2677,17 +2677,17 @@ void do_order(CHAR_DATA *ch, char *argument)
     else
     {
 	fAll   = FALSE;
-	if (!str_cmp(arg, "mount") || !str_cmp(arg, "лошадь"))
+	if (!str_cmp(arg, "mount") || !str_cmp(arg, "Р»РѕС€Р°РґСЊ"))
 	{
 	    if (!ch->mount)
 	    {
-		send_to_char("У тебя нет лошади.\n\r", ch);
+		send_to_char("РЈ С‚РµР±СЏ РЅРµС‚ Р»РѕС€Р°РґРё.\n\r", ch);
 		return;
 	    }
 
 	    if (ch->mount->in_room != ch->in_room)
 	    {
-		send_to_char("Здесь нет твоей лошади!\n\r", ch);
+		send_to_char("Р—РґРµСЃСЊ РЅРµС‚ С‚РІРѕРµР№ Р»РѕС€Р°РґРё!\n\r", ch);
 		return;
 	    }
 	    else
@@ -2697,13 +2697,13 @@ void do_order(CHAR_DATA *ch, char *argument)
 	}
 	else if ((victim = get_char_room(ch, NULL, arg, FALSE)) == NULL)
 	{
-	    send_to_char("Таких здесь нет.\n\r", ch);
+	    send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	    return;
 	}
 
 	if (victim == ch)
 	{
-	    send_to_char("Да, да, сейчас же...\n\r", ch);
+	    send_to_char("Р”Р°, РґР°, СЃРµР№С‡Р°СЃ Р¶Рµ...\n\r", ch);
 	    return;
 	}
 
@@ -2711,7 +2711,7 @@ void do_order(CHAR_DATA *ch, char *argument)
 	{
 	    if (!mount_success(ch, victim, FALSE, FALSE))
 	    {
-		act("$N игнорирует твои приказы.", ch, NULL, victim, TO_CHAR);
+		act("$N РёРіРЅРѕСЂРёСЂСѓРµС‚ С‚РІРѕРё РїСЂРёРєР°Р·С‹.", ch, NULL, victim, TO_CHAR);
 		return;
 	    }
 	    else
@@ -2721,7 +2721,7 @@ void do_order(CHAR_DATA *ch, char *argument)
 
 		if (!IS_NPC(victim))
 		{
-			sprintf(buf, "%s приказывает тебе '%s'.", ch->name, argument);
+			sprintf(buf, "%s РїСЂРёРєР°Р·С‹РІР°РµС‚ С‚РµР±Рµ '%s'.", ch->name, argument);
 			send_to_char(buf, victim);
 		}
 		interpret(victim, argument);
@@ -2731,7 +2731,7 @@ void do_order(CHAR_DATA *ch, char *argument)
 	else if (!IS_AFFECTED(victim, AFF_CHARM) || victim->master != ch
 		 || (IS_IMMORTAL(victim) && victim->trust >= ch->trust))
 	{
-	    printf_to_char("Делай это сам%s!\n\r", ch, SEX_ENDING(ch));
+	    printf_to_char("Р”РµР»Р°Р№ СЌС‚Рѕ СЃР°Рј%s!\n\r", ch, SEX_ENDING(ch));
 	    return;
 	}
     }
@@ -2754,7 +2754,7 @@ void do_order(CHAR_DATA *ch, char *argument)
 	    if (check_wait(och, ch))
 		continue;
 
-	    sprintf(buf, "$n приказывает тебе '%s'.", argument);
+	    sprintf(buf, "$n РїСЂРёРєР°Р·С‹РІР°РµС‚ С‚РµР±Рµ '%s'.", argument);
 	    act(buf, ch, NULL, och, TO_VICT);
 	    interpret(och, argument);
 	}
@@ -2766,7 +2766,7 @@ void do_order(CHAR_DATA *ch, char *argument)
 	send_to_char("Ok.\n\r", ch);
     }
     else
-	send_to_char("Ты не видишь никого, кто бы следовал за тобой или понимал бы твои приказы.\n\r", ch);
+	send_to_char("РўС‹ РЅРµ РІРёРґРёС€СЊ РЅРёРєРѕРіРѕ, РєС‚Рѕ Р±С‹ СЃР»РµРґРѕРІР°Р» Р·Р° С‚РѕР±РѕР№ РёР»Рё РїРѕРЅРёРјР°Р» Р±С‹ С‚РІРѕРё РїСЂРёРєР°Р·С‹.\n\r", ch);
 
     return;
 }
@@ -2788,11 +2788,11 @@ void do_group(CHAR_DATA *ch, char *argument)
 	CHAR_DATA *leader;
 
 	leader = (ch->leader != NULL) ? ch->leader : ch;
-	sprintf(buf, "Группа %s:\n\r\n\r", PERS(leader, ch, 1));
+	sprintf(buf, "Р“СЂСѓРїРїР° %s:\n\r\n\r", PERS(leader, ch, 1));
 	send_to_char(buf, ch);
 
 
-	send_to_char("           Имя                 Жизнь       Мана        Шаги     TNL   Натура\n\r", ch);
+	send_to_char("           РРјСЏ                 Р–РёР·РЅСЊ       РњР°РЅР°        РЁР°РіРё     TNL   РќР°С‚СѓСЂР°\n\r", ch);
 	send_to_char("-------------------------------------------------------------------------------\n\r", ch);
 
 	LIST_FOREACH_SAFE(gch, &char_list, link, safe_gch)
@@ -2804,7 +2804,7 @@ void do_group(CHAR_DATA *ch, char *argument)
 		sprintf(buf,
 			"[%2d %5s] %-16s %5d/%-5d %5d/%-5d %5d/%-5d %4d  %s{x\n\r",
 			gch->level,
-			IS_NPC(gch) ? "Моб" : arg,
+			IS_NPC(gch) ? "РњРѕР±" : arg,
 			capitalize(PERS(gch, ch, 0)),
 			gch->hit,   gch->max_hit,
 			gch->mana,  gch->max_mana,
@@ -2818,49 +2818,49 @@ void do_group(CHAR_DATA *ch, char *argument)
 
     if ((victim = get_char_room(ch, NULL, arg, FALSE)) == NULL)
     {
-	send_to_char("Таких здесь нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     if (ch->master != NULL || (ch->leader != NULL && ch->leader != ch))
     {
-	send_to_char("Но ты уже следуешь за кем-то!\n\r", ch);
+	send_to_char("РќРѕ С‚С‹ СѓР¶Рµ СЃР»РµРґСѓРµС€СЊ Р·Р° РєРµРј-С‚Рѕ!\n\r", ch);
 	return;
     }
 
     if (IS_NPC(victim))
     {
-	act_new("Ты не можешь принять $N3 в группу.", ch, NULL, victim, TO_CHAR, POS_SLEEPING);
+	act_new("РўС‹ РЅРµ РјРѕР¶РµС€СЊ РїСЂРёРЅСЏС‚СЊ $N3 РІ РіСЂСѓРїРїСѓ.", ch, NULL, victim, TO_CHAR, POS_SLEEPING);
 	return;
     }
 
     if (victim == ch)
     {
-	send_to_char("Хмм... Решил сам себя в группу взять?\n\r", ch);
+	send_to_char("РҐРјРј... Р РµС€РёР» СЃР°Рј СЃРµР±СЏ РІ РіСЂСѓРїРїСѓ РІР·СЏС‚СЊ?\n\r", ch);
 	return;
     }
 
     if (is_lycanthrope(victim))
     {
-	act_new("Ты не можешь принять $N3 в группу.", ch, NULL, victim, TO_CHAR, POS_SLEEPING);
+	act_new("РўС‹ РЅРµ РјРѕР¶РµС€СЊ РїСЂРёРЅСЏС‚СЊ $N3 РІ РіСЂСѓРїРїСѓ.", ch, NULL, victim, TO_CHAR, POS_SLEEPING);
 	return;	
     }
 
     if (victim->master != ch && ch != victim)
     {
-	act_new("$N не следует за тобой.", ch, NULL, victim, TO_CHAR, POS_SLEEPING);
+	act_new("$N РЅРµ СЃР»РµРґСѓРµС‚ Р·Р° С‚РѕР±РѕР№.", ch, NULL, victim, TO_CHAR, POS_SLEEPING);
 	return;
     }
 
     if (IS_AFFECTED(victim, AFF_CHARM))
     {
-	send_to_char("Ты не можешь выгнать из группы очарованных.\n\r", ch);
+	send_to_char("РўС‹ РЅРµ РјРѕР¶РµС€СЊ РІС‹РіРЅР°С‚СЊ РёР· РіСЂСѓРїРїС‹ РѕС‡Р°СЂРѕРІР°РЅРЅС‹С….\n\r", ch);
 	return;
     }
 
     if (IS_AFFECTED(ch, AFF_CHARM))
     {
-	act_new("Тебе слишком нравится следовать за $N4!",
+	act_new("РўРµР±Рµ СЃР»РёС€РєРѕРј РЅСЂР°РІРёС‚СЃСЏ СЃР»РµРґРѕРІР°С‚СЊ Р·Р° $N4!",
 		ch, NULL, victim, TO_VICT, POS_SLEEPING);
 	return;
     }
@@ -2868,9 +2868,9 @@ void do_group(CHAR_DATA *ch, char *argument)
     if (is_same_group(victim, ch) && ch != victim)
     {
 	victim->leader = NULL;
-	act_new("$n выгоняет $N3 из группы.", ch, NULL, victim, TO_NOTVICT, POS_RESTING);
-	act_new("$n выгоняет тебя из группы.", ch, NULL, victim, TO_VICT, POS_SLEEPING);
-	act_new("Ты выгоняешь $N3 из своей группы.", ch, NULL, victim, TO_CHAR, POS_SLEEPING);
+	act_new("$n РІС‹РіРѕРЅСЏРµС‚ $N3 РёР· РіСЂСѓРїРїС‹.", ch, NULL, victim, TO_NOTVICT, POS_RESTING);
+	act_new("$n РІС‹РіРѕРЅСЏРµС‚ С‚РµР±СЏ РёР· РіСЂСѓРїРїС‹.", ch, NULL, victim, TO_VICT, POS_SLEEPING);
+	act_new("РўС‹ РІС‹РіРѕРЅСЏРµС€СЊ $N3 РёР· СЃРІРѕРµР№ РіСЂСѓРїРїС‹.", ch, NULL, victim, TO_CHAR, POS_SLEEPING);
 	return;
     }
 
@@ -2878,23 +2878,23 @@ void do_group(CHAR_DATA *ch, char *argument)
 
     if (avg + PK_RANGE < victim->level)
     {
-	act_new("Ты слишком сил$t для группы $n1.", ch,
-		victim->sex == SEX_MALE ? "ен" :
-		victim->sex == SEX_FEMALE ? "ьна" :
-		victim->sex == SEX_MANY ? "ьны" : "ьно",
+	act_new("РўС‹ СЃР»РёС€РєРѕРј СЃРёР»$t РґР»СЏ РіСЂСѓРїРїС‹ $n1.", ch,
+		victim->sex == SEX_MALE ? "РµРЅ" :
+		victim->sex == SEX_FEMALE ? "СЊРЅР°" :
+		victim->sex == SEX_MANY ? "СЊРЅС‹" : "СЊРЅРѕ",
 		victim, TO_VICT, POS_SLEEPING);
-	act_new("$N слишком сил$t для твоей группы.", ch,
-		victim->sex == SEX_MALE ? "ен" :
-		victim->sex == SEX_FEMALE ? "ьна" :
-		victim->sex == SEX_MANY ? "ьны" : "ьно",
+	act_new("$N СЃР»РёС€РєРѕРј СЃРёР»$t РґР»СЏ С‚РІРѕРµР№ РіСЂСѓРїРїС‹.", ch,
+		victim->sex == SEX_MALE ? "РµРЅ" :
+		victim->sex == SEX_FEMALE ? "СЊРЅР°" :
+		victim->sex == SEX_MANY ? "СЊРЅС‹" : "СЊРЅРѕ",
 		victim, TO_CHAR, POS_SLEEPING);
 	return;
     }
 
     if (avg - PK_RANGE > victim->level)
     {
-	act_new("Ты маловат$t для группы $n1.", ch, SEX_ENDING(victim), victim, TO_VICT, POS_SLEEPING);
-	act_new("$N маловат$t для твоей группы.", ch, SEX_ENDING(victim), victim, TO_CHAR, POS_SLEEPING);
+	act_new("РўС‹ РјР°Р»РѕРІР°С‚$t РґР»СЏ РіСЂСѓРїРїС‹ $n1.", ch, SEX_ENDING(victim), victim, TO_VICT, POS_SLEEPING);
+	act_new("$N РјР°Р»РѕРІР°С‚$t РґР»СЏ С‚РІРѕРµР№ РіСЂСѓРїРїС‹.", ch, SEX_ENDING(victim), victim, TO_CHAR, POS_SLEEPING);
 	return;
     }
 
@@ -2909,9 +2909,9 @@ void do_group(CHAR_DATA *ch, char *argument)
 			|| IS_INDEPEND(victim)))
 		{
 		    if (gch == ch)
-			sprintf(buf, "Ты не уживешься в одной группе с %s.\n\r", cases(victim->name, 4));
+			sprintf(buf, "РўС‹ РЅРµ СѓР¶РёРІРµС€СЊСЃСЏ РІ РѕРґРЅРѕР№ РіСЂСѓРїРїРµ СЃ %s.\n\r", cases(victim->name, 4));
 		    else
-			sprintf(buf, "%s не уживется в одной группе с %s.\n\r", gch->name, cases(victim->name, 4));
+			sprintf(buf, "%s РЅРµ СѓР¶РёРІРµС‚СЃСЏ РІ РѕРґРЅРѕР№ РіСЂСѓРїРїРµ СЃ %s.\n\r", gch->name, cases(victim->name, 4));
 
 		    send_to_char(buf, ch);
 		    return;
@@ -2921,9 +2921,9 @@ void do_group(CHAR_DATA *ch, char *argument)
     }
 
     victim->leader = ch;
-    act_new("$N присоединяется к группе $n1.", ch, NULL, victim, TO_NOTVICT, POS_RESTING);
-    act_new("Ты присоединяешься к группе $n1.", ch, NULL, victim, TO_VICT, POS_SLEEPING);
-    act_new("$N присоединяется к твоей группе.", ch, NULL, victim, TO_CHAR, POS_SLEEPING);
+    act_new("$N РїСЂРёСЃРѕРµРґРёРЅСЏРµС‚СЃСЏ Рє РіСЂСѓРїРїРµ $n1.", ch, NULL, victim, TO_NOTVICT, POS_RESTING);
+    act_new("РўС‹ РїСЂРёСЃРѕРµРґРёРЅСЏРµС€СЊСЃСЏ Рє РіСЂСѓРїРїРµ $n1.", ch, NULL, victim, TO_VICT, POS_SLEEPING);
+    act_new("$N РїСЂРёСЃРѕРµРґРёРЅСЏРµС‚СЃСЏ Рє С‚РІРѕРµР№ РіСЂСѓРїРїРµ.", ch, NULL, victim, TO_CHAR, POS_SLEEPING);
 
     return;
 }
@@ -2948,7 +2948,7 @@ void do_split(CHAR_DATA *ch, char *argument)
 
     if (arg1[0] == '\0')
     {
-	send_to_char("Разделить сколько?\n\r", ch);
+	send_to_char("Р Р°Р·РґРµР»РёС‚СЊ СЃРєРѕР»СЊРєРѕ?\n\r", ch);
 	return;
     }
 
@@ -2959,19 +2959,19 @@ void do_split(CHAR_DATA *ch, char *argument)
 
     if (amount_gold < 0 || amount_silver < 0)
     {
-	send_to_char("Твоей группе это вряд ли понравится.\n\r", ch);
+	send_to_char("РўРІРѕРµР№ РіСЂСѓРїРїРµ СЌС‚Рѕ РІСЂСЏРґ Р»Рё РїРѕРЅСЂР°РІРёС‚СЃСЏ.\n\r", ch);
 	return;
     }
 
     if (amount_gold == 0 && amount_silver == 0)
     {
-	send_to_char("У тебя нет ни одной монеты.\n\r", ch);
+	send_to_char("РЈ С‚РµР±СЏ РЅРµС‚ РЅРё РѕРґРЅРѕР№ РјРѕРЅРµС‚С‹.\n\r", ch);
 	return;
     }
 
     if (ch->gold <  amount_gold || ch->silver < amount_silver)
     {
-	send_to_char("У тебя нет такого количества денег.\n\r", ch);
+	send_to_char("РЈ С‚РµР±СЏ РЅРµС‚ С‚Р°РєРѕРіРѕ РєРѕР»РёС‡РµСЃС‚РІР° РґРµРЅРµРі.\n\r", ch);
 	return;
     }
 
@@ -2985,7 +2985,7 @@ void do_split(CHAR_DATA *ch, char *argument)
 
     if (members < 2)
     {
-	send_to_char("Просто оставь себе.\n\r", ch);
+	send_to_char("РџСЂРѕСЃС‚Рѕ РѕСЃС‚Р°РІСЊ СЃРµР±Рµ.\n\r", ch);
 	return;
     }
 
@@ -2997,7 +2997,7 @@ void do_split(CHAR_DATA *ch, char *argument)
 
     if (share_gold == 0 && share_silver == 0)
     {
-	send_to_char("Даже не суетись, скряга.\n\r", ch);
+	send_to_char("Р”Р°Р¶Рµ РЅРµ СЃСѓРµС‚РёСЃСЊ, СЃРєСЂСЏРіР°.\n\r", ch);
 	return;
     }
 
@@ -3009,7 +3009,7 @@ void do_split(CHAR_DATA *ch, char *argument)
     if (share_silver > 0)
     {
 	sprintf(buf,
-		"Ты делишь %d серебряных монет. Твоя доля - %d серебра.\n\r",
+		"РўС‹ РґРµР»РёС€СЊ %d СЃРµСЂРµР±СЂСЏРЅС‹С… РјРѕРЅРµС‚. РўРІРѕСЏ РґРѕР»СЏ - %d СЃРµСЂРµР±СЂР°.\n\r",
 		amount_silver, share_silver + extra_silver);
 	send_to_char(buf, ch);
     }
@@ -3017,25 +3017,25 @@ void do_split(CHAR_DATA *ch, char *argument)
     if (share_gold > 0)
     {
 	sprintf(buf,
-		"Ты делишь %d золотых монет. Твоя доля - %d золота.\n\r",
+		"РўС‹ РґРµР»РёС€СЊ %d Р·РѕР»РѕС‚С‹С… РјРѕРЅРµС‚. РўРІРѕСЏ РґРѕР»СЏ - %d Р·РѕР»РѕС‚Р°.\n\r",
 		amount_gold, share_gold + extra_gold);
 	send_to_char(buf, ch);
     }
 
     if (share_gold == 0)
     {
-	sprintf(buf, "$n делит %d серебряных монет. Твоя доля - %d серебра.",
+	sprintf(buf, "$n РґРµР»РёС‚ %d СЃРµСЂРµР±СЂСЏРЅС‹С… РјРѕРЅРµС‚. РўРІРѕСЏ РґРѕР»СЏ - %d СЃРµСЂРµР±СЂР°.",
 		amount_silver, share_silver);
     }
     else if (share_silver == 0)
     {
-	sprintf(buf, "$n делит %d золотых монет. Твоя доля - %d золота.",
+	sprintf(buf, "$n РґРµР»РёС‚ %d Р·РѕР»РѕС‚С‹С… РјРѕРЅРµС‚. РўРІРѕСЏ РґРѕР»СЏ - %d Р·РѕР»РѕС‚Р°.",
 		amount_gold, share_gold);
     }
     else
     {
 	sprintf(buf,
-		"$n делит %d серебряных и %d золотых монет, давая тебе %d серебра и %d золота.\n\r",
+		"$n РґРµР»РёС‚ %d СЃРµСЂРµР±СЂСЏРЅС‹С… Рё %d Р·РѕР»РѕС‚С‹С… РјРѕРЅРµС‚, РґР°РІР°СЏ С‚РµР±Рµ %d СЃРµСЂРµР±СЂР° Рё %d Р·РѕР»РѕС‚Р°.\n\r",
 		amount_silver, amount_gold, share_silver, share_gold);
     }
 
@@ -3045,9 +3045,9 @@ void do_split(CHAR_DATA *ch, char *argument)
 	{
 	    if (can_carry_w(gch) <= get_carry_weight(gch))
 	    {
-	        act("$n хочет поделиться с тобой монетами, но ты не можешь нести столько.\n\r", 
+	        act("$n С…РѕС‡РµС‚ РїРѕРґРµР»РёС‚СЊСЃСЏ СЃ С‚РѕР±РѕР№ РјРѕРЅРµС‚Р°РјРё, РЅРѕ С‚С‹ РЅРµ РјРѕР¶РµС€СЊ РЅРµСЃС‚Рё СЃС‚РѕР»СЊРєРѕ.\n\r", 
 		    ch, NULL, gch, TO_VICT);
-	        act("$N не может нести столько, поэтому ты забираешь $S долю.\n\r", 
+	        act("$N РЅРµ РјРѕР¶РµС‚ РЅРµСЃС‚Рё СЃС‚РѕР»СЊРєРѕ, РїРѕСЌС‚РѕРјСѓ С‚С‹ Р·Р°Р±РёСЂР°РµС€СЊ $S РґРѕР»СЋ.\n\r", 
 		    ch, NULL, gch, TO_CHAR);
 	        ch->gold += share_gold;
 	        ch->silver += share_silver;
@@ -3072,23 +3072,23 @@ void do_gtell(CHAR_DATA *ch, char *argument)
 
     if (argument[0] == '\0')
     {
-	send_to_char("Сказать группе что?\n\r", ch);
+	send_to_char("РЎРєР°Р·Р°С‚СЊ РіСЂСѓРїРїРµ С‡С‚Рѕ?\n\r", ch);
 	return;
     }
 
     if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOTELL))
     {
-	send_to_char("Твое сообщение не достигает адресата!\n\r", ch);
+	send_to_char("РўРІРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ РЅРµ РґРѕСЃС‚РёРіР°РµС‚ Р°РґСЂРµСЃР°С‚Р°!\n\r", ch);
 	return;
     }
 
     LIST_FOREACH_SAFE(gch, &char_list, link, safe_gch)
     {
 	if (is_same_group(gch, ch))
-	    act_new("$n говорит группе: {G$t{x",
+	    act_new("$n РіРѕРІРѕСЂРёС‚ РіСЂСѓРїРїРµ: {G$t{x",
 		    ch, argument, gch, TO_VICT, POS_SLEEPING);
     }
-    act_new("Ты говоришь группе: {G$t{x",
+    act_new("РўС‹ РіРѕРІРѕСЂРёС€СЊ РіСЂСѓРїРїРµ: {G$t{x",
 	    ch, argument, NULL, TO_CHAR, POS_SLEEPING);
 
     return;
@@ -3145,7 +3145,7 @@ void do_colour( CHAR_DATA *ch, char *argument )
 
     if( IS_NPC( ch ) )
     {
-	send_to_char( "Зачем тебе цвет?\n\r", ch );
+	send_to_char( "Р—Р°С‡РµРј С‚РµР±Рµ С†РІРµС‚?\n\r", ch );
 	return;
     }
 
@@ -3157,28 +3157,28 @@ void do_colour( CHAR_DATA *ch, char *argument )
 	{
 	    SET_BIT( ch->act, PLR_COLOUR );
 	    if (strcmp(arg,"noprint"))
-		send_to_char( "Цвет включен.\n\r"
-			      "Инструкции:\n\r   colour {c<{xfield{c> <{xcolour{c>{x\n\r"
+		send_to_char( "Р¦РІРµС‚ РІРєР»СЋС‡РµРЅ.\n\r"
+			      "РРЅСЃС‚СЂСѓРєС†РёРё:\n\r   colour {c<{xfield{c> <{xcolour{c>{x\n\r"
 			      "   colour {c<{xfield{c>{x {cbeep{x|{cnobeep{x\n\r"
-			      "Наберите help {ccolour{x для детальной информации.\n\r"
+			      "РќР°Р±РµСЂРёС‚Рµ help {ccolour{x РґР»СЏ РґРµС‚Р°Р»СЊРЅРѕР№ РёРЅС„РѕСЂРјР°С†РёРё.\n\r"
 			      "ColoUr is brought to you by Lope, ant@@solace.mh.se.\n\r", ch );
 	}
 	else
 	{
-	    send_to_char( "Цвет теперь будет выключен.\n\r", ch );
+	    send_to_char( "Р¦РІРµС‚ С‚РµРїРµСЂСЊ Р±СѓРґРµС‚ РІС‹РєР»СЋС‡РµРЅ.\n\r", ch );
 	    REMOVE_BIT( ch->act, PLR_COLOUR );
 	}
 	return;
     }
 
-    if( !str_cmp( arg, "default" ) || !str_cmp( arg, "поумолчанию" ))
+    if( !str_cmp( arg, "default" ) || !str_cmp( arg, "РїРѕСѓРјРѕР»С‡Р°РЅРёСЋ" ))
     {
 	default_colour( ch );
-	send_to_char( "Установлен цвет по умолчанию.\n\r", ch );
+	send_to_char( "РЈСЃС‚Р°РЅРѕРІР»РµРЅ С†РІРµС‚ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ.\n\r", ch );
 	return;
     }
 
-    if( !str_cmp( arg, "all" ) || !str_cmp( arg, "все" ) )
+    if( !str_cmp( arg, "all" ) || !str_cmp( arg, "РІСЃРµ" ) )
     {
 	all_colour( ch, argument );
 	return;
@@ -3330,11 +3330,11 @@ void do_colour( CHAR_DATA *ch, char *argument )
     }
     else
     {
-	send_to_char( "Незвестный параметр.\n\r", ch );
+	send_to_char( "РќРµР·РІРµСЃС‚РЅС‹Р№ РїР°СЂР°РјРµС‚СЂ.\n\r", ch );
 	return;
     }
 
-    send_to_char( "Установлены новые цветовые параметры.\n\r", ch );
+    send_to_char( "РЈСЃС‚Р°РЅРѕРІР»РµРЅС‹ РЅРѕРІС‹Рµ С†РІРµС‚РѕРІС‹Рµ РїР°СЂР°РјРµС‚СЂС‹.\n\r", ch );
     return;
 }
 
@@ -3345,7 +3345,7 @@ void do_colour(CHAR_DATA *ch, char *argument)
 
     if (IS_NPC(ch))
     {
-	send_to_char("Зачем тебе цвет?\n\r", ch);
+	send_to_char("Р—Р°С‡РµРј С‚РµР±Рµ С†РІРµС‚?\n\r", ch);
 	return;
     }
 
@@ -3357,33 +3357,33 @@ void do_colour(CHAR_DATA *ch, char *argument)
 	{
 	    SET_BIT(ch->act, PLR_COLOUR);
 	    if (strcmp(arg, "noprint"))
-		send_to_char("Цвет включен.\n\r"
-			     "Наберите help {ccolour{x для детальной информации.\n\r"
+		send_to_char("Р¦РІРµС‚ РІРєР»СЋС‡РµРЅ.\n\r"
+			     "РќР°Р±РµСЂРёС‚Рµ help {ccolour{x РґР»СЏ РґРµС‚Р°Р»СЊРЅРѕР№ РёРЅС„РѕСЂРјР°С†РёРё.\n\r"
 			     "ColoUr is brought to you by Lope, ant@solace.mh.se.\n\r"
 			     "Colour configuration by Balderdash Imms\n\r", ch);
 	}
 	else
 	{
-	    send_to_char("Цвет теперь будет выключен.\n\r", ch);
+	    send_to_char("Р¦РІРµС‚ С‚РµРїРµСЂСЊ Р±СѓРґРµС‚ РІС‹РєР»СЋС‡РµРЅ.\n\r", ch);
 	    REMOVE_BIT(ch->act, PLR_COLOUR);
 	}
 	return;
     }
 
-    if (!str_cmp(arg, "default") || !str_cmp(arg, "поумолчанию"))
+    if (!str_cmp(arg, "default") || !str_cmp(arg, "РїРѕСѓРјРѕР»С‡Р°РЅРёСЋ"))
     {
 	default_colour(ch);
-	send_to_char("Установлен цвет по умолчанию.\n\r", ch);
+	send_to_char("РЈСЃС‚Р°РЅРѕРІР»РµРЅ С†РІРµС‚ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ.\n\r", ch);
 	return;
     }
 
-    if (!str_cmp(arg, "schema") || !str_cmp(arg, "схема"))
+    if (!str_cmp(arg, "schema") || !str_cmp(arg, "СЃС…РµРјР°"))
     {
 	argument = one_argument(argument, arg);
 
 	if (IS_NULLSTR(arg))
 	    show_colours(ch);
-	else if (!str_cmp(arg, "список") || !str_cmp(arg, "list"))
+	else if (!str_cmp(arg, "СЃРїРёСЃРѕРє") || !str_cmp(arg, "list"))
 	    show_schemas(ch);
 	else
 	    set_colour(ch, argument);
@@ -3535,11 +3535,11 @@ void do_colour(CHAR_DATA *ch, char *argument)
     }
     else
     {
-	send_to_char("Незвестный параметр.\n\r", ch);
+	send_to_char("РќРµР·РІРµСЃС‚РЅС‹Р№ РїР°СЂР°РјРµС‚СЂ.\n\r", ch);
 	return;
     }
 
-    send_to_char("Установлены новые цветовые параметры.\n\r", ch);
+    send_to_char("РЈСЃС‚Р°РЅРѕРІР»РµРЅС‹ РЅРѕРІС‹Рµ С†РІРµС‚РѕРІС‹Рµ РїР°СЂР°РјРµС‚СЂС‹.\n\r", ch);
     return;
 }
 #endif
@@ -3557,21 +3557,21 @@ void do_bounty(CHAR_DATA *ch, char *argument)
 
     if (!IS_SET(ch->in_room->room_flags, ROOM_BOUNTY_OFFICE))
     {
-	send_to_char("Здесь нельзя никого заказать. Ищи место с насильниками и убийцами.\n\r", ch);
+	send_to_char("Р—РґРµСЃСЊ РЅРµР»СЊР·СЏ РЅРёРєРѕРіРѕ Р·Р°РєР°Р·Р°С‚СЊ. РС‰Рё РјРµСЃС‚Рѕ СЃ РЅР°СЃРёР»СЊРЅРёРєР°РјРё Рё СѓР±РёР№С†Р°РјРё.\n\r", ch);
 	return;
     }
 
     if (arg1[0] == '\0')
     {
-	send_to_char("Заказать какого персонажа?\n\rСинтаксис: заказать <жертва> <количество золота>\n\r           заказать список\n\r", ch);
+	send_to_char("Р—Р°РєР°Р·Р°С‚СЊ РєР°РєРѕРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р°?\n\rРЎРёРЅС‚Р°РєСЃРёСЃ: Р·Р°РєР°Р·Р°С‚СЊ <Р¶РµСЂС‚РІР°> <РєРѕР»РёС‡РµСЃС‚РІРѕ Р·РѕР»РѕС‚Р°>\n\r           Р·Р°РєР°Р·Р°С‚СЊ СЃРїРёСЃРѕРє\n\r", ch);
 	return;
     }
 
-    if (!strcmp(arg1, "list") || !strcmp(arg1, "список"))
+    if (!strcmp(arg1, "list") || !strcmp(arg1, "СЃРїРёСЃРѕРє"))
     {
 	DESCRIPTOR_DATA *d;
 
-	send_to_char("\n\rПерсонаж    Награда(золота)\n\r = == = == = == = == = == = == = == = == = == = \n\r", ch);
+	send_to_char("\n\rРџРµСЂСЃРѕРЅР°Р¶    РќР°РіСЂР°РґР°(Р·РѕР»РѕС‚Р°)\n\r = == = == = == = == = == = == = == = == = == = \n\r", ch);
 	SLIST_FOREACH_SAFE(d, &descriptor_list, link, safe_d)
 	{
 	    CHAR_DATA *wch;
@@ -3592,31 +3592,31 @@ void do_bounty(CHAR_DATA *ch, char *argument)
 
     if (arg2[0] == '\0')
     {
-	send_to_char("За сколько золота ты хотел заказать этого персонажа?\n\r", ch);
+	send_to_char("Р—Р° СЃРєРѕР»СЊРєРѕ Р·РѕР»РѕС‚Р° С‚С‹ С…РѕС‚РµР» Р·Р°РєР°Р·Р°С‚СЊ СЌС‚РѕРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р°?\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg1)) == NULL)
     {
-	send_to_char("Таких персонажей сейчас в игре нет!\n\r", ch);
+	send_to_char("РўР°РєРёС… РїРµСЂСЃРѕРЅР°Р¶РµР№ СЃРµР№С‡Р°СЃ РІ РёРіСЂРµ РЅРµС‚!\n\r", ch);
 	return;
     }
 
     if (IS_NPC(victim))
     {
-	send_to_char("Ты не можешь заказывать мобов!\n\r", ch);
+	send_to_char("РўС‹ РЅРµ РјРѕР¶РµС€СЊ Р·Р°РєР°Р·С‹РІР°С‚СЊ РјРѕР±РѕРІ!\n\r", ch);
 	return;
     }
 
     if (IS_IMMORTAL(victim))
     {
-	send_to_char("Ты в этом уверен? Боги будут очень недовольны...\n\r", ch);
+	send_to_char("РўС‹ РІ СЌС‚РѕРј СѓРІРµСЂРµРЅ? Р‘РѕРіРё Р±СѓРґСѓС‚ РѕС‡РµРЅСЊ РЅРµРґРѕРІРѕР»СЊРЅС‹...\n\r", ch);
 	return;
     }
 
     if (ch == victim)
     {
-	send_to_char("Ты хочешь заказать самого себя???\n\r", ch);
+	send_to_char("РўС‹ С…РѕС‡РµС€СЊ Р·Р°РєР°Р·Р°С‚СЊ СЃР°РјРѕРіРѕ СЃРµР±СЏ???\n\r", ch);
 	return;
     }
 
@@ -3627,25 +3627,25 @@ void do_bounty(CHAR_DATA *ch, char *argument)
 	amount   = atoi(arg2);
 	if (amount < 2*victim->level)
 	{
-	    sprintf(buf, "Что?? Делай это сам%s за эти деньги! Голова %s стоит дороже.\n\r", SEX_ENDING(ch), cases(victim->name, 1));
+	    sprintf(buf, "Р§С‚Рѕ?? Р”РµР»Р°Р№ СЌС‚Рѕ СЃР°Рј%s Р·Р° СЌС‚Рё РґРµРЅСЊРіРё! Р“РѕР»РѕРІР° %s СЃС‚РѕРёС‚ РґРѕСЂРѕР¶Рµ.\n\r", SEX_ENDING(ch), cases(victim->name, 1));
 	    send_to_char(buf, ch);
 	    return;
 	}
 	if (ch->gold < amount)
 	{
-	    send_to_char("У тебя нет такого количества золота!\n\r", ch);
+	    send_to_char("РЈ С‚РµР±СЏ РЅРµС‚ С‚Р°РєРѕРіРѕ РєРѕР»РёС‡РµСЃС‚РІР° Р·РѕР»РѕС‚Р°!\n\r", ch);
 	    return;
 	}
 	ch->gold -= amount;
 	victim->pcdata->bounty += amount;
 
-	sprintf(buf, "Ты платишь %d золота за голову %s{x.\n\r", amount, cases(victim->name, 1));
+	sprintf(buf, "РўС‹ РїР»Р°С‚РёС€СЊ %d Р·РѕР»РѕС‚Р° Р·Р° РіРѕР»РѕРІСѓ %s{x.\n\r", amount, cases(victim->name, 1));
 	send_to_char(buf, ch);
 
-	sprintf(buf, "{gЗа твою голову теперь дают %d золота.{x\n\r", victim->pcdata->bounty);
+	sprintf(buf, "{gР—Р° С‚РІРѕСЋ РіРѕР»РѕРІСѓ С‚РµРїРµСЂСЊ РґР°СЋС‚ %d Р·РѕР»РѕС‚Р°.{x\n\r", victim->pcdata->bounty);
 	send_to_char(buf, victim);
 
-	sprintf(buf, "{gЗа голову %s теперь дают %d золота.{x\n\r", cases(victim->name, 1), victim->pcdata->bounty);
+	sprintf(buf, "{gР—Р° РіРѕР»РѕРІСѓ %s С‚РµРїРµСЂСЊ РґР°СЋС‚ %d Р·РѕР»РѕС‚Р°.{x\n\r", cases(victim->name, 1), victim->pcdata->bounty);
 
 	SLIST_FOREACH_SAFE(d, &descriptor_list, link, safe_d)
 	    if (d->connected == CON_PLAYING && d->character != victim)
@@ -3666,9 +3666,9 @@ void do_filter(CHAR_DATA *ch, char *argument)
 	return;
 
     if (argument[0] == '\0'
-	|| !str_cmp(argument, "показ")
+	|| !str_cmp(argument, "РїРѕРєР°Р·")
 	|| !str_cmp(argument, "show")
-	|| !str_cmp(argument, "список"))
+	|| !str_cmp(argument, "СЃРїРёСЃРѕРє"))
     {
 	int count = 1;
 
@@ -3684,11 +3684,11 @@ void do_filter(CHAR_DATA *ch, char *argument)
 
 	if (bfr[0] != '\0')
 	{
-	    send_to_char("Список игнорируемых игроков:\n\r", ch);
+	    send_to_char("РЎРїРёСЃРѕРє РёРіРЅРѕСЂРёСЂСѓРµРјС‹С… РёРіСЂРѕРєРѕРІ:\n\r", ch);
 	    send_to_char(bfr, ch);
 	}
 	else
-	    send_to_char("Ты никого не игнорируешь.\n\r", ch);
+	    send_to_char("РўС‹ РЅРёРєРѕРіРѕ РЅРµ РёРіРЅРѕСЂРёСЂСѓРµС€СЊ.\n\r", ch);
 
 	return;
     }
@@ -3704,7 +3704,7 @@ void do_filter(CHAR_DATA *ch, char *argument)
 		ch->pcdata->filter[i].ch = NULL;
 
 		sprintf(bfr,
-			"Ты удаляешь %s из списка игнорируемых игроков.\n\r",
+			"РўС‹ СѓРґР°Р»СЏРµС€СЊ %s РёР· СЃРїРёСЃРєР° РёРіРЅРѕСЂРёСЂСѓРµРјС‹С… РёРіСЂРѕРєРѕРІ.\n\r",
 			capitalize(cases(argument, 3)));
 		send_to_char(bfr, ch);
 		return;
@@ -3715,37 +3715,37 @@ void do_filter(CHAR_DATA *ch, char *argument)
 
     if (!victim)
     {
-	send_to_char("Таких нет в этом мире.\n\r", ch);
+	send_to_char("РўР°РєРёС… РЅРµС‚ РІ СЌС‚РѕРј РјРёСЂРµ.\n\r", ch);
 	return;
     }
 
     if (IS_NPC(victim))
     {
-	send_to_char("Ты можешь игнорировать только игроков.\n\r", ch);
+	send_to_char("РўС‹ РјРѕР¶РµС€СЊ РёРіРЅРѕСЂРёСЂРѕРІР°С‚СЊ С‚РѕР»СЊРєРѕ РёРіСЂРѕРєРѕРІ.\n\r", ch);
 	return;
     }
 
     if (victim == ch)
     {
-	printf_to_char("Ты так сильно устал%s от себя?\n\r", ch, SEX_ENDING(ch));
+	printf_to_char("РўС‹ С‚Р°Рє СЃРёР»СЊРЅРѕ СѓСЃС‚Р°Р»%s РѕС‚ СЃРµР±СЏ?\n\r", ch, SEX_ENDING(ch));
 	return;
     }
 
     if (IS_IMMORTAL(victim))
     {
-	send_to_char("Ты не можешь игнорировать Бессмертных.\n\r", ch);
+	send_to_char("РўС‹ РЅРµ РјРѕР¶РµС€СЊ РёРіРЅРѕСЂРёСЂРѕРІР°С‚СЊ Р‘РµСЃСЃРјРµСЂС‚РЅС‹С….\n\r", ch);
 	return;
     }
 
     if (pos < 0)
     {
-	send_to_char("Ты уже и так много кого игнорируешь...\n\r", ch);
+	send_to_char("РўС‹ СѓР¶Рµ Рё С‚Р°Рє РјРЅРѕРіРѕ РєРѕРіРѕ РёРіРЅРѕСЂРёСЂСѓРµС€СЊ...\n\r", ch);
 	return;
     }
 
     free_string(ch->pcdata->filter[pos].ch);
     ch->pcdata->filter[pos].ch = str_dup(victim->name);
-    sprintf(bfr, "Ты вносишь %s в список игнорируемых игроков.\n\r",
+    sprintf(bfr, "РўС‹ РІРЅРѕСЃРёС€СЊ %s РІ СЃРїРёСЃРѕРє РёРіРЅРѕСЂРёСЂСѓРµРјС‹С… РёРіСЂРѕРєРѕРІ.\n\r",
 	    cases(victim->name, 3));
     send_to_char(bfr, ch);
 
@@ -3763,22 +3763,22 @@ void do_email(CHAR_DATA *ch, char *argument)
 
     argument = one_argument(argument, arg);
 
-    if (IS_NULLSTR(arg) || !str_prefix(arg, "show") || !str_prefix(arg, "показ"))
+    if (IS_NULLSTR(arg) || !str_prefix(arg, "show") || !str_prefix(arg, "РїРѕРєР°Р·"))
     {
-	sprintf(buf, "Твой e-mail: %s\n\r", ch->pcdata->email);
+	sprintf(buf, "РўРІРѕР№ e-mail: %s\n\r", ch->pcdata->email);
 	send_to_char(buf, ch);
 	return;
     }
 
-    if (!str_prefix(arg, "выслать") || !str_prefix(arg, "ключ") ||
+    if (!str_prefix(arg, "РІС‹СЃР»Р°С‚СЊ") || !str_prefix(arg, "РєР»СЋС‡") ||
 	!str_prefix(arg, "send") || !str_prefix(arg, "key"))
     {
 	int i;
 
 	if (IS_NULLSTR(ch->pcdata->email))
 	{
-	    send_to_char("У тебя не указан адрес электронной почты. "
-			 "Просто смени его командой 'почта сменить <адрес>'.\n\r", ch);
+	    send_to_char("РЈ С‚РµР±СЏ РЅРµ СѓРєР°Р·Р°РЅ Р°РґСЂРµСЃ СЌР»РµРєС‚СЂРѕРЅРЅРѕР№ РїРѕС‡С‚С‹. "
+			 "РџСЂРѕСЃС‚Рѕ СЃРјРµРЅРё РµРіРѕ РєРѕРјР°РЅРґРѕР№ 'РїРѕС‡С‚Р° СЃРјРµРЅРёС‚СЊ <Р°РґСЂРµСЃ>'.\n\r", ch);
 	    return;
 	}
 
@@ -3787,7 +3787,7 @@ void do_email(CHAR_DATA *ch, char *argument)
 
 	arg[i] = '\0';
 
-	sprintf(buf, "На адрес %s выслан ключ для смены адреса.\n\r", ch->pcdata->email);
+	sprintf(buf, "РќР° Р°РґСЂРµСЃ %s РІС‹СЃР»Р°РЅ РєР»СЋС‡ РґР»СЏ СЃРјРµРЅС‹ Р°РґСЂРµСЃР°.\n\r", ch->pcdata->email);
 	send_to_char(buf, ch);
 
 	strlcpy(ch->pcdata->email_key, arg, sizeof(ch->pcdata->email_key));
@@ -3797,13 +3797,13 @@ void do_email(CHAR_DATA *ch, char *argument)
 	return;
     }
 
-    if (!str_prefix(arg, "сменить") || !str_prefix(arg, "change"))
+    if (!str_prefix(arg, "СЃРјРµРЅРёС‚СЊ") || !str_prefix(arg, "change"))
     {
 	argument = one_argument(argument, email);
 
 	if (!CHECK_EMAIL(email))
 	{
-	    send_to_char("Таких адресов не бывает.\n\r", ch);
+	    send_to_char("РўР°РєРёС… Р°РґСЂРµСЃРѕРІ РЅРµ Р±С‹РІР°РµС‚.\n\r", ch);
 	    return;
 	}
 
@@ -3811,18 +3811,18 @@ void do_email(CHAR_DATA *ch, char *argument)
 	    (IS_NULLSTR(argument) || IS_NULLSTR(ch->pcdata->email_key)
 	     || strcmp(ch->pcdata->email_key, argument)))
 	{
-	    send_to_char("Неправильный ключ.\n\r", ch);
+	    send_to_char("РќРµРїСЂР°РІРёР»СЊРЅС‹Р№ РєР»СЋС‡.\n\r", ch);
 	    return;
 	}
 
 	free_string(ch->pcdata->email);
 	ch->pcdata->email_key[0] = '\0';
 	ch->pcdata->email = str_dup(email);
-	send_to_char("Адрес успешно изменен.\n\r", ch);
+	send_to_char("РђРґСЂРµСЃ СѓСЃРїРµС€РЅРѕ РёР·РјРµРЅРµРЅ.\n\r", ch);
 	return;
     }
 
-    send_to_char("Доступные команды: показ, выслать, сменить.\n\r", ch);
+    send_to_char("Р”РѕСЃС‚СѓРїРЅС‹Рµ РєРѕРјР°РЅРґС‹: РїРѕРєР°Р·, РІС‹СЃР»Р°С‚СЊ, СЃРјРµРЅРёС‚СЊ.\n\r", ch);
 }
 
 void do_beep(CHAR_DATA *ch, char *argument)
@@ -3834,23 +3834,23 @@ void do_beep(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0')
     {
-	send_to_char("Привлечь внимание кого?\n\r", ch);
+	send_to_char("РџСЂРёРІР»РµС‡СЊ РІРЅРёРјР°РЅРёРµ РєРѕРіРѕ?\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world (ch, arg)) == NULL || IS_NPC(victim))
     {
-	send_to_char ("Таких здесь нет.\n\r", ch);
+	send_to_char ("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     if (victim == ch)
     {
-	send_to_char("Хочешь себя разбудить?\n\r", ch);
+	send_to_char("РҐРѕС‡РµС€СЊ СЃРµР±СЏ СЂР°Р·Р±СѓРґРёС‚СЊ?\n\r", ch);
 	return;
     }
-    act("{*$n пытается привлечь твое внимание.", ch, NULL, victim, TO_VICT);
-    act_new("Ты пытаешься привлечь внимание $N1.", ch, argument, victim,
+    act("{*$n РїС‹С‚Р°РµС‚СЃСЏ РїСЂРёРІР»РµС‡СЊ С‚РІРѕРµ РІРЅРёРјР°РЅРёРµ.", ch, NULL, victim, TO_VICT);
+    act_new("РўС‹ РїС‹С‚Р°РµС€СЊСЃСЏ РїСЂРёРІР»РµС‡СЊ РІРЅРёРјР°РЅРёРµ $N1.", ch, argument, victim,
 	    TO_CHAR, POS_RESTING);
 
     WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
@@ -3868,23 +3868,23 @@ void do_iptalk(CHAR_DATA *ch, char *argument)
 
     if ((victim = get_char_world(ch, arg)) == NULL || victim->desc == NULL)
     {
-	send_to_char("Таких здесь нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     if (argument[0] == '\0')
     {
-	act("Адрес играющего: {c$t{x", ch, victim->desc->ip, ch, TO_CHAR);
+	act("РђРґСЂРµСЃ РёРіСЂР°СЋС‰РµРіРѕ: {c$t{x", ch, victim->desc->ip, ch, TO_CHAR);
 	return;
     }
 
-    act("Ты говоришь играющим с $T: {c$t{x", ch, argument, victim->desc->ip, TO_CHAR);
+    act("РўС‹ РіРѕРІРѕСЂРёС€СЊ РёРіСЂР°СЋС‰РёРј СЃ $T: {c$t{x", ch, argument, victim->desc->ip, TO_CHAR);
 
     SLIST_FOREACH_SAFE(d, &descriptor_list, link, safe_d)
 	if (d->connected == CON_PLAYING
 	    && ch != d->character
 	    && !str_cmp(victim->desc->ip, d->ip))
-	    act("$N говорит всем играющим с твоего адреса: {c$t{x", d->character, argument, ch, TO_CHAR);
+	    act("$N РіРѕРІРѕСЂРёС‚ РІСЃРµРј РёРіСЂР°СЋС‰РёРј СЃ С‚РІРѕРµРіРѕ Р°РґСЂРµСЃР°: {c$t{x", d->character, argument, ch, TO_CHAR);
 
     return;
 }
@@ -3897,7 +3897,7 @@ void do_attract_attention(CHAR_DATA *ch, char *argument)
 
     if ((skill = get_skill(ch, gsn_attract_attention)) < 1)
     {
-	send_to_char("Ты не знаешь, как это делать.\n\r", ch);
+	send_to_char("РўС‹ РЅРµ Р·РЅР°РµС€СЊ, РєР°Рє СЌС‚Рѕ РґРµР»Р°С‚СЊ.\n\r", ch);
 	return;
     }
 
@@ -3905,48 +3905,48 @@ void do_attract_attention(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0')
     {
-	send_to_char("Привлечь внимание кого?\n\r", ch);
+	send_to_char("РџСЂРёРІР»РµС‡СЊ РІРЅРёРјР°РЅРёРµ РєРѕРіРѕ?\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_room(ch, NULL, arg, FALSE)) == NULL)
     {
-	send_to_char ("Таких здесь нет.\n\r", ch);
+	send_to_char ("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     if (victim == ch)
     {
-	send_to_char("Хочешь привлечь внимание к своей персоне?\n\r", ch);
+	send_to_char("РҐРѕС‡РµС€СЊ РїСЂРёРІР»РµС‡СЊ РІРЅРёРјР°РЅРёРµ Рє СЃРІРѕРµР№ РїРµСЂСЃРѕРЅРµ?\n\r", ch);
 	return;
     }
 
     if (victim->fighting)
     {
-	act("$N2 пока не до тебя.", ch, NULL, victim, TO_CHAR);
+	act("$N2 РїРѕРєР° РЅРµ РґРѕ С‚РµР±СЏ.", ch, NULL, victim, TO_CHAR);
 	return;
     }
 
     if (!IS_AFFECTED(victim, AFF_CHARM) || victim->master != ch)
     {
-	act("$N даже не смотрит в твою сторону.", ch, NULL, victim, TO_CHAR);
+	act("$N РґР°Р¶Рµ РЅРµ СЃРјРѕС‚СЂРёС‚ РІ С‚РІРѕСЋ СЃС‚РѕСЂРѕРЅСѓ.", ch, NULL, victim, TO_CHAR);
 	return;
     }
 
     if (victim->wait == 0)
     {
-	act("$N уже и так полностью весь во внимании.", ch, NULL, victim, TO_CHAR);
+	act("$N СѓР¶Рµ Рё С‚Р°Рє РїРѕР»РЅРѕСЃС‚СЊСЋ РІРµСЃСЊ РІРѕ РІРЅРёРјР°РЅРёРё.", ch, NULL, victim, TO_CHAR);
 	return;
     }
 
-    act("$n пытается привлечь твое внимание.", ch, NULL, victim, TO_VICT);
-    act("Ты пытаешься привлечь внимание $N1.", ch, NULL, victim, TO_CHAR);
+    act("$n РїС‹С‚Р°РµС‚СЃСЏ РїСЂРёРІР»РµС‡СЊ С‚РІРѕРµ РІРЅРёРјР°РЅРёРµ.", ch, NULL, victim, TO_VICT);
+    act("РўС‹ РїС‹С‚Р°РµС€СЊСЃСЏ РїСЂРёРІР»РµС‡СЊ РІРЅРёРјР°РЅРёРµ $N1.", ch, NULL, victim, TO_CHAR);
 
     if (number_percent() > skill)
     {
 	check_improve(ch, victim, gsn_attract_attention, FALSE, 2);
 	ch->mana -= victim->wait/4;
-	send_to_char("Не получается.\n\r", ch);
+	send_to_char("РќРµ РїРѕР»СѓС‡Р°РµС‚СЃСЏ.\n\r", ch);
 	return;
     }
 
@@ -3956,7 +3956,7 @@ void do_attract_attention(CHAR_DATA *ch, char *argument)
     victim->wait = 0;
     affect_strip(victim, skill_lookup("calm"));
     affect_strip(victim, skill_lookup("animal taming"));
-    send_to_char("Получилось!\n\r", ch);
+    send_to_char("РџРѕР»СѓС‡РёР»РѕСЃСЊ!\n\r", ch);
     return;
 }
 
@@ -3973,21 +3973,21 @@ void do_helper(CHAR_DATA *ch, char *argument)
     {
 	if (IS_SET(ch->comm, COMM_HELPER))
 	{
-	    send_to_char("Теперь ты не будешь слышать бесполезный крик новичков.\n\r", ch);
+	    send_to_char("РўРµРїРµСЂСЊ С‚С‹ РЅРµ Р±СѓРґРµС€СЊ СЃР»С‹С€Р°С‚СЊ Р±РµСЃРїРѕР»РµР·РЅС‹Р№ РєСЂРёРє РЅРѕРІРёС‡РєРѕРІ.\n\r", ch);
 	    REMOVE_BIT(ch->comm, COMM_HELPER);
 	}
 	else
 	{
 	    if (IS_SET(ch->act, PLR_KILLER) || IS_SET(ch->act, PLR_THIEF))
 	    {
-		send_to_char("Неужели ты думаешь, что можешь подавать пример молодым?\n\r", ch);
+		send_to_char("РќРµСѓР¶РµР»Рё С‚С‹ РґСѓРјР°РµС€СЊ, С‡С‚Рѕ РјРѕР¶РµС€СЊ РїРѕРґР°РІР°С‚СЊ РїСЂРёРјРµСЂ РјРѕР»РѕРґС‹Рј?\n\r", ch);
 		return;
 	    }
 
 	    if (ch->level >= (PK_RANGE)*2)
-		send_to_char("Теперь ты сможешь помогать новичкам и отвечать на их вопросы.\n\r", ch);
+		send_to_char("РўРµРїРµСЂСЊ С‚С‹ СЃРјРѕР¶РµС€СЊ РїРѕРјРѕРіР°С‚СЊ РЅРѕРІРёС‡РєР°Рј Рё РѕС‚РІРµС‡Р°С‚СЊ РЅР° РёС… РІРѕРїСЂРѕСЃС‹.\n\r", ch);
 	    else
-		send_to_char("Теперь ты снова сможешь задавать свои вопросы.\n\r", ch);
+		send_to_char("РўРµРїРµСЂСЊ С‚С‹ СЃРЅРѕРІР° СЃРјРѕР¶РµС€СЊ Р·Р°РґР°РІР°С‚СЊ СЃРІРѕРё РІРѕРїСЂРѕСЃС‹.\n\r", ch);
 	    SET_BIT(ch->comm, COMM_HELPER);
 	}
     }
@@ -3995,25 +3995,25 @@ void do_helper(CHAR_DATA *ch, char *argument)
     {
 	if (ch->level >= (PK_RANGE)*2 && !IS_SET(ch->comm, COMM_HELPER) && !IS_IMMORTAL(ch))
 	{
-	    send_to_char("Тебе не разрешено пользоваться этим каналом. Сначала набери команду 'помочь' без аргументов.\n\r", ch);
+	    send_to_char("РўРµР±Рµ РЅРµ СЂР°Р·СЂРµС€РµРЅРѕ РїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ СЌС‚РёРј РєР°РЅР°Р»РѕРј. РЎРЅР°С‡Р°Р»Р° РЅР°Р±РµСЂРё РєРѕРјР°РЅРґСѓ 'РїРѕРјРѕС‡СЊ' Р±РµР· Р°СЂРіСѓРјРµРЅС‚РѕРІ.\n\r", ch);
 	    return;
 	}
 
 	if (IS_SET(ch->comm, COMM_QUIET))
 	{
-	    send_to_char("Для начала выключи режим 'тихо'.\n\r", ch);
+	    send_to_char("Р”Р»СЏ РЅР°С‡Р°Р»Р° РІС‹РєР»СЋС‡Рё СЂРµР¶РёРј 'С‚РёС…Рѕ'.\n\r", ch);
 	    return;
 	}
 
 	if (IS_SET(ch->comm, COMM_NOCHANNELS)) //  || get_age(ch) < 19 )
 	{
-	    send_to_char("Боги отобрали у тебя право пользования этим каналом.\n\r", ch);
+	    send_to_char("Р‘РѕРіРё РѕС‚РѕР±СЂР°Р»Рё Сѓ С‚РµР±СЏ РїСЂР°РІРѕ РїРѕР»СЊР·РѕРІР°РЅРёСЏ СЌС‚РёРј РєР°РЅР°Р»РѕРј.\n\r", ch);
 	    return;
 	}
 
 //	SET_BIT(ch->comm, COMM_HELPER);
 
-	sprintf(buf, "Ты говоришь новичкам и помощникам: {B%s{x\n\r", argument);
+	sprintf(buf, "РўС‹ РіРѕРІРѕСЂРёС€СЊ РЅРѕРІРёС‡РєР°Рј Рё РїРѕРјРѕС‰РЅРёРєР°Рј: {B%s{x\n\r", argument);
 	send_to_char(buf, ch);
 
 	if (IS_SET(ch->comm, COMM_EXTRANOCHANNELS))
@@ -4031,7 +4031,7 @@ void do_helper(CHAR_DATA *ch, char *argument)
 			&& !IS_SET(victim->comm, COMM_QUIET)
 			&& !check_filter(ch, victim))
 		    {
-			sprintf(buf, "%s говорит новичкам и помощникам: {B%s{x\n\r", ch->name, argument);
+			sprintf(buf, "%s РіРѕРІРѕСЂРёС‚ РЅРѕРІРёС‡РєР°Рј Рё РїРѕРјРѕС‰РЅРёРєР°Рј: {B%s{x\n\r", ch->name, argument);
 			send_to_char(buf, victim);
 		    }
 		}
@@ -4051,7 +4051,7 @@ void do_helper(CHAR_DATA *ch, char *argument)
 			&& !IS_SET(victim->comm, COMM_QUIET)
 			&& !check_filter(ch, victim))
 		    {
-			sprintf(buf, "%s говорит новичкам и помощникам: {B%s{x\n\r", ch->name, argument);
+			sprintf(buf, "%s РіРѕРІРѕСЂРёС‚ РЅРѕРІРёС‡РєР°Рј Рё РїРѕРјРѕС‰РЅРёРєР°Рј: {B%s{x\n\r", ch->name, argument);
 			send_to_char(buf, victim);
 		    }
 		}
@@ -4071,20 +4071,20 @@ void do_setip(CHAR_DATA *ch, char *argument)
     one_argument(argument, arg);
 
     if (arg[0] == '\0'
-	|| !str_cmp(arg, "показ")
+	|| !str_cmp(arg, "РїРѕРєР°Р·")
 	|| !str_cmp(arg, "show")
-	|| !str_cmp(arg, "список"))
+	|| !str_cmp(arg, "СЃРїРёСЃРѕРє"))
     {
 	int count = 0;
 	BUFFER *bfr;
 
 	if (!ch->pcdata->ips)
-	    send_to_char("Ты играешь отовсюду.\n\r", ch);
+	    send_to_char("РўС‹ РёРіСЂР°РµС€СЊ РѕС‚РѕРІСЃСЋРґСѓ.\n\r", ch);
 	else
 	{
 	    bfr = new_buf();
 
-	    add_buf(bfr, "Список разрешенных адресов:\n\r");
+	    add_buf(bfr, "РЎРїРёСЃРѕРє СЂР°Р·СЂРµС€РµРЅРЅС‹С… Р°РґСЂРµСЃРѕРІ:\n\r");
 
 	    for (ip = ch->pcdata->ips; ip; ip = ip->next)
 	    {
@@ -4101,8 +4101,8 @@ void do_setip(CHAR_DATA *ch, char *argument)
     }
 
     if (!str_cmp(arg, "flush")
-	|| !str_cmp(arg, "стереть")
-	|| !str_cmp(arg, "удалить"))
+	|| !str_cmp(arg, "СЃС‚РµСЂРµС‚СЊ")
+	|| !str_cmp(arg, "СѓРґР°Р»РёС‚СЊ"))
     {
 	NAME_LIST *ip_next;
 
@@ -4114,14 +4114,14 @@ void do_setip(CHAR_DATA *ch, char *argument)
 
 	ch->pcdata->ips = NULL;
 
-	send_to_char("Список адресов очищен.\n\r", ch);
+	send_to_char("РЎРїРёСЃРѕРє Р°РґСЂРµСЃРѕРІ РѕС‡РёС‰РµРЅ.\n\r", ch);
 	return;
     }
 
     for (c = arg; *c != '\0'; c++)
 	if (*c != '.' && (*c < '0' || *c > '9'))
 	{
-	    send_to_char("Недопустимые символы в адресе.\n\r", ch);
+	    send_to_char("РќРµРґРѕРїСѓСЃС‚РёРјС‹Рµ СЃРёРјРІРѕР»С‹ РІ Р°РґСЂРµСЃРµ.\n\r", ch);
 	    return;
 	}
 
@@ -4142,7 +4142,7 @@ void do_setip(CHAR_DATA *ch, char *argument)
 			break;
 		    }
 	    }
-	    sprintf(b, "Ты удаляешь адрес %s из списка разрешенных адресов.\n\r", ip->name);
+	    sprintf(b, "РўС‹ СѓРґР°Р»СЏРµС€СЊ Р°РґСЂРµСЃ %s РёР· СЃРїРёСЃРєР° СЂР°Р·СЂРµС€РµРЅРЅС‹С… Р°РґСЂРµСЃРѕРІ.\n\r", ip->name);
 	    send_to_char(b, ch);
 
 	    free_name_list(ip);
@@ -4156,7 +4156,7 @@ void do_setip(CHAR_DATA *ch, char *argument)
     ip->next = ch->pcdata->ips;
     ch->pcdata->ips = ip;
 
-    sprintf(b, "Ты вносишь %s в список разрешенных адресов.\n\r", arg);
+    sprintf(b, "РўС‹ РІРЅРѕСЃРёС€СЊ %s РІ СЃРїРёСЃРѕРє СЂР°Р·СЂРµС€РµРЅРЅС‹С… Р°РґСЂРµСЃРѕРІ.\n\r", arg);
     send_to_char(b, ch);
 
     return;
@@ -4169,18 +4169,18 @@ void do_noexp(CHAR_DATA *ch, char *argument)
 
     if (ch->fighting || POS_FIGHT(ch))
     {
-	send_to_char("Сначала закончи бой.\n\r", ch);
+	send_to_char("РЎРЅР°С‡Р°Р»Р° Р·Р°РєРѕРЅС‡Рё Р±РѕР№.\n\r", ch);
 	return;
     }
 
     if (IS_SET(ch->act, PLR_NOEXP))
     {
-	send_to_char("Теперь ты будешь получать опыт.\n\r", ch);
+	send_to_char("РўРµРїРµСЂСЊ С‚С‹ Р±СѓРґРµС€СЊ РїРѕР»СѓС‡Р°С‚СЊ РѕРїС‹С‚.\n\r", ch);
 	REMOVE_BIT(ch->act, PLR_NOEXP);
     }
     else
     {
-	send_to_char("Теперь ты не будешь получать опыт за убийства мобов.\n\r", ch);
+	send_to_char("РўРµРїРµСЂСЊ С‚С‹ РЅРµ Р±СѓРґРµС€СЊ РїРѕР»СѓС‡Р°С‚СЊ РѕРїС‹С‚ Р·Р° СѓР±РёР№СЃС‚РІР° РјРѕР±РѕРІ.\n\r", ch);
 	SET_BIT(ch->act, PLR_NOEXP);
     }
 }
@@ -4196,18 +4196,18 @@ void do_reg_answer(CHAR_DATA *ch, char *argument)
 
     if (!IS_NULLSTR(ch->pcdata->reg_answer) && !IS_IMMORTAL(ch))
     {
-	send_to_char("Ты уже ввел ответ на регистрационный вопрос.\n\r", ch);
+	send_to_char("РўС‹ СѓР¶Рµ РІРІРµР» РѕС‚РІРµС‚ РЅР° СЂРµРіРёСЃС‚СЂР°С†РёРѕРЅРЅС‹Р№ РІРѕРїСЂРѕСЃ.\n\r", ch);
 	return;
     }
 
     if (IS_NULLSTR(argument))
     {
-	send_to_char("Введите, пожалуйста, девичью фамилию вашей матери:\n\r", ch);
-	send_to_char("Синтаксис: регвопрос <девичья фамилия вашей матери>. \n\r", ch);
-	send_to_char("Например: регвопрос Иванова.\n\r", ch);
+	send_to_char("Р’РІРµРґРёС‚Рµ, РїРѕР¶Р°Р»СѓР№СЃС‚Р°, РґРµРІРёС‡СЊСЋ С„Р°РјРёР»РёСЋ РІР°С€РµР№ РјР°С‚РµСЂРё:\n\r", ch);
+	send_to_char("РЎРёРЅС‚Р°РєСЃРёСЃ: СЂРµРіРІРѕРїСЂРѕСЃ <РґРµРІРёС‡СЊСЏ С„Р°РјРёР»РёСЏ РІР°С€РµР№ РјР°С‚РµСЂРё>. \n\r", ch);
+	send_to_char("РќР°РїСЂРёРјРµСЂ: СЂРµРіРІРѕРїСЂРѕСЃ РРІР°РЅРѕРІР°.\n\r", ch);
 	if (IS_IMMORTAL(ch))
 	{
-	    send_to_char("Синтаксис: регвопрос clear <имя чара, которому надо очистить поле регистрационного вопроса.\n\r", ch);
+	    send_to_char("РЎРёРЅС‚Р°РєСЃРёСЃ: СЂРµРіРІРѕРїСЂРѕСЃ clear <РёРјСЏ С‡Р°СЂР°, РєРѕС‚РѕСЂРѕРјСѓ РЅР°РґРѕ РѕС‡РёСЃС‚РёС‚СЊ РїРѕР»Рµ СЂРµРіРёСЃС‚СЂР°С†РёРѕРЅРЅРѕРіРѕ РІРѕРїСЂРѕСЃР°.\n\r", ch);
 	}
 	return;
     }
@@ -4220,20 +4220,20 @@ void do_reg_answer(CHAR_DATA *ch, char *argument)
 
 	if (IS_NULLSTR(arg2))
 	{
-	    send_to_char("Введи имя чара, которому надо очистить поле регистрационного вопроса.\n\r", ch);
+	    send_to_char("Р’РІРµРґРё РёРјСЏ С‡Р°СЂР°, РєРѕС‚РѕСЂРѕРјСѓ РЅР°РґРѕ РѕС‡РёСЃС‚РёС‚СЊ РїРѕР»Рµ СЂРµРіРёСЃС‚СЂР°С†РёРѕРЅРЅРѕРіРѕ РІРѕРїСЂРѕСЃР°.\n\r", ch);
 	    return;
 	}
 
 	if ((victim = get_char_world(ch, arg2)) == NULL
 	    || (IS_NPC(victim)))
 	{
-	    send_to_char("Таких в мире нет.\n\r", ch);
+	    send_to_char("РўР°РєРёС… РІ РјРёСЂРµ РЅРµС‚.\n\r", ch);
 	    return;
 	}
 
 	free_string(victim->pcdata->reg_answer);
 	victim->pcdata->reg_answer = NULL;
-	send_to_char("Поле его регистрационного вопроса очищено.\n\r", ch);
+	send_to_char("РџРѕР»Рµ РµРіРѕ СЂРµРіРёСЃС‚СЂР°С†РёРѕРЅРЅРѕРіРѕ РІРѕРїСЂРѕСЃР° РѕС‡РёС‰РµРЅРѕ.\n\r", ch);
 	return;
     }
 
@@ -4241,7 +4241,7 @@ void do_reg_answer(CHAR_DATA *ch, char *argument)
     smash_tilde(arg1);
     ch->pcdata->reg_answer = str_dup(arg1);
 
-    send_to_char("Ответ на регистрационный вопрос введен. Больше вы его изменить не сможете.\n\r", ch);
+    send_to_char("РћС‚РІРµС‚ РЅР° СЂРµРіРёСЃС‚СЂР°С†РёРѕРЅРЅС‹Р№ РІРѕРїСЂРѕСЃ РІРІРµРґРµРЅ. Р‘РѕР»СЊС€Рµ РІС‹ РµРіРѕ РёР·РјРµРЅРёС‚СЊ РЅРµ СЃРјРѕР¶РµС‚Рµ.\n\r", ch);
     return;
 }
 
@@ -4249,12 +4249,12 @@ void do_reg_answer(CHAR_DATA *ch, char *argument)
 
 char *camomile[] =
 {
-    "Любит",
-    "Не любит",
-    "Плюнет",
-    "Поцелует",
-    "К сердцу прижмет",
-    "К черту пошлет",
+    "Р›СЋР±РёС‚",
+    "РќРµ Р»СЋР±РёС‚",
+    "РџР»СЋРЅРµС‚",
+    "РџРѕС†РµР»СѓРµС‚",
+    "Рљ СЃРµСЂРґС†Сѓ РїСЂРёР¶РјРµС‚",
+    "Рљ С‡РµСЂС‚Сѓ РїРѕС€Р»РµС‚",
     NULL
 };
 
@@ -4262,8 +4262,8 @@ void do_camomile(CHAR_DATA *ch, char *argument)
 {
     int i;
 
-    send_to_char("Ты срываешь ромашку, отрываешь лепестки, приговаривая:\n\r", ch);
-    act("$n срывает ромашку, отрывает лепестки, приговаривая:\n\r", ch, NULL, NULL, TO_ROOM);
+    send_to_char("РўС‹ СЃСЂС‹РІР°РµС€СЊ СЂРѕРјР°С€РєСѓ, РѕС‚СЂС‹РІР°РµС€СЊ Р»РµРїРµСЃС‚РєРё, РїСЂРёРіРѕРІР°СЂРёРІР°СЏ:\n\r", ch);
+    act("$n СЃСЂС‹РІР°РµС‚ СЂРѕРјР°С€РєСѓ, РѕС‚СЂС‹РІР°РµС‚ Р»РµРїРµСЃС‚РєРё, РїСЂРёРіРѕРІР°СЂРёРІР°СЏ:\n\r", ch, NULL, NULL, TO_ROOM);
 
     for (i = 0; camomile[i] != NULL; i++)
 	act("$t...", ch, camomile[i], NULL, TO_ALL);
@@ -4280,42 +4280,42 @@ void do_temp_RIP(CHAR_DATA *ch, char *argument)
     {
 		if (!ch->pcdata->temp_RIP)
 		{
-			send_to_char("Ты не имеешь права на временное бессмертие. Тебе нечего желать.\n\r", ch);
+			send_to_char("РўС‹ РЅРµ РёРјРµРµС€СЊ РїСЂР°РІР° РЅР° РІСЂРµРјРµРЅРЅРѕРµ Р±РµСЃСЃРјРµСЂС‚РёРµ. РўРµР±Рµ РЅРµС‡РµРіРѕ Р¶РµР»Р°С‚СЊ.\n\r", ch);
 			return;
 		}
 
 		if (ch->pcdata->temp_RIP > 2)
 		{
-			send_to_char("Ты имеешь право не на временное бессмертие, а на посмертие. Тебе нечего желать.\n\r", ch);
+			send_to_char("РўС‹ РёРјРµРµС€СЊ РїСЂР°РІРѕ РЅРµ РЅР° РІСЂРµРјРµРЅРЅРѕРµ Р±РµСЃСЃРјРµСЂС‚РёРµ, Р° РЅР° РїРѕСЃРјРµСЂС‚РёРµ. РўРµР±Рµ РЅРµС‡РµРіРѕ Р¶РµР»Р°С‚СЊ.\n\r", ch);
 			return;
 		}
 
 		if (ch->pcdata->temp_RIP == 1)
 		{
-			send_to_char("Теперь ты желаешь временное бессмертие.\n\r", ch);
+			send_to_char("РўРµРїРµСЂСЊ С‚С‹ Р¶РµР»Р°РµС€СЊ РІСЂРµРјРµРЅРЅРѕРµ Р±РµСЃСЃРјРµСЂС‚РёРµ.\n\r", ch);
 			ch->pcdata->temp_RIP = 2;
 		}
 		else
 		{
-			send_to_char("Теперь ты не желаешь временное бессмертие.\n\r", ch);
+			send_to_char("РўРµРїРµСЂСЊ С‚С‹ РЅРµ Р¶РµР»Р°РµС€СЊ РІСЂРµРјРµРЅРЅРѕРµ Р±РµСЃСЃРјРµСЂС‚РёРµ.\n\r", ch);
 			ch->pcdata->temp_RIP = 1;
 		}
 	}
 	else
 	{
-		if (!str_cmp(argument, "статус"))
+		if (!str_cmp(argument, "СЃС‚Р°С‚СѓСЃ"))
 		{
 			switch (ch->pcdata->temp_RIP)
 			{
-				case 0 : send_to_char("У тебя нет права ни на временное бессмертие, ни на посмертие.\n\r", ch); break;
-				case 1 : send_to_char("У тебя есть право на временное бессмертие, но сейчас ты не желаешь его.\n\r", ch); break;
-				case 2 : send_to_char("У тебя есть право на временное бессмертие, и сейчас ты желаешь его.\n\r", ch); break;
-				case 3 : send_to_char("У тебя есть право на посмертие.\n\r", ch);
+				case 0 : send_to_char("РЈ С‚РµР±СЏ РЅРµС‚ РїСЂР°РІР° РЅРё РЅР° РІСЂРµРјРµРЅРЅРѕРµ Р±РµСЃСЃРјРµСЂС‚РёРµ, РЅРё РЅР° РїРѕСЃРјРµСЂС‚РёРµ.\n\r", ch); break;
+				case 1 : send_to_char("РЈ С‚РµР±СЏ РµСЃС‚СЊ РїСЂР°РІРѕ РЅР° РІСЂРµРјРµРЅРЅРѕРµ Р±РµСЃСЃРјРµСЂС‚РёРµ, РЅРѕ СЃРµР№С‡Р°СЃ С‚С‹ РЅРµ Р¶РµР»Р°РµС€СЊ РµРіРѕ.\n\r", ch); break;
+				case 2 : send_to_char("РЈ С‚РµР±СЏ РµСЃС‚СЊ РїСЂР°РІРѕ РЅР° РІСЂРµРјРµРЅРЅРѕРµ Р±РµСЃСЃРјРµСЂС‚РёРµ, Рё СЃРµР№С‡Р°СЃ С‚С‹ Р¶РµР»Р°РµС€СЊ РµРіРѕ.\n\r", ch); break;
+				case 3 : send_to_char("РЈ С‚РµР±СЏ РµСЃС‚СЊ РїСЂР°РІРѕ РЅР° РїРѕСЃРјРµСЂС‚РёРµ.\n\r", ch);
 			}
 		}
 		else
 		{
-			send_to_char("Синтаксис: бессмертие <статус>\n\r", ch);
+			send_to_char("РЎРёРЅС‚Р°РєСЃРёСЃ: Р±РµСЃСЃРјРµСЂС‚РёРµ <СЃС‚Р°С‚СѓСЃ>\n\r", ch);
 		}
 	}
 				

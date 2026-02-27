@@ -93,10 +93,10 @@ void substitute_alias(DESCRIPTOR_DATA *d, char *argument)
       return;
 
     /* check for prefix */
-    if (ch->prefix[0] != '\0' && str_prefix("prefix", argument) && str_prefix("префикс", argument))
+    if (ch->prefix[0] != '\0' && str_prefix("prefix", argument) && str_prefix("РїСЂРµС„РёРєСЃ", argument))
     {
 	if (strlen(ch->prefix) + strlen(argument) > MAX_INPUT_LENGTH - 2)
-	    send_to_char("Слишком длинная строка, префикс не обработан.\r\n", ch);
+	    send_to_char("РЎР»РёС€РєРѕРј РґР»РёРЅРЅР°СЏ СЃС‚СЂРѕРєР°, РїСЂРµС„РёРєСЃ РЅРµ РѕР±СЂР°Р±РѕС‚Р°РЅ.\r\n", ch);
 	else
 	{
 	    sprintf(prefix, "%s %s", ch->prefix, argument);
@@ -109,7 +109,7 @@ void substitute_alias(DESCRIPTOR_DATA *d, char *argument)
 /*    for (alias = 0; cmd_table[alias].name[0] != '\0'; alias++)
         if (!str_cmp(cmd_table[alias].name, name))
         {
-	    send_to_char("Извини, это слово зарезервировано.\n\r", ch);
+	    send_to_char("РР·РІРёРЅРё, СЌС‚Рѕ СЃР»РѕРІРѕ Р·Р°СЂРµР·РµСЂРІРёСЂРѕРІР°РЅРѕ.\n\r", ch);
 	    return;
         } */
 
@@ -117,7 +117,7 @@ void substitute_alias(DESCRIPTOR_DATA *d, char *argument)
     if (IS_NPC(ch) || ch->pcdata->alias[0] == NULL
 	|| !str_prefix("alias", argument) || !str_prefix("una", argument) 
 	|| !str_prefix("prefix", argument)
-	|| !str_prefix("префикс", argument)) 
+	|| !str_prefix("РїСЂРµС„РёРєСЃ", argument)) 
     {
 	interpret(d->character, argument);
 	return;
@@ -146,7 +146,7 @@ void substitute_alias(DESCRIPTOR_DATA *d, char *argument)
 	        if (strlen(buf) > MAX_INPUT_LENGTH - 1)
 	        {
 		    send_to_char(
-			"Подстановка слишком длинная. Она будет обрезана.\r\n", ch);
+			"РџРѕРґСЃС‚Р°РЅРѕРІРєР° СЃР»РёС€РєРѕРј РґР»РёРЅРЅР°СЏ. РћРЅР° Р±СѓРґРµС‚ РѕР±СЂРµР·Р°РЅР°.\r\n", ch);
 		    buf[MAX_INPUT_LENGTH -1] = '\0';
 	        }
 		
@@ -161,7 +161,7 @@ void substitute_alias(DESCRIPTOR_DATA *d, char *argument)
 
 void do_alia(CHAR_DATA *ch, char *argument)
 {
-    send_to_char("Ты должен ввести эту команду полностью.\n\r", ch);
+    send_to_char("РўС‹ РґРѕР»Р¶РµРЅ РІРІРµСЃС‚Рё СЌС‚Сѓ РєРѕРјР°РЅРґСѓ РїРѕР»РЅРѕСЃС‚СЊСЋ.\n\r", ch);
     return;
 }
 
@@ -189,10 +189,10 @@ void do_alias(CHAR_DATA *ch, char *argument)
 
 	if (rch->pcdata->alias[0] == NULL)
 	{
-	    send_to_char("У тебя нет алиасов.\n\r", ch);
+	    send_to_char("РЈ С‚РµР±СЏ РЅРµС‚ Р°Р»РёР°СЃРѕРІ.\n\r", ch);
 	    return;
 	}
-	send_to_char("Твои текущие алиасы:\n\r", ch);
+	send_to_char("РўРІРѕРё С‚РµРєСѓС‰РёРµ Р°Р»РёР°СЃС‹:\n\r", ch);
 
 	for (pos = 0; pos < MAX_ALIAS; pos++)
 	{
@@ -210,13 +210,13 @@ void do_alias(CHAR_DATA *ch, char *argument)
     for (pos = 0; cmd_table[pos].name[0] != '\0'; pos++)
         if (!str_cmp(cmd_table[pos].name, arg))
         {
-	    send_to_char("Извини, это слово зарезервировано.\n\r", ch);
+	    send_to_char("РР·РІРёРЅРё, СЌС‚Рѕ СЃР»РѕРІРѕ Р·Р°СЂРµР·РµСЂРІРёСЂРѕРІР°РЅРѕ.\n\r", ch);
 	    return;
         }
 
     if (strchr(arg, ' ') || strchr(arg, '"') || strchr(arg, '\'')) 
     {
-        send_to_char("Псевдоним не должен содержать пробелов, слэшей, одинарных и двойных кавычек.\n\r", ch);
+        send_to_char("РџСЃРµРІРґРѕРЅРёРј РЅРµ РґРѕР»Р¶РµРЅ СЃРѕРґРµСЂР¶Р°С‚СЊ РїСЂРѕР±РµР»РѕРІ, СЃР»СЌС€РµР№, РѕРґРёРЅР°СЂРЅС‹С… Рё РґРІРѕР№РЅС‹С… РєР°РІС‹С‡РµРє.\n\r", ch);
         return;
     }
 
@@ -230,20 +230,20 @@ void do_alias(CHAR_DATA *ch, char *argument)
 
 	    if (!str_cmp(arg, rch->pcdata->alias[pos]))
 	    {
-		sprintf(buf, "%s указывает на '%s'.\n\r", rch->pcdata->alias[pos],
+		sprintf(buf, "%s СѓРєР°Р·С‹РІР°РµС‚ РЅР° '%s'.\n\r", rch->pcdata->alias[pos],
 			rch->pcdata->alias_sub[pos]);
 		send_to_char(buf, ch);
 		return;
 	    }
 	}
 
-	send_to_char("Этот алиас не определен.\n\r", ch);
+	send_to_char("Р­С‚РѕС‚ Р°Р»РёР°СЃ РЅРµ РѕРїСЂРµРґРµР»РµРЅ.\n\r", ch);
 	return;
     }
 
     if (!str_prefix(argument, "delete") || !str_prefix(argument, "prefix"))
     {
-	send_to_char("Это не может быть сделано!\n\r", ch);
+	send_to_char("Р­С‚Рѕ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ СЃРґРµР»Р°РЅРѕ!\n\r", ch);
 	return;
     }
 
@@ -256,7 +256,7 @@ void do_alias(CHAR_DATA *ch, char *argument)
 	{
 	    free_string(rch->pcdata->alias_sub[pos]);
 	    rch->pcdata->alias_sub[pos] = str_dup(argument);
-	    sprintf(buf, "%s теперь указывает на '%s'.\n\r", arg, argument);
+	    sprintf(buf, "%s С‚РµРїРµСЂСЊ СѓРєР°Р·С‹РІР°РµС‚ РЅР° '%s'.\n\r", arg, argument);
 	    send_to_char(buf, ch);
 	    return;
 	}
@@ -264,14 +264,14 @@ void do_alias(CHAR_DATA *ch, char *argument)
 
      if (pos >= MAX_ALIAS)
      {
-	send_to_char("Извини, ты достиг лимита алиасов.\n\r", ch);
+	send_to_char("РР·РІРёРЅРё, С‚С‹ РґРѕСЃС‚РёРі Р»РёРјРёС‚Р° Р°Р»РёР°СЃРѕРІ.\n\r", ch);
 	return;
      }
   
      /* make a new alias */
      rch->pcdata->alias[pos]		= str_dup(arg);
      rch->pcdata->alias_sub[pos]	= str_dup(argument);
-     sprintf(buf, "%s теперь указывает на '%s'.\n\r", arg, argument);
+     sprintf(buf, "%s С‚РµРїРµСЂСЊ СѓРєР°Р·С‹РІР°РµС‚ РЅР° '%s'.\n\r", arg, argument);
      send_to_char(buf, ch);
 }
 
@@ -315,7 +315,7 @@ void do_unalias(CHAR_DATA *ch, char *argument)
 
 	if(!strcmp(arg, rch->pcdata->alias[pos]))
 	{
-	    send_to_char("Алиас удален.\n\r", ch);
+	    send_to_char("РђР»РёР°СЃ СѓРґР°Р»РµРЅ.\n\r", ch);
 	    free_string(rch->pcdata->alias[pos]);
 	    free_string(rch->pcdata->alias_sub[pos]);
 	    rch->pcdata->alias[pos] = NULL;
@@ -325,6 +325,6 @@ void do_unalias(CHAR_DATA *ch, char *argument)
     }
 
     if (!found)
-	send_to_char("Таких алиасов нет.\n\r", ch);
+	send_to_char("РўР°РєРёС… Р°Р»РёР°СЃРѕРІ РЅРµС‚.\n\r", ch);
 }
 /* charset=cp1251 */
