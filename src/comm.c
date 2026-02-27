@@ -526,7 +526,7 @@ int main(int argc, char *argv[])
     conf.db_user = NULL;
     conf.db_passwd = NULL;
 
-    while ((ch = getopt(argc, argv, "p:nwlf:P:H:N:U:S:")) != -1)
+    while ((ch = getopt(argc, argv, "p:nwluf:P:H:N:U:S:")) != -1)
     {
 	switch (ch)
 	{
