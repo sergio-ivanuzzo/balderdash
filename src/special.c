@@ -283,9 +283,9 @@ bool spec_homunculus_cleric(CHAR_DATA *ch)
     }
 
     if (victim->hit <= victim->max_hit / 2 && number_bits(2) == 1)
-	spell = ( ch->level < 10 ? "лечить легкие раны" 
-		: ch->level < 20 ? "лечить серьезные раны"
-		: ch->level < 30 ? "лечить критические раны" : "heal");
+	spell = ( ch->level < 10 ? "Р»РµС‡РёС‚СЊ Р»РµРіРєРёРµ СЂР°РЅС‹" 
+		: ch->level < 20 ? "Р»РµС‡РёС‚СЊ СЃРµСЂСЊРµР·РЅС‹Рµ СЂР°РЅС‹"
+		: ch->level < 30 ? "Р»РµС‡РёС‚СЊ РєСЂРёС‚РёС‡РµСЃРєРёРµ СЂР°РЅС‹" : "heal");
 
     if (skill_lookup(spell) < 1)
 	return FALSE;
@@ -342,25 +342,25 @@ bool spec_troll_member(CHAR_DATA *ch)
     switch (number_range(0, 6))
     {
     case 0:
-	message = "$n вопит: {MЯ нашел тебя, подонок!{x";
+	message = "$n РІРѕРїРёС‚: {MРЇ РЅР°С€РµР» С‚РµР±СЏ, РїРѕРґРѕРЅРѕРє!{x";
 	break;
     case 1:
-	message = "$n с яростным воплем атакует $N3.";
+	message = "$n СЃ СЏСЂРѕСЃС‚РЅС‹Рј РІРѕРїР»РµРј Р°С‚Р°РєСѓРµС‚ $N3.";
 	break;
     case 2:
-	message = "$n говорит тебе: {RЧто такой гнусный урод, как ты, делает здесь?{x";
+	message = "$n РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {RР§С‚Рѕ С‚Р°РєРѕР№ РіРЅСѓСЃРЅС‹Р№ СѓСЂРѕРґ, РєР°Рє С‚С‹, РґРµР»Р°РµС‚ Р·РґРµСЃСЊ?{x";
 	break;
     case 3:
-	message = "$n щелкает пальцами и произносит: {CТы чувствуешь себя счастливым?{x";
+	message = "$n С‰РµР»РєР°РµС‚ РїР°Р»СЊС†Р°РјРё Рё РїСЂРѕРёР·РЅРѕСЃРёС‚: {CРўС‹ С‡СѓРІСЃС‚РІСѓРµС€СЊ СЃРµР±СЏ СЃС‡Р°СЃС‚Р»РёРІС‹Рј?{x";
 	break;
     case 4:
-	message = "$n произносит: {CЗдесь нет никого, кто бы мог спасти тебя на этот раз!{x";
+	message = "$n РїСЂРѕРёР·РЅРѕСЃРёС‚: {CР—РґРµСЃСЊ РЅРµС‚ РЅРёРєРѕРіРѕ, РєС‚Рѕ Р±С‹ РјРѕРі СЃРїР°СЃС‚Рё С‚РµР±СЏ РЅР° СЌС‚РѕС‚ СЂР°Р·!{x";
 	break;	
     case 5:
-	message = "$n произносит: {CПришло время присоединится тебе к своей сестре, картошке.{x";
+	message = "$n РїСЂРѕРёР·РЅРѕСЃРёС‚: {CРџСЂРёС€Р»Рѕ РІСЂРµРјСЏ РїСЂРёСЃРѕРµРґРёРЅРёС‚СЃСЏ С‚РµР±Рµ Рє СЃРІРѕРµР№ СЃРµСЃС‚СЂРµ, РєР°СЂС‚РѕС€РєРµ.{x";
 	break;
     case 6:
-	message = "$n произносит: {CПора за дело.{x";
+	message = "$n РїСЂРѕРёР·РЅРѕСЃРёС‚: {CРџРѕСЂР° Р·Р° РґРµР»Рѕ.{x";
 	break;
     default:
 	message = NULL;
@@ -409,20 +409,20 @@ bool spec_ogre_member(CHAR_DATA *ch)
     switch (number_range(0, 6))
     {
     default: message = NULL;	break;
-    case 0:	message = "$n вопит: {MЯ нашел тебя, подонок!{x";
+    case 0:	message = "$n РІРѕРїРёС‚: {MРЇ РЅР°С€РµР» С‚РµР±СЏ, РїРѕРґРѕРЅРѕРє!{x";
 		break;
-    case 1: message = "$n с яростным воплем атакует $N3.";
+    case 1: message = "$n СЃ СЏСЂРѕСЃС‚РЅС‹Рј РІРѕРїР»РµРј Р°С‚Р°РєСѓРµС‚ $N3.";
 	    break;
     case 2: message = 
-	    "$n говорит тебе: {RЧто такой урод, как ты, делает здесь?{x";
+	    "$n РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {RР§С‚Рѕ С‚Р°РєРѕР№ СѓСЂРѕРґ, РєР°Рє С‚С‹, РґРµР»Р°РµС‚ Р·РґРµСЃСЊ?{x";
 	    break;
-    case 3: message = "$n щелкает пальцами и произносит: {CТы чувствуешь себя счастливым?{x";
+    case 3: message = "$n С‰РµР»РєР°РµС‚ РїР°Р»СЊС†Р°РјРё Рё РїСЂРѕРёР·РЅРѕСЃРёС‚: {CРўС‹ С‡СѓРІСЃС‚РІСѓРµС€СЊ СЃРµР±СЏ СЃС‡Р°СЃС‚Р»РёРІС‹Рј?{x";
 	    break;
-    case 4: message = "$n произносит: {CЗдесь нет никого, кто бы мог спасти тебя на этот раз!{x";
+    case 4: message = "$n РїСЂРѕРёР·РЅРѕСЃРёС‚: {CР—РґРµСЃСЊ РЅРµС‚ РЅРёРєРѕРіРѕ, РєС‚Рѕ Р±С‹ РјРѕРі СЃРїР°СЃС‚Рё С‚РµР±СЏ РЅР° СЌС‚РѕС‚ СЂР°Р·!{x";
 	    break;	
-    case 5: message = "$n произносит: {CПришло время присоединится тебе к своей сестре, картошке.{x";
+    case 5: message = "$n РїСЂРѕРёР·РЅРѕСЃРёС‚: {CРџСЂРёС€Р»Рѕ РІСЂРµРјСЏ РїСЂРёСЃРѕРµРґРёРЅРёС‚СЃСЏ С‚РµР±Рµ Рє СЃРІРѕРµР№ СЃРµСЃС‚СЂРµ, РєР°СЂС‚РѕС€РєРµ.{x";
 	    break;
-    case 6: message = "$n произносит: {CПора за дело.{x";
+    case 6: message = "$n РїСЂРѕРёР·РЅРѕСЃРёС‚: {CРџРѕСЂР° Р·Р° РґРµР»Рѕ.{x";
 	    break;
 
     }
@@ -467,8 +467,8 @@ bool spec_patrolman(CHAR_DATA *ch)
 	|| ((obj = get_eq_char(ch, WEAR_NECK_2)) != NULL
 	    && obj->pIndexData->vnum == OBJ_VNUM_WHISTLE))
     {
-	act("Ты тяжело ударяешь по $p2.", ch, obj, NULL, TO_CHAR);
-	act("$n бьет по $p2, ***WHEEEEEEEEEEEET***", ch, obj, NULL, TO_ROOM);
+	act("РўС‹ С‚СЏР¶РµР»Рѕ СѓРґР°СЂСЏРµС€СЊ РїРѕ $p2.", ch, obj, NULL, TO_CHAR);
+	act("$n Р±СЊРµС‚ РїРѕ $p2, ***WHEEEEEEEEEEEET***", ch, obj, NULL, TO_ROOM);
 
 	LIST_FOREACH_SAFE(vch, &char_list, link, safe_vch)
 	{
@@ -477,7 +477,7 @@ bool spec_patrolman(CHAR_DATA *ch)
 
 	    if (vch->in_room != ch->in_room 
 		&& vch->in_room->area == ch->in_room->area)
-		send_to_char("Ты слышишь пронзительный свист.\n\r", vch);
+		send_to_char("РўС‹ СЃР»С‹С€РёС€СЊ РїСЂРѕРЅР·РёС‚РµР»СЊРЅС‹Р№ СЃРІРёСЃС‚.\n\r", vch);
 	}
 
     }
@@ -485,22 +485,22 @@ bool spec_patrolman(CHAR_DATA *ch)
     switch (number_range(0, 6))
     {
     default:	message = NULL;		break;
-    case 0:	message = "$n вопит: {MВнимание всем! Внимание всем! Прекратить!{x";
+    case 0:	message = "$n РІРѕРїРёС‚: {MР’РЅРёРјР°РЅРёРµ РІСЃРµРј! Р’РЅРёРјР°РЅРёРµ РІСЃРµРј! РџСЂРµРєСЂР°С‚РёС‚СЊ!{x";
 		break;
     case 1: message = 
-	    "$n произносит: {CОбщество порочно, но что я могу сделать?{x";
+	    "$n РїСЂРѕРёР·РЅРѕСЃРёС‚: {CРћР±С‰РµСЃС‚РІРѕ РїРѕСЂРѕС‡РЅРѕ, РЅРѕ С‡С‚Рѕ СЏ РјРѕРіСѓ СЃРґРµР»Р°С‚СЊ?{x";
 	    break;
     case 2: message = 
-	    "$n бормочет: {cдети крови будут нашей смертью.{x";
+	    "$n Р±РѕСЂРјРѕС‡РµС‚: {cРґРµС‚Рё РєСЂРѕРІРё Р±СѓРґСѓС‚ РЅР°С€РµР№ СЃРјРµСЂС‚СЊСЋ.{x";
 	    break;
-    case 3: message = "$n атакует с воплем: {MПрекратить это!{x";
+    case 3: message = "$n Р°С‚Р°РєСѓРµС‚ СЃ РІРѕРїР»РµРј: {MРџСЂРµРєСЂР°С‚РёС‚СЊ СЌС‚Рѕ!{x";
 	    break;
-    case 4: message = "$n сует за пояс свою дубинку и идет работать.";
+    case 4: message = "$n СЃСѓРµС‚ Р·Р° РїРѕСЏСЃ СЃРІРѕСЋ РґСѓР±РёРЅРєСѓ Рё РёРґРµС‚ СЂР°Р±РѕС‚Р°С‚СЊ.";
 	    break;
     case 5: message = 
-	    "$n тоскует по своей отставке и продолжает разнимать дерущихся.";
+	    "$n С‚РѕСЃРєСѓРµС‚ РїРѕ СЃРІРѕРµР№ РѕС‚СЃС‚Р°РІРєРµ Рё РїСЂРѕРґРѕР»Р¶Р°РµС‚ СЂР°Р·РЅРёРјР°С‚СЊ РґРµСЂСѓС‰РёС…СЃСЏ.";
 	    break;
-    case 6: message = "$n произносит: {CПрисядь, отдохни, хулиган!{x";
+    case 6: message = "$n РїСЂРѕРёР·РЅРѕСЃРёС‚: {CРџСЂРёСЃСЏРґСЊ, РѕС‚РґРѕС…РЅРё, С…СѓР»РёРіР°РЅ!{x";
 	    break;
     }
 
@@ -549,11 +549,11 @@ bool spec_nasty(CHAR_DATA *ch)
 
     switch (number_bits(2))
     {
-    case 0:  act("$n разрезает твой кошелек, и монеты высыпаются $x!",
+    case 0:  act("$n СЂР°Р·СЂРµР·Р°РµС‚ С‚РІРѕР№ РєРѕС€РµР»РµРє, Рё РјРѕРЅРµС‚С‹ РІС‹СЃС‹РїР°СЋС‚СЃСЏ $x!",
 		 ch, NULL, victim, TO_VICT);
-	     act("Ты разрезаешь кошелек $N1 и собираешь упавшие монеты!",
+	     act("РўС‹ СЂР°Р·СЂРµР·Р°РµС€СЊ РєРѕС€РµР»РµРє $N1 Рё СЃРѕР±РёСЂР°РµС€СЊ СѓРїР°РІС€РёРµ РјРѕРЅРµС‚С‹!",
 		 ch, NULL, victim, TO_CHAR);
-	     act("Кошелек $N1 оказывается разрезанным!",
+	     act("РљРѕС€РµР»РµРє $N1 РѕРєР°Р·С‹РІР°РµС‚СЃСЏ СЂР°Р·СЂРµР·Р°РЅРЅС‹Рј!",
 		 ch, NULL, victim, TO_NOTVICT);
 	     gold = victim->gold / 10;  /* steal 10% of his gold */
 	     victim->gold -= gold;
@@ -687,12 +687,12 @@ bool spec_cast_adept(CHAR_DATA *ch)
     case 0:
 	if (ch->race == RACE_VAMPIRE && IS_VAMPIRE(victim))
 	{
-	    act("$n восклицает 'сра хунсоз'.", ch, NULL, NULL, TO_ROOM);
+	    act("$n РІРѕСЃРєР»РёС†Р°РµС‚ 'СЃСЂР° С…СѓРЅСЃРѕР·'.", ch, NULL, NULL, TO_ROOM);
 	    spell_shadow_cloak(skill_lookup("shadow cloak"), ch->level, ch, victim, TARGET_CHAR);
 	}
 	else
 	{
-	    act("$n восклицает 'абразак'.", ch, NULL, NULL, TO_ROOM);
+	    act("$n РІРѕСЃРєР»РёС†Р°РµС‚ 'Р°Р±СЂР°Р·Р°Рє'.", ch, NULL, NULL, TO_ROOM);
 	    spell_armor(skill_lookup("armor"), ch->level, ch, victim, TARGET_CHAR);
 	}
 
@@ -701,52 +701,52 @@ bool spec_cast_adept(CHAR_DATA *ch)
     case 1:
 	if (!IS_VAMPIRE(victim))
 	{
-	    act("$n восклицает 'фидо'.", ch, NULL, NULL, TO_ROOM);
+	    act("$n РІРѕСЃРєР»РёС†Р°РµС‚ 'С„РёРґРѕ'.", ch, NULL, NULL, TO_ROOM);
 	    spell_bless(skill_lookup("bless"), ch->level, ch, victim, TARGET_CHAR);
 	    return TRUE;
 	}
 	break;
     case 2:
-	act("$n восклицает 'джудикандус носелакри'.", ch, NULL, NULL, TO_ROOM);
+	act("$n РІРѕСЃРєР»РёС†Р°РµС‚ 'РґР¶СѓРґРёРєР°РЅРґСѓСЃ РЅРѕСЃРµР»Р°РєСЂРё'.", ch, NULL, NULL, TO_ROOM);
 	spell_cure_blindness(skill_lookup("cure blindness"),
 			     ch->level, ch, victim, TARGET_CHAR);
 	return TRUE;
 
     case 3:
-	act("$n восклицает 'джудикандус диес'.", ch, NULL, NULL, TO_ROOM);
+	act("$n РІРѕСЃРєР»РёС†Р°РµС‚ 'РґР¶СѓРґРёРєР°РЅРґСѓСЃ РґРёРµСЃ'.", ch, NULL, NULL, TO_ROOM);
 	spell_cure_light(skill_lookup("cure light"),
 			 ch->level, ch, victim, TARGET_CHAR);
 	return TRUE;
 
     case 4:
-	act("$n восклицает 'джудикандус саусабру'.", ch, NULL, NULL, TO_ROOM);
+	act("$n РІРѕСЃРєР»РёС†Р°РµС‚ 'РґР¶СѓРґРёРєР°РЅРґСѓСЃ СЃР°СѓСЃР°Р±СЂСѓ'.", ch, NULL, NULL, TO_ROOM);
 	spell_cure_poison(skill_lookup("cure poison"),
 			  ch->level, ch, victim, TARGET_CHAR);
 	return TRUE;
 
     case 5:
-	act("$n восклицает 'кандусима'.", ch, NULL, NULL, TO_ROOM);
+	act("$n РІРѕСЃРєР»РёС†Р°РµС‚ 'РєР°РЅРґСѓСЃРёРјР°'.", ch, NULL, NULL, TO_ROOM);
 	spell_refresh(skill_lookup("refresh"), ch->level, ch, victim, TARGET_CHAR);
 	return TRUE;
 
     case 6:
-	act("$n восклицает 'джудикандус еугзагс'.", ch, NULL, NULL, TO_ROOM);
+	act("$n РІРѕСЃРєР»РёС†Р°РµС‚ 'РґР¶СѓРґРёРєР°РЅРґСѓСЃ РµСѓРіР·Р°РіСЃ'.", ch, NULL, NULL, TO_ROOM);
 	spell_cure_disease(skill_lookup("cure disease"),
 			   ch->level, ch, victim, TARGET_CHAR);
 	return TRUE;
     case 7:
-	act("$n восклицает 'энерджайзер'.", ch, NULL, NULL, TO_ROOM);
+	act("$n РІРѕСЃРєР»РёС†Р°РµС‚ 'СЌРЅРµСЂРґР¶Р°Р№Р·РµСЂ'.", ch, NULL, NULL, TO_ROOM);
 	if (victim->mana < victim->max_mana)
 	{
 	    victim->mana += dice(2, 5) + ch->level / 5;
 	    victim->mana = UMIN(victim->mana, victim->max_mana);
-	    send_to_char("Тебя пронизывает тепло.\n\r", victim);
+	    send_to_char("РўРµР±СЏ РїСЂРѕРЅРёР·С‹РІР°РµС‚ С‚РµРїР»Рѕ.\n\r", victim);
 	}
 	return TRUE;
     case 8:
 	if (ch->race == RACE_VAMPIRE && IS_VAMPIRE(victim))
 	{
-	    act("$n восклицает 'кауха ах гззха'.", ch, NULL, NULL, TO_ROOM);
+	    act("$n РІРѕСЃРєР»РёС†Р°РµС‚ 'РєР°СѓС…Р° Р°С… РіР·Р·С…Р°'.", ch, NULL, NULL, TO_ROOM);
 	    spell_protection_light(skill_lookup("protection from light"),
 				   ch->level, ch, victim, TARGET_CHAR);
 	    return TRUE;
@@ -755,7 +755,7 @@ bool spec_cast_adept(CHAR_DATA *ch)
     case 9:
 	if (ch->race == RACE_VAMPIRE && IS_VAMPIRE(victim))
 	{
-	    act("$n восклицает 'кауха ах еабгру'.", ch, NULL, NULL, TO_ROOM);
+	    act("$n РІРѕСЃРєР»РёС†Р°РµС‚ 'РєР°СѓС…Р° Р°С… РµР°Р±РіСЂСѓ'.", ch, NULL, NULL, TO_ROOM);
 	    spell_protection_good(skill_lookup("protection good"),
 				  ch->level, ch, victim, TARGET_CHAR);
 	    return TRUE;
@@ -809,8 +809,8 @@ bool spec_cast_cleric(CHAR_DATA *ch)
 	}
 
 	/*
-	 * Жрецы сами себя подлечивают... Чтоб жизнь медом не казалась.
-	 * 50% вероятность
+	 * Р–СЂРµС†С‹ СЃР°РјРё СЃРµР±СЏ РїРѕРґР»РµС‡РёРІР°СЋС‚... Р§С‚РѕР± Р¶РёР·РЅСЊ РјРµРґРѕРј РЅРµ РєР°Р·Р°Р»Р°СЃСЊ.
+	 * 50% РІРµСЂРѕСЏС‚РЅРѕСЃС‚СЊ
 	 */
 	if ((ch->hit <= ch->max_hit / 2) && (number_bits(2) == 1))
 	{
@@ -950,13 +950,13 @@ bool spec_executioner(CHAR_DATA *ch)
 
 	if (!IS_NPC(victim) && IS_SET(victim->act, PLR_THIEF)) 
 	{
-	    crime = "ВОР";
+	    crime = "Р’РћР ";
 	    break;
 	}
 
 	if (!IS_NPC(victim) && IS_SET(victim->act, PLR_KILLER)) 
 	{
-	    crime = "УБИЙЦА";
+	    crime = "РЈР‘РР™Р¦Рђ";
 	    break;
 	}
     }
@@ -964,7 +964,7 @@ bool spec_executioner(CHAR_DATA *ch)
     if (victim == NULL)
 	return FALSE;
 
-    sprintf(buf, "%s - %s! Теперь ты в моих руках! Крови твоей жажду!!",
+    sprintf(buf, "%s - %s! РўРµРїРµСЂСЊ С‚С‹ РІ РјРѕРёС… СЂСѓРєР°С…! РљСЂРѕРІРё С‚РІРѕРµР№ Р¶Р°Р¶РґСѓ!!",
 	    victim->name, crime);
     REMOVE_BIT(ch->comm, COMM_NOSHOUT);
     do_function(ch, &do_yell, buf);
@@ -989,13 +989,13 @@ bool spec_templeguard(CHAR_DATA *ch)
 
 	if (!IS_NPC(victim) && victim->count_holy_attacks > 0) 
 	{
-	    crime = "Еретик";
+	    crime = "Р•СЂРµС‚РёРє";
 	    break;
 	}
 /*
 	if (!IS_NPC(victim) && victim->count_guild_attacks > 0) 
 	{
-	    crime = "Братоубийца";
+	    crime = "Р‘СЂР°С‚РѕСѓР±РёР№С†Р°";
 	    break;
 	}
 */
@@ -1004,7 +1004,7 @@ bool spec_templeguard(CHAR_DATA *ch)
     if (victim == NULL)
 	return FALSE;
 
-    sprintf(buf, "%s - %s! Как ты посмел%s войти в храм?!",
+    sprintf(buf, "%s - %s! РљР°Рє С‚С‹ РїРѕСЃРјРµР»%s РІРѕР№С‚Рё РІ С…СЂР°Рј?!",
 	    victim->name, crime, SEX_ENDING(victim));
     REMOVE_BIT(ch->comm, COMM_NOSHOUT);
     do_function(ch, &do_say, buf);
@@ -1029,13 +1029,13 @@ bool spec_guildguard(CHAR_DATA *ch)
 
 	if (!IS_NPC(victim) && victim->count_guild_attacks > 0) 
 	{
-	    crime = "Братоубийца";
+	    crime = "Р‘СЂР°С‚РѕСѓР±РёР№С†Р°";
 	    break;
 	}
 /*    
 	if (!IS_NPC(victim) && victim->count_holy_attacks > 0) 
 	{
-	    crime = "Еретик";
+	    crime = "Р•СЂРµС‚РёРє";
 	    break;
 	}
  */
@@ -1044,7 +1044,7 @@ bool spec_guildguard(CHAR_DATA *ch)
     if (victim == NULL)
 	return FALSE;
 
-    sprintf(buf, "%s - %s! Как ты посмел%s прийти в гильдию?!",
+    sprintf(buf, "%s - %s! РљР°Рє С‚С‹ РїРѕСЃРјРµР»%s РїСЂРёР№С‚Рё РІ РіРёР»СЊРґРёСЋ?!",
 	    victim->name, crime, SEX_ENDING(victim));
     REMOVE_BIT(ch->comm, COMM_NOSHOUT);
     do_function(ch, &do_say, buf);
@@ -1069,7 +1069,7 @@ bool spec_fido(CHAR_DATA *ch)
 	if (corpse->item_type != ITEM_CORPSE_NPC)
 	    continue;
 
-	act("$n жадно пожирает труп.", ch, NULL, NULL, TO_ROOM);
+	act("$n Р¶Р°РґРЅРѕ РїРѕР¶РёСЂР°РµС‚ С‚СЂСѓРї.", ch, NULL, NULL, TO_ROOM);
 	dump_container(corpse);
 	return TRUE;
     }
@@ -1100,13 +1100,13 @@ bool spec_guard(CHAR_DATA *ch)
 	{
 	    if (!IS_NPC(victim) && IS_SET(victim->act, PLR_KILLER))
 	    {
-		crime = "УБИЙЦА";
+		crime = "РЈР‘РР™Р¦Рђ";
 		break;
 	    }
 
 	    if (!IS_NPC(victim) && IS_SET(victim->act, PLR_THIEF)) 
 	    {
-		crime = "ВОР";
+		crime = "Р’РћР ";
 		break;
 	    }
 	}
@@ -1124,7 +1124,7 @@ bool spec_guard(CHAR_DATA *ch)
 
     if (victim != NULL && SUPPRESS_OUTPUT(!is_safe(ch, victim)))
     {
-	sprintf(buf, "%s - %s! Теперь ты от меня не уйдешь!!",
+	sprintf(buf, "%s - %s! РўРµРїРµСЂСЊ С‚С‹ РѕС‚ РјРµРЅСЏ РЅРµ СѓР№РґРµС€СЊ!!",
 		victim->name, crime);
 	REMOVE_BIT(ch->comm, COMM_NOSHOUT);
 	do_function(ch, &do_yell, buf);
@@ -1134,7 +1134,7 @@ bool spec_guard(CHAR_DATA *ch)
 
     if (ech != NULL && SUPPRESS_OUTPUT(!is_safe(ch, ech)))
     {
-	act("$n вопит: {MНА ЗАЩИТУ НЕВИННЫХ!!!{x", ch, NULL, NULL, TO_ROOM);
+	act("$n РІРѕРїРёС‚: {MРќРђ Р—РђР©РРўРЈ РќР•Р’РРќРќР«РҐ!!!{x", ch, NULL, NULL, TO_ROOM);
 	multi_hit(ch, ech, TYPE_UNDEFINED);
 	return TRUE;
     }
@@ -1164,7 +1164,7 @@ bool spec_janitor(CHAR_DATA *ch)
 	    && count_users(trash) == 0
 	    && SUPPRESS_OUTPUT(!is_have_limit(ch, ch, trash)))
 	{
-	    act("$n собирает кое-какой мусор.", ch, NULL, NULL, TO_ROOM);
+	    act("$n СЃРѕР±РёСЂР°РµС‚ РєРѕРµ-РєР°РєРѕР№ РјСѓСЃРѕСЂ.", ch, NULL, NULL, TO_ROOM);
 	    obj_from_room(trash);
 	    obj_to_char(trash, ch);
 	    return TRUE;
@@ -1220,49 +1220,49 @@ bool spec_mayor(CHAR_DATA *ch)
 
     case 'W':
 	ch->position = POS_STANDING;
-	act("$n просыпается и широко зевает.", ch, NULL, NULL, TO_ROOM);
+	act("$n РїСЂРѕСЃС‹РїР°РµС‚СЃСЏ Рё С€РёСЂРѕРєРѕ Р·РµРІР°РµС‚.", ch, NULL, NULL, TO_ROOM);
 	break;
 
     case 'S':
 	ch->position = POS_SLEEPING;
-	act("$n ложится спать.", ch, NULL, NULL, TO_ROOM);
+	act("$n Р»РѕР¶РёС‚СЃСЏ СЃРїР°С‚СЊ.", ch, NULL, NULL, TO_ROOM);
 	break;
 
     case 'a':
-	act("$n восклицает: {CПривет!{x", ch, NULL, NULL, TO_ROOM);
+	act("$n РІРѕСЃРєР»РёС†Р°РµС‚: {CРџСЂРёРІРµС‚!{x", ch, NULL, NULL, TO_ROOM);
 	break;
 
     case 'b':
-	act("$n восклицает: {CКакой вид! Я должен это зарисовать!{x",
+	act("$n РІРѕСЃРєР»РёС†Р°РµС‚: {CРљР°РєРѕР№ РІРёРґ! РЇ РґРѕР»Р¶РµРЅ СЌС‚Рѕ Р·Р°СЂРёСЃРѕРІР°С‚СЊ!{x",
 	    ch, NULL, NULL, TO_ROOM);
 	break;
 
     case 'c':
-	act("$n восклицает: {CВандалы! Юнцы ни к чему не имеют никакого уважения!{x",
+	act("$n РІРѕСЃРєР»РёС†Р°РµС‚: {CР’Р°РЅРґР°Р»С‹! Р®РЅС†С‹ РЅРё Рє С‡РµРјСѓ РЅРµ РёРјРµСЋС‚ РЅРёРєР°РєРѕРіРѕ СѓРІР°Р¶РµРЅРёСЏ!{x",
 	    ch, NULL, NULL, TO_ROOM);
 	break;
 
     case 'd':
-	act("$n восклицает: {CЗдравствуйте, граждане!{x", ch, NULL, NULL, TO_ROOM);
+	act("$n РІРѕСЃРєР»РёС†Р°РµС‚: {CР—РґСЂР°РІСЃС‚РІСѓР№С‚Рµ, РіСЂР°Р¶РґР°РЅРµ!{x", ch, NULL, NULL, TO_ROOM);
 	break;
 
     case 'e':
-	act("$n восклицает: {CЗа сим я объявляю Мидгард открытым!{x",
+	act("$n РІРѕСЃРєР»РёС†Р°РµС‚: {CР—Р° СЃРёРј СЏ РѕР±СЉСЏРІР»СЏСЋ РњРёРґРіР°СЂРґ РѕС‚РєСЂС‹С‚С‹Рј!{x",
 	    ch, NULL, NULL, TO_ROOM);
 	break;
 
     case 'E':
-	act("$n восклицает: {CЗа сим я объявляю Мидгард закрытым!{x",
+	act("$n РІРѕСЃРєР»РёС†Р°РµС‚: {CР—Р° СЃРёРј СЏ РѕР±СЉСЏРІР»СЏСЋ РњРёРґРіР°СЂРґ Р·Р°РєСЂС‹С‚С‹Рј!{x",
 	    ch, NULL, NULL, TO_ROOM);
 	break;
 
     case 'O':
 	/*	do_function(ch, &do_unlock, "gate"); */
-	do_function(ch, &do_open_, "ворота");
+	do_function(ch, &do_open_, "РІРѕСЂРѕС‚Р°");
 	break;
 
     case 'C':
-	do_function(ch, &do_close_, "ворота");
+	do_function(ch, &do_close_, "РІРѕСЂРѕС‚Р°");
 	/*	do_function(ch, &do_lock, "gate"); */
 	break;
 
@@ -1288,9 +1288,9 @@ bool spec_poison(CHAR_DATA *ch)
 	return FALSE;
     }
 
-    act("Ты кусаешь $N3!",  ch, NULL, victim, TO_CHAR);
-    act("$n кусает $N3!",  ch, NULL, victim, TO_NOTVICT);
-    act("$n кусает тебя!", ch, NULL, victim, TO_VICT);
+    act("РўС‹ РєСѓСЃР°РµС€СЊ $N3!",  ch, NULL, victim, TO_CHAR);
+    act("$n РєСѓСЃР°РµС‚ $N3!",  ch, NULL, victim, TO_NOTVICT);
+    act("$n РєСѓСЃР°РµС‚ С‚РµР±СЏ!", ch, NULL, victim, TO_VICT);
     spell_poison(gsn_poison, ch->level, ch, victim, TARGET_CHAR);
     return TRUE;
 }
@@ -1319,9 +1319,9 @@ bool spec_thief(CHAR_DATA *ch)
 
 	if (IS_AWAKE(victim) && number_range(0, ch->level) == 0)
 	{
-	    act("Ты обнаруживаешь грязные лапы $n1 в своем кармане!",
+	    act("РўС‹ РѕР±РЅР°СЂСѓР¶РёРІР°РµС€СЊ РіСЂСЏР·РЅС‹Рµ Р»Р°РїС‹ $n1 РІ СЃРІРѕРµРј РєР°СЂРјР°РЅРµ!",
 		ch, NULL, victim, TO_VICT);
-	    act("$N обнаруживает грязные лапы $n1 в своем кармане!",
+	    act("$N РѕР±РЅР°СЂСѓР¶РёРІР°РµС‚ РіСЂСЏР·РЅС‹Рµ Р»Р°РїС‹ $n1 РІ СЃРІРѕРµРј РєР°СЂРјР°РЅРµ!",
 		ch, NULL, victim, TO_NOTVICT);
 	    return TRUE;
 	}

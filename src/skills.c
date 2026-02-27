@@ -60,7 +60,7 @@ bool check_depend(CHAR_DATA *ch, int sn)
 
 	if (ch->pcdata->learned[sn_d] < 1)
 	{
-	    sprintf(buf, "Для этого умения необходимо иметь также %s.\n\r", get_skill_name(ch, sn_d, TRUE));
+	    sprintf(buf, "Р”Р»СЏ СЌС‚РѕРіРѕ СѓРјРµРЅРёСЏ РЅРµРѕР±С…РѕРґРёРјРѕ РёРјРµС‚СЊ С‚Р°РєР¶Рµ %s.\n\r", get_skill_name(ch, sn_d, TRUE));
 	    send_to_char(buf, ch);
 	    return TRUE;
 	}
@@ -72,9 +72,9 @@ bool check_depend(CHAR_DATA *ch, int sn)
 char *skill_spell(int sn, bool style)
 {
     if (skill_table[sn].spell_fun != spell_null)
-	return style ? "знании заклинания" : "заклинание";
+	return style ? "Р·РЅР°РЅРёРё Р·Р°РєР»РёРЅР°РЅРёСЏ" : "Р·Р°РєР»РёРЅР°РЅРёРµ";
     else
-	return style ? "умении" : "умение";
+	return style ? "СѓРјРµРЅРёРё" : "СѓРјРµРЅРёРµ";
 }
 
 
@@ -108,7 +108,7 @@ void do_gain(CHAR_DATA *ch, char *argument)
 
     if (trainer == NULL || !can_see(ch, trainer))
     {
-	send_to_char("Ты не можешь делать этого здесь.\n\r", ch);
+	send_to_char("РўС‹ РЅРµ РјРѕР¶РµС€СЊ РґРµР»Р°С‚СЊ СЌС‚РѕРіРѕ Р·РґРµСЃСЊ.\n\r", ch);
 	return;
     }
 
@@ -116,18 +116,18 @@ void do_gain(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0')
     {
-	do_function(trainer, &do_say, "Я тебя не понимаю...");
+	do_function(trainer, &do_say, "РЇ С‚РµР±СЏ РЅРµ РїРѕРЅРёРјР°СЋ...");
 	return;
     }
 
-    if (!str_prefix(arg, "list") || !str_prefix(arg, "список"))
+    if (!str_prefix(arg, "list") || !str_prefix(arg, "СЃРїРёСЃРѕРє"))
     {
 	int col;
 
 	col = 0;
 
 	sprintf(buf, "%-20s %-5s %-20s %-5s %-20s %-5s\n\r",
-		"группа", "цена", "группа", "цена", "группа", "цена");
+		"РіСЂСѓРїРїР°", "С†РµРЅР°", "РіСЂСѓРїРїР°", "С†РµРЅР°", "РіСЂСѓРїРїР°", "С†РµРЅР°");
 	send_to_char(buf, ch);
 
 	for (gn = 0; gn < max_groups; gn++)
@@ -154,7 +154,7 @@ void do_gain(CHAR_DATA *ch, char *argument)
 	col = 0;
 
 	sprintf(buf, "%-20s %-5s %-20s %-5s %-20s %-5s\n\r",
-		"умение", "цена", "умение", "цена", "умение", "цена");
+		"СѓРјРµРЅРёРµ", "С†РµРЅР°", "СѓРјРµРЅРёРµ", "С†РµРЅР°", "СѓРјРµРЅРёРµ", "С†РµРЅР°");
 	send_to_char(buf, ch);
 
 	for (sn = 0; sn < max_skills; sn++)
@@ -181,41 +181,41 @@ void do_gain(CHAR_DATA *ch, char *argument)
 	return;
     }
 
-    if (!str_prefix(arg, "convert") || !str_prefix(arg, "превратить"))
+    if (!str_prefix(arg, "convert") || !str_prefix(arg, "РїСЂРµРІСЂР°С‚РёС‚СЊ"))
     {
 	if (ch->practice < 10)
 	{
-	    act("$N говорит тебе: {RТы еще не готов$t для этого.{x",
+	    act("$N РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {RРўС‹ РµС‰Рµ РЅРµ РіРѕС‚РѕРІ$t РґР»СЏ СЌС‚РѕРіРѕ.{x",
 		ch, SEX_ENDING(ch), trainer, TO_CHAR);
 	    return;
 	}
 
-	act("$N помогает тебе превратить твои практики в тренировки.",
+	act("$N РїРѕРјРѕРіР°РµС‚ С‚РµР±Рµ РїСЂРµРІСЂР°С‚РёС‚СЊ С‚РІРѕРё РїСЂР°РєС‚РёРєРё РІ С‚СЂРµРЅРёСЂРѕРІРєРё.",
 	    ch, NULL, trainer, TO_CHAR);
 	ch->practice -= 10;
 	ch->train +=1 ;
 	return;
     }
 
-    if (!str_prefix(arg, "practice") || !str_prefix(arg, "практики"))
+    if (!str_prefix(arg, "practice") || !str_prefix(arg, "РїСЂР°РєС‚РёРєРё"))
     {
 	if (ch->train < 1)
 	{
-	    act("$N говорит тебе: {RТы еще не готов$t для этого.{x", ch, SEX_ENDING(ch), trainer, TO_CHAR);
+	    act("$N РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {RРўС‹ РµС‰Рµ РЅРµ РіРѕС‚РѕРІ$t РґР»СЏ СЌС‚РѕРіРѕ.{x", ch, SEX_ENDING(ch), trainer, TO_CHAR);
 	    return;
 	}
 
-	act("$N помогает тебе превратить твою тренировку в практики.", ch, NULL, trainer, TO_CHAR);
+	act("$N РїРѕРјРѕРіР°РµС‚ С‚РµР±Рµ РїСЂРµРІСЂР°С‚РёС‚СЊ С‚РІРѕСЋ С‚СЂРµРЅРёСЂРѕРІРєСѓ РІ РїСЂР°РєС‚РёРєРё.", ch, NULL, trainer, TO_CHAR);
 	ch->train -= 1;
 	ch->practice += 10;
 	return;
     }
 
-    if (!str_prefix(arg, "hit") || !str_prefix(arg, "жизнь"))
+    if (!str_prefix(arg, "hit") || !str_prefix(arg, "Р¶РёР·РЅСЊ"))
     {
 	if (ch->max_hit < 50 || ch->pcdata->perm_hit < 50 || ch->hit < 30)
 	{
-	    act("$N говорит тебе: {RТы еще не готов$t для этого.{x", ch, SEX_ENDING(ch), trainer, TO_CHAR);
+	    act("$N РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {RРўС‹ РµС‰Рµ РЅРµ РіРѕС‚РѕРІ$t РґР»СЏ СЌС‚РѕРіРѕ.{x", ch, SEX_ENDING(ch), trainer, TO_CHAR);
 	    return;
 	}
 
@@ -224,26 +224,26 @@ void do_gain(CHAR_DATA *ch, char *argument)
 	ch->hit = UMIN(ch->hit, ch->max_hit);
 	ch->train += 1;
 
-	act("$N помогает тебе превратить твою жизненную силу в тренировку.", ch, NULL, trainer, TO_CHAR);
+	act("$N РїРѕРјРѕРіР°РµС‚ С‚РµР±Рµ РїСЂРµРІСЂР°С‚РёС‚СЊ С‚РІРѕСЋ Р¶РёР·РЅРµРЅРЅСѓСЋ СЃРёР»Сѓ РІ С‚СЂРµРЅРёСЂРѕРІРєСѓ.", ch, NULL, trainer, TO_CHAR);
 	return;
     }
 
-    if (!str_prefix(arg, "points") || !str_prefix(arg, "пункты"))
+    if (!str_prefix(arg, "points") || !str_prefix(arg, "РїСѓРЅРєС‚С‹"))
     {
 	if (ch->train < 2)
 	{
-	    act("$N говорит тебе: {RТы еще не готов$t.{x",
+	    act("$N РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {RРўС‹ РµС‰Рµ РЅРµ РіРѕС‚РѕРІ$t.{x",
 		ch, SEX_ENDING(ch), trainer, TO_CHAR);
 	    return;
     }
 
 	if (ch->pcdata->points <= 40)
 	{
-	    act("$N говорит тебе: {RВ этом нет смысла.", ch, NULL, trainer, TO_CHAR);
+	    act("$N РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {RР’ СЌС‚РѕРј РЅРµС‚ СЃРјС‹СЃР»Р°.", ch, NULL, trainer, TO_CHAR);
 	    return;
 	}
 
-	act("$N тренирует тебя, и ты чувствуешь себя более умелым.",
+	act("$N С‚СЂРµРЅРёСЂСѓРµС‚ С‚РµР±СЏ, Рё С‚С‹ С‡СѓРІСЃС‚РІСѓРµС€СЊ СЃРµР±СЏ Р±РѕР»РµРµ СѓРјРµР»С‹Рј.",
 	    ch, NULL, trainer, TO_CHAR);
 
 	ch->train -= 2;
@@ -256,7 +256,7 @@ void do_gain(CHAR_DATA *ch, char *argument)
 	return;
     }
     
-/*    if (!str_prefix(arg, "продать"))
+/*    if (!str_prefix(arg, "РїСЂРѕРґР°С‚СЊ"))
     {
         
         int i;
@@ -264,7 +264,7 @@ void do_gain(CHAR_DATA *ch, char *argument)
 
         if (IS_SET(ch->act, PLR_NEWYEAR_2005))
         {
-            send_to_char("Ты уже имеешь свой новогодний подарок!\n\r", ch);
+            send_to_char("РўС‹ СѓР¶Рµ РёРјРµРµС€СЊ СЃРІРѕР№ РЅРѕРІРѕРіРѕРґРЅРёР№ РїРѕРґР°СЂРѕРє!\n\r", ch);
             return;
         }
                                                        
@@ -275,7 +275,7 @@ void do_gain(CHAR_DATA *ch, char *argument)
 
         if (sn < 0)
         {        
-            act("$N говорит тебе: {RТакого умения нет!{x",
+            act("$N РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {RРўР°РєРѕРіРѕ СѓРјРµРЅРёСЏ РЅРµС‚!{x",
                   ch, NULL, trainer, TO_CHAR);
 
             return;
@@ -283,23 +283,23 @@ void do_gain(CHAR_DATA *ch, char *argument)
         
         if (ch->pcdata->learned[sn] <= 0)
         {
-            act("$N говорит тебе: {RТы не знаешь такого умения!{x", ch, NULL, trainer, TO_CHAR);
+            act("$N РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {RРўС‹ РЅРµ Р·РЅР°РµС€СЊ С‚Р°РєРѕРіРѕ СѓРјРµРЅРёСЏ!{x", ch, NULL, trainer, TO_CHAR);
             return;
         }
     
 	for (i = 0; i < 5; i++)
 	    if (skill_lookup(pc_race_table[ch->race].skills[i]) == sn)
             {                    
-                send_to_char("Ты не можешь продать свое врожденное умение!\n\r", ch);
+                send_to_char("РўС‹ РЅРµ РјРѕР¶РµС€СЊ РїСЂРѕРґР°С‚СЊ СЃРІРѕРµ РІСЂРѕР¶РґРµРЅРЅРѕРµ СѓРјРµРЅРёРµ!\n\r", ch);
                 return;
             }
 
         ch->pcdata->learned[sn] = -100;
         
         SET_BIT(ch->act, PLR_NEWYEAR_2005);
-        send_to_char("{YТы получаешь свой новогодний подарок. С Новым Годом!{x\n\r", ch);
-        act("$N забирает у тебя умение '$t'.", ch, get_skill_name(ch, sn, TRUE), trainer, TO_CHAR);
-//новогодний флаг
+        send_to_char("{YРўС‹ РїРѕР»СѓС‡Р°РµС€СЊ СЃРІРѕР№ РЅРѕРІРѕРіРѕРґРЅРёР№ РїРѕРґР°СЂРѕРє. РЎ РќРѕРІС‹Рј Р“РѕРґРѕРј!{x\n\r", ch);
+        act("$N Р·Р°Р±РёСЂР°РµС‚ Сѓ С‚РµР±СЏ СѓРјРµРЅРёРµ '$t'.", ch, get_skill_name(ch, sn, TRUE), trainer, TO_CHAR);
+//РЅРѕРІРѕРіРѕРґРЅРёР№ С„Р»Р°Рі
   
         ch->train += skill_table[sn].rating[ch->class];
         return;
@@ -312,27 +312,27 @@ void do_gain(CHAR_DATA *ch, char *argument)
     {
 	if (ch->pcdata->group_known[gn])
 	{
-	    act("$N говорит тебе: {RТы уже знаешь это!{x",
+	    act("$N РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {RРўС‹ СѓР¶Рµ Р·РЅР°РµС€СЊ СЌС‚Рѕ!{x",
 		ch, NULL, trainer, TO_CHAR);
 	    return;
 	}
 
 	if (group_table[gn].rating[ch->classid] <= 0)
 	{
-	    act("$N говорит: {RЭта группа умений тебе недоступна.{x",
+	    act("$N РіРѕРІРѕСЂРёС‚: {RР­С‚Р° РіСЂСѓРїРїР° СѓРјРµРЅРёР№ С‚РµР±Рµ РЅРµРґРѕСЃС‚СѓРїРЅР°.{x",
 		ch, NULL, trainer, TO_CHAR);
 	    return;
 	}
 
 	if (ch->train < group_table[gn].rating[ch->classid])
 	{
-	    act("$N говорит тебе: {RТы еще не готов$t для этой группы умений.{x",  ch, SEX_ENDING(ch), trainer, TO_CHAR);
+	    act("$N РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {RРўС‹ РµС‰Рµ РЅРµ РіРѕС‚РѕРІ$t РґР»СЏ СЌС‚РѕР№ РіСЂСѓРїРїС‹ СѓРјРµРЅРёР№.{x",  ch, SEX_ENDING(ch), trainer, TO_CHAR);
 	    return;
 	}
 
 	/* add the group */
 	gn_add(ch, gn);
-	act("$N дает тебе начальные уроки в группе умений '$t'.", ch, get_skill_name(ch, gn, FALSE), trainer, TO_CHAR);
+	act("$N РґР°РµС‚ С‚РµР±Рµ РЅР°С‡Р°Р»СЊРЅС‹Рµ СѓСЂРѕРєРё РІ РіСЂСѓРїРїРµ СѓРјРµРЅРёР№ '$t'.", ch, get_skill_name(ch, gn, FALSE), trainer, TO_CHAR);
 	ch->train -= group_table[gn].rating[ch->classid];
 	return;
     }
@@ -342,7 +342,7 @@ void do_gain(CHAR_DATA *ch, char *argument)
     {
 	if (skill_table[sn].spell_fun != spell_null)
 	{
-	    act("$N говорит тебе: {RТебе надо выучить всю группу.{x",
+	    act("$N РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {RРўРµР±Рµ РЅР°РґРѕ РІС‹СѓС‡РёС‚СЊ РІСЃСЋ РіСЂСѓРїРїСѓ.{x",
 		ch, NULL, trainer, TO_CHAR);
 	    return;
 	}
@@ -350,35 +350,35 @@ void do_gain(CHAR_DATA *ch, char *argument)
 
 	if (ch->pcdata->learned[sn] > 0)
 	{
-	    act("$N говорит тебе: {RТы уже знаешь это умение!{x",
+	    act("$N РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {RРўС‹ СѓР¶Рµ Р·РЅР°РµС€СЊ СЌС‚Рѕ СѓРјРµРЅРёРµ!{x",
 		ch, NULL, trainer, TO_CHAR);
 	    return;
 	}
 
 	if (skill_table[sn].rating[ch->classid] <= 0)
 	{
-	    act("$N говорит тебе: {RЭто умение тебе недоступно.{x",
+	    act("$N РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {RР­С‚Рѕ СѓРјРµРЅРёРµ С‚РµР±Рµ РЅРµРґРѕСЃС‚СѓРїРЅРѕ.{x",
 		ch, NULL, trainer, TO_CHAR);
 	    return;
 	}
 
 	if (skill_table[sn].quest[ch->classid])
 	{
-	    act("$N говорит тебе: {RК сожалению, я не могу научить тебя этому "
-		"умению. Попробуй поискать учителя получше.{x",
+	    act("$N РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {RРљ СЃРѕР¶Р°Р»РµРЅРёСЋ, СЏ РЅРµ РјРѕРіСѓ РЅР°СѓС‡РёС‚СЊ С‚РµР±СЏ СЌС‚РѕРјСѓ "
+		"СѓРјРµРЅРёСЋ. РџРѕРїСЂРѕР±СѓР№ РїРѕРёСЃРєР°С‚СЊ СѓС‡РёС‚РµР»СЏ РїРѕР»СѓС‡С€Рµ.{x",
 		ch, NULL, trainer, TO_CHAR);
 	    return;
 	}
 
 	if (ch->train < skill_table[sn].rating[ch->classid] /* && IS_SET(ch->act, PLR_NEWYEAR) */)
 	{
-	    act("$N говорит тебе: {RТы еще не готов$t для этого умения.{x", ch, SEX_ENDING(ch), trainer, TO_CHAR);
+	    act("$N РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {RРўС‹ РµС‰Рµ РЅРµ РіРѕС‚РѕРІ$t РґР»СЏ СЌС‚РѕРіРѕ СѓРјРµРЅРёСЏ.{x", ch, SEX_ENDING(ch), trainer, TO_CHAR);
 	    return;
 	}
 
 	if (sn == gsn_recall)
 	{
-	    send_to_char("Это бессмысленно.\n\r", ch);
+	    send_to_char("Р­С‚Рѕ Р±РµСЃСЃРјС‹СЃР»РµРЅРЅРѕ.\n\r", ch);
 	    return;
 	}
 
@@ -387,12 +387,12 @@ void do_gain(CHAR_DATA *ch, char *argument)
 
 	/* add the skill */
 	ch->pcdata->learned[sn] = 1;
-	act("$N дает тебе начальные уроки в умении '$t'.", ch, get_skill_name(ch, sn, TRUE), trainer, TO_CHAR);
+	act("$N РґР°РµС‚ С‚РµР±Рµ РЅР°С‡Р°Р»СЊРЅС‹Рµ СѓСЂРѕРєРё РІ СѓРјРµРЅРёРё '$t'.", ch, get_skill_name(ch, sn, TRUE), trainer, TO_CHAR);
     ch->train -= skill_table[sn].rating[ch->classid];
 	return;
     }
 
-    act("$N говорит тебе: {RЯ тебя не понимаю...{x", ch, NULL, trainer, TO_CHAR);
+    act("$N РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {RРЇ С‚РµР±СЏ РЅРµ РїРѕРЅРёРјР°СЋ...{x", ch, NULL, trainer, TO_CHAR);
 }
 
 
@@ -416,13 +416,13 @@ void do_buy_add(CHAR_DATA *ch, char *argument)
 
     if (trainer == NULL || !can_see(ch, trainer))
     {
-		send_to_char("У кого докупать желаем-то?\n\r", ch);
+		send_to_char("РЈ РєРѕРіРѕ РґРѕРєСѓРїР°С‚СЊ Р¶РµР»Р°РµРј-С‚Рѕ?\n\r", ch);
 		return;
     }
 
 	if (ch->level < 51)
 	{
-		act("$N говорит тебе: {RТы еще слишком мал$t.{x", ch, SEX_ENDING(ch), trainer, TO_CHAR);	
+		act("$N РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {RРўС‹ РµС‰Рµ СЃР»РёС€РєРѕРј РјР°Р»$t.{x", ch, SEX_ENDING(ch), trainer, TO_CHAR);	
 		return;
 	}
 
@@ -430,17 +430,17 @@ void do_buy_add(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0')
     {
-		do_function(trainer, &do_say, "Чего докупить желаем?");
+		do_function(trainer, &do_say, "Р§РµРіРѕ РґРѕРєСѓРїРёС‚СЊ Р¶РµР»Р°РµРј?");
 		return;
     }
 
-    if (!str_prefix(arg, "list") || !str_prefix(arg, "список"))
+    if (!str_prefix(arg, "list") || !str_prefix(arg, "СЃРїРёСЃРѕРє"))
     {
 		int col;
 
 		col = 0;
 
-		sprintf(buf, "%-20s %-5s %-20s %-5s %-20s %-5s\n\r", "группа", "цена", "группа", "цена", "группа", "цена");
+		sprintf(buf, "%-20s %-5s %-20s %-5s %-20s %-5s\n\r", "РіСЂСѓРїРїР°", "С†РµРЅР°", "РіСЂСѓРїРїР°", "С†РµРЅР°", "РіСЂСѓРїРїР°", "С†РµРЅР°");
 		send_to_char(buf, ch);
 
 		for (gn = 0; gn < max_groups; gn++)
@@ -464,7 +464,7 @@ void do_buy_add(CHAR_DATA *ch, char *argument)
 
 		col = 0;
 
-		sprintf(buf, "%-20s %-5s %-20s %-5s %-20s %-5s\n\r", "умение", "цена", "умение", "цена", "умение", "цена");
+		sprintf(buf, "%-20s %-5s %-20s %-5s %-20s %-5s\n\r", "СѓРјРµРЅРёРµ", "С†РµРЅР°", "СѓРјРµРЅРёРµ", "С†РµРЅР°", "СѓРјРµРЅРёРµ", "С†РµРЅР°");
 		send_to_char(buf, ch);
 
 		for (sn = 0; sn < max_skills; sn++)
@@ -491,23 +491,23 @@ void do_buy_add(CHAR_DATA *ch, char *argument)
 		return;
     }
 
-    if (!str_prefix(arg, "pg") || !str_prefix(arg, "пункты"))
+    if (!str_prefix(arg, "pg") || !str_prefix(arg, "РїСѓРЅРєС‚С‹"))
     {
 		one_argument(argument, arg);
 		
 	    if (!is_number(arg))
 	    {
-			send_to_char("Количество пунктов генерации должно быть числовым.\n\r", ch);
+			send_to_char("РљРѕР»РёС‡РµСЃС‚РІРѕ РїСѓРЅРєС‚РѕРІ РіРµРЅРµСЂР°С†РёРё РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ С‡РёСЃР»РѕРІС‹Рј.\n\r", ch);
 			return;
 	    }
 
 		if (atoi(arg)>250 || atoi(arg)<1)
 		{
-			send_to_char("Это нереальное число.\n\r", ch);
+			send_to_char("Р­С‚Рѕ РЅРµСЂРµР°Р»СЊРЅРѕРµ С‡РёСЃР»Рѕ.\n\r", ch);
 			return;
 		}
 
-		sprintf(buf, "На %d добавляемых ПГ кол-во опыта на уровень будет %d exp, суммарное кол-во опыта необходимо будет иметь не менее %d exp.\n\r", 
+		sprintf(buf, "РќР° %d РґРѕР±Р°РІР»СЏРµРјС‹С… РџР“ РєРѕР»-РІРѕ РѕРїС‹С‚Р° РЅР° СѓСЂРѕРІРµРЅСЊ Р±СѓРґРµС‚ %d exp, СЃСѓРјРјР°СЂРЅРѕРµ РєРѕР»-РІРѕ РѕРїС‹С‚Р° РЅРµРѕР±С…РѕРґРёРјРѕ Р±СѓРґРµС‚ РёРјРµС‚СЊ РЅРµ РјРµРЅРµРµ %d exp.\n\r", 
 				atoi(arg), exp_per_level(ch, (1 + (ch->pcdata->points + (int)(1.25*atoi(arg))))), 51*exp_per_level(ch, ( 1 + (ch->pcdata->points + (int)(1.25*atoi(arg)))) ));
 		send_to_char(buf, ch);
 
@@ -517,7 +517,7 @@ void do_buy_add(CHAR_DATA *ch, char *argument)
 
 	if (ch->level > 51)
 	{
-		send_to_char("Тебе то это зачем?:-)\n\r", ch);
+		send_to_char("РўРµР±Рµ С‚Рѕ СЌС‚Рѕ Р·Р°С‡РµРј?:-)\n\r", ch);
 		return;
 	}
 
@@ -533,25 +533,25 @@ void do_buy_add(CHAR_DATA *ch, char *argument)
     {
 		if (ch->pcdata->group_known[gn])
 		{
-	    	act("$N говорит тебе: {RТы уже знаешь это!{x", ch, NULL, trainer, TO_CHAR);
+	    	act("$N РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {RРўС‹ СѓР¶Рµ Р·РЅР°РµС€СЊ СЌС‚Рѕ!{x", ch, NULL, trainer, TO_CHAR);
 	    	return;
 		}
 
 		if (group_table[gn].rating[ch->classid] <= 0)
 		{
-		    act("$N говорит: {RЭта группа умений тебе недоступна.{x", ch, NULL, trainer, TO_CHAR);
+		    act("$N РіРѕРІРѕСЂРёС‚: {RР­С‚Р° РіСЂСѓРїРїР° СѓРјРµРЅРёР№ С‚РµР±Рµ РЅРµРґРѕСЃС‚СѓРїРЅР°.{x", ch, NULL, trainer, TO_CHAR);
 		    return;
 		}
 
 		if (ch->exp < 51*exp_per_level(ch, (1 + (ch->pcdata->points + (int)(1.25*group_table[gn].rating[ch->classid])))))
 		{
-		    act("$N говорит тебе: {RУ тебя недостаточно опыта для данной покупки.{x",  ch, SEX_ENDING(ch), trainer, TO_CHAR);
+		    act("$N РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {RРЈ С‚РµР±СЏ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РѕРїС‹С‚Р° РґР»СЏ РґР°РЅРЅРѕР№ РїРѕРєСѓРїРєРё.{x",  ch, SEX_ENDING(ch), trainer, TO_CHAR);
 		    return;
 		}
 
 		/* add the group */
 		gn_add(ch, gn);
-		act("$N дает тебе начальные уроки в группе умений '$t'.", ch, get_skill_name(ch, gn, FALSE), trainer, TO_CHAR);
+		act("$N РґР°РµС‚ С‚РµР±Рµ РЅР°С‡Р°Р»СЊРЅС‹Рµ СѓСЂРѕРєРё РІ РіСЂСѓРїРїРµ СѓРјРµРЅРёР№ '$t'.", ch, get_skill_name(ch, gn, FALSE), trainer, TO_CHAR);
 
 		ch->pcdata->points += (1 + (int)(1.25*group_table[gn].rating[ch->classid]));
 		return;
@@ -562,38 +562,38 @@ void do_buy_add(CHAR_DATA *ch, char *argument)
     {
 		if (skill_table[sn].spell_fun != spell_null)
 		{
-		    act("$N говорит тебе: {RТебе надо выучить всю группу.{x", ch, NULL, trainer, TO_CHAR);
+		    act("$N РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {RРўРµР±Рµ РЅР°РґРѕ РІС‹СѓС‡РёС‚СЊ РІСЃСЋ РіСЂСѓРїРїСѓ.{x", ch, NULL, trainer, TO_CHAR);
 		    return;
 		}
 
 		if (ch->pcdata->learned[sn] > 0)
 		{
-		    act("$N говорит тебе: {RТы уже знаешь это умение!{x", ch, NULL, trainer, TO_CHAR);
+		    act("$N РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {RРўС‹ СѓР¶Рµ Р·РЅР°РµС€СЊ СЌС‚Рѕ СѓРјРµРЅРёРµ!{x", ch, NULL, trainer, TO_CHAR);
 		    return;
 		}
 
 		if (skill_table[sn].rating[ch->classid] <= 0)
 		{
-		    act("$N говорит тебе: {RЭто умение тебе недоступно.{x", ch, NULL, trainer, TO_CHAR);
+		    act("$N РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {RР­С‚Рѕ СѓРјРµРЅРёРµ С‚РµР±Рµ РЅРµРґРѕСЃС‚СѓРїРЅРѕ.{x", ch, NULL, trainer, TO_CHAR);
 		    return;
 		}
 
 		if (skill_table[sn].quest[ch->classid])
 		{
-		    act("$N говорит тебе: {RК сожалению, я не могу научить тебя этому умению. Попробуй поискать учителя получше.{x",
+		    act("$N РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {RРљ СЃРѕР¶Р°Р»РµРЅРёСЋ, СЏ РЅРµ РјРѕРіСѓ РЅР°СѓС‡РёС‚СЊ С‚РµР±СЏ СЌС‚РѕРјСѓ СѓРјРµРЅРёСЋ. РџРѕРїСЂРѕР±СѓР№ РїРѕРёСЃРєР°С‚СЊ СѓС‡РёС‚РµР»СЏ РїРѕР»СѓС‡С€Рµ.{x",
 				ch, NULL, trainer, TO_CHAR);
 		    return;
 		}
 
 		if (ch->exp < 51*exp_per_level(ch, (1 + (ch->pcdata->points + (int)(1.25*skill_table[sn].rating[ch->classid])))))
 		{
-		    act("$N говорит тебе: {RУ тебя недостаточно опыта для данной покупки.{x",  ch, SEX_ENDING(ch), trainer, TO_CHAR);
+		    act("$N РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {RРЈ С‚РµР±СЏ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РѕРїС‹С‚Р° РґР»СЏ РґР°РЅРЅРѕР№ РїРѕРєСѓРїРєРё.{x",  ch, SEX_ENDING(ch), trainer, TO_CHAR);
 		    return;
 		}
 
 		if (sn == gsn_recall)
 		{
-		    send_to_char("Это бессмысленно.\n\r", ch);
+		    send_to_char("Р­С‚Рѕ Р±РµСЃСЃРјС‹СЃР»РµРЅРЅРѕ.\n\r", ch);
 		    return;
 		}
 
@@ -602,12 +602,12 @@ void do_buy_add(CHAR_DATA *ch, char *argument)
 
 		/* add the skill */
 		ch->pcdata->learned[sn] = 1;
-		act("$N дает тебе начальные уроки в умении '$t'.", ch, get_skill_name(ch, sn, TRUE), trainer, TO_CHAR);
+		act("$N РґР°РµС‚ С‚РµР±Рµ РЅР°С‡Р°Р»СЊРЅС‹Рµ СѓСЂРѕРєРё РІ СѓРјРµРЅРёРё '$t'.", ch, get_skill_name(ch, sn, TRUE), trainer, TO_CHAR);
 		ch->pcdata->points += (1 + (int)(1.25*skill_table[sn].rating[ch->classid]));
 		return;
     }
 
-    act("$N говорит тебе: {RЯ тебя не понимаю...{x", ch, NULL, trainer, TO_CHAR);
+    act("$N РіРѕРІРѕСЂРёС‚ С‚РµР±Рµ: {RРЇ С‚РµР±СЏ РЅРµ РїРѕРЅРёРјР°СЋ...{x", ch, NULL, trainer, TO_CHAR);
 }
 
 
@@ -633,76 +633,76 @@ void do_train(CHAR_DATA *ch, char *argument)
 
     if (mob == NULL || !can_see(ch, mob))
     {
-	send_to_char("Ты не можешь тренироваться здесь.\n\r", ch);
+	send_to_char("РўС‹ РЅРµ РјРѕР¶РµС€СЊ С‚СЂРµРЅРёСЂРѕРІР°С‚СЊСЃСЏ Р·РґРµСЃСЊ.\n\r", ch);
 	return;
     }
 
     if (argument[0] == '\0')
     {
-	sprintf(buf, "У тебя %d %s.\n\r", ch->train, hours(ch->train, TYPE_TRAIN));
+	sprintf(buf, "РЈ С‚РµР±СЏ %d %s.\n\r", ch->train, hours(ch->train, TYPE_TRAIN));
 	send_to_char(buf, ch);
 	argument = "foo";
     }
 
-    if (!str_prefix(argument, "силу"))
+    if (!str_prefix(argument, "СЃРёР»Сѓ"))
     {
 	stat        = STAT_STR;
-	pOutput     = "сила";
-	pOutput1    = "Твоя";
-	pOutput2    = "ась";
+	pOutput     = "СЃРёР»Р°";
+	pOutput1    = "РўРІРѕСЏ";
+	pOutput2    = "Р°СЃСЊ";
     }
 
-    else if (!str_prefix(argument, "ум"))
+    else if (!str_prefix(argument, "СѓРј"))
     {
 	stat      = STAT_INT;
-	pOutput     = "ум";
-	pOutput1    = "Твой";
-	pOutput2    = "ся";
+	pOutput     = "СѓРј";
+	pOutput1    = "РўРІРѕР№";
+	pOutput2    = "СЃСЏ";
     }
 
-    else if (!str_prefix(argument, "мудрость"))
+    else if (!str_prefix(argument, "РјСѓРґСЂРѕСЃС‚СЊ"))
     {
 	stat      = STAT_WIS;
-	pOutput     = "мудрость";
-	pOutput1    = "Твоя";
-	pOutput2    = "ась";
+	pOutput     = "РјСѓРґСЂРѕСЃС‚СЊ";
+	pOutput1    = "РўРІРѕСЏ";
+	pOutput2    = "Р°СЃСЊ";
     }
 
-    else if (!str_prefix(argument, "ловкость"))
+    else if (!str_prefix(argument, "Р»РѕРІРєРѕСЃС‚СЊ"))
     {
 	stat        = STAT_DEX;
-	pOutput     = "ловкость";
-	pOutput1    = "Твоя";
-	pOutput2    = "ась";
+	pOutput     = "Р»РѕРІРєРѕСЃС‚СЊ";
+	pOutput1    = "РўРІРѕСЏ";
+	pOutput2    = "Р°СЃСЊ";
     }
 
-    else if (!str_prefix(argument, "сложение"))
+    else if (!str_prefix(argument, "СЃР»РѕР¶РµРЅРёРµ"))
     {
 	stat      = STAT_CON;
-	pOutput     = "сложение";
-	pOutput1    = "Твое";
-	pOutput2    = "ось";
+	pOutput     = "СЃР»РѕР¶РµРЅРёРµ";
+	pOutput1    = "РўРІРѕРµ";
+	pOutput2    = "РѕСЃСЊ";
     }
-    else if (!str_prefix(argument, "жизнь"))
+    else if (!str_prefix(argument, "Р¶РёР·РЅСЊ"))
 	;
 
-    else if (!str_prefix(argument, "энергию"))
+    else if (!str_prefix(argument, "СЌРЅРµСЂРіРёСЋ"))
 	;
 
     else
     {
-	strcpy(buf, "Ты можешь тренировать:\n\r");
+	strcpy(buf, "РўС‹ РјРѕР¶РµС€СЊ С‚СЂРµРЅРёСЂРѕРІР°С‚СЊ:\n\r");
 	if (ch->perm_stat[STAT_STR] < get_max_train(ch, STAT_STR))
-	    strcat(buf, " силу");
+	    strcat(buf, " СЃРёР»Сѓ");
 	if (ch->perm_stat[STAT_INT] < get_max_train(ch, STAT_INT))
-	    strcat(buf, " ум");
+	    strcat(buf, " СѓРј");
 	if (ch->perm_stat[STAT_WIS] < get_max_train(ch, STAT_WIS))
-	    strcat(buf, " мудрость");
+	    strcat(buf, " РјСѓРґСЂРѕСЃС‚СЊ");
 	if (ch->perm_stat[STAT_DEX] < get_max_train(ch, STAT_DEX))
-	    strcat(buf, " ловкость");
+	    strcat(buf, " Р»РѕРІРєРѕСЃС‚СЊ");
 	if (ch->perm_stat[STAT_CON] < get_max_train(ch, STAT_CON))
-	    strcat(buf, " сложение");
-	strcat(buf, " жизнь энергию");
+	    strcat(buf, " СЃР»РѕР¶РµРЅРёРµ");
+	strcat(buf, " Р¶РёР·РЅСЊ СЌРЅРµСЂРіРёСЋ");
 
 	if (buf[strlen(buf)-1] != ':')
 	{
@@ -714,11 +714,11 @@ void do_train(CHAR_DATA *ch, char *argument)
 	    /*
 	     * This message dedicated to Jordan ... you big stud!
 	     */
-	    act("Тебе нечего больше тренировать, $T!",
+	    act("РўРµР±Рµ РЅРµС‡РµРіРѕ Р±РѕР»СЊС€Рµ С‚СЂРµРЅРёСЂРѕРІР°С‚СЊ, $T!",
 		ch, NULL,
-		ch->sex == SEX_MALE   ? "большой жеребец" :
-		ch->sex == SEX_FEMALE ? "милашка" :
-		"дикарь",
+		ch->sex == SEX_MALE   ? "Р±РѕР»СЊС€РѕР№ Р¶РµСЂРµР±РµС†" :
+		ch->sex == SEX_FEMALE ? "РјРёР»Р°С€РєР°" :
+		"РґРёРєР°СЂСЊ",
 		TO_CHAR);
 	}
 
@@ -727,37 +727,37 @@ void do_train(CHAR_DATA *ch, char *argument)
 
     if (ch->train < 1)
     {
-	send_to_char("У тебя не хватает тренировок.\n\r", ch);
+	send_to_char("РЈ С‚РµР±СЏ РЅРµ С…РІР°С‚Р°РµС‚ С‚СЂРµРЅРёСЂРѕРІРѕРє.\n\r", ch);
 	return;
     }
 
-    if (!str_prefix(argument, "жизнь"))
+    if (!str_prefix(argument, "Р¶РёР·РЅСЊ"))
     {
 	ch->train--;
 	ch->pcdata->perm_hit += 10;
 	ch->max_hit += 10;
 	ch->hit +=10;
 	ch->pcdata->train_hit += 10;
-	act("Твоя жизненная стойкость выросла!", ch, NULL, NULL, TO_CHAR);
-	act("Жизненная стойкость $n1 выросла!", ch, NULL, NULL, TO_ROOM);
+	act("РўРІРѕСЏ Р¶РёР·РЅРµРЅРЅР°СЏ СЃС‚РѕР№РєРѕСЃС‚СЊ РІС‹СЂРѕСЃР»Р°!", ch, NULL, NULL, TO_CHAR);
+	act("Р–РёР·РЅРµРЅРЅР°СЏ СЃС‚РѕР№РєРѕСЃС‚СЊ $n1 РІС‹СЂРѕСЃР»Р°!", ch, NULL, NULL, TO_ROOM);
 	return;
     }
 
-    if (!str_prefix(argument, "энергию"))
+    if (!str_prefix(argument, "СЌРЅРµСЂРіРёСЋ"))
     {
 	ch->train--;
 	ch->pcdata->perm_mana += 10;
 	ch->max_mana += 10;
 	ch->mana += 10;
 	ch->pcdata->train_mana += 10;
-	act("Твоя энергия увеличилась!", ch, NULL, NULL, TO_CHAR);
-	act("Энергия $n1 увеличилась!", ch, NULL, NULL, TO_ROOM);
+	act("РўРІРѕСЏ СЌРЅРµСЂРіРёСЏ СѓРІРµР»РёС‡РёР»Р°СЃСЊ!", ch, NULL, NULL, TO_CHAR);
+	act("Р­РЅРµСЂРіРёСЏ $n1 СѓРІРµР»РёС‡РёР»Р°СЃСЊ!", ch, NULL, NULL, TO_ROOM);
 	return;
     }
 
     if (ch->perm_stat[stat]  >= get_max_train(ch, stat))
     {
-	sprintf(buf, "%s %s уже на максимуме.\n\r", pOutput1, pOutput);
+	sprintf(buf, "%s %s СѓР¶Рµ РЅР° РјР°РєСЃРёРјСѓРјРµ.\n\r", pOutput1, pOutput);
 	send_to_char(buf, ch);
 	return;
     }
@@ -765,9 +765,9 @@ void do_train(CHAR_DATA *ch, char *argument)
     ch->train--;
 
     ch->perm_stat[stat]  ++;
-    sprintf(buf, "%s %s увеличил%s.", pOutput1, pOutput, pOutput2);
+    sprintf(buf, "%s %s СѓРІРµР»РёС‡РёР»%s.", pOutput1, pOutput, pOutput2);
     act(buf, ch, NULL, pOutput, TO_CHAR);
-    sprintf(buf, "%s $n1 увеличил%s.", pOutput, pOutput2);
+    sprintf(buf, "%s $n1 СѓРІРµР»РёС‡РёР»%s.", pOutput, pOutput2);
     act(buf, ch, NULL, pOutput, TO_ROOM);
     return;
 }
@@ -836,7 +836,7 @@ void do_practice(CHAR_DATA *ch, char *argument)
 	if (col % 3 != 0)
 	    send_to_char("\n\r", ch);
 
-	sprintf(buf, "У тебя есть %d %s.\n\r",
+	sprintf(buf, "РЈ С‚РµР±СЏ РµСЃС‚СЊ %d %s.\n\r",
 		ch->practice, hours(ch->practice, TYPE_PRACTICE));
 	send_to_char(buf, ch);
     }
@@ -847,7 +847,7 @@ void do_practice(CHAR_DATA *ch, char *argument)
 
 	if (!IS_AWAKE(ch))
 	{
-	    send_to_char("В твоих снах, или как?\n\r", ch);
+	    send_to_char("Р’ С‚РІРѕРёС… СЃРЅР°С…, РёР»Рё РєР°Рє?\n\r", ch);
 	    return;
 	}
 
@@ -857,19 +857,19 @@ void do_practice(CHAR_DATA *ch, char *argument)
 
 	if (mob == NULL || !can_see(ch, mob))
 	{
-	    send_to_char("Ты не можешь этого здесь.\n\r", ch);
+	    send_to_char("РўС‹ РЅРµ РјРѕР¶РµС€СЊ СЌС‚РѕРіРѕ Р·РґРµСЃСЊ.\n\r", ch);
 	    return;
 	}
 
 	if (ch->practice <= 0)
 	{
-	    send_to_char("У тебя не осталось практик.\n\r", ch);
+	    send_to_char("РЈ С‚РµР±СЏ РЅРµ РѕСЃС‚Р°Р»РѕСЃСЊ РїСЂР°РєС‚РёРє.\n\r", ch);
 	    return;
 	}
 
 	if ((sn = find_spell(ch, argument)) < 0)
 	{
-	    send_to_char("Такого умения нет.\n\r", ch);
+	    send_to_char("РўР°РєРѕРіРѕ СѓРјРµРЅРёСЏ РЅРµС‚.\n\r", ch);
 	    return;
 	}
 
@@ -879,7 +879,7 @@ void do_practice(CHAR_DATA *ch, char *argument)
 		|| (sn == gsn_recall && ch->level > MAX_RECALL_LEVEL)
 		|| (rating = get_skill_rating(ch, sn)) <= 0))
 	{
-	    send_to_char("Ты не можешь практиковаться в этом.\n\r", ch);
+	    send_to_char("РўС‹ РЅРµ РјРѕР¶РµС€СЊ РїСЂР°РєС‚РёРєРѕРІР°С‚СЊСЃСЏ РІ СЌС‚РѕРј.\n\r", ch);
 	    return;
 	}
 
@@ -887,7 +887,7 @@ void do_practice(CHAR_DATA *ch, char *argument)
 
 	if (ch->pcdata->learned[sn] >= adept)
 	{
-	    sprintf(buf, "Ты уже знаешь %s %s.\n\r",
+	    sprintf(buf, "РўС‹ СѓР¶Рµ Р·РЅР°РµС€СЊ %s %s.\n\r",
 		    skill_spell(sn, FALSE), get_skill_name(ch, sn, TRUE));
 	    send_to_char(buf, ch);
 	}
@@ -898,19 +898,19 @@ void do_practice(CHAR_DATA *ch, char *argument)
 
 	    if (ch->pcdata->learned[sn] < adept)
 	    {
-		sprintf(buf, "Ты практикуешься в %s %s, и твой уровень знаний достигает %d%%.\n\r",
+		sprintf(buf, "РўС‹ РїСЂР°РєС‚РёРєСѓРµС€СЊСЃСЏ РІ %s %s, Рё С‚РІРѕР№ СѓСЂРѕРІРµРЅСЊ Р·РЅР°РЅРёР№ РґРѕСЃС‚РёРіР°РµС‚ %d%%.\n\r",
 			skill_spell(sn, TRUE), get_skill_name(ch, sn, TRUE), ch->pcdata->learned[sn]);
 		send_to_char(buf, ch);
 
-		act("$n практикует $t $T.",
+		act("$n РїСЂР°РєС‚РёРєСѓРµС‚ $t $T.",
 		    ch, skill_spell(sn, FALSE), get_skill_name(ch, sn, TRUE), TO_ROOM);
 	    }
 	    else
 	    {
 		ch->pcdata->learned[sn] = adept;
-		act("Ты теперь знаешь $t $T.",
+		act("РўС‹ С‚РµРїРµСЂСЊ Р·РЅР°РµС€СЊ $t $T.",
 		    ch, skill_spell(sn, FALSE), get_skill_name(ch, sn, TRUE), TO_CHAR);
-		act("$n теперь знает $t $T.",
+		act("$n С‚РµРїРµСЂСЊ Р·РЅР°РµС‚ $t $T.",
 		    ch, skill_spell(sn, FALSE), get_skill_name(ch, sn, TRUE), TO_ROOM);
 	    }
 	}
@@ -939,7 +939,7 @@ void show_spells(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
     {
 	fAll = TRUE;
 
-	if (str_prefix(argument, "all") && str_prefix(argument, "все"))
+	if (str_prefix(argument, "all") && str_prefix(argument, "РІСЃРµ"))
 	{
 	    argument = one_argument(argument, arg);
 	        
@@ -949,7 +949,7 @@ void show_spells(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
 
 	        if (arg[0] != '>' && arg[0] != '<')
 	        {
-	            send_to_char("Необходимо указывать знаки > или < перед числом процентов.\n\r", ch);
+	            send_to_char("РќРµРѕР±С…РѕРґРёРјРѕ СѓРєР°Р·С‹РІР°С‚СЊ Р·РЅР°РєРё > РёР»Рё < РїРµСЂРµРґ С‡РёСЃР»РѕРј РїСЂРѕС†РµРЅС‚РѕРІ.\n\r", ch);
 	            return;
 	        }
 
@@ -958,7 +958,7 @@ void show_spells(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
 	        strlcpy(newarg, arg + 1, strlen(arg) - 1);
                 if (!is_number(newarg))
 	        {
-	            send_to_char("Аргумент должен быть числовым.\n\r", ch);
+	            send_to_char("РђСЂРіСѓРјРµРЅС‚ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ С‡РёСЃР»РѕРІС‹Рј.\n\r", ch);
 	            return;
 	        }
 
@@ -966,7 +966,7 @@ void show_spells(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
 
 	        if (pn < 1 || pn > 100)
 	        {
-	            send_to_char("Процент должен быть в пределах от 1 до 100.\n\r", ch);
+	            send_to_char("РџСЂРѕС†РµРЅС‚ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РІ РїСЂРµРґРµР»Р°С… РѕС‚ 1 РґРѕ 100.\n\r", ch);
 	            return;
 	        }
 	    }
@@ -974,14 +974,14 @@ void show_spells(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
 	    {
 	        if (!is_number(arg))
 	        {
-		    send_to_char("Аргументы должны быть числовыми или 'все'.\n\r", ch);
+		    send_to_char("РђСЂРіСѓРјРµРЅС‚С‹ РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ С‡РёСЃР»РѕРІС‹РјРё РёР»Рё 'РІСЃРµ'.\n\r", ch);
 		    return;
 	        }
 	        max_lev = atoi(arg);
 
 	        if (max_lev < 1 || max_lev > LEVEL_HERO)
 	        {
-		    sprintf(buf, "Уровни должны быть между 1 и %d.\n\r", LEVEL_HERO);
+		    sprintf(buf, "РЈСЂРѕРІРЅРё РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ РјРµР¶РґСѓ 1 Рё %d.\n\r", LEVEL_HERO);
 		    send_to_char(buf, ch);
 		    return;
 	        }
@@ -992,7 +992,7 @@ void show_spells(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
 
 		    if (!is_number(arg))
 		    {
-		        send_to_char("Аргументы должны быть числовыми или 'все'.\n\r", ch);
+		        send_to_char("РђСЂРіСѓРјРµРЅС‚С‹ РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ С‡РёСЃР»РѕРІС‹РјРё РёР»Рё 'РІСЃРµ'.\n\r", ch);
 		        return;
 		    }
 		    min_lev = max_lev;
@@ -1000,7 +1000,7 @@ void show_spells(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
 
 		    if (max_lev < 1 || max_lev > LEVEL_HERO)
 		    {
-		        sprintf(buf, "Уровни должны быть между 1 и %d.\n\r", LEVEL_HERO);
+		        sprintf(buf, "РЈСЂРѕРІРЅРё РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ РјРµР¶РґСѓ 1 Рё %d.\n\r", LEVEL_HERO);
 		        send_to_char(buf, ch);
 		        return;
 		    }
@@ -1038,7 +1038,7 @@ void show_spells(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
 	    found = TRUE;
 	    level = skill_table[sn].skill_level[victim->classid];
 	    if (victim->level < level)
-		sprintf(buf, "%-20s пока нет         ", get_skill_name(ch, sn, TRUE));
+		sprintf(buf, "%-20s РїРѕРєР° РЅРµС‚         ", get_skill_name(ch, sn, TRUE));
 	    else
 	    {
 		char c;
@@ -1062,12 +1062,12 @@ void show_spells(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
 		else
 		    strcpy(over, "");
 
-		sprintf(buf, "%-20s [{%c%3d%%{x] %s %3d маны  ", get_skill_name(ch, sn, TRUE), c, percent, over, mana);
+		sprintf(buf, "%-20s [{%c%3d%%{x] %s %3d РјР°РЅС‹  ", get_skill_name(ch, sn, TRUE), c, percent, over, mana);
 
 	    }
 
 	    if (IS_NULLSTR(spell_list[level]))
-		sprintf(spell_list[level], "\n\rУровень %2d: %s", level, buf);
+		sprintf(spell_list[level], "\n\rРЈСЂРѕРІРµРЅСЊ %2d: %s", level, buf);
 	    else /* append */
 	    {
 		if (++spell_columns[level] % 2 == 0)
@@ -1081,7 +1081,7 @@ void show_spells(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
 
     if (!found)
     {
-	send_to_char("Заклинаний не найдено.\n\r", ch);
+	send_to_char("Р—Р°РєР»РёРЅР°РЅРёР№ РЅРµ РЅР°Р№РґРµРЅРѕ.\n\r", ch);
 	return;
     }
 
@@ -1115,19 +1115,19 @@ void show_skills(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
     {
 	fAll = TRUE;
 
-	if (str_prefix(argument, "all") && str_prefix(argument, "все"))
+	if (str_prefix(argument, "all") && str_prefix(argument, "РІСЃРµ"))
 	{
 	    argument = one_argument(argument, arg);
 	    if (!is_number(arg))
 	    {
-		send_to_char("Аргументы должны быть числовыми или 'все'.\n\r", ch);
+		send_to_char("РђСЂРіСѓРјРµРЅС‚С‹ РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ С‡РёСЃР»РѕРІС‹РјРё РёР»Рё 'РІСЃРµ'.\n\r", ch);
 		return;
 	    }
 	    max_lev = atoi(arg);
 
 	    if (max_lev < 1 || max_lev > LEVEL_HERO)
 	    {
-		sprintf(buf, "Уровень должен быть между 1 и %d.\n\r", LEVEL_HERO);
+		sprintf(buf, "РЈСЂРѕРІРµРЅСЊ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РјРµР¶РґСѓ 1 Рё %d.\n\r", LEVEL_HERO);
 		send_to_char(buf, ch);
 		return;
 	    }
@@ -1137,7 +1137,7 @@ void show_skills(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
 		argument = one_argument(argument, arg);
 		if (!is_number(arg))
 		{
-		    send_to_char("Аргументы должны быть числовыми или 'все'.\n\r", ch);
+		    send_to_char("РђСЂРіСѓРјРµРЅС‚С‹ РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ С‡РёСЃР»РѕРІС‹РјРё РёР»Рё 'РІСЃРµ'.\n\r", ch);
 		    return;
 		}
 		min_lev = max_lev;
@@ -1146,7 +1146,7 @@ void show_skills(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
 		if (max_lev < 1 || max_lev > LEVEL_HERO)
 		{
 		    sprintf(buf,
-			    "Уровень должен быть между 1 и %d.\n\r", LEVEL_HERO);
+			    "РЈСЂРѕРІРµРЅСЊ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РјРµР¶РґСѓ 1 Рё %d.\n\r", LEVEL_HERO);
 		    send_to_char(buf, ch);
 		    return;
 		}
@@ -1186,7 +1186,7 @@ void show_skills(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
 	    found = TRUE;
 	    level = skill_table[sn].skill_level[victim->classid];
 	    if (victim->level < level)
-		strcpy(b, "пока нет");
+		strcpy(b, "РїРѕРєР° РЅРµС‚");
 	    else
 	    {
 		percent = get_skill(victim, sn);
@@ -1210,7 +1210,7 @@ void show_skills(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
 	    sprintf(buf, "%-20s %s %s     ", get_skill_name(ch, sn, TRUE), b, over);
 
 	    if (IS_NULLSTR(skill_list[level]))
-		sprintf(skill_list[level], "\n\rУровень %2d: %s", level, buf);
+		sprintf(skill_list[level], "\n\rРЈСЂРѕРІРµРЅСЊ %2d: %s", level, buf);
 	    else /* append */
 	    {
 		if (++skill_columns[level] % 2 == 0)
@@ -1224,7 +1224,7 @@ void show_skills(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
 
     if (!found)
     {
-	send_to_char("Умений не найдено.\n\r", ch);
+	send_to_char("РЈРјРµРЅРёР№ РЅРµ РЅР°Р№РґРµРЅРѕ.\n\r", ch);
 	return;
     }
 
@@ -1258,7 +1258,7 @@ void list_group_costs(CHAR_DATA *ch)
 
     col = 0;
 
-    sprintf(buf, "%-20s %-5s %-20s %-5s %-20s %-5s\n\r", "Группа", "Цена", "Группа", "Цена", "Группа", "Цена");
+    sprintf(buf, "%-20s %-5s %-20s %-5s %-20s %-5s\n\r", "Р“СЂСѓРїРїР°", "Р¦РµРЅР°", "Р“СЂСѓРїРїР°", "Р¦РµРЅР°", "Р“СЂСѓРїРїР°", "Р¦РµРЅР°");
     send_to_char(buf, ch);
 
     for (gn = 0; gn < max_groups; gn++)
@@ -1283,7 +1283,7 @@ void list_group_costs(CHAR_DATA *ch)
     col = 0;
 
     sprintf(buf, "%-20s %-5s %-20s %-5s %-20s %-5s\n\r",
-	    "Умение", "Цена", "Умение", "Цена", "Умение", "Цена");
+	    "РЈРјРµРЅРёРµ", "Р¦РµРЅР°", "РЈРјРµРЅРёРµ", "Р¦РµРЅР°", "РЈРјРµРЅРёРµ", "Р¦РµРЅР°");
     send_to_char(buf, ch);
 
     for (sn = 0; sn < max_skills; sn++)
@@ -1309,10 +1309,10 @@ void list_group_costs(CHAR_DATA *ch)
 	send_to_char("\n\r", ch);
     send_to_char("\n\r", ch);
 
-    sprintf(buf, "Пункты генерации: %d\n\r",
+    sprintf(buf, "РџСѓРЅРєС‚С‹ РіРµРЅРµСЂР°С†РёРё: %d\n\r",
 	    ch->pcdata->points);
     send_to_char(buf, ch);
-    sprintf(buf, "Очков на уровень: %d\n\r",
+    sprintf(buf, "РћС‡РєРѕРІ РЅР° СѓСЂРѕРІРµРЅСЊ: %d\n\r",
 	    exp_per_level(ch, ch->gen_data->points_chosen));
     send_to_char(buf, ch);
     return;
@@ -1330,7 +1330,7 @@ void list_group_chosen(CHAR_DATA *ch)
     col = 0;
 
     sprintf(buf, "%-20s %-5s %-20s %-5s %-20s %-5s",
-	    "Группа", "Цена", "Группа", "Цена", "Группа", "Цена\n\r");
+	    "Р“СЂСѓРїРїР°", "Р¦РµРЅР°", "Р“СЂСѓРїРїР°", "Р¦РµРЅР°", "Р“СЂСѓРїРїР°", "Р¦РµРЅР°\n\r");
     send_to_char(buf, ch);
 
     for (gn = 0; gn < max_groups; gn++)
@@ -1356,7 +1356,7 @@ void list_group_chosen(CHAR_DATA *ch)
     col = 0;
 
     sprintf(buf, "%-20s %-5s %-20s %-5s %-20s %-5s",
-	    "Умение", "Цена", "Умение", "Цена", "Умение", "Цена\n\r");
+	    "РЈРјРµРЅРёРµ", "Р¦РµРЅР°", "РЈРјРµРЅРёРµ", "Р¦РµРЅР°", "РЈРјРµРЅРёРµ", "Р¦РµРЅР°\n\r");
     send_to_char(buf, ch);
 
     for (sn = 0; sn < max_skills; sn++)
@@ -1379,9 +1379,9 @@ void list_group_chosen(CHAR_DATA *ch)
 	send_to_char("\n\r", ch);
     send_to_char("\n\r", ch);
 
-    sprintf(buf, "Пункты генерации: %d\n\r", ch->gen_data->points_chosen);
+    sprintf(buf, "РџСѓРЅРєС‚С‹ РіРµРЅРµСЂР°С†РёРё: %d\n\r", ch->gen_data->points_chosen);
     send_to_char(buf, ch);
-    sprintf(buf, "Очков на уровень: %d\n\r",
+    sprintf(buf, "РћС‡РєРѕРІ РЅР° СѓСЂРѕРІРµРЅСЊ: %d\n\r",
 	    exp_per_level(ch, ch->gen_data->points_chosen));
     send_to_char(buf, ch);
     return;
@@ -1399,7 +1399,7 @@ int exp_per_level(CHAR_DATA *ch, int points)
 
     if (pc_race_table[ch->race].class_mult[ch->classid] == 0)
     {
-	bugf("%s - запрещенное сочетание: %s %s",
+	bugf("%s - Р·Р°РїСЂРµС‰РµРЅРЅРѕРµ СЃРѕС‡РµС‚Р°РЅРёРµ: %s %s",
 	     ch->name,
 	     pc_race_table[ch->race].name,
 	     class_table[ch->classid].name);
@@ -1442,7 +1442,7 @@ bool parse_gen_groups(CHAR_DATA *ch, char *argument)
 
     argument = one_argument(argument, arg);
 
-    if (!str_prefix(arg, "help") || !str_prefix(arg, "помощь"))
+    if (!str_prefix(arg, "help") || !str_prefix(arg, "РїРѕРјРѕС‰СЊ"))
     {
 	if (argument[0] == '\0')
 	{
@@ -1454,11 +1454,11 @@ bool parse_gen_groups(CHAR_DATA *ch, char *argument)
 	return TRUE;
     }
 
-    if (!str_prefix(arg, "add") || !str_prefix(arg, "добавить"))
+    if (!str_prefix(arg, "add") || !str_prefix(arg, "РґРѕР±Р°РІРёС‚СЊ"))
     {
 	if (argument[0] == '\0')
 	{
-	    send_to_char("Ты должен ввести название умения.\n\r", ch);
+	    send_to_char("РўС‹ РґРѕР»Р¶РµРЅ РІРІРµСЃС‚Рё РЅР°Р·РІР°РЅРёРµ СѓРјРµРЅРёСЏ.\n\r", ch);
 	    return TRUE;
 	}
 
@@ -1468,13 +1468,13 @@ bool parse_gen_groups(CHAR_DATA *ch, char *argument)
 	    if (ch->gen_data->group_chosen[gn]
 		|| ch->pcdata->group_known[gn])
 	    {
-		send_to_char("Ты уже знаешь эту группу умений!\n\r", ch);
+		send_to_char("РўС‹ СѓР¶Рµ Р·РЅР°РµС€СЊ СЌС‚Сѓ РіСЂСѓРїРїСѓ СѓРјРµРЅРёР№!\n\r", ch);
 		return TRUE;
 	    }
 
 	    if (group_table[gn].rating[ch->classid] < 1)
 	    {
-		send_to_char("Эта группа умений тебе недоступна.\n\r", ch);
+		send_to_char("Р­С‚Р° РіСЂСѓРїРїР° СѓРјРµРЅРёР№ С‚РµР±Рµ РЅРµРґРѕСЃС‚СѓРїРЅР°.\n\r", ch);
 		return TRUE;
 	    }
 
@@ -1482,13 +1482,13 @@ bool parse_gen_groups(CHAR_DATA *ch, char *argument)
 /*
 	    if (ch->gen_data->points_chosen + group_table[gn].rating[ch->class]	> 100)
 	    {
-		send_to_char("Ты не можешь набрать более 100 "
-			     "пунктов генерации.\n\r", ch);
+		send_to_char("РўС‹ РЅРµ РјРѕР¶РµС€СЊ РЅР°Р±СЂР°С‚СЊ Р±РѕР»РµРµ 100 "
+			     "РїСѓРЅРєС‚РѕРІ РіРµРЅРµСЂР°С†РёРё.\n\r", ch);
 		return TRUE;
 	    }
 */
 
-	    sprintf(buf, "Группа умений '%s' добавлена\n\r",
+	    sprintf(buf, "Р“СЂСѓРїРїР° СѓРјРµРЅРёР№ '%s' РґРѕР±Р°РІР»РµРЅР°\n\r",
 		    get_skill_name(ch, gn, FALSE));
 	    send_to_char(buf, ch);
 	    ch->gen_data->group_chosen[gn] = TRUE;
@@ -1504,7 +1504,7 @@ bool parse_gen_groups(CHAR_DATA *ch, char *argument)
 	    if (ch->gen_data->skill_chosen[sn]
 		|| ch->pcdata->learned[sn] > 0)
 	    {
-		send_to_char("Ты уже знаешь это умение!\n\r", ch);
+		send_to_char("РўС‹ СѓР¶Рµ Р·РЅР°РµС€СЊ СЌС‚Рѕ СѓРјРµРЅРёРµ!\n\r", ch);
 		return TRUE;
 	    }
 
@@ -1512,7 +1512,7 @@ bool parse_gen_groups(CHAR_DATA *ch, char *argument)
 		|| skill_table[sn].spell_fun != spell_null
 		|| skill_table[sn].quest[ch->classid])
 	    {
-		send_to_char("Это умение тебе недоступно.\n\r", ch);
+		send_to_char("Р­С‚Рѕ СѓРјРµРЅРёРµ С‚РµР±Рµ РЅРµРґРѕСЃС‚СѓРїРЅРѕ.\n\r", ch);
 		return TRUE;
 	    }
 
@@ -1523,12 +1523,12 @@ bool parse_gen_groups(CHAR_DATA *ch, char *argument)
 	    if (ch->gen_data->points_chosen + skill_table[sn].rating[ch->class]
 		> 100)
 	    {
-		send_to_char("Ты не можешь набрать более 100 "
-			     "пунктов генерации..\n\r", ch);
+		send_to_char("РўС‹ РЅРµ РјРѕР¶РµС€СЊ РЅР°Р±СЂР°С‚СЊ Р±РѕР»РµРµ 100 "
+			     "РїСѓРЅРєС‚РѕРІ РіРµРЅРµСЂР°С†РёРё..\n\r", ch);
 		return TRUE;
 	    }
 */
-	    sprintf(buf, "Умение '%s' добавлено\n\r",
+	    sprintf(buf, "РЈРјРµРЅРёРµ '%s' РґРѕР±Р°РІР»РµРЅРѕ\n\r",
 		    get_skill_name(ch, sn, TRUE));
 	    send_to_char(buf, ch);
 	    ch->gen_data->skill_chosen[sn] = TRUE;
@@ -1538,22 +1538,22 @@ bool parse_gen_groups(CHAR_DATA *ch, char *argument)
 	    return TRUE;
 	}
 
-	send_to_char("Такие умения или группы умений отсутствуют...\n\r", ch);
+	send_to_char("РўР°РєРёРµ СѓРјРµРЅРёСЏ РёР»Рё РіСЂСѓРїРїС‹ СѓРјРµРЅРёР№ РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚...\n\r", ch);
 	return TRUE;
     }
 
-    if (!strcmp(arg, "drop") || !strcmp(arg, "сбросить"))
+    if (!strcmp(arg, "drop") || !strcmp(arg, "СЃР±СЂРѕСЃРёС‚СЊ"))
     {
 	if (argument[0] == '\0')
 	{
-	    send_to_char("Для сброса надо ввести название умения.\n\r", ch);
+	    send_to_char("Р”Р»СЏ СЃР±СЂРѕСЃР° РЅР°РґРѕ РІРІРµСЃС‚Рё РЅР°Р·РІР°РЅРёРµ СѓРјРµРЅРёСЏ.\n\r", ch);
 	    return TRUE;
 	}
 
 	gn = group_lookup(argument);
 	if (gn != -1 && ch->gen_data->group_chosen[gn])
 	{
-	    send_to_char("Группа умений сброшена.\n\r", ch);
+	    send_to_char("Р“СЂСѓРїРїР° СѓРјРµРЅРёР№ СЃР±СЂРѕС€РµРЅР°.\n\r", ch);
 	    ch->gen_data->group_chosen[gn] = FALSE;
 	    ch->gen_data->points_chosen -= group_table[gn].rating[ch->classid];
 	    gn_remove(ch, gn);
@@ -1584,14 +1584,14 @@ bool parse_gen_groups(CHAR_DATA *ch, char *argument)
 		{
 		    if (skill_lookup(skill_table[i].depends[j]) == sn)
 		    {
-			sprintf(buf, "Нельзя сбросить это умение, поскольку от него зависит %s.\n\r", get_skill_name(ch, i, TRUE));
+			sprintf(buf, "РќРµР»СЊР·СЏ СЃР±СЂРѕСЃРёС‚СЊ СЌС‚Рѕ СѓРјРµРЅРёРµ, РїРѕСЃРєРѕР»СЊРєСѓ РѕС‚ РЅРµРіРѕ Р·Р°РІРёСЃРёС‚ %s.\n\r", get_skill_name(ch, i, TRUE));
 			send_to_char(buf, ch);
 			return TRUE;
 		    }
 		}
 	    }
 
-	    send_to_char("Умение сброшено.\n\r", ch);
+	    send_to_char("РЈРјРµРЅРёРµ СЃР±СЂРѕС€РµРЅРѕ.\n\r", ch);
 	    ch->gen_data->skill_chosen[sn] = FALSE;
 	    ch->gen_data->points_chosen -= skill_table[sn].rating[ch->classid];
 	    ch->pcdata->learned[sn] = 0;
@@ -1599,24 +1599,24 @@ bool parse_gen_groups(CHAR_DATA *ch, char *argument)
 	    return TRUE;
 	}
 
-	send_to_char("Таких умений или групп умений еще не приобретено.\n\r",
+	send_to_char("РўР°РєРёС… СѓРјРµРЅРёР№ РёР»Рё РіСЂСѓРїРї СѓРјРµРЅРёР№ РµС‰Рµ РЅРµ РїСЂРёРѕР±СЂРµС‚РµРЅРѕ.\n\r",
 		     ch);
 	return TRUE;
     }
 
-    if (!str_prefix(arg, "list") || !str_prefix(arg, "список"))
+    if (!str_prefix(arg, "list") || !str_prefix(arg, "СЃРїРёСЃРѕРє"))
     {
 	list_group_costs(ch);
 	return TRUE;
     }
 
-    if (!str_prefix(arg, "learned") || !str_prefix(arg, "приобретенные"))
+    if (!str_prefix(arg, "learned") || !str_prefix(arg, "РїСЂРёРѕР±СЂРµС‚РµРЅРЅС‹Рµ"))
     {
 	list_group_chosen(ch);
 	return TRUE;
     }
 
-    if (!str_prefix(arg, "info") || !str_prefix(arg, "инфо"))
+    if (!str_prefix(arg, "info") || !str_prefix(arg, "РёРЅС„Рѕ"))
     {
 	do_function(ch, &do_groups, argument);
 	return TRUE;
@@ -1653,12 +1653,12 @@ void do_groups(CHAR_DATA *ch, char *argument)
 	}
 	if (col % 3 != 0)
 	    send_to_char("\n\r", ch);
-	sprintf(buf, "Пункты генерации: %d\n\r", ch->pcdata->points);
+	sprintf(buf, "РџСѓРЅРєС‚С‹ РіРµРЅРµСЂР°С†РёРё: %d\n\r", ch->pcdata->points);
 	send_to_char(buf, ch);
 	return;
     }
 
-    if (!str_cmp(argument, "all") || !str_cmp(argument, "все"))
+    if (!str_cmp(argument, "all") || !str_cmp(argument, "РІСЃРµ"))
     {
 	for (gn = 0; gn < max_groups; gn++)
 	{
@@ -1679,8 +1679,8 @@ void do_groups(CHAR_DATA *ch, char *argument)
     gn = group_lookup(argument);
     if (gn == -1)
     {
-	send_to_char("Нет таких групп умений.\n\r"
-		     "Набери 'инфо все' для просмотра полного списка.\n\r", ch);
+	send_to_char("РќРµС‚ С‚Р°РєРёС… РіСЂСѓРїРї СѓРјРµРЅРёР№.\n\r"
+		     "РќР°Р±РµСЂРё 'РёРЅС„Рѕ РІСЃРµ' РґР»СЏ РїСЂРѕСЃРјРѕС‚СЂР° РїРѕР»РЅРѕРіРѕ СЃРїРёСЃРєР°.\n\r", ch);
 	return;
     }
 
@@ -1710,7 +1710,7 @@ void do_groups(CHAR_DATA *ch, char *argument)
 }
 
 /* checks for skill improvement */
-/* ПРОКАЧКА УМЕНИЙ И ЗАКЛИНАНИЙ*/
+/* РџР РћРљРђР§РљРђ РЈРњР•РќРР™ Р Р—РђРљР›РРќРђРќРР™*/
 void check_improve(CHAR_DATA *ch, CHAR_DATA *victim, int sn, bool success, int multiplier)
 {
     int chance, rating;
@@ -1722,7 +1722,7 @@ void check_improve(CHAR_DATA *ch, CHAR_DATA *victim, int sn, bool success, int m
     if (!ch || IS_NPC(ch) || ch == victim)
 	return;
 
-    //на арене скиллы не качаем, в безопасных местах, гильдиях, храмах, домах и кланах
+    //РЅР° Р°СЂРµРЅРµ СЃРєРёР»Р»С‹ РЅРµ РєР°С‡Р°РµРј, РІ Р±РµР·РѕРїР°СЃРЅС‹С… РјРµСЃС‚Р°С…, РіРёР»СЊРґРёСЏС…, С…СЂР°РјР°С…, РґРѕРјР°С… Рё РєР»Р°РЅР°С…
     if (ch->in_room != NULL && (IS_SET(ch->in_room->room_flags, ROOM_ARENA) 
 								|| IS_SET(ch->in_room->room_flags, ROOM_SAFE)
 								|| IS_SET(ch->in_room->room_flags, ROOM_GUILD)
@@ -1732,16 +1732,16 @@ void check_improve(CHAR_DATA *ch, CHAR_DATA *victim, int sn, bool success, int m
 							   ))
 	return;
 
-    //безопыта тоже скиллы не качаем
+    //Р±РµР·РѕРїС‹С‚Р° С‚РѕР¶Рµ СЃРєРёР»Р»С‹ РЅРµ РєР°С‡Р°РµРј
     if (IS_SET(ch->act, PLR_NOEXP))
 	return;
 
     if (victim	&& IS_NPC(victim) && (IS_SET(victim->act, ACT_PET) || IS_SET(victim->act, ACT_NOEXP))){
-		return;  /* Ибо не хер на кошках умения качать. */
+		return;  /* РР±Рѕ РЅРµ С…РµСЂ РЅР° РєРѕС€РєР°С… СѓРјРµРЅРёСЏ РєР°С‡Р°С‚СЊ. */
     }
 
     if (victim && !IS_NPC(victim) && !IS_NPC(ch) && (ch->level + 3 < victim->level)){
-		return;  /* Ибо не хер на чарах хаях качать. */
+		return;  /* РР±Рѕ РЅРµ С…РµСЂ РЅР° С‡Р°СЂР°С… С…Р°СЏС… РєР°С‡Р°С‚СЊ. */
     }
 
 
@@ -1782,7 +1782,7 @@ void check_improve(CHAR_DATA *ch, CHAR_DATA *victim, int sn, bool success, int m
 	over *= URANGE(5, ch->pcdata->learned[sn]/2, 25);
 
 
-//делаем постоянные утроения
+//РґРµР»Р°РµРј РїРѕСЃС‚РѕСЏРЅРЅС‹Рµ СѓС‚СЂРѕРµРЅРёСЏ
 /*    over *= 2.75;*/
     over *= 9;
 
@@ -1800,18 +1800,18 @@ void check_improve(CHAR_DATA *ch, CHAR_DATA *victim, int sn, bool success, int m
     {
 	if (ch->pcdata->learned[sn] == 99)
 	{
-	    sprintf(buf, "{GТы достигаешь мастерства в %s '%s'!{x\n\r",
+	    sprintf(buf, "{GРўС‹ РґРѕСЃС‚РёРіР°РµС€СЊ РјР°СЃС‚РµСЂСЃС‚РІР° РІ %s '%s'!{x\n\r",
 		    skill_spell(sn, TRUE), get_skill_name(ch, sn, TRUE));
 	}
 	else if (success)
 	{
-	    sprintf(buf, "{GТы повышаешь свой опыт в %s '%s'!{x\n\r",
+	    sprintf(buf, "{GРўС‹ РїРѕРІС‹С€Р°РµС€СЊ СЃРІРѕР№ РѕРїС‹С‚ РІ %s '%s'!{x\n\r",
 		    skill_spell(sn, TRUE), get_skill_name(ch, sn, TRUE));
 	}
 	else
 	{
-	    sprintf(buf, "{GТы учишься на своих ошибках, и твое мастерство "
-		    "в %s '%s' растет.{x\n\r",
+	    sprintf(buf, "{GРўС‹ СѓС‡РёС€СЊСЃСЏ РЅР° СЃРІРѕРёС… РѕС€РёР±РєР°С…, Рё С‚РІРѕРµ РјР°СЃС‚РµСЂСЃС‚РІРѕ "
+		    "РІ %s '%s' СЂР°СЃС‚РµС‚.{x\n\r",
 		    skill_spell(sn, TRUE), get_skill_name(ch, sn, TRUE));
 	}
 	send_to_char(buf, ch);

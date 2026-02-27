@@ -272,72 +272,72 @@ struct translit_type
 };
 
 struct translit_type		translit	[]	= {
-    {'Ч', "CH"},
-    {'ч', "ch"},
-    {'Ш', "SH" },
-    {'ш', "sh" },
-    {'Щ', "SH"},
-    {'щ', "sh"},
-    {'Й', "YJ" },
-    {'й', "yj" },
-    {'Ю', "YU"},
-    {'ю', "yu"},
-    {'Я', "YA"},
-    {'я', "ya"},
-    {'А', "A"} ,
-    {'а', "a"} ,
-    {'Б', "B"} ,
-    {'б', "b"} ,
-    {'В', "V"} ,
-    {'в', "v"} ,
-    {'Г', "G"} ,
-    {'г', "g"} ,
-    {'Д', "D"} ,
-    {'д', "d"} ,
-    {'Е', "E"} ,
-    {'е', "e"} ,
-    {'Ё', "E"} ,
-    {'ё', "e"} ,
-    {'Ж', "J"} ,
-    {'ж', "j"} ,
-    {'З', "Z"} ,
-    {'з', "z"} ,
-    {'И', "I"} ,
-    {'и', "i"} ,
-    {'К', "K"} ,
-    {'к', "k"} ,
-    {'Л', "L"} ,
-    {'л', "l"} ,
-    {'М', "M"} ,
-    {'м', "m"} ,
-    {'Н', "N"} ,
-    {'н', "n"} ,
-    {'О', "O"} ,
-    {'о', "o"} ,
-    {'П', "P"} ,
-    {'п', "p"} ,
-    {'Р', "R"} ,
-    {'р', "r"} ,
-    {'С', "S"} ,
-    {'с', "s"} ,
-    {'Т', "T"} ,
-    {'т', "t"} ,
-    {'У', "U"} ,
-    {'у', "u"} ,
-    {'Ф', "F"} ,
-    {'ф', "f"} ,
-    {'Х', "H"} ,
-    {'х', "h"} ,
-    {'Ь', "'"} ,
-    {'ь', "'"} ,
-    {'Ъ', "'"} ,
-    {'ъ', "'"} ,
-    {'Ц', "C"},
-    {'ц', "c"},
-    {'Ы', "Y"},
-    {'ы', "y"},
-    {'Э', "E"},
-    {'э', "e"},
+    {'Р§', "CH"},
+    {'С‡', "ch"},
+    {'РЁ', "SH" },
+    {'С€', "sh" },
+    {'Р©', "SH"},
+    {'С‰', "sh"},
+    {'Р™', "YJ" },
+    {'Р№', "yj" },
+    {'Р®', "YU"},
+    {'СЋ', "yu"},
+    {'РЇ', "YA"},
+    {'СЏ', "ya"},
+    {'Рђ', "A"} ,
+    {'Р°', "a"} ,
+    {'Р‘', "B"} ,
+    {'Р±', "b"} ,
+    {'Р’', "V"} ,
+    {'РІ', "v"} ,
+    {'Р“', "G"} ,
+    {'Рі', "g"} ,
+    {'Р”', "D"} ,
+    {'Рґ', "d"} ,
+    {'Р•', "E"} ,
+    {'Рµ', "e"} ,
+    {'РЃ', "E"} ,
+    {'С‘', "e"} ,
+    {'Р–', "J"} ,
+    {'Р¶', "j"} ,
+    {'Р—', "Z"} ,
+    {'Р·', "z"} ,
+    {'Р', "I"} ,
+    {'Рё', "i"} ,
+    {'Рљ', "K"} ,
+    {'Рє', "k"} ,
+    {'Р›', "L"} ,
+    {'Р»', "l"} ,
+    {'Рњ', "M"} ,
+    {'Рј', "m"} ,
+    {'Рќ', "N"} ,
+    {'РЅ', "n"} ,
+    {'Рћ', "O"} ,
+    {'Рѕ', "o"} ,
+    {'Рџ', "P"} ,
+    {'Рї', "p"} ,
+    {'Р ', "R"} ,
+    {'СЂ', "r"} ,
+    {'РЎ', "S"} ,
+    {'СЃ', "s"} ,
+    {'Рў', "T"} ,
+    {'С‚', "t"} ,
+    {'РЈ', "U"} ,
+    {'Сѓ', "u"} ,
+    {'Р¤', "F"} ,
+    {'С„', "f"} ,
+    {'РҐ', "H"} ,
+    {'С…', "h"} ,
+    {'Р¬', "'"} ,
+    {'СЊ', "'"} ,
+    {'РЄ', "'"} ,
+    {'СЉ', "'"} ,
+    {'Р¦', "C"},
+    {'С†', "c"},
+    {'Р«', "Y"},
+    {'С‹', "y"},
+    {'Р­', "E"},
+    {'СЌ', "e"},
     {'\0', ""}
 };
 
@@ -349,22 +349,22 @@ struct antitrigger_type
 };
 
 struct antitrigger_type		antitrigger	[]	= {
-    {'а', 'a'},
-    {'е', 'e'},
-    {'о', 'o'},
-    {'р', 'p'},
-    {'с', 'c'},
-    {'х', 'x'},
-    {'А', 'A'},
-    {'В', 'B'},
-    {'Е', 'E'},
-    {'М', 'M'},
-    {'Н', 'H'},
-    {'О', 'O'},
-    {'Р', 'P'},
-    {'С', 'C'},
-    {'Т', 'T'},
-    {'Х', 'X'},
+    {'Р°', 'a'},
+    {'Рµ', 'e'},
+    {'Рѕ', 'o'},
+    {'СЂ', 'p'},
+    {'СЃ', 'c'},
+    {'С…', 'x'},
+    {'Рђ', 'A'},
+    {'Р’', 'B'},
+    {'Р•', 'E'},
+    {'Рњ', 'M'},
+    {'Рќ', 'H'},
+    {'Рћ', 'O'},
+    {'Р ', 'P'},
+    {'РЎ', 'C'},
+    {'Рў', 'T'},
+    {'РҐ', 'X'},
     {'\0','\0'}
 };
 
@@ -402,45 +402,45 @@ void turn_on_mxp (DESCRIPTOR_DATA *d)
     /* Get an item tag (for things on the ground) */
     write_to_buffer(d, MXPTAG
 		    ("!ELEMENT Get \"<send href='"
-		     "взять &#39;&name;&#39;|"
-		     "проверить &#39;&name;&#39;|"
-		     "пить &#39;&name;&#39;"
+		     "РІР·СЏС‚СЊ &#39;&name;&#39;|"
+		     "РїСЂРѕРІРµСЂРёС‚СЊ &#39;&name;&#39;|"
+		     "РїРёС‚СЊ &#39;&name;&#39;"
 		     "' "
-		     "hint='Для использования этого объекта нажмите правую кнопку мыши|"
-		     "Взять &desc;|"
-		     "Проверить &desc;|"
-		     "Пить из &desc;"
+		     "hint='Р”Р»СЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ СЌС‚РѕРіРѕ РѕР±СЉРµРєС‚Р° РЅР°Р¶РјРёС‚Рµ РїСЂР°РІСѓСЋ РєРЅРѕРїРєСѓ РјС‹С€Рё|"
+		     "Р’Р·СЏС‚СЊ &desc;|"
+		     "РџСЂРѕРІРµСЂРёС‚СЊ &desc;|"
+		     "РџРёС‚СЊ РёР· &desc;"
 		     "'>\" ATT='name desc'"),
 		    0);
     /* Drop an item tag (for things in the inventory) */
     write_to_buffer(d, MXPTAG
 		    ("!ELEMENT Drop \"<send href='"
-		     "бросить &#39;&name;&#39;|"
-		     "проверить &#39;&name;&#39;|"
-		     "смотреть в &#39;&name;&#39;|"
-		     "одеть &#39;&name;&#39;|"
-		     "есть &#39;&name;&#39;|"
-		     "пить &#39;&name;&#39;"
+		     "Р±СЂРѕСЃРёС‚СЊ &#39;&name;&#39;|"
+		     "РїСЂРѕРІРµСЂРёС‚СЊ &#39;&name;&#39;|"
+		     "СЃРјРѕС‚СЂРµС‚СЊ РІ &#39;&name;&#39;|"
+		     "РѕРґРµС‚СЊ &#39;&name;&#39;|"
+		     "РµСЃС‚СЊ &#39;&name;&#39;|"
+		     "РїРёС‚СЊ &#39;&name;&#39;"
 		     "' "
-		     "hint='Для использования этого объекта нажмите правую кнопку мыши|"
-		     "Бросить &desc;|"
-		     "Проверить &desc;|"
-		     "Смотреть в &desc;|"
-		     "Одеть &desc;|"
-		     "Есть &desc;|"
-		     "Пить &desc;"
+		     "hint='Р”Р»СЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ СЌС‚РѕРіРѕ РѕР±СЉРµРєС‚Р° РЅР°Р¶РјРёС‚Рµ РїСЂР°РІСѓСЋ РєРЅРѕРїРєСѓ РјС‹С€Рё|"
+		     "Р‘СЂРѕСЃРёС‚СЊ &desc;|"
+		     "РџСЂРѕРІРµСЂРёС‚СЊ &desc;|"
+		     "РЎРјРѕС‚СЂРµС‚СЊ РІ &desc;|"
+		     "РћРґРµС‚СЊ &desc;|"
+		     "Р•СЃС‚СЊ &desc;|"
+		     "РџРёС‚СЊ &desc;"
 		     "'>\" ATT='name desc'"),
 		    0);
     /* List an item tag (for things in a shop) */
     write_to_buffer(d, MXPTAG
-		    ("!ELEMENT List \"<send href='купить &#39;&name;&#39;' "
-		     "hint='Купить &desc;'>\" "
+		    ("!ELEMENT List \"<send href='РєСѓРїРёС‚СЊ &#39;&name;&#39;' "
+		     "hint='РљСѓРїРёС‚СЊ &desc;'>\" "
 		     "ATT='name desc'"),
 		    0);
     /* Player tag (for who lists, tells etc.) */
     /*  write_to_buffer(d, MXPTAG
-     ("!ELEMENT Player \"<send href='гов &#39;&name;&#39; ' "
-     "hint='Послать сообщение &name;' prompt>\" "
+     ("!ELEMENT Player \"<send href='РіРѕРІ &#39;&name;&#39; ' "
+     "hint='РџРѕСЃР»Р°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ &name;' prompt>\" "
      "ATT='name'"),
      0); */
 } /* end of turn_on_mxp */
@@ -1218,7 +1218,7 @@ void close_socket(DESCRIPTOR_DATA *dclose){
 	process_output(dclose, FALSE);
 
     if (dclose->snoop_by != NULL){
-	    write_to_buffer(dclose->snoop_by, "Твоя цель вышла из игры.\n\r", 0);
+	    write_to_buffer(dclose->snoop_by, "РўРІРѕСЏ С†РµР»СЊ РІС‹С€Р»Р° РёР· РёРіСЂС‹.\n\r", 0);
     }
 
 
@@ -1246,18 +1246,18 @@ void close_socket(DESCRIPTOR_DATA *dclose){
 
         /* cut down on wiznet spam when rebooting */
 
-        check_auctions(ch, NULL, "исчезновения владельца неизвестно куда");
+        check_auctions(ch, NULL, "РёСЃС‡РµР·РЅРѕРІРµРЅРёСЏ РІР»Р°РґРµР»СЊС†Р° РЅРµРёР·РІРµСЃС‚РЅРѕ РєСѓРґР°");
 
         if (dclose->connected == CON_PLAYING && !merc_down)
         {
             if (!IS_IMMORTAL(ch))
             {
-                act("$n теряет сознание.", ch, NULL, NULL, TO_ROOM);
+                act("$n С‚РµСЂСЏРµС‚ СЃРѕР·РЅР°РЅРёРµ.", ch, NULL, NULL, TO_ROOM);
             }
 
-            edit_done(ch);	/* Снимаем флаг редактирования */
+            edit_done(ch);	/* РЎРЅРёРјР°РµРј С„Р»Р°Рі СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ */
 
-            sprintf(bfr, "$N@%s теряет связь.", dns_gethostname(dclose->Host));
+            sprintf(bfr, "$N@%s С‚РµСЂСЏРµС‚ СЃРІСЏР·СЊ.", dns_gethostname(dclose->Host));
             wiznet(bfr, ch, NULL, WIZ_LINKS, 0, get_trust(ch));
 
             if (ch->desc && ch->desc->original && !ch->desc->original->in_room)
@@ -1304,7 +1304,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d){
 
 	sprintf(bfr, "%s input overflow!", d->ip);
 	log_string(bfr);
-	write_to_buffer(d, "\n\r{R*** ЭТО СПАМ!!! ***{x\n\r", 0);
+	write_to_buffer(d, "\n\r{R*** Р­РўРћ РЎРџРђРњ!!! ***{x\n\r", 0);
 	return FALSE;
     }
 
@@ -1357,14 +1357,14 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 
     d->grep[0] = '\0';
 
-    /* Очистка буфера команд */
+    /* РћС‡РёСЃС‚РєР° Р±СѓС„РµСЂР° РєРѕРјР°РЅРґ */
 
     for (i = 0; d->inbuf[i] != '\0'; i++)
     {
 	if (flag && d->inbuf[i] == '-')
 	{
 	    d->inbuf[0] = '\0';
-	    write_to_buffer(d, "Буфер команд очищен.\n\r", 0);
+	    write_to_buffer(d, "Р‘СѓС„РµСЂ РєРѕРјР°РЅРґ РѕС‡РёС‰РµРЅ.\n\r", 0);
 	    return;
 	}
 
@@ -1402,7 +1402,7 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
     {
 	if (k >= MAX_INPUT_LENGTH - 2)
 	{
-	    write_to_buffer(d, "Слишком длинная строка.\n\r", 0);
+	    write_to_buffer(d, "РЎР»РёС€РєРѕРј РґР»РёРЅРЅР°СЏ СЃС‚СЂРѕРєР°.\n\r", 0);
 
 	    /* skip the rest of the line */
 	    for (; d->inbuf[i] != '\0'; i++)
@@ -1511,14 +1511,14 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 
 	    if (++d->repeat >= 25 && d->character
 		&& d->connected == CON_PLAYING
-		&& !is_name(bfr, "север юг запад восток верх вверх низ north "
-			    "south east west up down новост news письм пись ново нов новости новос пис пи ид иде письмо"
-			    "note изменения changes идея ideas конец quit изм из изме измен измене изменен изменени")
+		&& !is_name(bfr, "СЃРµРІРµСЂ СЋРі Р·Р°РїР°Рґ РІРѕСЃС‚РѕРє РІРµСЂС… РІРІРµСЂС… РЅРёР· north "
+			    "south east west up down РЅРѕРІРѕСЃС‚ news РїРёСЃСЊРј РїРёСЃСЊ РЅРѕРІРѕ РЅРѕРІ РЅРѕРІРѕСЃС‚Рё РЅРѕРІРѕСЃ РїРёСЃ РїРё РёРґ РёРґРµ РїРёСЃСЊРјРѕ"
+			    "note РёР·РјРµРЅРµРЅРёСЏ changes РёРґРµСЏ ideas РєРѕРЅРµС† quit РёР·Рј РёР· РёР·РјРµ РёР·РјРµРЅ РёР·РјРµРЅРµ РёР·РјРµРЅРµРЅ РёР·РјРµРЅРµРЅРё")
 		&& !(IS_IMMORTAL(d->character)))
 	    {
 		sprintf(bfr, "%s input spamming!", d->ip);
 		log_string(bfr);
-		wiznet("$N замечен в спаме!", d->character, NULL,
+		wiznet("$N Р·Р°РјРµС‡РµРЅ РІ СЃРїР°РјРµ!", d->character, NULL,
 		       WIZ_SPAM, 0, get_trust(d->character));
 
 		if (d->incomm[0] == '!')
@@ -1536,7 +1536,7 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 
 		d->repeat = 0;
 
-		write_to_buffer(d, "\n\r*** СПАМ НЕ РАЗРЕШЕН!!! ***\n\r", 0);
+		write_to_buffer(d, "\n\r*** РЎРџРђРњ РќР• Р РђР—Р Р•РЁР•Рќ!!! ***\n\r", 0);
 		strcpy(d->incomm, "quit");
 
 	    }
@@ -1596,8 +1596,8 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 	{
 	    if (!str_infix(stoplist[i], d->incomm))
 	    {
-		write_to_buffer(d, "ВЫБИРАЙ ВЫРАЖЕНИЯ!\n\r\n\r", 0);
-		sprintf(bfr, "Нецензурщина: '%s' Host: %s",
+		write_to_buffer(d, "Р’Р«Р‘РР РђР™ Р’Р«Р РђР–Р•РќРРЇ!\n\r\n\r", 0);
+		sprintf(bfr, "РќРµС†РµРЅР·СѓСЂС‰РёРЅР°: '%s' Host: %s",
 			d->incomm, d->ip);
 		log_string(bfr);
 		sprintf(d->incomm, "\n\r");
@@ -1684,7 +1684,7 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 	{
 	    char tmp[MIL];
 
-	    colourconv(buf, "{Y[Нажмите Enter для продолжения]{x\n\r", d->character);
+	    colourconv(buf, "{Y[РќР°Р¶РјРёС‚Рµ Enter РґР»СЏ РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ]{x\n\r", d->character);
 	    strcpy(tmp, d->grep);
 	    d->grep[0] = '\0';
 	    write_to_buffer(d, buf, 0);
@@ -1711,21 +1711,21 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 		    percent = (victim->max_hit > 0) ? victim->hit * 100 / victim->max_hit : -1;
 
 		    if (percent >= 100)
-		        sprintf(wound, "{Gв прекрасном состоянии.{x");
+		        sprintf(wound, "{GРІ РїСЂРµРєСЂР°СЃРЅРѕРј СЃРѕСЃС‚РѕСЏРЅРёРё.{x");
 		    else if (percent >= 90)
-		        sprintf(wound, "{gслегка поцарапан%s.{x", SEX_ENDING(victim));
+		        sprintf(wound, "{gСЃР»РµРіРєР° РїРѕС†Р°СЂР°РїР°РЅ%s.{x", SEX_ENDING(victim));
 		    else if (percent >= 75)
-		        sprintf(wound, "{Cлегко ранен%s.{x", SEX_ENDING(victim));
+		        sprintf(wound, "{CР»РµРіРєРѕ СЂР°РЅРµРЅ%s.{x", SEX_ENDING(victim));
 		    else if (percent >= 50)
-		        sprintf(wound, "{cранен%s.{x", SEX_ENDING(victim));
+		        sprintf(wound, "{cСЂР°РЅРµРЅ%s.{x", SEX_ENDING(victim));
 		    else if (percent >= 30)
-		        sprintf(wound, "{Yсерьезно ранен%s.{x", SEX_ENDING(victim));
+		        sprintf(wound, "{YСЃРµСЂСЊРµР·РЅРѕ СЂР°РЅРµРЅ%s.{x", SEX_ENDING(victim));
 		    else if (percent >= 15)
-		        sprintf(wound, "{yвыглядит очень плохо.{x");
+		        sprintf(wound, "{yРІС‹РіР»СЏРґРёС‚ РѕС‡РµРЅСЊ РїР»РѕС…Рѕ.{x");
 		    else if (percent >= 0)
-		        sprintf(wound, "{rв ужасном состоянии.{x");
+		        sprintf(wound, "{rРІ СѓР¶Р°СЃРЅРѕРј СЃРѕСЃС‚РѕСЏРЅРёРё.{x");
 		    else
-		        sprintf(wound, "{Rистекает кровью.{x");
+		        sprintf(wound, "{RРёСЃС‚РµРєР°РµС‚ РєСЂРѕРІСЊСЋ.{x");
 
 		    sprintf(pbuff, "%s %s \n\r",
 			IS_NPC(victim) ? victim->short_descr : victim->name, wound);
@@ -1817,7 +1817,7 @@ void bust_a_prompt(CHAR_DATA *ch)
     EXIT_DATA *pexit;
     bool found;
     const char *dir_name[] = {"N", "E", "S", "W", "U", "D"};
-    const char *dir_rname[] = {"С", "В", "Ю", "З", "Вв", "Н"};
+    const char *dir_rname[] = {"РЎ", "Р’", "Р®", "Р—", "Р’РІ", "Рќ"};
     int door;
 
     CHAR_DATA *victim;
@@ -1901,7 +1901,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 
     if (IS_SET(ch->comm, COMM_AFK))
     {
-	send_to_char("{c<ВОК>{x ", ch);
+	send_to_char("{c<Р’РћРљ>{x ", ch);
 	return;
     }
 
@@ -2003,7 +2003,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 		    && !IS_SET(ch->act, PLR_HOLYLIGHT))
 		{
 		    found=TRUE;
-		    strcpy(doors, (*str == 'e') ? "blind" : "слеп");
+		    strcpy(doors, (*str == 'e') ? "blind" : "СЃР»РµРї");
 		}
 		else if (ch->in_room)
 		{
@@ -2012,7 +2012,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 			&& room_is_dark_new(ch))
 		    {
 			found=TRUE;
-			strcpy(doors, (*str == 'e') ? "dark" : "темно");
+			strcpy(doors, (*str == 'e') ? "dark" : "С‚РµРјРЅРѕ");
 		    }
 		    else
 		    {
@@ -2034,45 +2034,45 @@ void bust_a_prompt(CHAR_DATA *ch)
 	    }
 	    else
 	    {
-		strcpy(doors, (*str == 'e') ? "sleeping" : "сон");
+		strcpy(doors, (*str == 'e') ? "sleeping" : "СЃРѕРЅ");
 		found=TRUE;
 	    }
 	    if (!found)
-		strcpy(doors, (*str == 'e') ? "none" : "нет");
+		strcpy(doors, (*str == 'e') ? "none" : "РЅРµС‚");
 
 	    strcpy(buf2, doors);
 	    i = buf2;
 	    break;
 	case 'y' :
-	    sprintf(buf2, "%s", ch->style == NORM_STYLE ? "Норма" 
-				: (ch->style == AGGR_STYLE ? "Атака" : "Оборона"));
+	    sprintf(buf2, "%s", ch->style == NORM_STYLE ? "РќРѕСЂРјР°" 
+				: (ch->style == AGGR_STYLE ? "РђС‚Р°РєР°" : "РћР±РѕСЂРѕРЅР°"));
 	    i = buf2; break;
 
-//бессмертие и посмертие
+//Р±РµСЃСЃРјРµСЂС‚РёРµ Рё РїРѕСЃРјРµСЂС‚РёРµ
 	case 'i' :
 		if (!IS_NPC(ch))
 		{
 			if (ch->pcdata->temp_RIP == 0)
 			{
-			    sprintf(buf2, "%s", "нет"); 
+			    sprintf(buf2, "%s", "РЅРµС‚"); 
 			}
 			else
 			{
 				if (ch->pcdata->temp_RIP == 1)
 				{
-				    sprintf(buf2, "%s", "выкл"); 
+				    sprintf(buf2, "%s", "РІС‹РєР»"); 
 				}
 				else
 				{
 					if (ch->pcdata->temp_RIP == 2)
 					{
-						sprintf(buf2, "%s", "вкл");
+						sprintf(buf2, "%s", "РІРєР»");
 					}
 					else
 					{
 						if (ch->pcdata->temp_RIP == 3)
 						{
-							sprintf(buf2, "%s", "посм");
+							sprintf(buf2, "%s", "РїРѕСЃРј");
 						}
 					}
 				}
@@ -2080,7 +2080,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 		}
 		else
 		{
-		    sprintf(buf2, "%s", "неопознано"); 
+		    sprintf(buf2, "%s", "РЅРµРѕРїРѕР·РЅР°РЅРѕ"); 
 		}
 		i = buf2; break;
 
@@ -2090,25 +2090,25 @@ void bust_a_prompt(CHAR_DATA *ch)
 		{
 			if (ch->pcdata->temp_RIP == 0)
 			{
-			    sprintf(buf2, "%s", "не куплено"); 
+			    sprintf(buf2, "%s", "РЅРµ РєСѓРїР»РµРЅРѕ"); 
 			}
 			else
 			{
 				if (ch->pcdata->temp_RIP == 1)
 				{
-				    sprintf(buf2, "%s", "бессмертие выключено"); 
+				    sprintf(buf2, "%s", "Р±РµСЃСЃРјРµСЂС‚РёРµ РІС‹РєР»СЋС‡РµРЅРѕ"); 
 				}
 				else
 				{
 					if (ch->pcdata->temp_RIP == 2)
 					{
-						sprintf(buf2, "%s", "бессмертие включено");
+						sprintf(buf2, "%s", "Р±РµСЃСЃРјРµСЂС‚РёРµ РІРєР»СЋС‡РµРЅРѕ");
 					}
 					else
 					{
 						if (ch->pcdata->temp_RIP == 3)
 						{
-							sprintf(buf2, "%s", "посмертие");
+							sprintf(buf2, "%s", "РїРѕСЃРјРµСЂС‚РёРµ");
 						}
 					}
 				}
@@ -2117,7 +2117,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 		else
 		{
 
-		    sprintf(buf2, "%s", "неопознано"); 
+		    sprintf(buf2, "%s", "РЅРµРѕРїРѕР·РЅР°РЅРѕ"); 
 		}
 		i = buf2; break;
 
@@ -2160,29 +2160,29 @@ void bust_a_prompt(CHAR_DATA *ch)
 	    if(ch->level > 9)
 		sprintf(buf2, "%d", ch->alignment);
 	    else if (ch->alignment >  900)
-		sprintf(buf2, "%s", "ангел");
+		sprintf(buf2, "%s", "Р°РЅРіРµР»");
 	    else if (ch->alignment >  700)
-		sprintf(buf2, "%s", "святая");
+		sprintf(buf2, "%s", "СЃРІСЏС‚Р°СЏ");
 	    else if (ch->alignment >  350)
-		sprintf(buf2, "%s", "хорошая");
+		sprintf(buf2, "%s", "С…РѕСЂРѕС€Р°СЏ");
 	    else if (ch->alignment >  100)
-		sprintf(buf2, "%s", "любезная");
+		sprintf(buf2, "%s", "Р»СЋР±РµР·РЅР°СЏ");
 	    else if (ch->alignment > -100)
-		sprintf(buf2, "%s", "нейтральная");
+		sprintf(buf2, "%s", "РЅРµР№С‚СЂР°Р»СЊРЅР°СЏ");
 	    else if (ch->alignment > -350)
-		sprintf(buf2, "%s", "подлая");
+		sprintf(buf2, "%s", "РїРѕРґР»Р°СЏ");
 	    else if (ch->alignment > -700)
-		sprintf(buf2, "%s", "злая");
+		sprintf(buf2, "%s", "Р·Р»Р°СЏ");
 	    else if (ch->alignment > -900)
-		sprintf(buf2, "%s", "демон");
+		sprintf(buf2, "%s", "РґРµРјРѕРЅ");
 	    else
-		sprintf(buf2, "%s", "сатана");
+		sprintf(buf2, "%s", "СЃР°С‚Р°РЅР°");
 
 	    i = buf2;
 	    break;
 	case 'r' :
 	    if(SUPPRESS_OUTPUT(check_blind(ch)) && ch->in_room != NULL && IS_AWAKE(ch) && can_see_room(ch, ch->in_room))
-		sprintf(buf2, "%s", room_is_dark_new(ch) ? "темно" : ch->in_room->name);
+		sprintf(buf2, "%s", room_is_dark_new(ch) ? "С‚РµРјРЅРѕ" : ch->in_room->name);
 	    else
 		strcpy(buf2, " ");
 	    i = buf2; break;
@@ -2211,7 +2211,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 	    sprintf(buf2, "%s", olc_ed_vnum(ch));
 	    i = buf2; break;
 	    /*
-	     * Общее время и время до окончания квеста.
+	     * РћР±С‰РµРµ РІСЂРµРјСЏ Рё РІСЂРµРјСЏ РґРѕ РѕРєРѕРЅС‡Р°РЅРёСЏ РєРІРµСЃС‚Р°.
 	     */
 	case 'q' :
 	    if (IS_NPC(ch))
@@ -2249,7 +2249,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 	    break;
 
 	    /*
-	     * Погоду в промпт. Для вампиров и кастеров полезно.
+	     * РџРѕРіРѕРґСѓ РІ РїСЂРѕРјРїС‚. Р”Р»СЏ РІР°РјРїРёСЂРѕРІ Рё РєР°СЃС‚РµСЂРѕРІ РїРѕР»РµР·РЅРѕ.
 	     */
 	case 'w' :
 	    if (IS_OUTSIDE(ch) && IS_AWAKE(ch))
@@ -2257,16 +2257,16 @@ void bust_a_prompt(CHAR_DATA *ch)
 		switch (weather_info.sky)
 		{
 		case SKY_CLOUDLESS:
-		    sprintf(buf2, "{x[{Yбезоблачно{x]");
+		    sprintf(buf2, "{x[{YР±РµР·РѕР±Р»Р°С‡РЅРѕ{x]");
 		    break;
 		case SKY_CLOUDY:
-		    sprintf(buf2, "{x[{yоблачно{x]");
+		    sprintf(buf2, "{x[{yРѕР±Р»Р°С‡РЅРѕ{x]");
 		    break;
 		case SKY_RAINING:
-		    sprintf(buf2, "{x[{wидет дождь{x]");
+		    sprintf(buf2, "{x[{wРёРґРµС‚ РґРѕР¶РґСЊ{x]");
 		    break;
 		case SKY_LIGHTNING:
-		    sprintf(buf2, "{x[{Dгроза{x]");
+		    sprintf(buf2, "{x[{DРіСЂРѕР·Р°{x]");
 		    break;
 		default:
 		    strcpy(buf2, " ");
@@ -2461,8 +2461,8 @@ void convert_mxp_tags (const int bMXP, char * dest, const char *src, int length)
 		} /* end of inner switch */
 	    }
 	    else
-		*pd++ = c;  /* not MXP - just copy character */ /* КРЕШАЕТ МИР НА pload Гриэль; стат моб Гриэль; immdamage Гриэль; punload Гриэль*/
-			/* В
+		*pd++ = c;  /* not MXP - just copy character */ /* РљР Р•РЁРђР•Рў РњРР  РќРђ pload Р“СЂРёСЌР»СЊ; СЃС‚Р°С‚ РјРѕР± Р“СЂРёСЌР»СЊ; immdamage Р“СЂРёСЌР»СЊ; punload Р“СЂРёСЌР»СЊ*/
+			/* Р’
 			354 ==10804== Process terminating with default action of signal 11 (SIGSEGV): dumping core
 			355 ==10804==  Access not within mapped region at address 0xFF362904
 			356 ==10804==    at 0x80D78F2: convert_mxp_tags (comm.c:2577)
@@ -2697,20 +2697,20 @@ void show_valid_align(CHAR_DATA *ch)
 
     buf[0] = '\0';
      
-    strlcpy(buf, "Ваш выбор [ ", sizeof(buf));
+    strlcpy(buf, "Р’Р°С€ РІС‹Р±РѕСЂ [ ", sizeof(buf));
 
     cra = get_valid_align(ch);
 
     va = is_only_align(ch);
-    write_to_buffer(ch->desc, "Вы можете быть", 0);
+    write_to_buffer(ch->desc, "Р’С‹ РјРѕР¶РµС‚Рµ Р±С‹С‚СЊ", 0);
     if (va > 0)
-	write_to_buffer(ch->desc," только", 0);
+	write_to_buffer(ch->desc," С‚РѕР»СЊРєРѕ", 0);
 
     if (IS_SET(cra, ALIGN_GOOD))
     {
-	write_to_buffer(ch->desc," добрым", 0);
+	write_to_buffer(ch->desc," РґРѕР±СЂС‹Рј", 0);
 	if (va == 0)
-	    strlcat(buf, "(Д)обрый", sizeof(buf));
+	    strlcat(buf, "(Р”)РѕР±СЂС‹Р№", sizeof(buf));
 	tm = TRUE;
     }
 
@@ -2720,11 +2720,11 @@ void show_valid_align(CHAR_DATA *ch)
 	{
 	    if (tm)
 		strcat(buf, "/");
-	    strlcat(buf, "(Н)ейтрал", sizeof(buf));
+	    strlcat(buf, "(Рќ)РµР№С‚СЂР°Р»", sizeof(buf));
 	}
 	if (tm)
 	    write_to_buffer(ch->desc,",", 0);
-	write_to_buffer(ch->desc, " нейтралом", 0);
+	write_to_buffer(ch->desc, " РЅРµР№С‚СЂР°Р»РѕРј", 0);
 	tm = TRUE;
     }
 
@@ -2734,17 +2734,17 @@ void show_valid_align(CHAR_DATA *ch)
 	{
 	    if (tm)
 		strlcat(buf, "/", sizeof(buf));
-	    strlcat(buf, "(З)лой", sizeof(buf));
+	    strlcat(buf, "(Р—)Р»РѕР№", sizeof(buf));
 	}
 	if (tm)
-	    write_to_buffer(ch->desc," или", 0);
+	    write_to_buffer(ch->desc," РёР»Рё", 0);
 	    
-	write_to_buffer(ch->desc, " злым", 0);
+	write_to_buffer(ch->desc, " Р·Р»С‹Рј", 0);
     }
 
    write_to_buffer(ch->desc,".\n\r", 0);
    if (va > 0)
-	write_to_buffer(ch->desc, "\n\r[Нажмите Enter для продолжения]\n\r", 0);
+	write_to_buffer(ch->desc, "\n\r[РќР°Р¶РјРёС‚Рµ Enter РґР»СЏ РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ]\n\r", 0);
     else
     {
 	strlcat(buf, " ] :\n\r", sizeof(buf));
@@ -2784,7 +2784,7 @@ bool check_case(CHAR_DATA *ch, char *cs, int c)
     {
 	char buf[MSL];
 
-	sprintf(buf, "\n\r{WНеправильный падеж (%s)!{x Нажмите просто <Enter>, если согласны с падежом по-умолчанию [%s].{x\n\r",
+	sprintf(buf, "\n\r{WРќРµРїСЂР°РІРёР»СЊРЅС‹Р№ РїР°РґРµР¶ (%s)!{x РќР°Р¶РјРёС‚Рµ РїСЂРѕСЃС‚Рѕ <Enter>, РµСЃР»Рё СЃРѕРіР»Р°СЃРЅС‹ СЃ РїР°РґРµР¶РѕРј РїРѕ-СѓРјРѕР»С‡Р°РЅРёСЋ [%s].{x\n\r",
 		cs, cases(ch->name, c));
 	send_to_char(buf, ch);
 	return FALSE;
@@ -7366,7 +7366,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             close_socket(d);
             return;
 
-            /*ВЫБОР КОДИРОВКИ*/
+            /*Р’Р«Р‘РћР  РљРћР”РР РћР’РљР*/
         case CON_GET_CODEPAGE:
             bugf("select codepage. %s.", d->ip);
             switch (argument[0]) {
@@ -7394,12 +7394,12 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                     return;
             }
 
-            write_to_buffer(d, "Под каким именем ты здесь будешь?", 0);
+            write_to_buffer(d, "РџРѕРґ РєР°РєРёРј РёРјРµРЅРµРј С‚С‹ Р·РґРµСЃСЊ Р±СѓРґРµС€СЊ?", 0);
             d->connected = CON_GET_NAME;
             break;
 
             /*****************************
-            * ВВОД ИМЕНИ
+            * Р’Р’РћР” РРњР•РќР
             *****************************/
         case CON_GET_NAME:
             if (argument[0] == '\0') {
@@ -7409,9 +7409,9 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
             bugf("Get name %s. ip: %s", argument, d->ip);
             if (!check_parse_name(argument)) {
-                write_to_buffer(d, "Неправильное имя, выберите другое.\n\r"
-                        "(Имя должно состоять из 3-10 русских букв и не совпадать с существующими)\n\r"
-                        "Имя: ", 0);
+                write_to_buffer(d, "РќРµРїСЂР°РІРёР»СЊРЅРѕРµ РёРјСЏ, РІС‹Р±РµСЂРёС‚Рµ РґСЂСѓРіРѕРµ.\n\r"
+                        "(РРјСЏ РґРѕР»Р¶РЅРѕ СЃРѕСЃС‚РѕСЏС‚СЊ РёР· 3-10 СЂСѓСЃСЃРєРёС… Р±СѓРєРІ Рё РЅРµ СЃРѕРІРїР°РґР°С‚СЊ СЃ СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёРјРё)\n\r"
+                        "РРјСЏ: ", 0);
                 return;
             }
 
@@ -7423,20 +7423,20 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             if (IS_SET(ch->act, PLR_DENY)) {
                 sprintf(buf, "Denying access to %s@%s.", argument, d->ip);
                 log_string(buf);
-                write_to_buffer(d, "У Вас нет доступа.\n\r", 0);
+                write_to_buffer(d, "РЈ Р’Р°СЃ РЅРµС‚ РґРѕСЃС‚СѓРїР°.\n\r", 0);
                 close_socket(d);
                 return;
             }
 
             if (check_ban(d->ip, BAN_PERMIT) && !IS_SET(ch->act, PLR_PERMIT)) {
-                write_to_buffer(d, "Ваш хост был заблокирован в этом мире.\n\r", 0);
+                write_to_buffer(d, "Р’Р°С€ С…РѕСЃС‚ Р±С‹Р» Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅ РІ СЌС‚РѕРј РјРёСЂРµ.\n\r", 0);
                 close_socket(d);
                 return;
             }
 
             if (check_ban(d->ip, BAN_NEWBIES) && ch->level <= 5) {
-                write_to_buffer(d, "Игра новыми персонажами с вашего хоста "
-                        "ЗАПРЕЩЕНА!\n\r", 0);
+                write_to_buffer(d, "РРіСЂР° РЅРѕРІС‹РјРё РїРµСЂСЃРѕРЅР°Р¶Р°РјРё СЃ РІР°С€РµРіРѕ С…РѕСЃС‚Р° "
+                        "Р—РђРџР Р•Р©Р•РќРђ!\n\r", 0);
                 close_socket(d);
                 return;
             }
@@ -7449,7 +7449,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                         break;
 
                 if (!ip) {
-                    write_to_buffer(d, "\n\rЭтому персонажу запрещено играть с такого IP-адреса.\n\r", 0);
+                    write_to_buffer(d, "\n\rР­С‚РѕРјСѓ РїРµСЂСЃРѕРЅР°Р¶Сѓ Р·Р°РїСЂРµС‰РµРЅРѕ РёРіСЂР°С‚СЊ СЃ С‚Р°РєРѕРіРѕ IP-Р°РґСЂРµСЃР°.\n\r", 0);
                     close_socket(d);
                     return;
                 }
@@ -7461,8 +7461,8 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                 if (cfg.wizlock && !IS_IMMORTAL(ch))
                     //	    if (!IS_IMMORTAL(ch))
                 {
-                    write_to_buffer(d, "Игра закрыта богами. Попробуйте через "
-                            "несколько минут.\n\r", 0);
+                    write_to_buffer(d, "РРіСЂР° Р·Р°РєСЂС‹С‚Р° Р±РѕРіР°РјРё. РџРѕРїСЂРѕР±СѓР№С‚Рµ С‡РµСЂРµР· "
+                            "РЅРµСЃРєРѕР»СЊРєРѕ РјРёРЅСѓС‚.\n\r", 0);
                     close_socket(d);
                     return;
                 }
@@ -7472,28 +7472,28 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             if (fOld) {
                 /* Old player */
                 write_to_descriptor(d, echo_off_str, -1);
-                write_to_buffer(d, "Пароль: ", 0);
+                write_to_buffer(d, "РџР°СЂРѕР»СЊ: ", 0);
                 d->connected = CON_GET_OLD_PASSWORD;
                 return;
             } else {
                 bugf("create new player. %s %s", argument, d->ip);
                 /* New player */
                 if (cfg.newlock) {
-                    write_to_buffer(d, "Игра закрыта для новых игроков.\n\r", 0);
+                    write_to_buffer(d, "РРіСЂР° Р·Р°РєСЂС‹С‚Р° РґР»СЏ РЅРѕРІС‹С… РёРіСЂРѕРєРѕРІ.\n\r", 0);
                     close_socket(d);
                     return;
                 }
 
                 if (check_ban(d->ip, BAN_NEWBIES)) {
-                    write_to_buffer(d, "С Вашего хоста запрещены новые игроки.\n\r",
+                    write_to_buffer(d, "РЎ Р’Р°С€РµРіРѕ С…РѕСЃС‚Р° Р·Р°РїСЂРµС‰РµРЅС‹ РЅРѕРІС‹Рµ РёРіСЂРѕРєРё.\n\r",
                                     0);
                     close_socket(d);
                     return;
                 }
 
-                do_function(d->character, &do_help, "имя");
+                do_function(d->character, &do_help, "РёРјСЏ");
 
-                sprintf(buf, "%s, это правильно (Да/Нет)? ", argument);
+                sprintf(buf, "%s, СЌС‚Рѕ РїСЂР°РІРёР»СЊРЅРѕ (Р”Р°/РќРµС‚)? ", argument);
                 write_to_buffer(d, buf, 0);
                 d->connected = CON_CONFIRM_NEW_NAME;
                 return;
@@ -7507,15 +7507,15 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             if (!ch->pcdata || strcmp(argument, ch->pcdata->pwd)) {
                 bugf("CON GET OLD PWD: not correct pass: %s ip: %s pass: %s", ch->name, d->ip, argument);
 
-                write_to_buffer(d, "Неправильный пароль.\n\r", 0);
+                write_to_buffer(d, "РќРµРїСЂР°РІРёР»СЊРЅС‹Р№ РїР°СЂРѕР»СЊ.\n\r", 0);
                 write_to_buffer(d,
-                                "Неправильный пароль может быть следствием автоматической смены пароля, если вашего персонажа\n\r",
+                                "РќРµРїСЂР°РІРёР»СЊРЅС‹Р№ РїР°СЂРѕР»СЊ РјРѕР¶РµС‚ Р±С‹С‚СЊ СЃР»РµРґСЃС‚РІРёРµРј Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРѕР№ СЃРјРµРЅС‹ РїР°СЂРѕР»СЏ, РµСЃР»Рё РІР°С€РµРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р°\n\r",
                                 0);
                 write_to_buffer(d,
-                                "пытались взломать (ввели подряд 3 раза неверный ответ на запрос контрольной буквы).\n\r",
+                                "РїС‹С‚Р°Р»РёСЃСЊ РІР·Р»РѕРјР°С‚СЊ (РІРІРµР»Рё РїРѕРґСЂСЏРґ 3 СЂР°Р·Р° РЅРµРІРµСЂРЅС‹Р№ РѕС‚РІРµС‚ РЅР° Р·Р°РїСЂРѕСЃ РєРѕРЅС‚СЂРѕР»СЊРЅРѕР№ Р±СѓРєРІС‹).\n\r",
                                 0);
                 write_to_buffer(d,
-                                "В этом случае пароль высылается на почту, указанную при регистрации. Проверьте свою почту.\n\r",
+                                "Р’ СЌС‚РѕРј СЃР»СѓС‡Р°Рµ РїР°СЂРѕР»СЊ РІС‹СЃС‹Р»Р°РµС‚СЃСЏ РЅР° РїРѕС‡С‚Сѓ, СѓРєР°Р·Р°РЅРЅСѓСЋ РїСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё. РџСЂРѕРІРµСЂСЊС‚Рµ СЃРІРѕСЋ РїРѕС‡С‚Сѓ.\n\r",
                                 0);
                 close_socket(d);
                 return;
@@ -7526,9 +7526,9 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                 write_to_descriptor(d, echo_on_str, -1);
                 ch->pcdata->num_char = number_range(1, strlen(ch->pcdata->reg_answer));
                 sprintf(buf,
-                        "Введите %d-ю букву вашего ответа на регистрационный вопрос (девичья фамилия вашей мамы): ",
+                        "Р’РІРµРґРёС‚Рµ %d-СЋ Р±СѓРєРІСѓ РІР°С€РµРіРѕ РѕС‚РІРµС‚Р° РЅР° СЂРµРіРёСЃС‚СЂР°С†РёРѕРЅРЅС‹Р№ РІРѕРїСЂРѕСЃ (РґРµРІРёС‡СЊСЏ С„Р°РјРёР»РёСЏ РІР°С€РµР№ РјР°РјС‹): ",
                         ch->pcdata->num_char);
-                write_to_buffer(d, "Запрос контрольной буквы:\n\r", 0);
+                write_to_buffer(d, "Р—Р°РїСЂРѕСЃ РєРѕРЅС‚СЂРѕР»СЊРЅРѕР№ Р±СѓРєРІС‹:\n\r", 0);
                 write_to_buffer(d, buf, 0);
 
                 d->connected = CON_GET_NUM_REGANSWER;
@@ -7549,13 +7549,13 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             write_to_buffer(d, "\n\r", 2);
 
             if (IS_NULLSTR(argument)) {
-                write_to_buffer(d, "Вы не ввели контрольную букву. Попробуйте еще раз.\n\r", 0);
+                write_to_buffer(d, "Р’С‹ РЅРµ РІРІРµР»Рё РєРѕРЅС‚СЂРѕР»СЊРЅСѓСЋ Р±СѓРєРІСѓ. РџРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·.\n\r", 0);
                 return;
             }
 
             if (!ch->pcdata || (LOWER(argument[0]) != LOWER(ch->pcdata->reg_answer[ch->pcdata->num_char - 1]))) {
                 bugf("Not correct reganswer:%s ch:%s ip:%s", argument, ch->name, d->ip);
-                write_to_buffer(d, "Неправильный ответ.\n\r", 0);
+                write_to_buffer(d, "РќРµРїСЂР°РІРёР»СЊРЅС‹Р№ РѕС‚РІРµС‚.\n\r", 0);
                 ch->pcdata->count_entries_errors++;
 
                 if (ch->pcdata->count_entries_errors > 2) {
@@ -7593,8 +7593,8 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             switch (*argument) {
                 case 'y' :
                 case 'Y':
-                case 'д' :
-                case 'Д':
+                case 'Рґ' :
+                case 'Р”':
                     SLIST_FOREACH_SAFE(d_old, &descriptor_list, link, d_next) {
                         if (d_old == d || d_old->character == NULL)
                             continue;
@@ -7608,7 +7608,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                     if (check_reconnect(d, ch->name, TRUE))
                         return;
 
-                    write_to_buffer(d, "Не удалось переподключиться.\n\rИмя: ", 0);
+                    write_to_buffer(d, "РќРµ СѓРґР°Р»РѕСЃСЊ РїРµСЂРµРїРѕРґРєР»СЋС‡РёС‚СЊСЃСЏ.\n\rРРјСЏ: ", 0);
                     if (d->character != NULL) {
                         free_char(d->character);
                         d->character = NULL;
@@ -7618,9 +7618,9 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
                 case 'n' :
                 case 'N':
-                case 'н' :
-                case 'Н':
-                    write_to_buffer(d, "Имя: ", 0);
+                case 'РЅ' :
+                case 'Рќ':
+                    write_to_buffer(d, "РРјСЏ: ", 0);
                     if (d->character != NULL) {
                         free_char(d->character);
                         d->character = NULL;
@@ -7629,7 +7629,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                     break;
 
                 default:
-                    write_to_buffer(d, "Пожалуйста, Да или Нет? ", 0);
+                    write_to_buffer(d, "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р”Р° РёР»Рё РќРµС‚? ", 0);
                     break;
             }
             break;
@@ -7638,8 +7638,8 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             switch (*argument) {
                 case 'y':
                 case 'Y':
-                case 'д':
-                case 'Д':
+                case 'Рґ':
+                case 'Р”':
                     /*
                      * check names of people playing. Yes, this is necessary for multiple
                      * newbies with the same name (thanks Saro)
@@ -7656,7 +7656,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                                 && !str_cmp(dc->character->name, name)
                                 && dc->connected != CON_PLAYING) {
                                 count++;
-                                write_to_buffer(d, "В этот момент кто-то еще создает персонажа с таким же именем!\n\r",
+                                write_to_buffer(d, "Р’ СЌС‚РѕС‚ РјРѕРјРµРЅС‚ РєС‚Рѕ-С‚Рѕ РµС‰Рµ СЃРѕР·РґР°РµС‚ РїРµСЂСЃРѕРЅР°Р¶Р° СЃ С‚Р°РєРёРј Р¶Рµ РёРјРµРЅРµРј!\n\r",
                                                 0);
                                 close_socket(d);
                             }
@@ -7670,8 +7670,8 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                         }
                     }
 
-                    sprintf(buf, "\n\rНовый персонаж.\n\r\n\r"
-                            "Введите Ваш пароль для %s: ", ch->name);
+                    sprintf(buf, "\n\rРќРѕРІС‹Р№ РїРµСЂСЃРѕРЅР°Р¶.\n\r\n\r"
+                            "Р’РІРµРґРёС‚Рµ Р’Р°С€ РїР°СЂРѕР»СЊ РґР»СЏ %s: ", ch->name);
                     write_to_buffer(d, buf, 0);
                     write_to_descriptor(d, echo_off_str, -1);
                     d->connected = CON_GET_NEW_PASSWORD;
@@ -7679,16 +7679,16 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
                 case 'n':
                 case 'N':
-                case 'н':
-                case 'Н':
-                    write_to_buffer(d, "Ok, что дальше? ", 0);
+                case 'РЅ':
+                case 'Рќ':
+                    write_to_buffer(d, "Ok, С‡С‚Рѕ РґР°Р»СЊС€Рµ? ", 0);
                     free_char(d->character);
                     d->character = NULL;
                     d->connected = CON_GET_NAME;
                     break;
 
                 default:
-                    write_to_buffer(d, "Пожалуйста, Да или Нет? ", 0);
+                    write_to_buffer(d, "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р”Р° РёР»Рё РќРµС‚? ", 0);
                     break;
             }
             break;
@@ -7697,27 +7697,27 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             write_to_buffer(d, "\n\r", 2);
 
             if (!check_password(d, argument)) {
-                write_to_buffer(d, "Пароль: ", 0);
+                write_to_buffer(d, "РџР°СЂРѕР»СЊ: ", 0);
                 return;
             }
 
             free_string(ch->pcdata->pwd);
             ch->pcdata->pwd = str_dup(argument);
-            write_to_buffer(d, "Повторите пароль: ", 0);
+            write_to_buffer(d, "РџРѕРІС‚РѕСЂРёС‚Рµ РїР°СЂРѕР»СЊ: ", 0);
             d->connected = CON_CONFIRM_NEW_PASSWORD;
             break;
 
         case CON_CONFIRM_NEW_PASSWORD:
             write_to_buffer(d, "\n\r", 2);
             if (strcmp(argument, ch->pcdata->pwd)) {
-                write_to_buffer(d, "Пароли не совпадают.\n\rПароль: ",
+                write_to_buffer(d, "РџР°СЂРѕР»Рё РЅРµ СЃРѕРІРїР°РґР°СЋС‚.\n\rРџР°СЂРѕР»СЊ: ",
                                 0);
                 d->connected = CON_GET_NEW_PASSWORD;
                 return;
             }
 
             write_to_descriptor(d, echo_on_str, -1);
-            write_to_buffer(d, "Будете ли Вы использовать цвета (Да/Нет)? ", 0);
+            write_to_buffer(d, "Р‘СѓРґРµС‚Рµ Р»Рё Р’С‹ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С†РІРµС‚Р° (Р”Р°/РќРµС‚)? ", 0);
             d->connected = CON_GET_COLOR;
             break;
 
@@ -7725,8 +7725,8 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             switch (argument[0]) {
                 case 'Y':
                 case 'y':
-                case 'Д':
-                case 'д': {
+                case 'Р”':
+                case 'Рґ': {
                     write_to_buffer(d, "\n\r", 2);
                     do_function(ch, &do_colour, "noprint");
                     /*     	    write_to_buffer(d, "\n\r", 2); */
@@ -7734,17 +7734,17 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                 }
                 case 'N':
                 case 'n':
-                case 'Н':
-                case 'н':
+                case 'Рќ':
+                case 'РЅ':
                     break;
                 default: {
-                    write_to_buffer(d, "Пожалуйста, Да или Нет? ", 0);
+                    write_to_buffer(d, "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р”Р° РёР»Рё РќРµС‚? ", 0);
                     return;
                 }
             }
             /*       	write_to_buffer(d, echo_on_str, 0); */
 
-            write_to_buffer(d, "Выберите свой пол [ (М)ужской/(Ж)енский ]: ", 0);
+            write_to_buffer(d, "Р’С‹Р±РµСЂРёС‚Рµ СЃРІРѕР№ РїРѕР» [ (Рњ)СѓР¶СЃРєРѕР№/(Р–)РµРЅСЃРєРёР№ ]: ", 0);
             d->connected = CON_GET_NEW_SEX;
             break;
 
@@ -7753,7 +7753,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             one_argument(argument, arg);
 
             if (!str_prefix(arg, "help")
-                || !str_prefix(arg, "помощь")
+                || !str_prefix(arg, "РїРѕРјРѕС‰СЊ")
                 || !str_cmp(arg, "?")) {
                 write_to_buffer(d, "\n\r", 0);
                 argument = one_argument(argument, arg);
@@ -7762,7 +7762,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                 else
                     do_function(ch, &do_help, argument);
 
-                write_to_buffer(d, "\n\rВыберите расу ('помощь' для информации):",
+                write_to_buffer(d, "\n\rР’С‹Р±РµСЂРёС‚Рµ СЂР°СЃСѓ ('РїРѕРјРѕС‰СЊ' РґР»СЏ РёРЅС„РѕСЂРјР°С†РёРё):",
                                 0);
                 break;
             }
@@ -7770,14 +7770,14 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             race = race_lookup(argument);
             //findme
             if (race == -1 || !race_table[race].pc_race) {
-                write_to_buffer(d, "Такой расы в этом мире нет.\n\r", 0);
-                write_to_buffer(d, "Доступны следующие расы:\n\r  [ ", 0);
+                write_to_buffer(d, "РўР°РєРѕР№ СЂР°СЃС‹ РІ СЌС‚РѕРј РјРёСЂРµ РЅРµС‚.\n\r", 0);
+                write_to_buffer(d, "Р”РѕСЃС‚СѓРїРЅС‹ СЃР»РµРґСѓСЋС‰РёРµ СЂР°СЃС‹:\n\r  [ ", 0);
                 for (race = 1; race < MAX_PC_RACE; race++) {
                     write_to_buffer(d, race_table[race].rname, 0);
                     write_to_buffer(d, " ", 1);
                 }
                 write_to_buffer(d, "]\n\r", 0);
-                write_to_buffer(d, "\n\rВаша раса ('помощь' для информации): ", 0);
+                write_to_buffer(d, "\n\rР’Р°С€Р° СЂР°СЃР° ('РїРѕРјРѕС‰СЊ' РґР»СЏ РёРЅС„РѕСЂРјР°С†РёРё): ", 0);
                 break;
             }
 
@@ -7792,10 +7792,10 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             for (i = 0; i < DAM_MAX; i++){
                 ch->resists[i] = race_table[race].resists[i];
             }
-        /* ХЗ ЗАЧЕМ РАНЬШЕ ВЕШАЛИ РЕЗИЗСТ К МАГИИ НА ГЕНЕРИРУЕМОГО ЧАРА*/
+        /* РҐР— Р—РђР§Р•Рњ Р РђРќР¬РЁР• Р’Р•РЁРђР›Р Р Р•Р—РР—РЎРў Рљ РњРђР“РР РќРђ Р“Р•РќР•Р РР РЈР•РњРћР“Рћ Р§РђР Рђ*/
         //ch->resists[DAM_MAGIC] = 10;
 
-        /* ДАДИМ НЕМНОГО ЗОЛОТА В НАЧАЛЕ*/
+        /* Р”РђР”РРњ РќР•РњРќРћР“Рћ Р—РћР›РћРўРђ Р’ РќРђР§РђР›Р•*/
         ch->gold += 100;
         ch->pcdata->quest_curr += 1000;
         ch->pcdata->quest_accum += 1000;
@@ -7811,7 +7811,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         ch->pcdata->points = pc_race_table[race].points;
         ch->size = pc_race_table[race].size;
 
-        strcpy(buf, "\n\rВам доступны следующие профессии:\n\r  [");
+        strcpy(buf, "\n\rР’Р°Рј РґРѕСЃС‚СѓРїРЅС‹ СЃР»РµРґСѓСЋС‰РёРµ РїСЂРѕС„РµСЃСЃРёРё:\n\r  [");
 
         for (iClass = 0; iClass < MAX_CLASS; iClass++)
         {
@@ -7834,16 +7834,16 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         case CON_GET_NEW_SEX:
         switch (argument[0])
         {
-        case 'м':
-        case 'М':
+        case 'Рј':
+        case 'Рњ':
         case 'm':
         case 'M':
             ch->sex = SEX_MALE;
             ch->pcdata->true_sex = SEX_MALE;
             break;
 
-        case 'ж':
-        case 'Ж':
+        case 'Р¶':
+        case 'Р–':
         case 'f':
         case 'F':
             ch->sex = SEX_FEMALE;
@@ -7851,11 +7851,11 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             break;
 
         default:
-            write_to_buffer(d, "\n\rНеправильный пол.\n\rВаш пол? ", 0);
+            write_to_buffer(d, "\n\rРќРµРїСЂР°РІРёР»СЊРЅС‹Р№ РїРѕР».\n\rР’Р°С€ РїРѕР»? ", 0);
             return;
         }
 
-        write_to_buffer(d, "\n\rДоступны следующие расы:\n\r  [ ", 0);
+        write_to_buffer(d, "\n\rР”РѕСЃС‚СѓРїРЅС‹ СЃР»РµРґСѓСЋС‰РёРµ СЂР°СЃС‹:\n\r  [ ", 0);
 
         for (race = 1; race < MAX_PC_RACE; race++)
         {
@@ -7866,17 +7866,17 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         }
 
         write_to_buffer(d, "]\n\r", 0);
-        write_to_buffer(d, "Выберите свою расу (для подробной информации наберите помощь): ", 0);
+        write_to_buffer(d, "Р’С‹Р±РµСЂРёС‚Рµ СЃРІРѕСЋ СЂР°СЃСѓ (РґР»СЏ РїРѕРґСЂРѕР±РЅРѕР№ РёРЅС„РѕСЂРјР°С†РёРё РЅР°Р±РµСЂРёС‚Рµ РїРѕРјРѕС‰СЊ): ", 0);
         d->connected = CON_GET_NEW_RACE;
         break;
 
         case CON_GET_NEW_CLASS:
         iClass = class_lookup(argument);
 
-    /* класс алхимиков при генерации нельзя выбрать findme */
+    /* РєР»Р°СЃСЃ Р°Р»С…РёРјРёРєРѕРІ РїСЂРё РіРµРЅРµСЂР°С†РёРё РЅРµР»СЊР·СЏ РІС‹Р±СЂР°С‚СЊ findme */
         if (iClass == -1)
         {
-            write_to_buffer(d,	"\n\rТакой профессии нет.\n\rВаша профессия? ", 0);
+            write_to_buffer(d,	"\n\rРўР°РєРѕР№ РїСЂРѕС„РµСЃСЃРёРё РЅРµС‚.\n\rР’Р°С€Р° РїСЂРѕС„РµСЃСЃРёСЏ? ", 0);
             return;
         }
 
@@ -7884,7 +7884,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             || (pc_race_table[ch->race].valid_align
             & class_table[iClass].valid_align) == 0)
         {
-            write_to_buffer(d,	"\n\rЭта профессия Вам недоступна.\n\rВаша профессия? ", 0);
+            write_to_buffer(d,	"\n\rР­С‚Р° РїСЂРѕС„РµСЃСЃРёСЏ Р’Р°Рј РЅРµРґРѕСЃС‚СѓРїРЅР°.\n\rР’Р°С€Р° РїСЂРѕС„РµСЃСЃРёСЏ? ", 0);
             return;
         }
 
@@ -7892,7 +7892,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
         sprintf(buf, "%s@%s new player.", ch->name, d->ip);
         log_string(buf);
-        wiznet("Новый игрок - $N !", ch, NULL, WIZ_NEWBIE, 0, 0);
+        wiznet("РќРѕРІС‹Р№ РёРіСЂРѕРє - $N !", ch, NULL, WIZ_NEWBIE, 0, 0);
         wiznet(buf, NULL, NULL, WIZ_SITES, 0, get_trust(ch));
 
         write_to_buffer(d, "\n\r", 2);
@@ -7904,20 +7904,20 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
         case CON_GET_ALIGNMENT:
 
-        if (((argument[0] == 'g' || argument[0] == 'G' || argument[0] == 'д' || argument[0] == 'Д')
+        if (((argument[0] == 'g' || argument[0] == 'G' || argument[0] == 'Рґ' || argument[0] == 'Р”')
              && IS_SET(get_valid_align(ch), ALIGN_GOOD)) || is_only_align(ch) == ALIGN_GOOD)
             ch->alignment = 750;
         else
-            if (((argument[0] == 'n' || argument[0] == 'N' || argument[0] == 'н' || argument[0] == 'Н')
+            if (((argument[0] == 'n' || argument[0] == 'N' || argument[0] == 'РЅ' || argument[0] == 'Рќ')
              && IS_SET(get_valid_align(ch), ALIGN_NEUTRAL)) || is_only_align(ch) == ALIGN_NEUTRAL)
             ch->alignment = 0;
             else
-            if (((argument[0] == 'e' || argument[0] == 'E' || argument[0] == 'з' || argument[0] == 'З')
+            if (((argument[0] == 'e' || argument[0] == 'E' || argument[0] == 'Р·' || argument[0] == 'Р—')
                  && IS_SET(get_valid_align(ch), ALIGN_EVIL)) || is_only_align(ch) == ALIGN_EVIL)
                 ch->alignment = -750;
             else
             {
-                write_to_buffer(d, "Неправильный выбор.\n\r", 0);
+                write_to_buffer(d, "РќРµРїСЂР°РІРёР»СЊРЅС‹Р№ РІС‹Р±РѕСЂ.\n\r", 0);
                 show_valid_align(ch);
                 return;
             }
@@ -7929,9 +7929,9 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         group_add(ch, "rom basics", FALSE);
         group_add(ch, class_table[ch->classid].base_group, FALSE);
         ch->pcdata->learned[gsn_recall] = 50;
-        write_to_buffer(d, "Вы хотите дополнительно настроить своего персонажа?\n\r", 0);
-        write_to_buffer(d, "Это займет некоторое время, но позволит добавить дополнительные умения и возможности.\n\r", 0);
-        write_to_buffer(d, "Настроить (Да/Нет)? ", 0);
+        write_to_buffer(d, "Р’С‹ С…РѕС‚РёС‚Рµ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕ РЅР°СЃС‚СЂРѕРёС‚СЊ СЃРІРѕРµРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р°?\n\r", 0);
+        write_to_buffer(d, "Р­С‚Рѕ Р·Р°Р№РјРµС‚ РЅРµРєРѕС‚РѕСЂРѕРµ РІСЂРµРјСЏ, РЅРѕ РїРѕР·РІРѕР»РёС‚ РґРѕР±Р°РІРёС‚СЊ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ СѓРјРµРЅРёСЏ Рё РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё.\n\r", 0);
+        write_to_buffer(d, "РќР°СЃС‚СЂРѕРёС‚СЊ (Р”Р°/РќРµС‚)? ", 0);
         d->connected = CON_DEFAULT_CHOICE;
         break;
 
@@ -7939,21 +7939,21 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         write_to_buffer(d, "\n\r", 2);
         switch (argument[0])
         {
-        case 'y': case 'Y': case 'д': case 'Д':
+        case 'y': case 'Y': case 'Рґ': case 'Р”':
             ch->gen_data = new_gen_data();
             group_add(ch, class_table[ch->classid].default_group, TRUE);
             ch->gen_data->points_chosen = ch->pcdata->points;
             /*	    do_function(ch, &do_help, "group header"); */
             list_group_costs(ch);
-            write_to_buffer(d, "У Вас уже есть следующие умения:\n\r", 0);
+            write_to_buffer(d, "РЈ Р’Р°СЃ СѓР¶Рµ РµСЃС‚СЊ СЃР»РµРґСѓСЋС‰РёРµ СѓРјРµРЅРёСЏ:\n\r", 0);
             do_function(ch, &do_skills, "");
             write_to_buffer(d, "\n\r", 0);
             do_function(ch, &do_help, "menu choice");
             d->connected = CON_GEN_GROUPS;
             break;
-        case 'n': case 'N':  case 'н': case 'Н':
+        case 'n': case 'N':  case 'РЅ': case 'Рќ':
             group_add(ch, class_table[ch->classid].default_group, TRUE);
-            write_to_buffer(d, "\n\rВыберите оружие из списка:\n\r    ", 0);
+            write_to_buffer(d, "\n\rР’С‹Р±РµСЂРёС‚Рµ РѕСЂСѓР¶РёРµ РёР· СЃРїРёСЃРєР°:\n\r    ", 0);
             buf[0] = '\0';
             for (i = 0; weapon_table[i].rname != NULL; i++)
             if (weapon_table[i].can_select && ch->pcdata->learned[*weapon_table[i].gsn] > 0)
@@ -7961,12 +7961,12 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                 strcat(buf, weapon_table[i].rname);
                 strcat(buf, " ");
             }
-            strcat(buf, "\n\rВаш выбор? ");
+            strcat(buf, "\n\rР’Р°С€ РІС‹Р±РѕСЂ? ");
             write_to_buffer(d, buf, 0);
             d->connected = CON_PICK_WEAPON;
             break;
         default:
-            write_to_buffer(d, "Пожалуйста, Да или Нет? ", 0);
+            write_to_buffer(d, "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р”Р° РёР»Рё РќРµС‚? ", 0);
             return;
         }
         break;
@@ -7979,7 +7979,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             || !weapon_table[weapon].can_select)
         {
             write_to_buffer(d,
-                    "Выбрано неправильное оружие. Выберите из списка:\n\r    ", 0);
+                    "Р’С‹Р±СЂР°РЅРѕ РЅРµРїСЂР°РІРёР»СЊРЅРѕРµ РѕСЂСѓР¶РёРµ. Р’С‹Р±РµСЂРёС‚Рµ РёР· СЃРїРёСЃРєР°:\n\r    ", 0);
             buf[0] = '\0';
             for (i = 0; weapon_table[i].rname != NULL; i++)
             if (weapon_table[i].can_select && ch->pcdata->learned[*weapon_table[i].gsn] > 0)
@@ -7987,13 +7987,13 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                 strcat(buf, weapon_table[i].rname);
                 strcat(buf, " ");
             }
-            strcat(buf, "\n\rВаш выбор? ");
+            strcat(buf, "\n\rР’Р°С€ РІС‹Р±РѕСЂ? ");
             write_to_buffer(d, buf, 0);
             return;
         }
 
         ch->pcdata->learned[*weapon_table[weapon].gsn] = 40;
-        write_to_buffer(d, "Введите девичью фамилию вашей матери (необходимо на случай кражи чара/утери пароля):\n\r", 0);
+        write_to_buffer(d, "Р’РІРµРґРёС‚Рµ РґРµРІРёС‡СЊСЋ С„Р°РјРёР»РёСЋ РІР°С€РµР№ РјР°С‚РµСЂРё (РЅРµРѕР±С…РѕРґРёРјРѕ РЅР° СЃР»СѓС‡Р°Р№ РєСЂР°Р¶Рё С‡Р°СЂР°/СѓС‚РµСЂРё РїР°СЂРѕР»СЏ):\n\r", 0);
         d->connected = CON_GET_QUESTION;
 
         break;
@@ -8002,7 +8002,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         case CON_GET_QUESTION:
         if (IS_NULLSTR(argument))
         {
-            write_to_buffer(d, "Введите, пожалуйста, девичью фамилию вашей матери.\n\r", 0);
+            write_to_buffer(d, "Р’РІРµРґРёС‚Рµ, РїРѕР¶Р°Р»СѓР№СЃС‚Р°, РґРµРІРёС‡СЊСЋ С„Р°РјРёР»РёСЋ РІР°С€РµР№ РјР°С‚РµСЂРё.\n\r", 0);
             return;
         }
 
@@ -8010,8 +8010,8 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         smash_tilde(argument);
         ch->pcdata->reg_answer = str_dup(argument);
 
-        write_to_buffer(d, "Выберите, как будет склоняться Ваше имя:\n\r", 0);
-        sprintf(buf, "Родительный падеж (вещь кого?)    : [%s]", capitalize(cases(ch->name, 1)));
+        write_to_buffer(d, "Р’С‹Р±РµСЂРёС‚Рµ, РєР°Рє Р±СѓРґРµС‚ СЃРєР»РѕРЅСЏС‚СЊСЃСЏ Р’Р°С€Рµ РёРјСЏ:\n\r", 0);
+        sprintf(buf, "Р РѕРґРёС‚РµР»СЊРЅС‹Р№ РїР°РґРµР¶ (РІРµС‰СЊ РєРѕРіРѕ?)    : [%s]", capitalize(cases(ch->name, 1)));
         write_to_buffer(d, buf, 0);
         d->connected = CON_GET_CASES_1;
 
@@ -8028,7 +8028,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         smash_tilde(buf);
         strip_colors(buf);
         ch->pcdata->cases[0] = str_dup(buf);
-        sprintf(buf, "Дательный падеж (дать кому?)      : [%s]", capitalize(cases(ch->name, 2)));
+        sprintf(buf, "Р”Р°С‚РµР»СЊРЅС‹Р№ РїР°РґРµР¶ (РґР°С‚СЊ РєРѕРјСѓ?)      : [%s]", capitalize(cases(ch->name, 2)));
         write_to_buffer(d, buf, 0);
         d->connected = CON_GET_CASES_2;
         break;
@@ -8044,7 +8044,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         strip_colors(buf);
         ch->pcdata->cases[1] = str_dup(buf);
 
-        sprintf(buf, "Винительный падеж (ударить кого?) : [%s]", capitalize(cases(ch->name, 3)));
+        sprintf(buf, "Р’РёРЅРёС‚РµР»СЊРЅС‹Р№ РїР°РґРµР¶ (СѓРґР°СЂРёС‚СЊ РєРѕРіРѕ?) : [%s]", capitalize(cases(ch->name, 3)));
         write_to_buffer(d, buf, 0);
         d->connected = CON_GET_CASES_3;
         break;
@@ -8059,7 +8059,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         smash_tilde(buf);
         strip_colors(buf);
         ch->pcdata->cases[2] = str_dup(buf);
-        sprintf(buf, "Творительный падеж (сделано кем?) : [%s]", capitalize(cases(ch->name, 4)));
+        sprintf(buf, "РўРІРѕСЂРёС‚РµР»СЊРЅС‹Р№ РїР°РґРµР¶ (СЃРґРµР»Р°РЅРѕ РєРµРј?) : [%s]", capitalize(cases(ch->name, 4)));
         write_to_buffer(d, buf, 0);
         d->connected = CON_GET_CASES_4;
         break;
@@ -8074,7 +8074,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         smash_tilde(buf);
         strip_colors(buf);
         ch->pcdata->cases[3] = str_dup(buf);
-        sprintf(buf, "Предложный падеж (говорить о ком?): [%s]", capitalize(cases(ch->name, 5)));
+        sprintf(buf, "РџСЂРµРґР»РѕР¶РЅС‹Р№ РїР°РґРµР¶ (РіРѕРІРѕСЂРёС‚СЊ Рѕ РєРѕРј?): [%s]", capitalize(cases(ch->name, 5)));
         write_to_buffer(d, buf, 0);
         d->connected = CON_GET_CASES_5;
         break;
@@ -8089,7 +8089,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         smash_tilde(buf);
         strip_colors(buf);
         ch->pcdata->cases[4] = str_dup(buf);
-        write_to_buffer(d, "\n\r\n\rВведите Ваш адрес электронной почты. Он нужен только для технических целей, как то: восстановление пароля, сообщение различной технической информации и т.п. Поэтому не советуем Вам сообщать ерунду 'ради галочки'. Это нужно не столько нам, сколько Вам! И еще - этот адрес не будет использован для спама!\n\rВаш E-mail:\n\r", 0);
+        write_to_buffer(d, "\n\r\n\rР’РІРµРґРёС‚Рµ Р’Р°С€ Р°РґСЂРµСЃ СЌР»РµРєС‚СЂРѕРЅРЅРѕР№ РїРѕС‡С‚С‹. РћРЅ РЅСѓР¶РµРЅ С‚РѕР»СЊРєРѕ РґР»СЏ С‚РµС…РЅРёС‡РµСЃРєРёС… С†РµР»РµР№, РєР°Рє С‚Рѕ: РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёРµ РїР°СЂРѕР»СЏ, СЃРѕРѕР±С‰РµРЅРёРµ СЂР°Р·Р»РёС‡РЅРѕР№ С‚РµС…РЅРёС‡РµСЃРєРѕР№ РёРЅС„РѕСЂРјР°С†РёРё Рё С‚.Рї. РџРѕСЌС‚РѕРјСѓ РЅРµ СЃРѕРІРµС‚СѓРµРј Р’Р°Рј СЃРѕРѕР±С‰Р°С‚СЊ РµСЂСѓРЅРґСѓ 'СЂР°РґРё РіР°Р»РѕС‡РєРё'. Р­С‚Рѕ РЅСѓР¶РЅРѕ РЅРµ СЃС‚РѕР»СЊРєРѕ РЅР°Рј, СЃРєРѕР»СЊРєРѕ Р’Р°Рј! Р РµС‰Рµ - СЌС‚РѕС‚ Р°РґСЂРµСЃ РЅРµ Р±СѓРґРµС‚ РёСЃРїРѕР»СЊР·РѕРІР°РЅ РґР»СЏ СЃРїР°РјР°!\n\rР’Р°С€ E-mail:\n\r", 0);
         d->connected = CON_GET_EMAIL;
         break;
 
@@ -8097,32 +8097,32 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
         if (!IS_NULLSTR(argument) && !CHECK_EMAIL(argument))
         {
-            write_to_buffer(d, "Таких адресов не бывает... Попробуй еще.\n\r", 0);
+            write_to_buffer(d, "РўР°РєРёС… Р°РґСЂРµСЃРѕРІ РЅРµ Р±С‹РІР°РµС‚... РџРѕРїСЂРѕР±СѓР№ РµС‰Рµ.\n\r", 0);
             return;
         }
 
         if (IS_NULLSTR(argument))
         {
-            write_to_buffer(d, "Введите адрес e-mail.\n\r", 0);
+            write_to_buffer(d, "Р’РІРµРґРёС‚Рµ Р°РґСЂРµСЃ e-mail.\n\r", 0);
             return;
         }
 
         free_string(ch->pcdata->email);
         ch->pcdata->email = str_dup(argument);
         d->connected = CON_GET_ATHEIST;
-        write_to_buffer(d, "\n\r\n\rВы будете атеистом? Наберите ? для получения информации. Внимание: для новичков крайне рекомендуется выбрать НЕТ. [Д/Н] (по умолчанию НЕТ): \n\r", 0);
+        write_to_buffer(d, "\n\r\n\rР’С‹ Р±СѓРґРµС‚Рµ Р°С‚РµРёСЃС‚РѕРј? РќР°Р±РµСЂРёС‚Рµ ? РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ РёРЅС„РѕСЂРјР°С†РёРё. Р’РЅРёРјР°РЅРёРµ: РґР»СЏ РЅРѕРІРёС‡РєРѕРІ РєСЂР°Р№РЅРµ СЂРµРєРѕРјРµРЅРґСѓРµС‚СЃСЏ РІС‹Р±СЂР°С‚СЊ РќР•Рў. [Р”/Рќ] (РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РќР•Рў): \n\r", 0);
         break;
 
         case CON_GET_ATHEIST:
         switch(argument[0])
         {
-            case 'Y': case 'y': case 'Д': case 'д':
+            case 'Y': case 'y': case 'Р”': case 'Рґ':
                 {
                 write_to_buffer(d, "\n\r", 2);
                 ch->pcdata->atheist = 1; //yes
                 break;
                 }
-            case 'N': case 'n': case 'Н': case 'н':
+            case 'N': case 'n': case 'Рќ': case 'РЅ':
             {
                 break;
             }
@@ -8132,10 +8132,10 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             }
             case '?':
                 {
-                write_to_buffer(d, "Атеисты - существа, не верящие в богов. Они живут также, как все остальные,\n\r", 0);
-                write_to_buffer(d, "но Боги не даруют им ни возможности совершать возврат в свой храм, ни\n\r", 0);
-                write_to_buffer(d, "жертвовать им что-либо, ни воскрешать после смерти.\n\r", 0);
-                write_to_buffer(d, "Иными словами - для атеиста первая смерть - последняя.\n\r", 0);
+                write_to_buffer(d, "РђС‚РµРёСЃС‚С‹ - СЃСѓС‰РµСЃС‚РІР°, РЅРµ РІРµСЂСЏС‰РёРµ РІ Р±РѕРіРѕРІ. РћРЅРё Р¶РёРІСѓС‚ С‚Р°РєР¶Рµ, РєР°Рє РІСЃРµ РѕСЃС‚Р°Р»СЊРЅС‹Рµ,\n\r", 0);
+                write_to_buffer(d, "РЅРѕ Р‘РѕРіРё РЅРµ РґР°СЂСѓСЋС‚ РёРј РЅРё РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё СЃРѕРІРµСЂС€Р°С‚СЊ РІРѕР·РІСЂР°С‚ РІ СЃРІРѕР№ С…СЂР°Рј, РЅРё\n\r", 0);
+                write_to_buffer(d, "Р¶РµСЂС‚РІРѕРІР°С‚СЊ РёРј С‡С‚Рѕ-Р»РёР±Рѕ, РЅРё РІРѕСЃРєСЂРµС€Р°С‚СЊ РїРѕСЃР»Рµ СЃРјРµСЂС‚Рё.\n\r", 0);
+                write_to_buffer(d, "РРЅС‹РјРё СЃР»РѕРІР°РјРё - РґР»СЏ Р°С‚РµРёСЃС‚Р° РїРµСЂРІР°СЏ СЃРјРµСЂС‚СЊ - РїРѕСЃР»РµРґРЅСЏСЏ.\n\r", 0);
                 return;
                 }
 
@@ -8149,33 +8149,33 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         case CON_GEN_GROUPS:
         send_to_char("\n\r", ch);
 
-        if (!str_cmp(argument, "done") || !str_cmp(argument, "готово"))
+        if (!str_cmp(argument, "done") || !str_cmp(argument, "РіРѕС‚РѕРІРѕ"))
         {
             if (ch->pcdata->points == pc_race_table[ch->race].points)
             {
-            send_to_char("Вы ничего не выбрали.\n\r", ch);
+            send_to_char("Р’С‹ РЅРёС‡РµРіРѕ РЅРµ РІС‹Р±СЂР°Р»Рё.\n\r", ch);
             break;
             }
 
             if (ch->pcdata->points < 40 + pc_race_table[ch->race].points)
             {
-            sprintf(buf, "Вы должны набрать минимум %d %s.\n\r",
+            sprintf(buf, "Р’С‹ РґРѕР»Р¶РЅС‹ РЅР°Р±СЂР°С‚СЊ РјРёРЅРёРјСѓРј %d %s.\n\r",
                 40 + pc_race_table[ch->race].points,
                 hours(40 + pc_race_table[ch->race].points, TYPE_POINTS));
             send_to_char(buf, ch);
             break;
             }
 
-            sprintf(buf, "Пункты генерации: %d\n\r", ch->pcdata->points);
+            sprintf(buf, "РџСѓРЅРєС‚С‹ РіРµРЅРµСЂР°С†РёРё: %d\n\r", ch->pcdata->points);
             send_to_char(buf, ch);
-            sprintf(buf, "Количество очков на уровень: %d\n\r\n\r",
+            sprintf(buf, "РљРѕР»РёС‡РµСЃС‚РІРѕ РѕС‡РєРѕРІ РЅР° СѓСЂРѕРІРµРЅСЊ: %d\n\r\n\r",
                 exp_per_level(ch, ch->gen_data->points_chosen));
             if (ch->pcdata->points < 40)
             ch->train = (40 - ch->pcdata->points + 1) / 2;
             free_gen_data(ch->gen_data);
             ch->gen_data = NULL;
             send_to_char(buf, ch);
-            write_to_buffer(d, "\n\rВыберите оружие из списка:\n\r    ", 0);
+            write_to_buffer(d, "\n\rР’С‹Р±РµСЂРёС‚Рµ РѕСЂСѓР¶РёРµ РёР· СЃРїРёСЃРєР°:\n\r    ", 0);
             buf[0] = '\0';
             for (i = 0; weapon_table[i].rname != NULL; i++)
             if (weapon_table[i].can_select && ch->pcdata->learned[*weapon_table[i].gsn] > 0)
@@ -8183,7 +8183,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                 strcat(buf, weapon_table[i].rname);
                 strcat(buf, " ");
             }
-            strcat(buf, "\n\rВаш выбор? ");
+            strcat(buf, "\n\rР’Р°С€ РІС‹Р±РѕСЂ? ");
             write_to_buffer(d, buf, 0);
             d->connected = CON_PICK_WEAPON;
             break;
@@ -8191,9 +8191,9 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
         if (!parse_gen_groups(ch, argument))
         {
-            send_to_char("Доступные команды:\n\r"
-                 "список, приобретенные, добавить, сбросить, "
-                 "инфо, помощь, и готово.\n\r", ch);
+            send_to_char("Р”РѕСЃС‚СѓРїРЅС‹Рµ РєРѕРјР°РЅРґС‹:\n\r"
+                 "СЃРїРёСЃРѕРє, РїСЂРёРѕР±СЂРµС‚РµРЅРЅС‹Рµ, РґРѕР±Р°РІРёС‚СЊ, СЃР±СЂРѕСЃРёС‚СЊ, "
+                 "РёРЅС„Рѕ, РїРѕРјРѕС‰СЊ, Рё РіРѕС‚РѕРІРѕ.\n\r", ch);
         }
 
         write_to_buffer(d, "\n\r", 0);
@@ -8209,13 +8209,13 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
         case CON_READ_MOTD:
 
         if (ch->pcdata == NULL || ch->pcdata->pwd[0] == '\0'){
-            write_to_buffer(d, "Внимание! Пустой пароль!\n\r", 0);
-            write_to_buffer(d, "Сообщите старый пароль командой 'глюк'.\n\r", 0);
-            write_to_buffer(d, "Для исправления наберите 'password null <новый пароль>'.\n\r", 0);
+            write_to_buffer(d, "Р’РЅРёРјР°РЅРёРµ! РџСѓСЃС‚РѕР№ РїР°СЂРѕР»СЊ!\n\r", 0);
+            write_to_buffer(d, "РЎРѕРѕР±С‰РёС‚Рµ СЃС‚Р°СЂС‹Р№ РїР°СЂРѕР»СЊ РєРѕРјР°РЅРґРѕР№ 'РіР»СЋРє'.\n\r", 0);
+            write_to_buffer(d, "Р”Р»СЏ РёСЃРїСЂР°РІР»РµРЅРёСЏ РЅР°Р±РµСЂРёС‚Рµ 'password null <РЅРѕРІС‹Р№ РїР°СЂРѕР»СЊ>'.\n\r", 0);
         }
 
         write_to_buffer(d, "\n\r===========================================================================", 0);
-        write_to_buffer(d, "\n\rДобро пожаловать в БАЛДЕРДАШ. Пожалуйста, не кормите и не пугайте мобов :-)", 0);
+        write_to_buffer(d, "\n\rР”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ РІ Р‘РђР›Р”Р•Р Р”РђРЁ. РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РЅРµ РєРѕСЂРјРёС‚Рµ Рё РЅРµ РїСѓРіР°Р№С‚Рµ РјРѕР±РѕРІ :-)", 0);
         write_to_buffer(d, "\n\r===========================================================================\n\r\n\r", 0);
 
         if (IS_IMMORTAL(ch))
@@ -8223,9 +8223,9 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
         if (reboot_time > 0 && reboot_time < 60){
             if (reboot_time == 1)
-            sprintf(buf, "{gДо запланированной перезагрузки осталось менее минуты!{x\n\r\n\r");
+            sprintf(buf, "{gР”Рѕ Р·Р°РїР»Р°РЅРёСЂРѕРІР°РЅРЅРѕР№ РїРµСЂРµР·Р°РіСЂСѓР·РєРё РѕСЃС‚Р°Р»РѕСЃСЊ РјРµРЅРµРµ РјРёРЅСѓС‚С‹!{x\n\r\n\r");
             else
-            sprintf(buf, "{gДо запланированной перезагрузки осталось %d %s.{x\n\r\n\r",
+            sprintf(buf, "{gР”Рѕ Р·Р°РїР»Р°РЅРёСЂРѕРІР°РЅРЅРѕР№ РїРµСЂРµР·Р°РіСЂСѓР·РєРё РѕСЃС‚Р°Р»РѕСЃСЊ %d %s.{x\n\r\n\r",
                 reboot_time, hours(reboot_time, TYPE_MINUTES));
             send_to_char(buf, ch);
         }
@@ -8273,7 +8273,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             ch->pcdata->genip = str_dup(d->ip);
         } else {
             if (ch->pcdata){
-                sprintf(buf, "Последний раз ты заходил%s в этот мир %sХост     %s\n\rIP адрес %s\n\r\n\r",
+                sprintf(buf, "РџРѕСЃР»РµРґРЅРёР№ СЂР°Р· С‚С‹ Р·Р°С…РѕРґРёР»%s РІ СЌС‚РѕС‚ РјРёСЂ %sРҐРѕСЃС‚     %s\n\rIP Р°РґСЂРµСЃ %s\n\r\n\r",
                         SEX_ENDING(ch),
                         ctime(&ch->pcdata->lastlogof),
                         ch->pcdata->lasthost,
@@ -8282,10 +8282,10 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             }
 
             if (ch->pcdata && ch->pcdata->count_entries_errors){
-                send_to_char("{RС момента твоего последнего входа в игру твоим персонажем пытались зайти,\n\r", ch);
-                sprintf(buf, "{Rно неверно вводили букву регистрационного ответа, %d раз(а).{x\n\r", ch->pcdata->count_entries_errors);
+                send_to_char("{RРЎ РјРѕРјРµРЅС‚Р° С‚РІРѕРµРіРѕ РїРѕСЃР»РµРґРЅРµРіРѕ РІС…РѕРґР° РІ РёРіСЂСѓ С‚РІРѕРёРј РїРµСЂСЃРѕРЅР°Р¶РµРј РїС‹С‚Р°Р»РёСЃСЊ Р·Р°Р№С‚Рё,\n\r", ch);
+                sprintf(buf, "{RРЅРѕ РЅРµРІРµСЂРЅРѕ РІРІРѕРґРёР»Рё Р±СѓРєРІСѓ СЂРµРіРёСЃС‚СЂР°С†РёРѕРЅРЅРѕРіРѕ РѕС‚РІРµС‚Р°, %d СЂР°Р·(Р°).{x\n\r", ch->pcdata->count_entries_errors);
                 send_to_char(buf, ch);
-                send_to_char("{RСРОЧНО смени пароль от персонажа. И разберись, почему твой пароль кто-то знает.{x\n\r\n\r", ch);
+                send_to_char("{RРЎР РћР§РќРћ СЃРјРµРЅРё РїР°СЂРѕР»СЊ РѕС‚ РїРµСЂСЃРѕРЅР°Р¶Р°. Р СЂР°Р·Р±РµСЂРёСЃСЊ, РїРѕС‡РµРјСѓ С‚РІРѕР№ РїР°СЂРѕР»СЊ РєС‚Рѕ-С‚Рѕ Р·РЅР°РµС‚.{x\n\r\n\r", ch);
                 ch->pcdata->count_entries_errors = 0;
                 save_char_obj(ch, FALSE);
             }
@@ -8310,16 +8310,16 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
 
             if (IS_NULLSTR(ch->pcdata->email))
-            send_to_char("{RУ тебя не введен адрес электронной почты!{x\n\rСоветуем сделать это (команда 'почта сменить <твой email>'), иначе в случае утери пароля ты не сможешь его восстановить.\n\r\n\r", ch);
+            send_to_char("{RРЈ С‚РµР±СЏ РЅРµ РІРІРµРґРµРЅ Р°РґСЂРµСЃ СЌР»РµРєС‚СЂРѕРЅРЅРѕР№ РїРѕС‡С‚С‹!{x\n\rРЎРѕРІРµС‚СѓРµРј СЃРґРµР»Р°С‚СЊ СЌС‚Рѕ (РєРѕРјР°РЅРґР° 'РїРѕС‡С‚Р° СЃРјРµРЅРёС‚СЊ <С‚РІРѕР№ email>'), РёРЅР°С‡Рµ РІ СЃР»СѓС‡Р°Рµ СѓС‚РµСЂРё РїР°СЂРѕР»СЏ С‚С‹ РЅРµ СЃРјРѕР¶РµС€СЊ РµРіРѕ РІРѕСЃСЃС‚Р°РЅРѕРІРёС‚СЊ.\n\r\n\r", ch);
 
             if (IS_NULLSTR(ch->pcdata->reg_answer))
-            send_to_char("{RУ тебя не введен ответ на регистрационный вопрос!{x\n\rОБЯЗАТЕЛЬНО сделай это (команда 'регвопрос').\n\r\n\r", ch);
+            send_to_char("{RРЈ С‚РµР±СЏ РЅРµ РІРІРµРґРµРЅ РѕС‚РІРµС‚ РЅР° СЂРµРіРёСЃС‚СЂР°С†РёРѕРЅРЅС‹Р№ РІРѕРїСЂРѕСЃ!{x\n\rРћР‘РЇР—РђРўР•Р›Р¬РќРћ СЃРґРµР»Р°Р№ СЌС‚Рѕ (РєРѕРјР°РЅРґР° 'СЂРµРіРІРѕРїСЂРѕСЃ').\n\r\n\r", ch);
 
             if (ch->level >= MAX_NOCLAN_LEVEL && !IS_IMMORTAL(ch) && !is_clan(ch)){
                 ch->clan = clan_lookup(CLAN_INDEPEND);
                 clan_table[ch->clan].count++;
-                printf_to_char("Вай-вай-вай... Неужели ты все еще не в клане?\n\r"
-                    "Ты присоединяешься к клану %s.\n\r",
+                printf_to_char("Р’Р°Р№-РІР°Р№-РІР°Р№... РќРµСѓР¶РµР»Рё С‚С‹ РІСЃРµ РµС‰Рµ РЅРµ РІ РєР»Р°РЅРµ?\n\r"
+                    "РўС‹ РїСЂРёСЃРѕРµРґРёРЅСЏРµС€СЊСЃСЏ Рє РєР»Р°РЅСѓ %s.\n\r",
                     ch, clan_table[ch->clan].short_descr);
             }
 
@@ -8333,12 +8333,12 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
             }
 
 
-            //если чар входит в мир в чужом доме, то кидаю его в реколл.
+            //РµСЃР»Рё С‡Р°СЂ РІС…РѕРґРёС‚ РІ РјРёСЂ РІ С‡СѓР¶РѕРј РґРѕРјРµ, С‚Рѕ РєРёРґР°СЋ РµРіРѕ РІ СЂРµРєРѕР»Р».
             if (ch->in_room != NULL && !is_room_owner(ch, ch->in_room)) {
 				ROOM_INDEX_DATA *location;
 
 				if ((location = get_recall(ch)) == NULL)
-					send_to_char("Ты окончательно потерялся...\n\r", ch);
+					send_to_char("РўС‹ РѕРєРѕРЅС‡Р°С‚РµР»СЊРЅРѕ РїРѕС‚РµСЂСЏР»СЃСЏ...\n\r", ch);
 
 					char_from_room(ch);
 					char_to_room(ch, location, TRUE);
@@ -8349,9 +8349,9 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
 
 			if (ch->pcdata == NULL || ch->pcdata->pwd[0] == '\0'){
-				write_to_buffer(d, "Внимание! Пустой пароль!\n\r", 0);
-				write_to_buffer(d, "Сообщите старый пароль командой 'глюк'.\n\r", 0);
-				write_to_buffer(d, "Для исправления наберите 'password null <новый пароль>'.\n\r", 0);
+				write_to_buffer(d, "Р’РЅРёРјР°РЅРёРµ! РџСѓСЃС‚РѕР№ РїР°СЂРѕР»СЊ!\n\r", 0);
+				write_to_buffer(d, "РЎРѕРѕР±С‰РёС‚Рµ СЃС‚Р°СЂС‹Р№ РїР°СЂРѕР»СЊ РєРѕРјР°РЅРґРѕР№ 'РіР»СЋРє'.\n\r", 0);
+				write_to_buffer(d, "Р”Р»СЏ РёСЃРїСЂР°РІР»РµРЅРёСЏ РЅР°Р±РµСЂРёС‚Рµ 'password null <РЅРѕРІС‹Р№ РїР°СЂРѕР»СЊ>'.\n\r", 0);
 			}
         }
 
@@ -8369,47 +8369,47 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
         smash_tilde(ch->pcdata->lasthost);
 
-        act("$n входит в этот мир.", ch, NULL, NULL, TO_ROOM);
+        act("$n РІС…РѕРґРёС‚ РІ СЌС‚РѕС‚ РјРёСЂ.", ch, NULL, NULL, TO_ROOM);
         do_function(ch, &do_look, "auto");
 
-        wiznet("$N входит в этот мир.", ch, NULL,	WIZ_LOGINS, WIZ_SITES, get_trust(ch));
+        wiznet("$N РІС…РѕРґРёС‚ РІ СЌС‚РѕС‚ РјРёСЂ.", ch, NULL,	WIZ_LOGINS, WIZ_SITES, get_trust(ch));
 
 
-    /* Отладка Бага с камуфляжем при входе друля */
+    /* РћС‚Р»Р°РґРєР° Р‘Р°РіР° СЃ РєР°РјСѓС„Р»СЏР¶РµРј РїСЂРё РІС…РѕРґРµ РґСЂСѓР»СЏ */
         /*
         if (IS_AFFECTED(ch, AFF_CAMOUFLAGE)){
-            bugf("Камуфляж есть");
-            wiznet("$N Камуфляж есть", ch, NULL,	WIZ_LOGINS, WIZ_SITES, get_trust(ch));
+            bugf("РљР°РјСѓС„Р»СЏР¶ РµСЃС‚СЊ");
+            wiznet("$N РљР°РјСѓС„Р»СЏР¶ РµСЃС‚СЊ", ch, NULL,	WIZ_LOGINS, WIZ_SITES, get_trust(ch));
             } else{
-            wiznet("$N Камуфляж нет", ch, NULL,	WIZ_LOGINS, WIZ_SITES, get_trust(ch));
-            bugf("Камуфляжа нет");
+            wiznet("$N РљР°РјСѓС„Р»СЏР¶ РЅРµС‚", ch, NULL,	WIZ_LOGINS, WIZ_SITES, get_trust(ch));
+            bugf("РљР°РјСѓС„Р»СЏР¶Р° РЅРµС‚");
         }
 
             if (IS_IN_WILD(ch)){
-            wiznet("$N Природа в комнате: есть", ch, NULL,	WIZ_LOGINS, WIZ_SITES, get_trust(ch));
-            bugf("Природа есть");
+            wiznet("$N РџСЂРёСЂРѕРґР° РІ РєРѕРјРЅР°С‚Рµ: РµСЃС‚СЊ", ch, NULL,	WIZ_LOGINS, WIZ_SITES, get_trust(ch));
+            bugf("РџСЂРёСЂРѕРґР° РµСЃС‚СЊ");
         }else{
-            wiznet("$N Природа в комнате: нет", ch, NULL,	WIZ_LOGINS, WIZ_SITES, get_trust(ch));
-                bugf("Природы нет");
+            wiznet("$N РџСЂРёСЂРѕРґР° РІ РєРѕРјРЅР°С‚Рµ: РЅРµС‚", ch, NULL,	WIZ_LOGINS, WIZ_SITES, get_trust(ch));
+                bugf("РџСЂРёСЂРѕРґС‹ РЅРµС‚");
             }
     */
 
         if (ch->pet != NULL)
         {
             char_to_room(ch->pet, ch->in_room, TRUE);
-            act("$n входит в этот мир.", ch->pet, NULL, NULL, TO_ROOM);
+            act("$n РІС…РѕРґРёС‚ РІ СЌС‚РѕС‚ РјРёСЂ.", ch->pet, NULL, NULL, TO_ROOM);
         }
 
         if (ch->mount != NULL)
         {
             char_to_room(ch->mount, ch->in_room, TRUE);
-            act("$n входит в игру.", ch->mount, NULL, NULL, TO_ROOM);
+            act("$n РІС…РѕРґРёС‚ РІ РёРіСЂСѓ.", ch->mount, NULL, NULL, TO_ROOM);
 
             if (IS_AWAKE(ch))
             do_mount(ch, "");
         }
 
-        sprintf(buf, "[R:%5d] %s@%s входит в игру%s.",
+        sprintf(buf, "[R:%5d] %s@%s РІС…РѕРґРёС‚ РІ РёРіСЂСѓ%s.",
         		ch->in_room != NULL ? ch->in_room->vnum : 0,
         		ch->name,
         		d->ip,
@@ -8422,7 +8422,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
         if (ch->pcdata->bank > 10000)
         {
-            sprintf(buf, "[R:%5d] %s имеет на счету %ld. (больше 10 000)", ch->in_room != NULL ? ch->in_room->vnum : 0, ch->name, ch->pcdata->bank);
+            sprintf(buf, "[R:%5d] %s РёРјРµРµС‚ РЅР° СЃС‡РµС‚Сѓ %ld. (Р±РѕР»СЊС€Рµ 10 000)", ch->in_room != NULL ? ch->in_room->vnum : 0, ch->name, ch->pcdata->bank);
             log_string(buf);
             convert_dollars(buf);
             wiznet(buf, NULL, NULL, WIZ_SITES, 0, get_trust(ch));
@@ -8436,7 +8436,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
             if (wch && !strcmp(d->ip, d_old->ip) && d->character != wch)
             {
-                sprintf(buf, "[R:%5d] %s и %s вошли в игру c одного IP-адреса %s.",
+                sprintf(buf, "[R:%5d] %s Рё %s РІРѕС€Р»Рё РІ РёРіСЂСѓ c РѕРґРЅРѕРіРѕ IP-Р°РґСЂРµСЃР° %s.",
                     wch->in_room != NULL ? wch->in_room->vnum : 0,
                     wch->name, ch->name, d->ip);
                 log_string(buf);
@@ -8447,7 +8447,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
                 if (!strcmp(wch->pcdata->pwd, d->character->pcdata->pwd))
                 {
-                sprintf(buf, "[R:%5d] %s и %s имеют одинаковый пароль!",
+                sprintf(buf, "[R:%5d] %s Рё %s РёРјРµСЋС‚ РѕРґРёРЅР°РєРѕРІС‹Р№ РїР°СЂРѕР»СЊ!",
                     wch->in_room != NULL ? wch->in_room->vnum : 0,
                     wch->name, ch->name);
                 log_string(buf);
@@ -8457,7 +8457,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                 && !IS_NULLSTR(d->character->pcdata->email)
                 && !str_cmp(wch->pcdata->email, d->character->pcdata->email))
                 {
-                sprintf(buf, "[R:%5d] %s и %s имеют одинаковый e-mail!",
+                sprintf(buf, "[R:%5d] %s Рё %s РёРјРµСЋС‚ РѕРґРёРЅР°РєРѕРІС‹Р№ e-mail!",
                     wch->in_room != NULL ? wch->in_room->vnum : 0,
                     wch->name, ch->name);
                 log_string(buf);
@@ -8468,7 +8468,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                 && !IS_NULLSTR(d->character->pcdata->reg_answer)
                 && !str_cmp(wch->pcdata->reg_answer, d->character->pcdata->reg_answer))
                 {
-                sprintf(buf, "[R:%5d] %s и %s имеют одинаковый регистрационный ответ!",
+                sprintf(buf, "[R:%5d] %s Рё %s РёРјРµСЋС‚ РѕРґРёРЅР°РєРѕРІС‹Р№ СЂРµРіРёСЃС‚СЂР°С†РёРѕРЅРЅС‹Р№ РѕС‚РІРµС‚!",
                     wch->in_room != NULL ? wch->in_room->vnum : 0,
                     wch->name, ch->name);
                 log_string(buf);
@@ -8491,19 +8491,19 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
 
         if (check_channels(ch))
         {
-            sprintf(buf, "У тебя отобрали каналы до: %s", (char *) c_time(&ch->pcdata->nochan));
+            sprintf(buf, "РЈ С‚РµР±СЏ РѕС‚РѕР±СЂР°Р»Рё РєР°РЅР°Р»С‹ РґРѕ: %s", (char *) c_time(&ch->pcdata->nochan));
             send_to_char(buf, ch);
         }
 
         if (IS_SET(ch->comm, COMM_NONOTES) && ch->pcdata->nonotes > 0)
         {
-            sprintf(buf, "Тебе запрещено писать письма до: %s", (char *) c_time(&ch->pcdata->nonotes));
+            sprintf(buf, "РўРµР±Рµ Р·Р°РїСЂРµС‰РµРЅРѕ РїРёСЃР°С‚СЊ РїРёСЃСЊРјР° РґРѕ: %s", (char *) c_time(&ch->pcdata->nonotes));
             send_to_char(buf, ch);
         }
 
         if (IS_SET(ch->comm, COMM_NOTITLE) && ch->pcdata->notitle > 0)
         {
-            sprintf(buf, "Тебе запрещено менять титул до: %s", (char *) c_time(&ch->pcdata->notitle));
+            sprintf(buf, "РўРµР±Рµ Р·Р°РїСЂРµС‰РµРЅРѕ РјРµРЅСЏС‚СЊ С‚РёС‚СѓР» РґРѕ: %s", (char *) c_time(&ch->pcdata->notitle));
             send_to_char(buf, ch);
         }
 
@@ -8518,8 +8518,8 @@ void nanny(DESCRIPTOR_DATA *d, char *argument){
                 && (to_room = pexit->u1.to_room) != NULL
                 && can_see_room(ch, to_room))
             {
-                act("$n уходит $t.", ch, direct(i, TRUE), NULL, TO_ROOM);
-                act("$N приходит $t.", LIST_FIRST(&to_room->people), direct(i, FALSE), ch, TO_ALL);
+                act("$n СѓС…РѕРґРёС‚ $t.", ch, direct(i, TRUE), NULL, TO_ROOM);
+                act("$N РїСЂРёС…РѕРґРёС‚ $t.", LIST_FIRST(&to_room->people), direct(i, FALSE), ch, TO_ALL);
                 char_from_room(ch);
                 char_to_room(ch, to_room, TRUE);
                 break;
@@ -8561,10 +8561,10 @@ bool check_parse_name(char *name)
      * Reserved words.
      */
 
-    if (is_exact_name(name, "все список что кто"))
+    if (is_exact_name(name, "РІСЃРµ СЃРїРёСЃРѕРє С‡С‚Рѕ РєС‚Рѕ"))
 	return FALSE;
 
-    if ((c = UPPER(name[0])) == 'Ъ' || c == 'Ь' || c == 'Ы')
+    if ((c = UPPER(name[0])) == 'РЄ' || c == 'Р¬' || c == 'Р«')
 	return FALSE;
 
 
@@ -8645,16 +8645,16 @@ bool check_reconnect(DESCRIPTOR_DATA *d, char *name, bool fConn)
 		ch->desc	 = d;
 		ch->timer	 = 0;
 
-		send_to_char("Переподключение. Наберите 'воспроизвести' для просмотра пропущенных сообщений.\n\r", ch);
+		send_to_char("РџРµСЂРµРїРѕРґРєР»СЋС‡РµРЅРёРµ. РќР°Р±РµСЂРёС‚Рµ 'РІРѕСЃРїСЂРѕРёР·РІРµСЃС‚Рё' РґР»СЏ РїСЂРѕСЃРјРѕС‚СЂР° РїСЂРѕРїСѓС‰РµРЅРЅС‹С… СЃРѕРѕР±С‰РµРЅРёР№.\n\r", ch);
 		if (!IS_IMMORTAL(ch))
 		{
-			act("$n возвращается в сознание.", ch, NULL, NULL, TO_ROOM);
+			act("$n РІРѕР·РІСЂР°С‰Р°РµС‚СЃСЏ РІ СЃРѕР·РЅР°РЅРёРµ.", ch, NULL, NULL, TO_ROOM);
 		}
 
 		sprintf(bfr, "%s@%s reconnected.", ch->name, d->ip);
 		log_string(bfr);
 
-		sprintf(bfr, "$N@%s восстанавливает связь.", d->ip);
+		sprintf(bfr, "$N@%s РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ СЃРІСЏР·СЊ.", d->ip);
 		wiznet(bfr, ch, NULL, WIZ_LINKS, 0, get_trust(ch));
 		d->connected = CON_PLAYING;
 	    }
@@ -8683,8 +8683,8 @@ bool check_playing(DESCRIPTOR_DATA *d, char *name)
 	    && dold->connected != CON_GET_OLD_PASSWORD
 	    && !str_cmp(name, CH(dold)->name))
 	{
-	    write_to_buffer(d, "Этот персонаж уже в игре.\n\r", 0);
-	    write_to_buffer(d, "Установить связь (Да/Нет)?", 0);
+	    write_to_buffer(d, "Р­С‚РѕС‚ РїРµСЂСЃРѕРЅР°Р¶ СѓР¶Рµ РІ РёРіСЂРµ.\n\r", 0);
+	    write_to_buffer(d, "РЈСЃС‚Р°РЅРѕРІРёС‚СЊ СЃРІСЏР·СЊ (Р”Р°/РќРµС‚)?", 0);
 	    d->connected = CON_BREAK_CONNECT;
 	    return TRUE;
 	}
@@ -8710,7 +8710,7 @@ void stop_idling(CHAR_DATA *ch)
     char_from_room(ch);
     char_to_room(ch, ch->was_in_room, FALSE);
     ch->was_in_room	= NULL;
-    act("$n возвращается из ниоткуда.", ch, NULL, NULL, TO_ROOM);
+    act("$n РІРѕР·РІСЂР°С‰Р°РµС‚СЃСЏ РёР· РЅРёРѕС‚РєСѓРґР°.", ch, NULL, NULL, TO_ROOM);
     do_function(ch, &do_look, "auto");
     return;
 }
@@ -8915,7 +8915,7 @@ void show_string(DESCRIPTOR_DATA *d, char *input)
     {
 	if (scan - buffer >= OUTBUF_SIZE - 1)
 	{
-	    write_to_descriptor(d, "Слишком большой объем информации!\n\r", 0);
+	    write_to_descriptor(d, "РЎР»РёС€РєРѕРј Р±РѕР»СЊС€РѕР№ РѕР±СЉРµРј РёРЅС„РѕСЂРјР°С†РёРё!\n\r", 0);
 	    stop = TRUE;
 	}
 
@@ -9040,7 +9040,7 @@ void act_new(const char *format, CHAR_DATA *ch, void *arg1,
 	if ((type == TO_ROOM || type == TO_NOTVICT) && !can_see(to, ch))
 	{
 	    if (to->desc != NULL)
-		write_to_buffer(to->desc, "Ты слышишь непонятные звуки и ощущаешь, что рядом происходит что-то неизвестное...\n\r", 0);
+		write_to_buffer(to->desc, "РўС‹ СЃР»С‹С€РёС€СЊ РЅРµРїРѕРЅСЏС‚РЅС‹Рµ Р·РІСѓРєРё Рё РѕС‰СѓС‰Р°РµС€СЊ, С‡С‚Рѕ СЂСЏРґРѕРј РїСЂРѕРёСЃС…РѕРґРёС‚ С‡С‚Рѕ-С‚Рѕ РЅРµРёР·РІРµСЃС‚РЅРѕРµ...\n\r", 0);
 	    continue;
 	}
 
@@ -9115,12 +9115,12 @@ void act_new(const char *format, CHAR_DATA *ch, void *arg1,
 			if (can_see(to, ch))
 			{
 			    if (cs == 1)
-				strcat(bfr, "н");
+				strcat(bfr, "РЅ");
 
 			    strcat(bfr, he_she[URANGE(0, ch->sex, GET_MAX_SEX(ch))]);
 			}
 			else
-			    strcpy(bfr, "кто-то");
+			    strcpy(bfr, "РєС‚Рѕ-С‚Рѕ");
 		    }
 
 		    i = bfr;
@@ -9132,12 +9132,12 @@ void act_new(const char *format, CHAR_DATA *ch, void *arg1,
 			if (can_see(to, vch))
 			{
 			    if (cs == 1)
-				strcat(bfr, "н");
+				strcat(bfr, "РЅ");
 
 			    strcat(bfr, he_she[URANGE(0, vch->sex, GET_MAX_SEX(ch))]);
 			}
 			else
-			    strcpy(bfr, "кто-то");
+			    strcpy(bfr, "РєС‚Рѕ-С‚Рѕ");
 		    }
 
 		    i = bfr;
@@ -9149,12 +9149,12 @@ void act_new(const char *format, CHAR_DATA *ch, void *arg1,
 			if (can_see(to, ch))
 			{
 			    if (cs == 1)
-				strcat(bfr, "н");
+				strcat(bfr, "РЅ");
 
 			    strcat(bfr, him_her[URANGE(0, ch->sex, GET_MAX_SEX(ch))]);
 			}
 			else
-			    strcpy(bfr, "кому-то");
+			    strcpy(bfr, "РєРѕРјСѓ-С‚Рѕ");
 		    }
 
 		    i = bfr;
@@ -9166,13 +9166,13 @@ void act_new(const char *format, CHAR_DATA *ch, void *arg1,
 			if (can_see(to, vch))
 			{
 			    if (cs == 1)
-				strcat(bfr, "н");
+				strcat(bfr, "РЅ");
 
 			    strcat(bfr, him_her[URANGE(0, vch->sex, GET_MAX_SEX(ch))]);
 			}
 			else
 			{
-			    strcpy(bfr, "кому-то");
+			    strcpy(bfr, "РєРѕРјСѓ-С‚Рѕ");
 			}
 		    }
 
@@ -9185,7 +9185,7 @@ void act_new(const char *format, CHAR_DATA *ch, void *arg1,
 			if (can_see(to, ch))
 			{
 			    if (cs == 1)
-				strcat(bfr, "н");
+				strcat(bfr, "РЅ");
 
 			    strcat(bfr, his_her[URANGE(0, ch->sex, GET_MAX_SEX(ch))]);
 			}
@@ -9194,13 +9194,13 @@ void act_new(const char *format, CHAR_DATA *ch, void *arg1,
 			    switch(cs)
 			    {
 			    case  2:
-				strcpy(bfr, "чьи-то");
+				strcpy(bfr, "С‡СЊРё-С‚Рѕ");
 				break;
 			    case  3:
-				strcpy(bfr, "чьей-то");
+				strcpy(bfr, "С‡СЊРµР№-С‚Рѕ");
 				break;
 			    default:
-				strcpy(bfr, "кого-то");
+				strcpy(bfr, "РєРѕРіРѕ-С‚Рѕ");
 				break;
 			    }
 			}
@@ -9215,7 +9215,7 @@ void act_new(const char *format, CHAR_DATA *ch, void *arg1,
 			if (can_see(to, vch))
 			{
 			    if (cs == 1)
-				strcat(bfr, "н");
+				strcat(bfr, "РЅ");
 
 			    strcat(bfr, his_her[URANGE(0, vch->sex, GET_MAX_SEX(ch))]);
 			}
@@ -9224,13 +9224,13 @@ void act_new(const char *format, CHAR_DATA *ch, void *arg1,
 			    switch(cs)
 			    {
 			    case  2:
-				strcpy(bfr, "чьи-то");
+				strcpy(bfr, "С‡СЊРё-С‚Рѕ");
 				break;
 			    case  3:
-				strcpy(bfr, "чьей-то");
+				strcpy(bfr, "С‡СЊРµР№-С‚Рѕ");
 				break;
 			    default:
-				strcpy(bfr, "кого-то");
+				strcpy(bfr, "РєРѕРіРѕ-С‚Рѕ");
 				break;
 			    }
 			}
@@ -9242,29 +9242,29 @@ void act_new(const char *format, CHAR_DATA *ch, void *arg1,
 		case 'p':
 		    i = obj1 != NULL ? can_see_obj(to, obj1)
 			? cases(obj1->short_descr, cs)
-			: cases("что-то", cs) : "";
+			: cases("С‡С‚Рѕ-С‚Рѕ", cs) : "";
 		    break;
 
 		case 'P':
 		    i = obj2 != NULL ? can_see_obj(to, obj2)
 			? cases(obj2->short_descr, cs)
-			: cases("что-то", cs) : "";
+			: cases("С‡С‚Рѕ-С‚Рѕ", cs) : "";
 		    break;
 
 		case 'd':
-		    i = cases(IS_NULLSTR((char *) arg2_new) ? "дверь" : (char *) arg2_new, cs);
+		    i = cases(IS_NULLSTR((char *) arg2_new) ? "РґРІРµСЂСЊ" : (char *) arg2_new, cs);
 		    break;
 
 		case 'r':
 		    i = obj1 != NULL ?
 			decompose_end(can_see_obj(to, obj1)
-				      ? obj1->short_descr : "что-то") : "";
+				      ? obj1->short_descr : "С‡С‚Рѕ-С‚Рѕ") : "";
 		    break;
 
 		case 'R':
 		    i = obj2 != NULL ?
 			decompose_end(can_see_obj(to, obj2)
-				      ? obj2->short_descr : "что-то") : "";
+				      ? obj2->short_descr : "С‡С‚Рѕ-С‚Рѕ") : "";
 		    break;
 
 		case 'x':
@@ -9272,23 +9272,23 @@ void act_new(const char *format, CHAR_DATA *ch, void *arg1,
 		    switch (ch->in_room->sector_type)
 		    {
 		    case SECT_FIELD:
-			i = "на траву";
+			i = "РЅР° С‚СЂР°РІСѓ";
 			break;
 
 		    case SECT_MOUNTAIN:
-			i = "на камни";
+			i = "РЅР° РєР°РјРЅРё";
 			break;
 		    case SECT_WATER_SWIM:
 		    case SECT_WATER_NOSWIM:
-			i = "в воду";
+			i = "РІ РІРѕРґСѓ";
 			break;
 
 		    case SECT_AIR:
-			i = "в воздух";
+			i = "РІ РІРѕР·РґСѓС…";
 			break;
 
 		    default:
-			i = "на землю";
+			i = "РЅР° Р·РµРјР»СЋ";
 			break;
 		    }
 		    break;
@@ -9298,23 +9298,23 @@ void act_new(const char *format, CHAR_DATA *ch, void *arg1,
 		    switch (ch->in_room->sector_type)
 		    {
 		    case SECT_FIELD:
-			i = "над травой";
+			i = "РЅР°Рґ С‚СЂР°РІРѕР№";
 			break;
 
 		    case SECT_MOUNTAIN:
-			i = "над камнями";
+			i = "РЅР°Рґ РєР°РјРЅСЏРјРё";
 			break;
 		    case SECT_WATER_SWIM:
 		    case SECT_WATER_NOSWIM:
-			i = "над водой";
+			i = "РЅР°Рґ РІРѕРґРѕР№";
 			break;
 
 		    case SECT_AIR:
-			i = "в воздухе";
+			i = "РІ РІРѕР·РґСѓС…Рµ";
 			break;
 
 		    default:
-			i = "над землей";
+			i = "РЅР°Рґ Р·РµРјР»РµР№";
 			break;
 		    }
 
@@ -10400,7 +10400,7 @@ void do_port(CHAR_DATA *ch, char *argument)
 {
     char buf[30];
 
-    sprintf(buf, "Номер порта: %d\n\r", cfg.port);
+    sprintf(buf, "РќРѕРјРµСЂ РїРѕСЂС‚Р°: %d\n\r", cfg.port);
     send_to_char(buf, ch);
 }
 
@@ -10418,7 +10418,7 @@ void safe_exit(int flag)
 
 	if (ch != NULL)
 	{
-	    write_to_buffer(d, "Ненормальное завершение работы!\n\rСохранение - подожди немного.\n\r", 0);
+	    write_to_buffer(d, "РќРµРЅРѕСЂРјР°Р»СЊРЅРѕРµ Р·Р°РІРµСЂС€РµРЅРёРµ СЂР°Р±РѕС‚С‹!\n\rРЎРѕС…СЂР°РЅРµРЅРёРµ - РїРѕРґРѕР¶РґРё РЅРµРјРЅРѕРіРѕ.\n\r", 0);
 	    VALIDATE(ch);
 	    save_char_obj(ch, FALSE);
 	}
@@ -10513,13 +10513,13 @@ void do_host(CHAR_DATA *ch, char *argument)
 
     if (argument[0] == '\0')
     {
-	send_to_char("Хост какого игрока ты хотел посмотреть?\n\r", ch);
+	send_to_char("РҐРѕСЃС‚ РєР°РєРѕРіРѕ РёРіСЂРѕРєР° С‚С‹ С…РѕС‚РµР» РїРѕСЃРјРѕС‚СЂРµС‚СЊ?\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, argument)) == NULL)
     {
-	send_to_char("Таких игроков нет в игре.\n\r", ch);
+	send_to_char("РўР°РєРёС… РёРіСЂРѕРєРѕРІ РЅРµС‚ РІ РёРіСЂРµ.\n\r", ch);
 	return;
     }
 
@@ -10542,7 +10542,7 @@ bool check_password(DESCRIPTOR_DATA *d, char *argument)
 
     if (strlen(argument) < 5)
     {
-	write_to_buffer(d, "Пароль должен состоять как минимум из 5-ти символов.\n\r", 0);
+	write_to_buffer(d, "РџР°СЂРѕР»СЊ РґРѕР»Р¶РµРЅ СЃРѕСЃС‚РѕСЏС‚СЊ РєР°Рє РјРёРЅРёРјСѓРј РёР· 5-С‚Рё СЃРёРјРІРѕР»РѕРІ.\n\r", 0);
 	return FALSE;
     }
 
@@ -10559,7 +10559,7 @@ bool check_password(DESCRIPTOR_DATA *d, char *argument)
     }
 
     if (!alpha)
-	write_to_buffer(d, "Новый пароль неприемлем, попытайтесь еще раз.\n\r", 0);
+	write_to_buffer(d, "РќРѕРІС‹Р№ РїР°СЂРѕР»СЊ РЅРµРїСЂРёРµРјР»РµРј, РїРѕРїС‹С‚Р°Р№С‚РµСЃСЊ РµС‰Рµ СЂР°Р·.\n\r", 0);
 
     return alpha;
 }
@@ -10647,7 +10647,7 @@ void do_email_pass(CHAR_DATA *ch, char *argument)
     {
 		if (ch != NULL)
 		{
-			send_to_char("Кому ты хотел отправить пароль?\n\r", ch);
+			send_to_char("РљРѕРјСѓ С‚С‹ С…РѕС‚РµР» РѕС‚РїСЂР°РІРёС‚СЊ РїР°СЂРѕР»СЊ?\n\r", ch);
 		}
 		return;
     }
@@ -10656,7 +10656,7 @@ void do_email_pass(CHAR_DATA *ch, char *argument)
     {
 		if (ch != NULL)
 		{
-			send_to_char("Этот персонаж сейчас в игре.\n\r", ch);
+			send_to_char("Р­С‚РѕС‚ РїРµСЂСЃРѕРЅР°Р¶ СЃРµР№С‡Р°СЃ РІ РёРіСЂРµ.\n\r", ch);
 		}
 		return;
     }
@@ -10667,7 +10667,7 @@ void do_email_pass(CHAR_DATA *ch, char *argument)
     {
 		if (ch != NULL)
 		{
-			send_to_char("Таких нет в этом мире.\n\r", ch);
+			send_to_char("РўР°РєРёС… РЅРµС‚ РІ СЌС‚РѕРј РјРёСЂРµ.\n\r", ch);
 		}
 		free_descriptor(d);
 		return;
@@ -10688,7 +10688,7 @@ void do_email_pass(CHAR_DATA *ch, char *argument)
 	{
 		if (ch != NULL)
 		{
-			send_to_char("У этого персонажа не прописан адрес электронной почты.\n\r", ch);
+			send_to_char("РЈ СЌС‚РѕРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р° РЅРµ РїСЂРѕРїРёСЃР°РЅ Р°РґСЂРµСЃ СЌР»РµРєС‚СЂРѕРЅРЅРѕР№ РїРѕС‡С‚С‹.\n\r", ch);
 		}
 	}
 
@@ -10789,7 +10789,7 @@ void tagline_to_char(const char *text, CHAR_DATA *ch, CHAR_DATA *looker)
     char *p_output = output;
     char *common;
 
-    /* Если строка пустая - делать ничего не надо */
+    /* Р•СЃР»Рё СЃС‚СЂРѕРєР° РїСѓСЃС‚Р°СЏ - РґРµР»Р°С‚СЊ РЅРёС‡РµРіРѕ РЅРµ РЅР°РґРѕ */
     if (strlen(text) <= 0)
 	return;
 
@@ -10810,7 +10810,7 @@ void tagline_to_char(const char *text, CHAR_DATA *ch, CHAR_DATA *looker)
 	    continue;
 	}
 
-	/* Пропускаем начало тэга '[#'. */
+	/* РџСЂРѕРїСѓСЃРєР°РµРј РЅР°С‡Р°Р»Рѕ С‚СЌРіР° '[#'. */
 	desc++;
 
 	common = buf;
@@ -10818,7 +10818,7 @@ void tagline_to_char(const char *text, CHAR_DATA *ch, CHAR_DATA *looker)
 	{
 	    if (*desc == '\0')
 	    {
-		bugf("Ошибка: В тэге нет разделителя ':'. Комната: %d.", ch->in_room->vnum);
+		bugf("РћС€РёР±РєР°: Р’ С‚СЌРіРµ РЅРµС‚ СЂР°Р·РґРµР»РёС‚РµР»СЏ ':'. РљРѕРјРЅР°С‚Р°: %d.", ch->in_room->vnum);
 		*common = *desc;
 		break;
 	    }
@@ -10826,12 +10826,12 @@ void tagline_to_char(const char *text, CHAR_DATA *ch, CHAR_DATA *looker)
 	    desc++;
 	    common++;
 	}
-	*common = '\0';  // Завершаем тэг
-	/* Пропускаем ':' и пробельные символы */
+	*common = '\0';  // Р—Р°РІРµСЂС€Р°РµРј С‚СЌРі
+	/* РџСЂРѕРїСѓСЃРєР°РµРј ':' Рё РїСЂРѕР±РµР»СЊРЅС‹Рµ СЃРёРјРІРѕР»С‹ */
 	desc++;
 	while (isspace(*desc)) desc++;
 
-	/* Читаем описание тэга */
+	/* Р§РёС‚Р°РµРј РѕРїРёСЃР°РЅРёРµ С‚СЌРіР° */
 	common = tagline;
 	while (*desc != ']')
 	{
@@ -10845,18 +10845,18 @@ void tagline_to_char(const char *text, CHAR_DATA *ch, CHAR_DATA *looker)
 	    common++;
 	    desc++;
 	}
-	*common = '\0'; // Завершаем команду
+	*common = '\0'; // Р—Р°РІРµСЂС€Р°РµРј РєРѕРјР°РЅРґСѓ
 
-	/* Выделяем аргументы */
+	/* Р’С‹РґРµР»СЏРµРј Р°СЂРіСѓРјРµРЅС‚С‹ */
 	common = buf;
 	common = one_argument(common, arg);
 	common = one_argument(common, arg2);
 	if (is_number(common))
 	    value = atoi(common);
 	else if (str_cmp(arg, "pos") && strlen(common) > 0)
-	    bugf("Ошибка в тэге в комнате %d: %s %s %s.", ch->in_room->vnum, arg, arg2, common);
+	    bugf("РћС€РёР±РєР° РІ С‚СЌРіРµ РІ РєРѕРјРЅР°С‚Рµ %d: %s %s %s.", ch->in_room->vnum, arg, arg2, common);
 
-	/*======[  Случаи  ]======*/
+	/*======[  РЎР»СѓС‡Р°Рё  ]======*/
 	switch (UPPER(arg[0]))
 	{
 	case 'A':
@@ -11074,12 +11074,12 @@ void tagline_to_char(const char *text, CHAR_DATA *ch, CHAR_DATA *looker)
 	    bGo = FALSE;
 	    break;
 	}
-	/* ======[Все, случаи кончались]====== */
+	/* ======[Р’СЃРµ, СЃР»СѓС‡Р°Рё РєРѕРЅС‡Р°Р»РёСЃСЊ]====== */
 
 	if (!bGo && (sn = skill_lookup(arg)) >= 0)
 	    bGo = COMPARE_TAG(get_skill(ch, sn), value, arg2);
 
-	/* Копируем полученное в ответ */
+	/* РљРѕРїРёСЂСѓРµРј РїРѕР»СѓС‡РµРЅРЅРѕРµ РІ РѕС‚РІРµС‚ */
 	if (bGo == TRUE)
 	{
 	    common = tagline;
@@ -11095,9 +11095,9 @@ void tagline_to_char(const char *text, CHAR_DATA *ch, CHAR_DATA *looker)
 	}
     }
 
-    /* Отправляем полученное игроку */
-    *p_output = '\0';          // Конец строки
-    send_to_char(output, looker);  // Отправляем строку чару
+    /* РћС‚РїСЂР°РІР»СЏРµРј РїРѕР»СѓС‡РµРЅРЅРѕРµ РёРіСЂРѕРєСѓ */
+    *p_output = '\0';          // РљРѕРЅРµС† СЃС‚СЂРѕРєРё
+    send_to_char(output, looker);  // РћС‚РїСЂР°РІР»СЏРµРј СЃС‚СЂРѕРєСѓ С‡Р°СЂСѓ
     return;
 }
 

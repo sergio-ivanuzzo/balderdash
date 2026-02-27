@@ -19,38 +19,38 @@ char * makehowl (char *string, CHAR_DATA * ch)
 {
     struct struckhowl howl[] =
     {
-	{0, {"а", "а"} },
-	{2, {"ву", "ва", "во"}},
-	{0, {"в"}},
-	{0, {"г"}},
-	{2, {"гу", "уг", "Го"}},
-	{3, {"еу", "уе", "еа", "Еэ"}},
-	{5, {"х", "хе", "ех", "хХ", "ха", "Х"}},
-	{4, {"га", "гу", "хэ", "ваэ", "гэ"}},
-	{1, {"оу", "ау",}},
-	{3, {"ру", "Руу", "уоу", "оУо"}},
-	{6, {"г", "гг", "Ггг", "гг", "гГ", "Гг", "Г"}},
-	{3, {"ву", "вуу", "ру", "Руу"}},
-	{5, {"м", "м", "М", "ммм", "ммэ", "мама"}},
-	{5, {"н", "н", "Н", "ннн", "Нн", "нну"}},
-	{0, {"о"}},
-	{4, {"рр", "ррэ", "рРр", "ре", "ррр"}},
-	{0, {"р"}},
-	{5, {"ве", "вв", "вев", "еев", "веее", "ев"}},
-	{5, {"хе", "хэ", "ХЭ", "ххэ", "хее", "хуу"}},
-	{0, {"у"}},
-	{5, {"хр", "ххр", "ххгг", "хгг", "хгв", "вхх"}},
-	{0, {"х"}},
-	{3, {"вохх", "вхх", "гха", "ахв"}},
-	{3, {"рых", "рыг", "рр", "ээв"}},
-	{3, {"х", "хх", "ххг", "хгх"}},
-	{3, {"х", "хвх", "вв", "хвхв"}},
-	{3, {"а", "э", "А", "Э"}},
-	{3, {"ы", "ыуыу", "Ыуы", "ыу"}},
-	{3, {"у", "о", "У", "О"}},
-	{0, {"э"}},
-	{3, {"уу", "ууу", "уУ", "Уу"}},
-	{5, {"уо", "уа", "ууу", "уауа", "ау", "ауау"}}
+	{0, {"Р°", "Р°"} },
+	{2, {"РІСѓ", "РІР°", "РІРѕ"}},
+	{0, {"РІ"}},
+	{0, {"Рі"}},
+	{2, {"РіСѓ", "СѓРі", "Р“Рѕ"}},
+	{3, {"РµСѓ", "СѓРµ", "РµР°", "Р•СЌ"}},
+	{5, {"С…", "С…Рµ", "РµС…", "С…РҐ", "С…Р°", "РҐ"}},
+	{4, {"РіР°", "РіСѓ", "С…СЌ", "РІР°СЌ", "РіСЌ"}},
+	{1, {"РѕСѓ", "Р°Сѓ",}},
+	{3, {"СЂСѓ", "Р СѓСѓ", "СѓРѕСѓ", "РѕРЈРѕ"}},
+	{6, {"Рі", "РіРі", "Р“РіРі", "РіРі", "РіР“", "Р“Рі", "Р“"}},
+	{3, {"РІСѓ", "РІСѓСѓ", "СЂСѓ", "Р СѓСѓ"}},
+	{5, {"Рј", "Рј", "Рњ", "РјРјРј", "РјРјСЌ", "РјР°РјР°"}},
+	{5, {"РЅ", "РЅ", "Рќ", "РЅРЅРЅ", "РќРЅ", "РЅРЅСѓ"}},
+	{0, {"Рѕ"}},
+	{4, {"СЂСЂ", "СЂСЂСЌ", "СЂР СЂ", "СЂРµ", "СЂСЂСЂ"}},
+	{0, {"СЂ"}},
+	{5, {"РІРµ", "РІРІ", "РІРµРІ", "РµРµРІ", "РІРµРµРµ", "РµРІ"}},
+	{5, {"С…Рµ", "С…СЌ", "РҐР­", "С…С…СЌ", "С…РµРµ", "С…СѓСѓ"}},
+	{0, {"Сѓ"}},
+	{5, {"С…СЂ", "С…С…СЂ", "С…С…РіРі", "С…РіРі", "С…РіРІ", "РІС…С…"}},
+	{0, {"С…"}},
+	{3, {"РІРѕС…С…", "РІС…С…", "РіС…Р°", "Р°С…РІ"}},
+	{3, {"СЂС‹С…", "СЂС‹Рі", "СЂСЂ", "СЌСЌРІ"}},
+	{3, {"С…", "С…С…", "С…С…Рі", "С…РіС…"}},
+	{3, {"С…", "С…РІС…", "РІРІ", "С…РІС…РІ"}},
+	{3, {"Р°", "СЌ", "Рђ", "Р­"}},
+	{3, {"С‹", "С‹СѓС‹Сѓ", "Р«СѓС‹", "С‹Сѓ"}},
+	{3, {"Сѓ", "Рѕ", "РЈ", "Рћ"}},
+	{0, {"СЌ"}},
+	{3, {"СѓСѓ", "СѓСѓСѓ", "СѓРЈ", "РЈСѓ"}},
+	{5, {"СѓРѕ", "СѓР°", "СѓСѓСѓ", "СѓР°СѓР°", "Р°Сѓ", "Р°СѓР°Сѓ"}}
     };
 
     static char buf[5 * MAX_INPUT_LENGTH];
@@ -63,17 +63,17 @@ char * makehowl (char *string, CHAR_DATA * ch)
     do
     {
 	temp = UPPER(*string);
-	if (temp >= 'А' && temp <= 'Я')
+	if (temp >= 'Рђ' && temp <= 'РЇ')
 	{
-	    randomnum = number_range(0, howl[temp - 'А'].number_of_rep);
-	    strcpy(&buf[pos], howl[temp - 'А'].replacement[randomnum]);
-	    pos += strlen (howl[temp - 'А'].replacement[randomnum]);
+	    randomnum = number_range(0, howl[temp - 'Рђ'].number_of_rep);
+	    strcpy(&buf[pos], howl[temp - 'Рђ'].replacement[randomnum]);
+	    pos += strlen (howl[temp - 'Рђ'].replacement[randomnum]);
 	}
 	else
 	{
 	    if ((temp >= '0') && (temp <= '9'))
 	    {
-		temp = number_percent() > 50 ? 'о' : 'у';
+		temp = number_percent() > 50 ? 'Рѕ' : 'Сѓ';
 		buf[pos++] = temp;
 	    }
 	    else
@@ -112,7 +112,7 @@ void set_lycanthrope(CHAR_DATA *ch)
 	    }
 	}
 
-	/*Получает следующие аффекты
+	/*РџРѕР»СѓС‡Р°РµС‚ СЃР»РµРґСѓСЋС‰РёРµ Р°С„С„РµРєС‚С‹
 	*/
 	SET_BIT(ch->affected_by, AFF_SNEAK);
 	SET_BIT(ch->affected_by, AFF_INFRARED);
@@ -176,24 +176,24 @@ void recovery_lycanthrope(CHAR_DATA *ch)
 	affect_check(ch,TO_AFFECTS,AFF_SNEAK);
 	affect_check(ch,TO_AFFECTS,AFF_INFRARED);
 
-	/*Убираем вой, рев
+	/*РЈР±РёСЂР°РµРј РІРѕР№, СЂРµРІ
 	*/
 	affect_strip(ch, gsn_howl);
 	affect_strip(ch, gsn_growl);
 
-	/*Убираем мягкие шаги
+	/*РЈР±РёСЂР°РµРј РјСЏРіРєРёРµ С€Р°РіРё
 	*/
 	affect_strip(ch, gsn_silent_step);
 
-	/*Убираем ауру когтей
+	/*РЈР±РёСЂР°РµРј Р°СѓСЂСѓ РєРѕРіС‚РµР№
 	*/
 	affect_strip(ch, gsn_claws);
 
-	/*Убираем успокоить животного
+	/*РЈР±РёСЂР°РµРј СѓСЃРїРѕРєРѕРёС‚СЊ Р¶РёРІРѕС‚РЅРѕРіРѕ
 	*/
 	affect_strip(ch, gsn_animal_taming);
 
-	/*Уничтожаем когти
+	/*РЈРЅРёС‡С‚РѕР¶Р°РµРј РєРѕРіС‚Рё
 	*/
 	if ((obj = get_eq_char(ch, WEAR_WIELD)) != NULL)
 	    extract_obj(obj, FALSE, TRUE);
@@ -233,19 +233,19 @@ void do_spirit(CHAR_DATA *ch, char *argument)
 
     if (is_lycanthrope(ch))
     {
-	send_to_char("В таком состоянии ты не можешь вызвать дух зверя.\n\r", ch);
+	send_to_char("Р’ С‚Р°РєРѕРј СЃРѕСЃС‚РѕСЏРЅРёРё С‚С‹ РЅРµ РјРѕР¶РµС€СЊ РІС‹Р·РІР°С‚СЊ РґСѓС… Р·РІРµСЂСЏ.\n\r", ch);
 	return;
     }
 
     if (is_lycanthrope_spirit(ch))
     {
-	send_to_char("Дух зверя уже присутствует в тебе.\n\r", ch);
+	send_to_char("Р”СѓС… Р·РІРµСЂСЏ СѓР¶Рµ РїСЂРёСЃСѓС‚СЃС‚РІСѓРµС‚ РІ С‚РµР±Рµ.\n\r", ch);
 	return;
     }
 
     if (ch->mana < 30)
     {
-	send_to_char("У тебя недостаточно энергии.\n\r", ch);
+	send_to_char("РЈ С‚РµР±СЏ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СЌРЅРµСЂРіРёРё.\n\r", ch);
 	return;	
     }
 
@@ -254,32 +254,32 @@ void do_spirit(CHAR_DATA *ch, char *argument)
     if (arg[0] == '\0')
     {
 	if (ch->classid != CLASS_LYCANTHROPE)
-	    send_to_char("Вызвать дух? Это как?\n\r", ch);
+	    send_to_char("Р’С‹Р·РІР°С‚СЊ РґСѓС…? Р­С‚Рѕ РєР°Рє?\n\r", ch);
 	else
-	    send_to_char("Ты можешь вызвать дух волка или медведя.\n\r", ch);
+	    send_to_char("РўС‹ РјРѕР¶РµС€СЊ РІС‹Р·РІР°С‚СЊ РґСѓС… РІРѕР»РєР° РёР»Рё РјРµРґРІРµРґСЏ.\n\r", ch);
 	return;
     }
-    else if (!str_prefix(arg, "волк") || !str_prefix(arg, "wolf"))
+    else if (!str_prefix(arg, "РІРѕР»Рє") || !str_prefix(arg, "wolf"))
 	sn = gsn_spirit_wolf;
     else 
-	if (!str_prefix(arg, "медведя") || !str_prefix(arg, "bear"))
+	if (!str_prefix(arg, "РјРµРґРІРµРґСЏ") || !str_prefix(arg, "bear"))
 	    sn = gsn_spirit_bear;
 	else
 	{
-	    send_to_char("Дух какого зверя ты хочешь вызвать?\n\r", ch);
+	    send_to_char("Р”СѓС… РєР°РєРѕРіРѕ Р·РІРµСЂСЏ С‚С‹ С…РѕС‡РµС€СЊ РІС‹Р·РІР°С‚СЊ?\n\r", ch);
 	    return;
 	}
 
     if ((skill = get_skill(ch, sn)) < 1)
     {
-	send_to_char("Вызвать дух? Это как?\n\r", ch);
+	send_to_char("Р’С‹Р·РІР°С‚СЊ РґСѓС…? Р­С‚Рѕ РєР°Рє?\n\r", ch);
 	return;
     }
 
     if (skill < number_percent())
     {
-	act("У тебя не получается вызвать дух.", ch, NULL, NULL, TO_CHAR);
-/*	act("$n пытается возвать духа, но ничего не получается.", ch, NULL, NULL, TO_ROOM);
+	act("РЈ С‚РµР±СЏ РЅРµ РїРѕР»СѓС‡Р°РµС‚СЃСЏ РІС‹Р·РІР°С‚СЊ РґСѓС….", ch, NULL, NULL, TO_CHAR);
+/*	act("$n РїС‹С‚Р°РµС‚СЃСЏ РІРѕР·РІР°С‚СЊ РґСѓС…Р°, РЅРѕ РЅРёС‡РµРіРѕ РЅРµ РїРѕР»СѓС‡Р°РµС‚СЃСЏ.", ch, NULL, NULL, TO_ROOM);
 */
 	check_improve(ch, NULL, sn, FALSE, 3);
 	return;
@@ -302,12 +302,12 @@ void do_spirit(CHAR_DATA *ch, char *argument)
     ch->mana -= 30;
     ch->hit += 70;
 
-    act("Ты вызываешь дух зверя.", ch, NULL, NULL, TO_CHAR);
-    act("Ты замечаешь, что в глазах $n3 блеснула звериная ярость.", ch, NULL, NULL, TO_ROOM);
+    act("РўС‹ РІС‹Р·С‹РІР°РµС€СЊ РґСѓС… Р·РІРµСЂСЏ.", ch, NULL, NULL, TO_CHAR);
+    act("РўС‹ Р·Р°РјРµС‡Р°РµС€СЊ, С‡С‚Рѕ РІ РіР»Р°Р·Р°С… $n3 Р±Р»РµСЃРЅСѓР»Р° Р·РІРµСЂРёРЅР°СЏ СЏСЂРѕСЃС‚СЊ.", ch, NULL, NULL, TO_ROOM);
     check_improve(ch, NULL, sn, FALSE, 2);
     WAIT_STATE(ch, skill_table[sn].beats);
 
-    /*Изменяем вульны и резисты
+    /*РР·РјРµРЅСЏРµРј РІСѓР»СЊРЅС‹ Рё СЂРµР·РёСЃС‚С‹
     */
     set_lycanthrope(ch);
 }
@@ -321,19 +321,19 @@ void do_form(CHAR_DATA *ch, char *argument)
 
     if (is_lycanthrope(ch))
     {
-	send_to_char("Ты итак уже находишься в обличии зверя.\n\r", ch);
+	send_to_char("РўС‹ РёС‚Р°Рє СѓР¶Рµ РЅР°С…РѕРґРёС€СЊСЃСЏ РІ РѕР±Р»РёС‡РёРё Р·РІРµСЂСЏ.\n\r", ch);
 	return;
     }
 
     if (is_lycanthrope_spirit(ch))
     {
-	send_to_char("В таком состоянии ты не можешь изменить обличие.\n\r", ch);
+	send_to_char("Р’ С‚Р°РєРѕРј СЃРѕСЃС‚РѕСЏРЅРёРё С‚С‹ РЅРµ РјРѕР¶РµС€СЊ РёР·РјРµРЅРёС‚СЊ РѕР±Р»РёС‡РёРµ.\n\r", ch);
 	return;
     }
 
     if (ch->mana < 50)
     {
-	send_to_char("У тебя недостаточно энергии.\n\r", ch);
+	send_to_char("РЈ С‚РµР±СЏ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СЌРЅРµСЂРіРёРё.\n\r", ch);
 	return;	
     }
 
@@ -342,32 +342,32 @@ void do_form(CHAR_DATA *ch, char *argument)
     if (arg[0] == '\0')
     {
 	if (ch->classid != CLASS_LYCANTHROPE)
-	    send_to_char("Изменить обличие? Это как?\n\r", ch);
+	    send_to_char("РР·РјРµРЅРёС‚СЊ РѕР±Р»РёС‡РёРµ? Р­С‚Рѕ РєР°Рє?\n\r", ch);
 	else
-	    send_to_char("Ты можешь изменить обличие на волка или медведя.\n\r", ch);
+	    send_to_char("РўС‹ РјРѕР¶РµС€СЊ РёР·РјРµРЅРёС‚СЊ РѕР±Р»РёС‡РёРµ РЅР° РІРѕР»РєР° РёР»Рё РјРµРґРІРµРґСЏ.\n\r", ch);
 	return;
     }
-    else if (!str_prefix(arg, "волк") || !str_prefix(arg, "wolf"))
+    else if (!str_prefix(arg, "РІРѕР»Рє") || !str_prefix(arg, "wolf"))
 	sn = gsn_form_wolf;
     else 
-	if (!str_prefix(arg, "медведя") || !str_prefix(arg, "bear"))
+	if (!str_prefix(arg, "РјРµРґРІРµРґСЏ") || !str_prefix(arg, "bear"))
 	    sn = gsn_form_bear;
 	else
 	{
-	    send_to_char("Обличие какого зверя ты хочешь принять?\n\r", ch);
+	    send_to_char("РћР±Р»РёС‡РёРµ РєР°РєРѕРіРѕ Р·РІРµСЂСЏ С‚С‹ С…РѕС‡РµС€СЊ РїСЂРёРЅСЏС‚СЊ?\n\r", ch);
 	    return;
 	}
 
     if ((skill = get_skill(ch, sn)) < 1)
     {
-	send_to_char("Изменить обличие? Это как?\n\r", ch);
+	send_to_char("РР·РјРµРЅРёС‚СЊ РѕР±Р»РёС‡РёРµ? Р­С‚Рѕ РєР°Рє?\n\r", ch);
 	return;
     }
 
     if (skill < number_percent())
     {
-	act("У тебя не получается изменить обличие.", ch, NULL, NULL, TO_CHAR);
-/*	act("$n пытается поменять обличие, но ничего не получается.", ch, NULL, NULL, TO_ROOM);
+	act("РЈ С‚РµР±СЏ РЅРµ РїРѕР»СѓС‡Р°РµС‚СЃСЏ РёР·РјРµРЅРёС‚СЊ РѕР±Р»РёС‡РёРµ.", ch, NULL, NULL, TO_CHAR);
+/*	act("$n РїС‹С‚Р°РµС‚СЃСЏ РїРѕРјРµРЅСЏС‚СЊ РѕР±Р»РёС‡РёРµ, РЅРѕ РЅРёС‡РµРіРѕ РЅРµ РїРѕР»СѓС‡Р°РµС‚СЃСЏ.", ch, NULL, NULL, TO_ROOM);
 */
 	check_improve(ch, NULL, sn, FALSE, 3);
 	return;
@@ -390,12 +390,12 @@ void do_form(CHAR_DATA *ch, char *argument)
     ch->mana -= 50;
     ch->hit += 150;
 
-    act("Ты меняешь обличие на звериное.", ch, NULL, NULL, TO_CHAR);
-    act("Ты замечаешь, как $n превращатся в зверя.", ch, NULL, NULL, TO_ROOM);
+    act("РўС‹ РјРµРЅСЏРµС€СЊ РѕР±Р»РёС‡РёРµ РЅР° Р·РІРµСЂРёРЅРѕРµ.", ch, NULL, NULL, TO_CHAR);
+    act("РўС‹ Р·Р°РјРµС‡Р°РµС€СЊ, РєР°Рє $n РїСЂРµРІСЂР°С‰Р°С‚СЃСЏ РІ Р·РІРµСЂСЏ.", ch, NULL, NULL, TO_ROOM);
     check_improve(ch, NULL, sn, FALSE, 2);
     WAIT_STATE(ch, skill_table[sn].beats);
 
-    /*Снимаются: щит, оружие, зажато в руке... одеваются 2 когтя
+    /*РЎРЅРёРјР°СЋС‚СЃСЏ: С‰РёС‚, РѕСЂСѓР¶РёРµ, Р·Р°Р¶Р°С‚Рѕ РІ СЂСѓРєРµ... РѕРґРµРІР°СЋС‚СЃСЏ 2 РєРѕРіС‚СЏ
     */
     if ((obj = get_eq_char(ch, WEAR_SHIELD)) != NULL)
 	unequip_char(ch, obj, TRUE);
@@ -409,7 +409,7 @@ void do_form(CHAR_DATA *ch, char *argument)
     if ((obj = get_eq_char(ch, WEAR_HOLD)) != NULL)
 	unequip_char(ch, obj, TRUE);
 
-    /*Появляются когти
+    /*РџРѕСЏРІР»СЏСЋС‚СЃСЏ РєРѕРіС‚Рё
     */
     obj = create_object(get_obj_index(OBJ_VNUM_CLAW), 0);
     obj->level = ch->level;
@@ -427,22 +427,22 @@ void do_form(CHAR_DATA *ch, char *argument)
     obj_to_char(obj, ch);
     equip_char(ch, obj, WEAR_SECONDARY);
 
-    /*Убираем аффект шерсть
+    /*РЈР±РёСЂР°РµРј Р°С„С„РµРєС‚ С€РµСЂСЃС‚СЊ
     */
     affect_strip(ch, gsn_hair);
 
-    /*Изменяем вульны и резисты
+    /*РР·РјРµРЅСЏРµРј РІСѓР»СЊРЅС‹ Рё СЂРµР·РёСЃС‚С‹
     */
     set_lycanthrope(ch);
 
-    /*Спадают корни, слово страха
+    /*РЎРїР°РґР°СЋС‚ РєРѕСЂРЅРё, СЃР»РѕРІРѕ СЃС‚СЂР°С…Р°
     */
     affect_strip(ch, skill_lookup("roots"));
     REMOVE_BIT(ch->affected_by, AFF_ROOTS);
 
     affect_strip(ch, gsn_power_word_fear);
 
-    /*Очары разбегаются
+    /*РћС‡Р°СЂС‹ СЂР°Р·Р±РµРіР°СЋС‚СЃСЏ
     */
     REMOVE_BIT(ch->act, PLR_NOFOLLOW);
     do_function(ch, &do_nofollow, "");
@@ -456,25 +456,25 @@ void do_howl(CHAR_DATA *ch, char *argument)
 
     if (!IS_IMMORTAL(ch) && !is_affected(ch, gsn_form_wolf))
     {
-	send_to_char("Это умение могут использовать только оборотни в обличии волка.\n\r", ch);
+	send_to_char("Р­С‚Рѕ СѓРјРµРЅРёРµ РјРѕРіСѓС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚РѕР»СЊРєРѕ РѕР±РѕСЂРѕС‚РЅРё РІ РѕР±Р»РёС‡РёРё РІРѕР»РєР°.\n\r", ch);
 	return;
     }
 
     if ((skill = get_skill(ch, gsn_howl)) < 1)
     {
-	send_to_char("Выть, это как?\n\r", ch);
+	send_to_char("Р’С‹С‚СЊ, СЌС‚Рѕ РєР°Рє?\n\r", ch);
 	return;
     }
 
     if (is_affected(ch,gsn_animal_taming))
     {
-	send_to_char("Ты в достаточно спокойном состоянии, и у тебя не получается выть.\n\r", ch);
+	send_to_char("РўС‹ РІ РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СЃРїРѕРєРѕР№РЅРѕРј СЃРѕСЃС‚РѕСЏРЅРёРё, Рё Сѓ С‚РµР±СЏ РЅРµ РїРѕР»СѓС‡Р°РµС‚СЃСЏ РІС‹С‚СЊ.\n\r", ch);
 	return;
     }
 
     if (ch->mana < 20)
     {
-	send_to_char("У тебя недостаточно энергии.\n\r", ch);
+	send_to_char("РЈ С‚РµР±СЏ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СЌРЅРµСЂРіРёРё.\n\r", ch);
 	return;	
     }
 
@@ -484,14 +484,14 @@ void do_howl(CHAR_DATA *ch, char *argument)
 
     if (chance < number_percent())
     {
-	act("У тебя не получается выть.", ch, NULL, NULL, TO_CHAR);
-	act("$n пытается выть, но ничего не получается.", ch, NULL, NULL, TO_ROOM);
+	act("РЈ С‚РµР±СЏ РЅРµ РїРѕР»СѓС‡Р°РµС‚СЃСЏ РІС‹С‚СЊ.", ch, NULL, NULL, TO_CHAR);
+	act("$n РїС‹С‚Р°РµС‚СЃСЏ РІС‹С‚СЊ, РЅРѕ РЅРёС‡РµРіРѕ РЅРµ РїРѕР»СѓС‡Р°РµС‚СЃСЏ.", ch, NULL, NULL, TO_ROOM);
 	check_improve(ch, NULL, gsn_howl, FALSE, 6);
 	return;
     }
 
-    act("Ты начинаешь выть.", ch, NULL, NULL, TO_CHAR);
-    act("$n воет, от чего кровь в твоих жилах замирает.", ch, NULL, NULL, TO_ROOM);
+    act("РўС‹ РЅР°С‡РёРЅР°РµС€СЊ РІС‹С‚СЊ.", ch, NULL, NULL, TO_CHAR);
+    act("$n РІРѕРµС‚, РѕС‚ С‡РµРіРѕ РєСЂРѕРІСЊ РІ С‚РІРѕРёС… Р¶РёР»Р°С… Р·Р°РјРёСЂР°РµС‚.", ch, NULL, NULL, TO_ROOM);
 
     ch->mana -= 20;
 
@@ -518,8 +518,8 @@ void do_howl(CHAR_DATA *ch, char *argument)
 		    && check_immune(vch, DAM_MENTAL) < number_percent()
 		    && !is_affected(vch, gsn_howl))
 		{
-		    act("{W$N начинает сильно бояться тебя!.{x", ch, NULL, vch, TO_CHAR);
-		    act("{WТы начинаешь дико бояться!{x", ch, NULL, vch, TO_VICT);
+		    act("{W$N РЅР°С‡РёРЅР°РµС‚ СЃРёР»СЊРЅРѕ Р±РѕСЏС‚СЊСЃСЏ С‚РµР±СЏ!.{x", ch, NULL, vch, TO_CHAR);
+		    act("{WРўС‹ РЅР°С‡РёРЅР°РµС€СЊ РґРёРєРѕ Р±РѕСЏС‚СЊСЃСЏ!{x", ch, NULL, vch, TO_VICT);
 		    af.where = TO_AFFECTS;
 		    af.level = ch->level;
 		    af.type = gsn_howl;
@@ -558,32 +558,32 @@ void do_jump(CHAR_DATA *ch, char *argument)
 
     if (!IS_IMMORTAL(ch) && (!is_affected(ch,gsn_form_bear) || skill < 1))
     {
-	send_to_char("Это умение могут использовать только оборотни в обличии медведя.\n\r", ch);
+	send_to_char("Р­С‚Рѕ СѓРјРµРЅРёРµ РјРѕРіСѓС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚РѕР»СЊРєРѕ РѕР±РѕСЂРѕС‚РЅРё РІ РѕР±Р»РёС‡РёРё РјРµРґРІРµРґСЏ.\n\r", ch);
 	return;
     }
 
     if (arg[0] == '\0')
     {
-	send_to_char("Прыжок на кого?\n\r", ch);
+	send_to_char("РџСЂС‹Р¶РѕРє РЅР° РєРѕРіРѕ?\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_room(ch, NULL, arg, TRUE)) == NULL)
     {
 	if (!too_many_victims)
-	    send_to_char("Таких здесь нет.\n\r", ch);
+	    send_to_char("РўР°РєРёС… Р·РґРµСЃСЊ РЅРµС‚.\n\r", ch);
 	return;
     }
 
     if (victim == ch)
     {
-	send_to_char("Ты пытаешься сделать прыжок на самого себя?\n\r", ch);
+	send_to_char("РўС‹ РїС‹С‚Р°РµС€СЊСЃСЏ СЃРґРµР»Р°С‚СЊ РїСЂС‹Р¶РѕРє РЅР° СЃР°РјРѕРіРѕ СЃРµР±СЏ?\n\r", ch);
 	return;
     }
 
     if (is_affected(ch,gsn_jump))
     {
-	send_to_char("Ты пока не можешь совершить прыжок.\n\r", ch);
+	send_to_char("РўС‹ РїРѕРєР° РЅРµ РјРѕР¶РµС€СЊ СЃРѕРІРµСЂС€РёС‚СЊ РїСЂС‹Р¶РѕРє.\n\r", ch);
 	return;
     }
 
@@ -641,15 +641,15 @@ void do_jump(CHAR_DATA *ch, char *argument)
 
 	if (!IS_SET(victim->parts, PART_LEGS))
 	{
-	    send_to_char("Существо нельзя сбить с ног, так как у него нет ног!\n\r", ch);
+	    send_to_char("РЎСѓС‰РµСЃС‚РІРѕ РЅРµР»СЊР·СЏ СЃР±РёС‚СЊ СЃ РЅРѕРі, С‚Р°Рє РєР°Рє Сѓ РЅРµРіРѕ РЅРµС‚ РЅРѕРі!\n\r", ch);
 	    return;
 	}
 
 	wait = number_range(1,2);
 
-	act("{5Ты сбиваешь с ног $N3 !{x", ch, NULL, victim, TO_CHAR);
-	act("{5$n прыжком сбивает $N3 с ног!{x", ch, NULL, victim, TO_NOTVICT);
-	act("{5$n прыгает на тебя, и сбивает с ног!{x", ch, NULL, victim, TO_VICT);
+	act("{5РўС‹ СЃР±РёРІР°РµС€СЊ СЃ РЅРѕРі $N3 !{x", ch, NULL, victim, TO_CHAR);
+	act("{5$n РїСЂС‹Р¶РєРѕРј СЃР±РёРІР°РµС‚ $N3 СЃ РЅРѕРі!{x", ch, NULL, victim, TO_NOTVICT);
+	act("{5$n РїСЂС‹РіР°РµС‚ РЅР° С‚РµР±СЏ, Рё СЃР±РёРІР°РµС‚ СЃ РЅРѕРі!{x", ch, NULL, victim, TO_VICT);
 
 	if (!IS_NPC(victim))
 	{
@@ -682,25 +682,25 @@ void do_growl(CHAR_DATA *ch, char *argument)
 
     if (!IS_IMMORTAL(ch) && !is_affected(ch, gsn_form_bear))
     {
-	send_to_char("Это умение могут использовать только оборотни в обличии медведя.\n\r", ch);
+	send_to_char("Р­С‚Рѕ СѓРјРµРЅРёРµ РјРѕРіСѓС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚РѕР»СЊРєРѕ РѕР±РѕСЂРѕС‚РЅРё РІ РѕР±Р»РёС‡РёРё РјРµРґРІРµРґСЏ.\n\r", ch);
 	return;
     }
 
     if (skill < 1)
     {
-	send_to_char("Рычать, это как?\n\r", ch);
+	send_to_char("Р С‹С‡Р°С‚СЊ, СЌС‚Рѕ РєР°Рє?\n\r", ch);
 	return;
     }
 
     if (is_affected(ch,gsn_animal_taming))
     {
-	send_to_char("Ты в достаточно спокойном состоянии, и у тебя не получается рычать.\n\r", ch);
+	send_to_char("РўС‹ РІ РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СЃРїРѕРєРѕР№РЅРѕРј СЃРѕСЃС‚РѕСЏРЅРёРё, Рё Сѓ С‚РµР±СЏ РЅРµ РїРѕР»СѓС‡Р°РµС‚СЃСЏ СЂС‹С‡Р°С‚СЊ.\n\r", ch);
 	return;
     }
 
     if (ch->mana < 20)
     {
-	send_to_char("У тебя недостаточно энергии.\n\r", ch);
+	send_to_char("РЈ С‚РµР±СЏ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СЌРЅРµСЂРіРёРё.\n\r", ch);
 	return;	
     }
 
@@ -710,14 +710,14 @@ void do_growl(CHAR_DATA *ch, char *argument)
 
     if (chance < number_percent())
     {
-	act("У тебя не получается рычать.", ch, NULL, NULL, TO_CHAR);
-	act("$n пытается рычать, но ничего не получается.", ch, NULL, NULL, TO_ROOM);
+	act("РЈ С‚РµР±СЏ РЅРµ РїРѕР»СѓС‡Р°РµС‚СЃСЏ СЂС‹С‡Р°С‚СЊ.", ch, NULL, NULL, TO_CHAR);
+	act("$n РїС‹С‚Р°РµС‚СЃСЏ СЂС‹С‡Р°С‚СЊ, РЅРѕ РЅРёС‡РµРіРѕ РЅРµ РїРѕР»СѓС‡Р°РµС‚СЃСЏ.", ch, NULL, NULL, TO_ROOM);
 	check_improve(ch, NULL, gsn_growl, FALSE, 6);
 	return;
     }
 
-    act("Ты начинаешь рычать.", ch, NULL, NULL, TO_CHAR);
-    act("$n рычит. Это пугает тебя.", ch, NULL, NULL, TO_ROOM);
+    act("РўС‹ РЅР°С‡РёРЅР°РµС€СЊ СЂС‹С‡Р°С‚СЊ.", ch, NULL, NULL, TO_CHAR);
+    act("$n СЂС‹С‡РёС‚. Р­С‚Рѕ РїСѓРіР°РµС‚ С‚РµР±СЏ.", ch, NULL, NULL, TO_ROOM);
 
     ch->mana -= 20;
 
@@ -777,13 +777,13 @@ void do_find_victim(CHAR_DATA *ch, char *argument)
 
     if (!IS_IMMORTAL(ch) && (!is_affected(ch, gsn_form_wolf) || skill < 1))
     {
-	send_to_char("Это умение могут использовать только оборотни в обличии волка.\n\r", ch);
+	send_to_char("Р­С‚Рѕ СѓРјРµРЅРёРµ РјРѕРіСѓС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚РѕР»СЊРєРѕ РѕР±РѕСЂРѕС‚РЅРё РІ РѕР±Р»РёС‡РёРё РІРѕР»РєР°.\n\r", ch);
 	return;
     }
 
     if (ch->mana < 70)
     {
-	send_to_char("У тебя недостаточно энергии.\n\r", ch);
+	send_to_char("РЈ С‚РµР±СЏ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СЌРЅРµСЂРіРёРё.\n\r", ch);
 	return;	
     }
 
@@ -791,18 +791,18 @@ void do_find_victim(CHAR_DATA *ch, char *argument)
 
     if (IS_NULLSTR(arg))
     {
-	send_to_char("На кого ты собираешься охотиться?\n\r", ch);
+	send_to_char("РќР° РєРѕРіРѕ С‚С‹ СЃРѕР±РёСЂР°РµС€СЊСЃСЏ РѕС…РѕС‚РёС‚СЊСЃСЏ?\n\r", ch);
 	return;
     }
 
-    act("$n прислушивается и внюхивается в запахи.",ch, NULL, NULL, TO_ROOM);
+    act("$n РїСЂРёСЃР»СѓС€РёРІР°РµС‚СЃСЏ Рё РІРЅСЋС…РёРІР°РµС‚СЃСЏ РІ Р·Р°РїР°С…Рё.",ch, NULL, NULL, TO_ROOM);
 
     if ((victim = get_char_world(ch, arg)) == NULL
 	|| ch->in_room == NULL
 	|| IS_SET(ch->in_room->room_flags, ROOM_NOTRACK)
 	|| number_percent() >= skill)
     {
-	send_to_char("Ты не замечаешь никаких признаков присутствия жертвы.\n\r", ch);
+	send_to_char("РўС‹ РЅРµ Р·Р°РјРµС‡Р°РµС€СЊ РЅРёРєР°РєРёС… РїСЂРёР·РЅР°РєРѕРІ РїСЂРёСЃСѓС‚СЃС‚РІРёСЏ Р¶РµСЂС‚РІС‹.\n\r", ch);
 	return;
     }
 
@@ -812,13 +812,13 @@ void do_find_victim(CHAR_DATA *ch, char *argument)
 	{
 	    if (ch->fighting != NULL && !IS_NPC(ch->fighting))
 	    {
-		act("Ты останавливаешься и принимаешь бой.", ch, NULL, NULL, TO_CHAR);
+		act("РўС‹ РѕСЃС‚Р°РЅР°РІР»РёРІР°РµС€СЊСЃСЏ Рё РїСЂРёРЅРёРјР°РµС€СЊ Р±РѕР№.", ch, NULL, NULL, TO_CHAR);
 		break;
 	    }
 
 	    if (!ch->in_room || IS_SET(ch->in_room->room_flags, ROOM_NORUN))
 	    {
-		send_to_char("Тут невозможно быстро двигаться.\n\r", ch);
+		send_to_char("РўСѓС‚ РЅРµРІРѕР·РјРѕР¶РЅРѕ Р±С‹СЃС‚СЂРѕ РґРІРёРіР°С‚СЊСЃСЏ.\n\r", ch);
 		break;
 	    }
 
@@ -838,8 +838,8 @@ void do_find_victim(CHAR_DATA *ch, char *argument)
 	    {	
 		if (is_safe(ch, victim))
 		    break;
-		act("{WТы догоняешь $N3 и с диким воплем набрасываешься...{x", ch, NULL, victim, TO_CHAR);
-		act("{W$n догоняет тебя и с диким воплем набрасывается...{x", ch, NULL, victim, TO_VICT);
+		act("{WРўС‹ РґРѕРіРѕРЅСЏРµС€СЊ $N3 Рё СЃ РґРёРєРёРј РІРѕРїР»РµРј РЅР°Р±СЂР°СЃС‹РІР°РµС€СЊСЃСЏ...{x", ch, NULL, victim, TO_CHAR);
+		act("{W$n РґРѕРіРѕРЅСЏРµС‚ С‚РµР±СЏ Рё СЃ РґРёРєРёРј РІРѕРїР»РµРј РЅР°Р±СЂР°СЃС‹РІР°РµС‚СЃСЏ...{x", ch, NULL, victim, TO_VICT);
 		do_function(ch, &do_kill, victim->name);
 		check_killer(ch, victim);
 		find_vict = TRUE;
@@ -849,7 +849,7 @@ void do_find_victim(CHAR_DATA *ch, char *argument)
 	}
 	else
 	{
-	    send_to_char("Ты не замечаешь здесь следов объекта охоты.\n\r", ch);
+	    send_to_char("РўС‹ РЅРµ Р·Р°РјРµС‡Р°РµС€СЊ Р·РґРµСЃСЊ СЃР»РµРґРѕРІ РѕР±СЉРµРєС‚Р° РѕС…РѕС‚С‹.\n\r", ch);
 	    check_improve(ch, victim, gsn_find_victim, FALSE, 5);
 	}
     }
@@ -872,7 +872,7 @@ void do_clutch_lycanthrope(CHAR_DATA *ch, char *argument)
 
     if (!IS_IMMORTAL(ch) && (!is_lycanthrope(ch) || skill < 1))
     {
-	send_to_char("Это умение могут использовать только оборотни в обличии зверя.\n\r", ch);
+	send_to_char("Р­С‚Рѕ СѓРјРµРЅРёРµ РјРѕРіСѓС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚РѕР»СЊРєРѕ РѕР±РѕСЂРѕС‚РЅРё РІ РѕР±Р»РёС‡РёРё Р·РІРµСЂСЏ.\n\r", ch);
 	return;
     }
 
@@ -883,20 +883,20 @@ void do_clutch_lycanthrope(CHAR_DATA *ch, char *argument)
 	victim = ch->fighting;
 	if (victim == NULL || victim->position == POS_DEAD)
 	{
-	    send_to_char("Кого ты хочешь ударить?\n\r", ch);
+	    send_to_char("РљРѕРіРѕ С‚С‹ С…РѕС‡РµС€СЊ СѓРґР°СЂРёС‚СЊ?\n\r", ch);
 	    return;
 	}
     }
     else if ((victim = get_char_room(ch, NULL, arg, TRUE)) == NULL)
     {
 	if (!too_many_victims)
-	    send_to_char("Здесь таких нет.\n\r", ch);
+	    send_to_char("Р—РґРµСЃСЊ С‚Р°РєРёС… РЅРµС‚.\n\r", ch);
 	return;
     }
 
     if (victim == ch)
     {
-	send_to_char("Ты пытаешься ударить себя?\n\r", ch);
+	send_to_char("РўС‹ РїС‹С‚Р°РµС€СЊСЃСЏ СѓРґР°СЂРёС‚СЊ СЃРµР±СЏ?\n\r", ch);
 	return;
     }
 
@@ -918,7 +918,7 @@ void do_clutch_lycanthrope(CHAR_DATA *ch, char *argument)
 	dam = number_range(1, ch->level);
 	dam += 4*get_curr_stat(ch, STAT_STR);
 
-	act("$n бьет $N3 лапой.", ch, NULL, victim, TO_NOTVICT);
+	act("$n Р±СЊРµС‚ $N3 Р»Р°РїРѕР№.", ch, NULL, victim, TO_NOTVICT);
 	damage(ch, victim, dam, gsn_clutch_lycanthrope, DAM_PIERCE, TRUE, NULL);
 
 	chance  = skill / 4;
@@ -941,16 +941,16 @@ void do_clutch_lycanthrope(CHAR_DATA *ch, char *argument)
 	    af.caster_id = get_id(ch);
 	    affect_to_char(victim, &af);
 
-	    act("Яд с когтей $n3 проникает в кровь $N3.", ch, NULL, victim, TO_NOTVICT);
-	    act("Яд с твоих когтей отравляет $N3.", ch, NULL, victim, TO_CHAR);
-	    act("Яд с когтей $n3 проникает в твою кровь.", ch, NULL, victim, TO_VICT);
+	    act("РЇРґ СЃ РєРѕРіС‚РµР№ $n3 РїСЂРѕРЅРёРєР°РµС‚ РІ РєСЂРѕРІСЊ $N3.", ch, NULL, victim, TO_NOTVICT);
+	    act("РЇРґ СЃ С‚РІРѕРёС… РєРѕРіС‚РµР№ РѕС‚СЂР°РІР»СЏРµС‚ $N3.", ch, NULL, victim, TO_CHAR);
+	    act("РЇРґ СЃ РєРѕРіС‚РµР№ $n3 РїСЂРѕРЅРёРєР°РµС‚ РІ С‚РІРѕСЋ РєСЂРѕРІСЊ.", ch, NULL, victim, TO_VICT);
 	}
 
 	check_improve(ch, victim, gsn_clutch_lycanthrope, TRUE, 3);
     }
     else
     {
-	act("$n безуспешно пытается ударить $N3 лапой.", ch, NULL, victim, TO_NOTVICT);
+	act("$n Р±РµР·СѓСЃРїРµС€РЅРѕ РїС‹С‚Р°РµС‚СЃСЏ СѓРґР°СЂРёС‚СЊ $N3 Р»Р°РїРѕР№.", ch, NULL, victim, TO_NOTVICT);
 
 	damage(ch, victim, 0, gsn_clutch_lycanthrope, DAM_PIERCE, TRUE, NULL);
 	check_improve(ch, victim, gsn_clutch_lycanthrope, FALSE, 3);
@@ -964,25 +964,25 @@ void do_silent_step(CHAR_DATA *ch, char *argument)
 
     if (!IS_IMMORTAL(ch) && (!is_lycanthrope(ch) || skill < 1))
     {
-	send_to_char("Это умение могут использовать только оборотни в обличии зверя.\n\r", ch);
+	send_to_char("Р­С‚Рѕ СѓРјРµРЅРёРµ РјРѕРіСѓС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚РѕР»СЊРєРѕ РѕР±РѕСЂРѕС‚РЅРё РІ РѕР±Р»РёС‡РёРё Р·РІРµСЂСЏ.\n\r", ch);
 	return;
     }
 
     if (ch->mana < 30)
     {
-	send_to_char("У тебя недостаточно энергии, чтобы начать мягко двигаться.\n\r", ch);
+	send_to_char("РЈ С‚РµР±СЏ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СЌРЅРµСЂРіРёРё, С‡С‚РѕР±С‹ РЅР°С‡Р°С‚СЊ РјСЏРіРєРѕ РґРІРёРіР°С‚СЊСЃСЏ.\n\r", ch);
 	return;	
     }
 
     if (is_affected(ch, gsn_silent_step))
     {
-	send_to_char("Ты уже и так мягко двигаешься.\n\r", ch);
+	send_to_char("РўС‹ СѓР¶Рµ Рё С‚Р°Рє РјСЏРіРєРѕ РґРІРёРіР°РµС€СЊСЃСЏ.\n\r", ch);
 	return;
     }
 
     if (skill < number_percent())
     {
-	send_to_char("Ты пытаешься мягко двигаться.\n\r", ch);
+	send_to_char("РўС‹ РїС‹С‚Р°РµС€СЊСЃСЏ РјСЏРіРєРѕ РґРІРёРіР°С‚СЊСЃСЏ.\n\r", ch);
 	check_improve(ch, NULL, gsn_silent_step, FALSE, 5);
 	return;	
     }
@@ -996,7 +996,7 @@ void do_silent_step(CHAR_DATA *ch, char *argument)
     af.bitvector = 0;
     af.caster_id = get_id(ch);
     affect_to_char(ch, &af);
-    send_to_char("Ты начинаешь мягко двигаться.\n\r", ch);
+    send_to_char("РўС‹ РЅР°С‡РёРЅР°РµС€СЊ РјСЏРіРєРѕ РґРІРёРіР°С‚СЊСЃСЏ.\n\r", ch);
 
     ch->mana -= 30;
 
@@ -1011,7 +1011,7 @@ void do_claws(CHAR_DATA *ch, char *argument)
 
     if (!IS_IMMORTAL(ch) && (!is_lycanthrope(ch) || skill < 1))
     {
-	send_to_char("Это умение могут использовать только оборотни в обличии зверя.\n\r", ch);
+	send_to_char("Р­С‚Рѕ СѓРјРµРЅРёРµ РјРѕРіСѓС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚РѕР»СЊРєРѕ РѕР±РѕСЂРѕС‚РЅРё РІ РѕР±Р»РёС‡РёРё Р·РІРµСЂСЏ.\n\r", ch);
 	return;
     }
 
@@ -1019,25 +1019,25 @@ void do_claws(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0')
     {
-	send_to_char("К какой стихии ты хочешь воззывать?\n\r", ch);
+	send_to_char("Рљ РєР°РєРѕР№ СЃС‚РёС…РёРё С‚С‹ С…РѕС‡РµС€СЊ РІРѕР·Р·С‹РІР°С‚СЊ?\n\r", ch);
 	return;
     }
 
-    if (!str_prefix(arg,"вернуть") || !str_prefix(arg,"back"))
+    if (!str_prefix(arg,"РІРµСЂРЅСѓС‚СЊ") || !str_prefix(arg,"back"))
     {
 	if (is_affected(ch,gsn_claws))
 	{
 	    affect_strip(ch, gsn_claws);
-	    send_to_char("Ты отказываешься от стихий, и аура спадает.\n\r",ch);
+	    send_to_char("РўС‹ РѕС‚РєР°Р·С‹РІР°РµС€СЊСЃСЏ РѕС‚ СЃС‚РёС…РёР№, Рё Р°СѓСЂР° СЃРїР°РґР°РµС‚.\n\r",ch);
 	}
 	else
-	    send_to_char("Вернуть? Стихии не были призваны!\n\r", ch);
+	    send_to_char("Р’РµСЂРЅСѓС‚СЊ? РЎС‚РёС…РёРё РЅРµ Р±С‹Р»Рё РїСЂРёР·РІР°РЅС‹!\n\r", ch);
 	return;
     }
 
     if (ch->mana < 50)
     {
-	send_to_char("У тебя недостаточно энергии, чтобы взывать к стихиям.\n\r", ch);
+	send_to_char("РЈ С‚РµР±СЏ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СЌРЅРµСЂРіРёРё, С‡С‚РѕР±С‹ РІР·С‹РІР°С‚СЊ Рє СЃС‚РёС…РёСЏРј.\n\r", ch);
 	return;	
     }
 
@@ -1045,7 +1045,7 @@ void do_claws(CHAR_DATA *ch, char *argument)
 
     if (skill < number_percent())
     {
-	send_to_char("У тебя не получается воззвать стихию.\n\r", ch);
+	send_to_char("РЈ С‚РµР±СЏ РЅРµ РїРѕР»СѓС‡Р°РµС‚СЃСЏ РІРѕР·Р·РІР°С‚СЊ СЃС‚РёС…РёСЋ.\n\r", ch);
 	ch->mana -= 25;
 	check_improve(ch, NULL, gsn_claws, FALSE, 4);
     }
@@ -1053,24 +1053,24 @@ void do_claws(CHAR_DATA *ch, char *argument)
     {
 	AFFECT_DATA af;
 
-	if (!str_prefix(arg,"вода") || !str_prefix(arg,"water") || !str_prefix(arg,"воды"))
+	if (!str_prefix(arg,"РІРѕРґР°") || !str_prefix(arg,"water") || !str_prefix(arg,"РІРѕРґС‹"))
 	{
 	    af.bitvector = DAM_ACID;
-	    send_to_char("Ты призываешь стихию воды на свои когти.\n\r",ch);
+	    send_to_char("РўС‹ РїСЂРёР·С‹РІР°РµС€СЊ СЃС‚РёС…РёСЋ РІРѕРґС‹ РЅР° СЃРІРѕРё РєРѕРіС‚Рё.\n\r",ch);
 	}
-	else if (!str_prefix(arg,"грозы") || !str_prefix(arg,"thander") || !str_prefix(arg,"гроза"))
+	else if (!str_prefix(arg,"РіСЂРѕР·С‹") || !str_prefix(arg,"thander") || !str_prefix(arg,"РіСЂРѕР·Р°"))
 	{
 	    af.bitvector = DAM_LIGHTNING;
-	    send_to_char("Ты призываешь стихию грозы на свои когти.\n\r",ch);
+	    send_to_char("РўС‹ РїСЂРёР·С‹РІР°РµС€СЊ СЃС‚РёС…РёСЋ РіСЂРѕР·С‹ РЅР° СЃРІРѕРё РєРѕРіС‚Рё.\n\r",ch);
 	}
-	else if (!str_prefix(arg,"холода") || !str_prefix(arg,"cold"))
+	else if (!str_prefix(arg,"С…РѕР»РѕРґР°") || !str_prefix(arg,"cold"))
 	{
 	    af.bitvector = DAM_COLD;
-	    send_to_char("Ты призываешь стихию холода на свои когти.\n\r",ch);
+	    send_to_char("РўС‹ РїСЂРёР·С‹РІР°РµС€СЊ СЃС‚РёС…РёСЋ С…РѕР»РѕРґР° РЅР° СЃРІРѕРё РєРѕРіС‚Рё.\n\r",ch);
 	}
 	else
 	{
-	    send_to_char("К чему ты хочешь воззвать?\n\r", ch);
+	    send_to_char("Рљ С‡РµРјСѓ С‚С‹ С…РѕС‡РµС€СЊ РІРѕР·Р·РІР°С‚СЊ?\n\r", ch);
 	    return;
 	}
 

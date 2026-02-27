@@ -63,8 +63,8 @@ bool mount_success(CHAR_DATA *ch, CHAR_DATA *mount, bool canattack, bool improve
     if (IS_DRUNK(ch))
     {
 	percent += skill / 2;
-	act("Поскольку ты пьян, езда верхом будет слегка посложнее, "
-	    "чем ты думал$t...\n\r", ch, SEX_ENDING(ch), NULL, TO_CHAR);
+	act("РџРѕСЃРєРѕР»СЊРєСѓ С‚С‹ РїСЊСЏРЅ, РµР·РґР° РІРµСЂС…РѕРј Р±СѓРґРµС‚ СЃР»РµРіРєР° РїРѕСЃР»РѕР¶РЅРµРµ, "
+	    "С‡РµРј С‚С‹ РґСѓРјР°Р»$t...\n\r", ch, SEX_ENDING(ch), NULL, TO_CHAR);
     }
 
     success = percent - skill;
@@ -82,11 +82,11 @@ bool mount_success(CHAR_DATA *ch, CHAR_DATA *mount, bool canattack, bool improve
 
 	if (success >= 10 && MOUNTED(ch) == mount)
 	{
-	    act("Ты теряешь контроль и падаешь со спины $N1.",
+	    act("РўС‹ С‚РµСЂСЏРµС€СЊ РєРѕРЅС‚СЂРѕР»СЊ Рё РїР°РґР°РµС€СЊ СЃРѕ СЃРїРёРЅС‹ $N1.",
 		ch, NULL, mount, TO_CHAR);
-	    act("$n теряет контроль и падает со спины $N1.",
+	    act("$n С‚РµСЂСЏРµС‚ РєРѕРЅС‚СЂРѕР»СЊ Рё РїР°РґР°РµС‚ СЃРѕ СЃРїРёРЅС‹ $N1.",
 		ch, NULL, mount, TO_ROOM);
-	    act("$n теряет контроль и падает с твоей спины.",
+	    act("$n С‚РµСЂСЏРµС‚ РєРѕРЅС‚СЂРѕР»СЊ Рё РїР°РґР°РµС‚ СЃ С‚РІРѕРµР№ СЃРїРёРЅС‹.",
 		ch, NULL, mount, TO_VICT);
 
 	    ch->riding = FALSE;
@@ -100,19 +100,19 @@ bool mount_success(CHAR_DATA *ch, CHAR_DATA *mount, bool canattack, bool improve
 
 	if ( success >= 20 /* 40 */ && canattack)
 	{
-	    act("$N2 совершенно не нравится, как ты обходишься с н$t.",
-		ch, mount->sex == SEX_FEMALE ? "ей" : "им", mount, TO_CHAR);
-	    act("$N2 совершенно не нравиться, как $n обходится с н$t.",
-		ch, mount->sex == SEX_FEMALE ? "ей" : "им", mount, TO_ROOM);
-	    act("Тебе не нравится, как $n с тобой обошелся.",
+	    act("$N2 СЃРѕРІРµСЂС€РµРЅРЅРѕ РЅРµ РЅСЂР°РІРёС‚СЃСЏ, РєР°Рє С‚С‹ РѕР±С…РѕРґРёС€СЊСЃСЏ СЃ РЅ$t.",
+		ch, mount->sex == SEX_FEMALE ? "РµР№" : "РёРј", mount, TO_CHAR);
+	    act("$N2 СЃРѕРІРµСЂС€РµРЅРЅРѕ РЅРµ РЅСЂР°РІРёС‚СЊСЃСЏ, РєР°Рє $n РѕР±С…РѕРґРёС‚СЃСЏ СЃ РЅ$t.",
+		ch, mount->sex == SEX_FEMALE ? "РµР№" : "РёРј", mount, TO_ROOM);
+	    act("РўРµР±Рµ РЅРµ РЅСЂР°РІРёС‚СЃСЏ, РєР°Рє $n СЃ С‚РѕР±РѕР№ РѕР±РѕС€РµР»СЃСЏ.",
 		ch, NULL, mount, TO_VICT);
 
-	    act("$N $t и атакует тебя!", ch, 
-	          IS_SET(mount->parts, PART_CLAWS) ? "рычит" : "храпит", mount, TO_CHAR);
-	    act("$N $t и атакует $n3!", ch, 
-	          IS_SET(mount->parts, PART_CLAWS) ? "рычит" : "храпит", mount, TO_ROOM);
-	    act("Ты $t и атакуешь $n3!", ch, 
-	          IS_SET(mount->parts, PART_CLAWS) ? "рычишь": "храпишь", mount, TO_VICT);  
+	    act("$N $t Рё Р°С‚Р°РєСѓРµС‚ С‚РµР±СЏ!", ch, 
+	          IS_SET(mount->parts, PART_CLAWS) ? "СЂС‹С‡РёС‚" : "С…СЂР°РїРёС‚", mount, TO_CHAR);
+	    act("$N $t Рё Р°С‚Р°РєСѓРµС‚ $n3!", ch, 
+	          IS_SET(mount->parts, PART_CLAWS) ? "СЂС‹С‡РёС‚" : "С…СЂР°РїРёС‚", mount, TO_ROOM);
+	    act("РўС‹ $t Рё Р°С‚Р°РєСѓРµС€СЊ $n3!", ch, 
+	          IS_SET(mount->parts, PART_CLAWS) ? "СЂС‹С‡РёС€СЊ": "С…СЂР°РїРёС€СЊ", mount, TO_VICT);  
 
 	    ch->riding = FALSE;
 	    mount->riding = FALSE;
@@ -139,7 +139,7 @@ void do_mount(CHAR_DATA *ch, char *argument)
 
     if (IS_SET(ch->act, PLR_NOFOLLOW))
     {
-	send_to_char("Ты не принимаешь последователей.\n\r", ch);
+	send_to_char("РўС‹ РЅРµ РїСЂРёРЅРёРјР°РµС€СЊ РїРѕСЃР»РµРґРѕРІР°С‚РµР»РµР№.\n\r", ch);
 	return;
     }
 
@@ -149,13 +149,13 @@ void do_mount(CHAR_DATA *ch, char *argument)
     }
     else if (!(mount = get_char_room(ch, NULL, arg, FALSE)))
     {
-	send_to_char("Оседлать кого?\n\r", ch);
+	send_to_char("РћСЃРµРґР»Р°С‚СЊ РєРѕРіРѕ?\n\r", ch);
 	return;
     }
  
     if (get_skill(ch, gsn_riding) < 1)
     {
-	send_to_char("Ты не знаешь, как это делается!\n\r", ch);
+	send_to_char("РўС‹ РЅРµ Р·РЅР°РµС€СЊ, РєР°Рє СЌС‚Рѕ РґРµР»Р°РµС‚СЃСЏ!\n\r", ch);
 	return;
     } 
 
@@ -164,44 +164,44 @@ void do_mount(CHAR_DATA *ch, char *argument)
 
     if (!IS_NPC(mount) || !IS_SET(mount->act, ACT_MOUNT)) 
     {
-	act("$N3 нельзя оседлать.", ch, NULL, mount, TO_CHAR); 
+	act("$N3 РЅРµР»СЊР·СЏ РѕСЃРµРґР»Р°С‚СЊ.", ch, NULL, mount, TO_CHAR); 
 	return;
     }
   
     if (mount->level > ch->level
        || check_immune(mount, DAM_CHARM) > 35)
     {
-	act("$N слишком строптив$t для тебя.",
+	act("$N СЃР»РёС€РєРѕРј СЃС‚СЂРѕРїС‚РёРІ$t РґР»СЏ С‚РµР±СЏ.",
 	    ch, SEX_ENDING(mount), mount, TO_CHAR);
 	return;
     }    
 
     if (mount->size < ch->size)
     {
-	act("$N маловат$t для тебя.", ch, SEX_ENDING(mount), mount, TO_CHAR);
+	act("$N РјР°Р»РѕРІР°С‚$t РґР»СЏ С‚РµР±СЏ.", ch, SEX_ENDING(mount), mount, TO_CHAR);
 	return;
     }
 
     if (RIDDEN(mount) && (mount->mount != ch))
     {
-	act("$N уже оседлан$t.", ch, SEX_ENDING(mount), mount, TO_CHAR);
+	act("$N СѓР¶Рµ РѕСЃРµРґР»Р°РЅ$t.", ch, SEX_ENDING(mount), mount, TO_CHAR);
 	return;
     }
     else if (MOUNTED(ch))
     {
-	act("Ты уже едешь на $N5!", ch, NULL, MOUNTED(ch), TO_CHAR);
+	act("РўС‹ СѓР¶Рµ РµРґРµС€СЊ РЅР° $N5!", ch, NULL, MOUNTED(ch), TO_CHAR);
 	return;
     }
 
     if (mount->fighting != NULL && mount != ch->mount)
     {
-	act("Подожди, пока $N закончит бой.", ch, NULL, mount, TO_CHAR);
+	act("РџРѕРґРѕР¶РґРё, РїРѕРєР° $N Р·Р°РєРѕРЅС‡РёС‚ Р±РѕР№.", ch, NULL, mount, TO_CHAR);
 	return;
     }
     
     if (mount->position < POS_FIGHTING)
     {
-	act("$N2 необходимо сначала встать на ноги.", ch, NULL, mount, TO_CHAR);
+	act("$N2 РЅРµРѕР±С…РѕРґРёРјРѕ СЃРЅР°С‡Р°Р»Р° РІСЃС‚Р°С‚СЊ РЅР° РЅРѕРіРё.", ch, NULL, mount, TO_CHAR);
 	return;
     }
 
@@ -212,12 +212,12 @@ void do_mount(CHAR_DATA *ch, char *argument)
             if (is_safe(ch, mount))
               return;
 
-      	    act("{WТы пытаешься украсть $N3!{x", ch, NULL, mount, TO_CHAR);
+      	    act("{WРўС‹ РїС‹С‚Р°РµС€СЊСЃСЏ СѓРєСЂР°СЃС‚СЊ $N3!{x", ch, NULL, mount, TO_CHAR);
 	    check_improve(ch, mount, gsn_steal_horse, TRUE, 1);
         }
         else        
         {
-	    sprintf(buf, "%s принадлежит %s, не тебе.\n\r",
+	    sprintf(buf, "%s РїСЂРёРЅР°РґР»РµР¶РёС‚ %s, РЅРµ С‚РµР±Рµ.\n\r",
 		    capitalize(mount->short_descr), cases(mount->mount->name, 2));
 	    send_to_char(buf, ch);
 //	    check_improve(ch, mount, gsn_steal_horse, FALSE, 1);
@@ -227,13 +227,13 @@ void do_mount(CHAR_DATA *ch, char *argument)
 
     if (!mount_success(ch, mount, TRUE, TRUE))
     {
-	act("У тебя не получается оседлать $N3.", ch, NULL, mount, TO_CHAR);  
+	act("РЈ С‚РµР±СЏ РЅРµ РїРѕР»СѓС‡Р°РµС‚СЃСЏ РѕСЃРµРґР»Р°С‚СЊ $N3.", ch, NULL, mount, TO_CHAR);  
 	return; 
     }
 
-    act("Ты запрыгиваешь на спину $N1.", ch, NULL, mount, TO_CHAR);
-    act("$n запрыгивает на спину $N1.", ch, NULL, mount, TO_NOTVICT);
-    act("$n запрыгивает на твою спину!", ch, NULL, mount, TO_VICT);
+    act("РўС‹ Р·Р°РїСЂС‹РіРёРІР°РµС€СЊ РЅР° СЃРїРёРЅСѓ $N1.", ch, NULL, mount, TO_CHAR);
+    act("$n Р·Р°РїСЂС‹РіРёРІР°РµС‚ РЅР° СЃРїРёРЅСѓ $N1.", ch, NULL, mount, TO_NOTVICT);
+    act("$n Р·Р°РїСЂС‹РіРёРІР°РµС‚ РЅР° С‚РІРѕСЋ СЃРїРёРЅСѓ!", ch, NULL, mount, TO_VICT);
  
     if ((mnt = ch->mount) != NULL && mnt != mount)
 	pet_gone(mnt);
@@ -275,9 +275,9 @@ void do_dismount( CHAR_DATA *ch, char *argument )
 
 	if (!update)
 	{
-	  act("Ты спешиваешься с $N1.", ch, NULL, mount, TO_CHAR);
-	  act("$n спешивается с $N1.", ch, NULL, mount, TO_NOTVICT);
-	  act("$n спешивается с тебя.", ch, NULL, mount, TO_VICT);
+	  act("РўС‹ СЃРїРµС€РёРІР°РµС€СЊСЃСЏ СЃ $N1.", ch, NULL, mount, TO_CHAR);
+	  act("$n СЃРїРµС€РёРІР°РµС‚СЃСЏ СЃ $N1.", ch, NULL, mount, TO_NOTVICT);
+	  act("$n СЃРїРµС€РёРІР°РµС‚СЃСЏ СЃ С‚РµР±СЏ.", ch, NULL, mount, TO_VICT);
 	}
 
 	ch->riding = FALSE;
@@ -285,7 +285,7 @@ void do_dismount( CHAR_DATA *ch, char *argument )
     }
     else if (!update)
     {
-	send_to_char("Ты, вроде, не верхом.\n\r", ch);
+	send_to_char("РўС‹, РІСЂРѕРґРµ, РЅРµ РІРµСЂС…РѕРј.\n\r", ch);
 	ch->riding = FALSE;
 	if (ch->mount != NULL)
 	    ch->mount->riding = FALSE;
@@ -313,14 +313,14 @@ void do_buy_mount( CHAR_DATA *ch, char *argument )
 
     if (IS_SET(ch->act, PLR_NOFOLLOW))
     {
-	send_to_char("Ты не принимаешь последователей.\n\r", ch);
+	send_to_char("РўС‹ РЅРµ РїСЂРёРЅРёРјР°РµС€СЊ РїРѕСЃР»РµРґРѕРІР°С‚РµР»РµР№.\n\r", ch);
 	return;
     }
 
     if (get_skill(ch, gsn_riding) < 1)
     {
-	send_to_char("Зачем ты собираешься купить лошадь, если ты даже "
-		     "не знаешь, как ее оседлать?\n\r", ch);
+	send_to_char("Р—Р°С‡РµРј С‚С‹ СЃРѕР±РёСЂР°РµС€СЊСЃСЏ РєСѓРїРёС‚СЊ Р»РѕС€Р°РґСЊ, РµСЃР»Рё С‚С‹ РґР°Р¶Рµ "
+		     "РЅРµ Р·РЅР°РµС€СЊ, РєР°Рє РµРµ РѕСЃРµРґР»Р°С‚СЊ?\n\r", ch);
         return;
     }
 
@@ -331,8 +331,8 @@ void do_buy_mount( CHAR_DATA *ch, char *argument )
     if (pRoomIndexNext == NULL)
     {
 	bugf("Do_buy: bad mount shop at vnum %d.", ch->in_room->vnum);
-        send_to_char("Я боюсь, что моего загона для лошадей уже больше "
-		     "не существует.\n\r", ch);
+        send_to_char("РЇ Р±РѕСЋСЃСЊ, С‡С‚Рѕ РјРѕРµРіРѕ Р·Р°РіРѕРЅР° РґР»СЏ Р»РѕС€Р°РґРµР№ СѓР¶Рµ Р±РѕР»СЊС€Рµ "
+		     "РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.\n\r", ch);
         return;
     }
 
@@ -343,13 +343,13 @@ void do_buy_mount( CHAR_DATA *ch, char *argument )
 
     if (mount == NULL || !IS_NPC(mount) || !IS_SET(mount->act, ACT_MOUNT))
     {
-	send_to_char("Извини, здесь не продают такого.\n\r", ch);
+	send_to_char("РР·РІРёРЅРё, Р·РґРµСЃСЊ РЅРµ РїСЂРѕРґР°СЋС‚ С‚Р°РєРѕРіРѕ.\n\r", ch);
 	return;
     }
 
     if (ch->mount != NULL)
     {
-        send_to_char("У тебя уже есть лошадь.\n\r",ch);
+        send_to_char("РЈ С‚РµР±СЏ СѓР¶Рµ РµСЃС‚СЊ Р»РѕС€Р°РґСЊ.\n\r",ch);
         return;
     }
 
@@ -357,20 +357,20 @@ void do_buy_mount( CHAR_DATA *ch, char *argument )
 
     if ((ch->silver + 100 * ch->gold) < cost)
     {
-    	send_to_char( "Ты не можешь позволить себе купить это.\n\r", ch );
+    	send_to_char( "РўС‹ РЅРµ РјРѕР¶РµС€СЊ РїРѕР·РІРѕР»РёС‚СЊ СЃРµР±Рµ РєСѓРїРёС‚СЊ СЌС‚Рѕ.\n\r", ch );
 	return;
     }
 
     if (ch->level < mount->level)
     {
-	send_to_char("Ты недостаточно опытен, чтобы управлять "
-		     "этой лошадью.\n\r", ch );
+	send_to_char("РўС‹ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РѕРїС‹С‚РµРЅ, С‡С‚РѕР±С‹ СѓРїСЂР°РІР»СЏС‚СЊ "
+		     "СЌС‚РѕР№ Р»РѕС€Р°РґСЊСЋ.\n\r", ch );
 	return;
     }
 
     if (mount->size < ch->size)
     {
-	send_to_char("Эта лошадка маловата для тебя...\n\r", ch);
+	send_to_char("Р­С‚Р° Р»РѕС€Р°РґРєР° РјР°Р»РѕРІР°С‚Р° РґР»СЏ С‚РµР±СЏ...\n\r", ch);
 	return;
     }
 
@@ -379,7 +379,7 @@ void do_buy_mount( CHAR_DATA *ch, char *argument )
     if (!IS_NPC(ch) && roll < get_skill(ch, gsn_haggle))
     {
         cost -= cost / 2 * roll / 100;
-        sprintf(buf, "Ты торгуешься и снижаешь цену до %d монет.\n\r",
+        sprintf(buf, "РўС‹ С‚РѕСЂРіСѓРµС€СЊСЃСЏ Рё СЃРЅРёР¶Р°РµС€СЊ С†РµРЅСѓ РґРѕ %d РјРѕРЅРµС‚.\n\r",
 		cost);
         send_to_char(buf,ch);
         check_improve(ch, NULL, gsn_haggle, TRUE, 4);
@@ -400,16 +400,16 @@ void do_buy_mount( CHAR_DATA *ch, char *argument )
 	mount->max_hit = mount->hit;
     }
 
-    sprintf(buf, "%sИмя '%s' выжжено на задней ноге.\n\r",
+    sprintf(buf, "%sРРјСЏ '%s' РІС‹Р¶Р¶РµРЅРѕ РЅР° Р·Р°РґРЅРµР№ РЅРѕРіРµ.\n\r",
 	    mount->description, ch->name );
     free_string(mount->description);
     mount->description = str_dup(buf);
 
     char_to_room(mount, ch->in_room, FALSE);
 
-    act("$n покупает $N3.", ch, NULL, mount, TO_ROOM);
+    act("$n РїРѕРєСѓРїР°РµС‚ $N3.", ch, NULL, mount, TO_ROOM);
     
-    sprintf(buf, "Теперь у тебя есть %s.\n\r", mount->name);
+    sprintf(buf, "РўРµРїРµСЂСЊ Сѓ С‚РµР±СЏ РµСЃС‚СЊ %s.\n\r", mount->name);
     send_to_char(buf, ch);
     
     do_mount(ch, mount->name);

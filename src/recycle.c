@@ -1277,7 +1277,7 @@ QUERY_DATA *new_query (void)
     }
 
     *query	  = query_zero;
-    query->name  = str_dup("Áåç íàçâàíèÿ");
+    query->name  = str_dup("Ð‘ÐµÐ· Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ñ");
     query->text  = str_dup("");
 
     VALIDATE(query);

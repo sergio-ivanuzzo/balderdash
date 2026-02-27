@@ -85,7 +85,7 @@ void do_unread(CHAR_DATA *ch, char *argument)
     if ((count = count_spool(ch, news_list)) > 0)
     {
 	found = TRUE;
-	sprintf(buf, "Тебя ждет %d %s.\n\r",
+	sprintf(buf, "РўРµР±СЏ Р¶РґРµС‚ %d %s.\n\r",
     		count, hours(count, TYPE_NEWS)); 
 	send_to_char(buf, ch);
     }
@@ -93,7 +93,7 @@ void do_unread(CHAR_DATA *ch, char *argument)
     if ((count = count_spool(ch, changes_list)) > 0)
     {
 	found = TRUE;
-	sprintf(buf, "Тебя ждет %d %s.\n\r",
+	sprintf(buf, "РўРµР±СЏ Р¶РґРµС‚ %d %s.\n\r",
 		count, hours(count, TYPE_CHANGES));
         send_to_char(buf, ch);
     }
@@ -101,7 +101,7 @@ void do_unread(CHAR_DATA *ch, char *argument)
     if ((count = count_spool(ch, note_list)) > 0)
     {
 	found = TRUE;
-	sprintf(buf, "У тебя %d %s ", count, hours(count, TYPE_UNREAD));
+	sprintf(buf, "РЈ С‚РµР±СЏ %d %s ", count, hours(count, TYPE_UNREAD));
         strcat(buf, hours(count, TYPE_NOTES));  
         strcat(buf, ".\n\r");
 	send_to_char(buf, ch);
@@ -112,9 +112,9 @@ void do_unread(CHAR_DATA *ch, char *argument)
 	found = TRUE;
 	sprintf(buf, "%d %s ", count, hours(count, TYPE_IDEAS)); 
     	strcat(buf, hours(count, TYPE_VISIT));
-    	strcat(buf, count == 1 ? " чью-то " : " чьи-то ");
-    	strcat(buf, count == 1 ? "светлую " : "светлые ");
-    	strcat(buf, count == 1 ? "голову" : "головы");
+    	strcat(buf, count == 1 ? " С‡СЊСЋ-С‚Рѕ " : " С‡СЊРё-С‚Рѕ ");
+    	strcat(buf, count == 1 ? "СЃРІРµС‚Р»СѓСЋ " : "СЃРІРµС‚Р»С‹Рµ ");
+    	strcat(buf, count == 1 ? "РіРѕР»РѕРІСѓ" : "РіРѕР»РѕРІС‹");
     	strcat(buf, ".\n\r");
 	send_to_char(buf, ch);
     }
@@ -122,14 +122,14 @@ void do_unread(CHAR_DATA *ch, char *argument)
     if ((count = count_spool(ch, votes_list)) > 0)
     {
 	found = TRUE;
-	sprintf(buf, "Тебя ждет %d %s.\n\r", count, hours(count, TYPE_VOTES));
+	sprintf(buf, "РўРµР±СЏ Р¶РґРµС‚ %d %s.\n\r", count, hours(count, TYPE_VOTES));
 	send_to_char(buf, ch);
     }
 
     if (IS_TRUSTED(ch, AVATAR) && (count = count_spool(ch, penalty_list)) > 0)
     {
 	found = TRUE;
-	sprintf(buf, "%d %s было добавлено.\n\r",
+	sprintf(buf, "%d %s Р±С‹Р»Рѕ РґРѕР±Р°РІР»РµРЅРѕ.\n\r",
 		count, hours(count, TYPE_PENALTY));
 	send_to_char(buf, ch);
     }
@@ -157,8 +157,8 @@ void do_unread(CHAR_DATA *ch, char *argument)
 	    for (pnote = note_list; pnote != NULL; pnote = pnote->next)
 		if (stamp < pnote->date_stamp
 		    && is_exact_name(clan_table[count].name, pnote->to_list)
-		    && (is_exact_name("клану", pnote->to_list)
-			|| is_exact_name("клан", pnote->to_list)
+		    && (is_exact_name("РєР»Р°РЅСѓ", pnote->to_list)
+			|| is_exact_name("РєР»Р°РЅ", pnote->to_list)
 			|| is_exact_name("clan", pnote->to_list)))
 		{
 		    stamp = pnote->date_stamp;
@@ -167,11 +167,11 @@ void do_unread(CHAR_DATA *ch, char *argument)
 	    if (stamp < current_time - 60*60*24*7*CLAN_NEWS_EXPIRED)
 	    {
 		if (ch->level < MAX_LEVEL)
-		    sprintf(buf, "\n\rВ твоем клане уже более %d недель"
-			    " отсутствуют новости.", CLAN_NEWS_EXPIRED);
+		    sprintf(buf, "\n\rР’ С‚РІРѕРµРј РєР»Р°РЅРµ СѓР¶Рµ Р±РѕР»РµРµ %d РЅРµРґРµР»СЊ"
+			    " РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ РЅРѕРІРѕСЃС‚Рё.", CLAN_NEWS_EXPIRED);
 		else
-		    sprintf(buf, "\n\rВ клане %s уже более %d недель"
-			    " отсутствуют новости.",
+		    sprintf(buf, "\n\rР’ РєР»Р°РЅРµ %s СѓР¶Рµ Р±РѕР»РµРµ %d РЅРµРґРµР»СЊ"
+			    " РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ РЅРѕРІРѕСЃС‚Рё.",
 			    clan_table[count].short_descr, CLAN_NEWS_EXPIRED);
 
 		send_to_char(buf, ch);
@@ -183,7 +183,7 @@ void do_unread(CHAR_DATA *ch, char *argument)
     } 
 
     if (str_cmp(argument, "quiet") && !found)
-	send_to_char("У тебя нет непрочитанных сообщений.\n\r", ch);
+	send_to_char("РЈ С‚РµР±СЏ РЅРµС‚ РЅРµРїСЂРѕС‡РёС‚Р°РЅРЅС‹С… СЃРѕРѕР±С‰РµРЅРёР№.\n\r", ch);
 
 }
 
@@ -219,12 +219,12 @@ void do_votes(CHAR_DATA *ch, char *argument)
 
 void fwrite_note(FILE *fp, NOTE_DATA *pnote)
 {
-    fprintf(fp, "Отправитель: %s~\n", pnote->sender);
-    fprintf(fp, "Дата: %s~\n", pnote->date);
+    fprintf(fp, "РћС‚РїСЂР°РІРёС‚РµР»СЊ: %s~\n", pnote->sender);
+    fprintf(fp, "Р”Р°С‚Р°: %s~\n", pnote->date);
     fprintf(fp, "Stamp: %ld\n", (long)pnote->date_stamp);
-    fprintf(fp, "Кому: %s~\n", pnote->to_list);
-    fprintf(fp, "Тема: %s~\n", pnote->subject);
-    fprintf(fp, "Сообщение:\n%s~\n", pnote->text);
+    fprintf(fp, "РљРѕРјСѓ: %s~\n", pnote->to_list);
+    fprintf(fp, "РўРµРјР°: %s~\n", pnote->subject);
+    fprintf(fp, "РЎРѕРѕР±С‰РµРЅРёРµ:\n%s~\n", pnote->text);
 
     if (pnote->type == NOTE_VOTES)
     {
@@ -341,13 +341,13 @@ void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time)
  
         pnote = new_note();
  
-        if (str_cmp(fread_word(fp), "Отправитель:"))
+        if (str_cmp(fread_word(fp), "РћС‚РїСЂР°РІРёС‚РµР»СЊ:"))
             break;
 
 	free_string(pnote->sender);
         pnote->sender = fread_string(fp);
  
-        if (str_cmp(fread_word(fp), "Дата:"))
+        if (str_cmp(fread_word(fp), "Р”Р°С‚Р°:"))
             break;
 
 	free_string(pnote->date);
@@ -357,19 +357,19 @@ void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time)
             break;
         pnote->date_stamp = fread_number(fp);
  
-        if (str_cmp(fread_word(fp), "Кому:"))
+        if (str_cmp(fread_word(fp), "РљРѕРјСѓ:"))
             break;
 
 	free_string(pnote->to_list);
         pnote->to_list = fread_string(fp);
  
-        if (str_cmp(fread_word(fp), "Тема:"))
+        if (str_cmp(fread_word(fp), "РўРµРјР°:"))
             break;
 
 	free_string(pnote->subject);
         pnote->subject = fread_string(fp);
  
-        if (str_cmp(fread_word(fp), "Сообщение:"))
+        if (str_cmp(fread_word(fp), "РЎРѕРѕР±С‰РµРЅРёРµ:"))
             break;
 
 	free_string(pnote->text);
@@ -494,8 +494,8 @@ bool is_note_to(CHAR_DATA *ch, NOTE_DATA *pnote)
 	return TRUE;
 
     if (is_exact_name("all", pnote->to_list)
-	|| is_exact_name("все", pnote->to_list)
-	|| is_exact_name("всем", pnote->to_list))
+	|| is_exact_name("РІСЃРµ", pnote->to_list)
+	|| is_exact_name("РІСЃРµРј", pnote->to_list))
     {
 	return TRUE;
     }
@@ -503,8 +503,8 @@ bool is_note_to(CHAR_DATA *ch, NOTE_DATA *pnote)
     if (IS_IMMORTAL(ch)
 	&& (is_exact_name("immortal", pnote->to_list)
 	    || is_exact_name("immortals", pnote->to_list)
-	    || is_exact_name("богам", pnote->to_list)
-	    || is_exact_name("иммам", pnote->to_list)))
+	    || is_exact_name("Р±РѕРіР°Рј", pnote->to_list)
+	    || is_exact_name("РёРјРјР°Рј", pnote->to_list)))
     {
 	return TRUE;
     }
@@ -520,11 +520,11 @@ bool is_note_to(CHAR_DATA *ch, NOTE_DATA *pnote)
 	return TRUE;
 
     if (!str_cmp(ch->pcdata->spouse, pnote->sender)
-	&& (is_exact_name("семье", pnote->to_list)
-	    || is_exact_name("супругу", pnote->to_list)
-	    || is_exact_name("супруге", pnote->to_list)
-	    || is_exact_name("мужу", pnote->to_list)
-	    || is_exact_name("жене", pnote->to_list)
+	&& (is_exact_name("СЃРµРјСЊРµ", pnote->to_list)
+	    || is_exact_name("СЃСѓРїСЂСѓРіСѓ", pnote->to_list)
+	    || is_exact_name("СЃСѓРїСЂСѓРіРµ", pnote->to_list)
+	    || is_exact_name("РјСѓР¶Сѓ", pnote->to_list)
+	    || is_exact_name("Р¶РµРЅРµ", pnote->to_list)
 	    || is_exact_name("family", pnote->to_list)
 	    || is_exact_name("spouse", pnote->to_list)))
     {
@@ -535,8 +535,8 @@ bool is_note_to(CHAR_DATA *ch, NOTE_DATA *pnote)
 		&& is_exact_name(clan_table[ch->clan].name, pnote->to_list))
 	    || IS_IMMORTAL(ch))
         && !is_exact_name(pnote->to_list, CLAN_INDEPEND)
-	&& (is_exact_name("клану", pnote->to_list)
-	    || is_exact_name("клан", pnote->to_list)
+	&& (is_exact_name("РєР»Р°РЅСѓ", pnote->to_list)
+	    || is_exact_name("РєР»Р°РЅ", pnote->to_list)
 	    || is_exact_name("clan", pnote->to_list)))
     {
 	return TRUE;
@@ -735,12 +735,12 @@ void show_note(NOTE_DATA *pnote, CHAR_DATA *ch, int vnum)
     char buf[MSL];
 
     if (vnum < 0)
-        sprintf(buf, "%s: %s\n\rКому: %s\n\r",
+        sprintf(buf, "%s: %s\n\rРљРѕРјСѓ: %s\n\r",
 	   	    pnote->sender,
 	       	    pnote->subject,
 		    pnote->to_list);
     else
-        sprintf(buf, "[%3d] %s: %s\n\r%s\n\rКому: %s\n\r",
+        sprintf(buf, "[%3d] %s: %s\n\r%s\n\rРљРѕРјСѓ: %s\n\r",
   		    vnum,
 	   	    pnote->sender,
 	       	    pnote->subject,
@@ -806,7 +806,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 
     if (IS_AFFECTED(ch, AFF_SLEEP))
     {
-	send_to_char("Тебя усыпили, ты не можешь в таком состоянии работать с сообщениями.\n\r", ch);
+	send_to_char("РўРµР±СЏ СѓСЃС‹РїРёР»Рё, С‚С‹ РЅРµ РјРѕР¶РµС€СЊ РІ С‚Р°РєРѕРј СЃРѕСЃС‚РѕСЏРЅРёРё СЂР°Р±РѕС‚Р°С‚СЊ СЃ СЃРѕРѕР±С‰РµРЅРёСЏРјРё.\n\r", ch);
 	return;
     } 
 
@@ -816,27 +816,27 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
       	return;
     case NOTE_NOTE:
 	list = &note_list;
-	list_name = "писем";
+	list_name = "РїРёСЃРµРј";
 	break;
     case NOTE_IDEA:
 	list = &idea_list;
-	list_name = "идей";
+	list_name = "РёРґРµР№";
 	break;
     case NOTE_PENALTY:
 	list = &penalty_list;
-	list_name = "наказаний";
+	list_name = "РЅР°РєР°Р·Р°РЅРёР№";
 	break;
     case NOTE_NEWS:
 	list = &news_list;
-	list_name = "новостей";
+	list_name = "РЅРѕРІРѕСЃС‚РµР№";
 	break;
     case NOTE_CHANGES:
 	list = &changes_list;
-	list_name = "изменений";
+	list_name = "РёР·РјРµРЅРµРЅРёР№";
 	break;
     case NOTE_VOTES:
 	list = &votes_list;
-	list_name = "опросов";
+	list_name = "РѕРїСЂРѕСЃРѕРІ";
 	break;
     }
 
@@ -857,19 +857,19 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 
     if (arg[0] == '\0'
 	|| !str_prefix(arg, "read")
-	|| !str_prefix(arg, "прочитать")
-	|| !str_prefix(arg, "читать"))
+	|| !str_prefix(arg, "РїСЂРѕС‡РёС‚Р°С‚СЊ")
+	|| !str_prefix(arg, "С‡РёС‚Р°С‚СЊ"))
     {
         bool fAll;
  
-        if (!str_cmp(argument, "all") || !str_cmp(argument, "все"))
+        if (!str_cmp(argument, "all") || !str_cmp(argument, "РІСЃРµ"))
         {
             fAll = TRUE;
             anum = 0;
         }
         else if (argument[0] == '\0'
 		|| !str_prefix(argument, "next")
-		|| !str_prefix(argument, "следующее"))
+		|| !str_prefix(argument, "СЃР»РµРґСѓСЋС‰РµРµ"))
         {
 	    /* read next unread note */
             vnum = 0;
@@ -885,7 +885,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
                     vnum++;
             }
 
-	    sprintf(buf, "У тебя больше нет непрочитанных %s.\n\r", list_name);
+	    sprintf(buf, "РЈ С‚РµР±СЏ Р±РѕР»СЊС€Рµ РЅРµС‚ РЅРµРїСЂРѕС‡РёС‚Р°РЅРЅС‹С… %s.\n\r", list_name);
 	    send_to_char(buf, ch);
             return;
         }
@@ -896,7 +896,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
         }
         else
         {
-            send_to_char("Читать какой номер?\n\r", ch);
+            send_to_char("Р§РёС‚Р°С‚СЊ РєР°РєРѕР№ РЅРѕРјРµСЂ?\n\r", ch);
             return;
         }
  
@@ -910,12 +910,12 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
             }
         }
  
-	sprintf(buf, "Тебе еще не написали столько %s.\n\r", list_name);
+	sprintf(buf, "РўРµР±Рµ РµС‰Рµ РЅРµ РЅР°РїРёСЃР°Р»Рё СЃС‚РѕР»СЊРєРѕ %s.\n\r", list_name);
 	send_to_char(buf, ch);
         return;
     }
 
-    if (!str_prefix(arg, "list") || !str_prefix(arg, "список"))
+    if (!str_prefix(arg, "list") || !str_prefix(arg, "СЃРїРёСЃРѕРє"))
     {
         char *str;
         bool found = FALSE;
@@ -982,29 +982,29 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 	    switch(type)
 	    {
 	    case NOTE_NOTE:	
-		send_to_char("Для тебя нет писем.\n\r", ch);
+		send_to_char("Р”Р»СЏ С‚РµР±СЏ РЅРµС‚ РїРёСЃРµРј.\n\r", ch);
 		break;
 	    case NOTE_IDEA:
-	      	send_to_char("Для тебя нет идей.\n\r", ch);
+	      	send_to_char("Р”Р»СЏ С‚РµР±СЏ РЅРµС‚ РёРґРµР№.\n\r", ch);
     		break;
 	    case NOTE_PENALTY:
-		send_to_char("Для тебя нет непрочитаных наказаний.\n\r", ch);
+		send_to_char("Р”Р»СЏ С‚РµР±СЏ РЅРµС‚ РЅРµРїСЂРѕС‡РёС‚Р°РЅС‹С… РЅР°РєР°Р·Р°РЅРёР№.\n\r", ch);
 		break;
 	    case NOTE_NEWS:
-		send_to_char("Для тебя нет новостей.\n\r", ch);
+		send_to_char("Р”Р»СЏ С‚РµР±СЏ РЅРµС‚ РЅРѕРІРѕСЃС‚РµР№.\n\r", ch);
 		break;
 	    case NOTE_CHANGES:
-	      	send_to_char("Для тебя нет изменений.\n\r", ch);
+	      	send_to_char("Р”Р»СЏ С‚РµР±СЏ РЅРµС‚ РёР·РјРµРЅРµРЅРёР№.\n\r", ch);
     		break;
 	    case NOTE_VOTES:
-	      	send_to_char("Для тебя нет новых опросов.\n\r", ch);
+	      	send_to_char("Р”Р»СЏ С‚РµР±СЏ РЅРµС‚ РЅРѕРІС‹С… РѕРїСЂРѕСЃРѕРІ.\n\r", ch);
     		break;
 	    }
 	}
 	return;
     }
 
-    if (!str_prefix(arg, "autor") || !str_prefix(arg, "автор"))
+    if (!str_prefix(arg, "autor") || !str_prefix(arg, "Р°РІС‚РѕСЂ"))
     {
         char *str;
         bool found = FALSE;
@@ -1022,7 +1022,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 		
 		if (IS_NULLSTR(arg))
 		{
-			send_to_char("Введи имя автора.\n\r", ch);
+			send_to_char("Р’РІРµРґРё РёРјСЏ Р°РІС‚РѕСЂР°.\n\r", ch);
 			return;
 		}
 
@@ -1075,29 +1075,29 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 	    	switch(type)
 	    	{
 	    		case NOTE_NOTE:	
-					send_to_char("Для тебя нет писем.\n\r", ch);
+					send_to_char("Р”Р»СЏ С‚РµР±СЏ РЅРµС‚ РїРёСЃРµРј.\n\r", ch);
 					break;
 	    		case NOTE_IDEA:
-	      			send_to_char("Для тебя нет идей.\n\r", ch);
+	      			send_to_char("Р”Р»СЏ С‚РµР±СЏ РЅРµС‚ РёРґРµР№.\n\r", ch);
     				break;
 	    		case NOTE_PENALTY:
-					send_to_char("Для тебя нет непрочитаных наказаний.\n\r", ch);
+					send_to_char("Р”Р»СЏ С‚РµР±СЏ РЅРµС‚ РЅРµРїСЂРѕС‡РёС‚Р°РЅС‹С… РЅР°РєР°Р·Р°РЅРёР№.\n\r", ch);
 					break;
 	    		case NOTE_NEWS:
-					send_to_char("Для тебя нет новостей.\n\r", ch);
+					send_to_char("Р”Р»СЏ С‚РµР±СЏ РЅРµС‚ РЅРѕРІРѕСЃС‚РµР№.\n\r", ch);
 					break;
 	    		case NOTE_CHANGES:
-	      			send_to_char("Для тебя нет изменений.\n\r", ch);
+	      			send_to_char("Р”Р»СЏ С‚РµР±СЏ РЅРµС‚ РёР·РјРµРЅРµРЅРёР№.\n\r", ch);
     				break;
 	    		case NOTE_VOTES:
-	      			send_to_char("Для тебя нет новых опросов.\n\r", ch);
+	      			send_to_char("Р”Р»СЏ С‚РµР±СЏ РЅРµС‚ РЅРѕРІС‹С… РѕРїСЂРѕСЃРѕРІ.\n\r", ch);
     				break;
 	    	}
 		}
 		return;
     }
 
-    if (!str_prefix(arg, "theme") || !str_prefix(arg, "заголовок"))
+    if (!str_prefix(arg, "theme") || !str_prefix(arg, "Р·Р°РіРѕР»РѕРІРѕРє"))
     {
         char *str;
         bool found = FALSE;
@@ -1115,7 +1115,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 		
 		if (IS_NULLSTR(arg))
 		{
-			send_to_char("Введи слова для поиска в темах писем.\n\r", ch);
+			send_to_char("Р’РІРµРґРё СЃР»РѕРІР° РґР»СЏ РїРѕРёСЃРєР° РІ С‚РµРјР°С… РїРёСЃРµРј.\n\r", ch);
 			return;
 		}
 
@@ -1168,22 +1168,22 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 	    	switch(type)
 	    	{
 	    		case NOTE_NOTE:	
-					send_to_char("Для тебя нет писем.\n\r", ch);
+					send_to_char("Р”Р»СЏ С‚РµР±СЏ РЅРµС‚ РїРёСЃРµРј.\n\r", ch);
 					break;
 	    		case NOTE_IDEA:
-	      			send_to_char("Для тебя нет идей.\n\r", ch);
+	      			send_to_char("Р”Р»СЏ С‚РµР±СЏ РЅРµС‚ РёРґРµР№.\n\r", ch);
     				break;
 	    		case NOTE_PENALTY:
-					send_to_char("Для тебя нет непрочитаных наказаний.\n\r", ch);
+					send_to_char("Р”Р»СЏ С‚РµР±СЏ РЅРµС‚ РЅРµРїСЂРѕС‡РёС‚Р°РЅС‹С… РЅР°РєР°Р·Р°РЅРёР№.\n\r", ch);
 					break;
 	    		case NOTE_NEWS:
-					send_to_char("Для тебя нет новостей.\n\r", ch);
+					send_to_char("Р”Р»СЏ С‚РµР±СЏ РЅРµС‚ РЅРѕРІРѕСЃС‚РµР№.\n\r", ch);
 					break;
 	    		case NOTE_CHANGES:
-	      			send_to_char("Для тебя нет изменений.\n\r", ch);
+	      			send_to_char("Р”Р»СЏ С‚РµР±СЏ РЅРµС‚ РёР·РјРµРЅРµРЅРёР№.\n\r", ch);
     				break;
 	    		case NOTE_VOTES:
-	      			send_to_char("Для тебя нет новых опросов.\n\r", ch);
+	      			send_to_char("Р”Р»СЏ С‚РµР±СЏ РЅРµС‚ РЅРѕРІС‹С… РѕРїСЂРѕСЃРѕРІ.\n\r", ch);
     				break;
 	    	}
 		}
@@ -1191,11 +1191,11 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
     }
 
 
-    if (!str_prefix(arg, "remove") || !str_prefix(arg, "удалить"))
+    if (!str_prefix(arg, "remove") || !str_prefix(arg, "СѓРґР°Р»РёС‚СЊ"))
     {
         if (!is_number(argument))
         {
-            send_to_char("Удалить сообщение под каким номером?\n\r", ch);
+            send_to_char("РЈРґР°Р»РёС‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ РїРѕРґ РєР°РєРёРј РЅРѕРјРµСЂРѕРј?\n\r", ch);
             return;
         }
  
@@ -1211,17 +1211,17 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
             }
         }
  
-	sprintf(buf, "Тебе еще не написали столько %s.\n\r", list_name);
+	sprintf(buf, "РўРµР±Рµ РµС‰Рµ РЅРµ РЅР°РїРёСЃР°Р»Рё СЃС‚РѕР»СЊРєРѕ %s.\n\r", list_name);
 	send_to_char(buf, ch);
         return;
     }
  
-    if ((!str_prefix(arg, "delete") || !str_prefix(arg, "уничтожить"))
+    if ((!str_prefix(arg, "delete") || !str_prefix(arg, "СѓРЅРёС‡С‚РѕР¶РёС‚СЊ"))
         && (get_trust(ch) >= MAX_LEVEL - 3 || is_spec_granted(ch, "post_delete")))
     {
         if (!is_number(argument))
         {
-            send_to_char("Удалить сообщение под каким номером?\n\r", ch);
+            send_to_char("РЈРґР°Р»РёС‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ РїРѕРґ РєР°РєРёРј РЅРѕРјРµСЂРѕРј?\n\r", ch);
             return;
         }
  
@@ -1237,12 +1237,12 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
             }
         }
 
- 	sprintf(buf, "Тебе еще не написали столько %s.\n\r", list_name);
+ 	sprintf(buf, "РўРµР±Рµ РµС‰Рµ РЅРµ РЅР°РїРёСЃР°Р»Рё СЃС‚РѕР»СЊРєРѕ %s.\n\r", list_name);
 	send_to_char(buf, ch);
         return;
     }
 
-    if (!str_prefix(arg, "catchup") || !str_prefix(arg, "пометить"))
+    if (!str_prefix(arg, "catchup") || !str_prefix(arg, "РїРѕРјРµС‚РёС‚СЊ"))
     {
 	switch(type)
 	{
@@ -1274,7 +1274,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
     if ((type == NOTE_NEWS && !IS_TRUSTED(ch, AVATAR))
 	|| (type == NOTE_CHANGES && !IS_TRUSTED(ch, IMMORTAL)))
     {
-	sprintf(buf, "У тебя недостаточный уровнь для редактирования %s.\n\r",
+	sprintf(buf, "РЈ С‚РµР±СЏ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅС‹Р№ СѓСЂРѕРІРЅСЊ РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ %s.\n\r",
 		list_name);
 	send_to_char(buf, ch);
 	return;
@@ -1284,20 +1284,20 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
     {
 	if (IS_SET(ch->comm, COMM_NONOTES))
 	{
-	    send_to_char("Боги запретили тебе писать сообщения.\n\r", ch);
+	    send_to_char("Р‘РѕРіРё Р·Р°РїСЂРµС‚РёР»Рё С‚РµР±Рµ РїРёСЃР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёСЏ.\n\r", ch);
 	    return;
 	}
     
 	note_attach(ch, type);
 	if (ch->pnote->type != type)
 	{
-	    send_to_char("Ты уже занимаешься другим сообщением.\n\r", ch);
+	    send_to_char("РўС‹ СѓР¶Рµ Р·Р°РЅРёРјР°РµС€СЊСЃСЏ РґСЂСѓРіРёРј СЃРѕРѕР±С‰РµРЅРёРµРј.\n\r", ch);
 	    return;
 	}
 
 	if (strlen(ch->pnote->text) + strlen(argument) >= 4096)
 	{
-	    send_to_char("Сообщение слишком длинное.\n\r", ch);
+	    send_to_char("РЎРѕРѕР±С‰РµРЅРёРµ СЃР»РёС€РєРѕРј РґР»РёРЅРЅРѕРµ.\n\r", ch);
 	    return;
 	}
 
@@ -1320,20 +1320,20 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 
 	if (IS_SET(ch->comm, COMM_NONOTES))
 	{
-	    send_to_char("Боги запретили тебе писать сообщения.\n\r", ch);
+	    send_to_char("Р‘РѕРіРё Р·Р°РїСЂРµС‚РёР»Рё С‚РµР±Рµ РїРёСЃР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёСЏ.\n\r", ch);
 	    return;
 	}
     
 	note_attach(ch, type);
         if (ch->pnote->type != type)
         {
-            send_to_char("Ты уже занимаешься другим сообщением.\n\r", ch);
+            send_to_char("РўС‹ СѓР¶Рµ Р·Р°РЅРёРјР°РµС€СЊСЃСЏ РґСЂСѓРіРёРј СЃРѕРѕР±С‰РµРЅРёРµРј.\n\r", ch);
             return;
         }
 
 	if (ch->pnote->text == NULL || ch->pnote->text[0] == '\0')
 	{
-	    send_to_char("Больше нет строк для удаления.\n\r",ch);
+	    send_to_char("Р‘РѕР»СЊС€Рµ РЅРµС‚ СЃС‚СЂРѕРє РґР»СЏ СѓРґР°Р»РµРЅРёСЏ.\n\r",ch);
 	    return;
 	}
 
@@ -1365,12 +1365,12 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
     }
 
     if (!str_cmp(arg, "write")
-	|| !str_cmp(arg, "написать")
+	|| !str_cmp(arg, "РЅР°РїРёСЃР°С‚СЊ")
 	|| !str_cmp(arg, "edit"))
     {
 	if (IS_SET(ch->comm, COMM_NONOTES))
 	{
-	    send_to_char("Боги запретили тебе писать сообщения.\n\r", ch);
+	    send_to_char("Р‘РѕРіРё Р·Р°РїСЂРµС‚РёР»Рё С‚РµР±Рµ РїРёСЃР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёСЏ.\n\r", ch);
 	    return;
 	}
     
@@ -1380,18 +1380,18 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
         return;
     }
 
-    if (!str_prefix(arg, "subject") || !str_prefix(arg, "тема"))
+    if (!str_prefix(arg, "subject") || !str_prefix(arg, "С‚РµРјР°"))
     {
 	if (IS_SET(ch->comm, COMM_NONOTES))
 	{
-	    send_to_char("Боги запретили тебе писать сообщения.\n\r", ch);
+	    send_to_char("Р‘РѕРіРё Р·Р°РїСЂРµС‚РёР»Рё С‚РµР±Рµ РїРёСЃР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёСЏ.\n\r", ch);
 	    return;
 	}
     
 	note_attach(ch, type);
         if (ch->pnote->type != type)
         {
-            send_to_char("Ты уже занимаешься другой запиской.\n\r", ch);
+            send_to_char("РўС‹ СѓР¶Рµ Р·Р°РЅРёРјР°РµС€СЊСЃСЏ РґСЂСѓРіРѕР№ Р·Р°РїРёСЃРєРѕР№.\n\r", ch);
             return;
         }
 
@@ -1401,30 +1401,30 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 	return;
     }
 
-    if (!str_prefix(arg, "to") || !str_prefix(arg, "кому"))
+    if (!str_prefix(arg, "to") || !str_prefix(arg, "РєРѕРјСѓ"))
     {
 	char buf[MAX_INPUT_LENGTH];
 
 	if (IS_SET(ch->comm, COMM_NONOTES))
 	{
-	    send_to_char("Боги запретили тебе писать сообщения.\n\r", ch);
+	    send_to_char("Р‘РѕРіРё Р·Р°РїСЂРµС‚РёР»Рё С‚РµР±Рµ РїРёСЃР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёСЏ.\n\r", ch);
 	    return;
 	}
     
 	note_attach(ch, type);
         if (ch->pnote->type != type)
         {
-            send_to_char("Ты уже занимаешься другой запиской.\n\r", ch);
+            send_to_char("РўС‹ СѓР¶Рµ Р·Р°РЅРёРјР°РµС€СЊСЃСЏ РґСЂСѓРіРѕР№ Р·Р°РїРёСЃРєРѕР№.\n\r", ch);
             return;
         }
 
-        if (!str_cmp(argument, "клану")
-	    || !str_cmp(argument, "клан")
+        if (!str_cmp(argument, "РєР»Р°РЅСѓ")
+	    || !str_cmp(argument, "РєР»Р°РЅ")
 	    || !str_cmp(argument, "clan"))
         {
 	    if (!is_clan(ch) || IS_INDEPEND(ch))
 	    {
-		send_to_char("Но ведь ты же не в клане!\n\r", ch);
+		send_to_char("РќРѕ РІРµРґСЊ С‚С‹ Р¶Рµ РЅРµ РІ РєР»Р°РЅРµ!\n\r", ch);
 		return;
 	    }	    
 		
@@ -1433,14 +1433,14 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
         else
 		{		
         	if ((ch->pcdata->successed)
-			|| (!str_cmp(argument, "боги")
-	    	|| !str_cmp(argument, "богам")
+			|| (!str_cmp(argument, "Р±РѕРіРё")
+	    	|| !str_cmp(argument, "Р±РѕРіР°Рј")
 	    	|| !str_cmp(argument, "immortal")))
         	{
 			}
 			else
 			{
-				send_to_char("Пока ты не прошел одобрение, ты можешь писать лишь богам. Набери ? {yодобрение{x.\n\r", ch);
+				send_to_char("РџРѕРєР° С‚С‹ РЅРµ РїСЂРѕС€РµР» РѕРґРѕР±СЂРµРЅРёРµ, С‚С‹ РјРѕР¶РµС€СЊ РїРёСЃР°С‚СЊ Р»РёС€СЊ Р±РѕРіР°Рј. РќР°Р±РµСЂРё ? {yРѕРґРѕР±СЂРµРЅРёРµ{x.\n\r", ch);
 				return;
 	    	}
 		    strcpy(buf, argument);
@@ -1453,7 +1453,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 	return;
     }
 
-    if (!str_prefix(arg, "clear") || !str_prefix(arg, "стереть"))
+    if (!str_prefix(arg, "clear") || !str_prefix(arg, "СЃС‚РµСЂРµС‚СЊ"))
     {
 	if (ch->pnote != NULL)
 	{
@@ -1465,22 +1465,22 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 	return;
     }
 
-    if (!str_prefix(arg, "show") || !str_prefix(arg, "показать"))
+    if (!str_prefix(arg, "show") || !str_prefix(arg, "РїРѕРєР°Р·Р°С‚СЊ"))
     {
 	if (ch->pnote == NULL)
 	{
-	    send_to_char("Ты еще пока не пишешь никаких сообщений.\n\r", ch);
+	    send_to_char("РўС‹ РµС‰Рµ РїРѕРєР° РЅРµ РїРёС€РµС€СЊ РЅРёРєР°РєРёС… СЃРѕРѕР±С‰РµРЅРёР№.\n\r", ch);
 	    return;
 	}
 
 	if (ch->pnote->type != type)
 	{
-	    send_to_char("Ты работаешь над другим типом сообщения.\n\r", ch);
+	    send_to_char("РўС‹ СЂР°Р±РѕС‚Р°РµС€СЊ РЅР°Рґ РґСЂСѓРіРёРј С‚РёРїРѕРј СЃРѕРѕР±С‰РµРЅРёСЏ.\n\r", ch);
 	    return;
 	}
 
 	show_note(ch->pnote, ch, -1);
-/*	sprintf(buf, "%s: %s\n\rКому: %s\n\r",
+/*	sprintf(buf, "%s: %s\n\rРљРѕРјСѓ: %s\n\r",
 		ch->pnote->sender,
 		ch->pnote->subject,
 		ch->pnote->to_list);
@@ -1492,44 +1492,44 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 
     if (!str_prefix(arg, "post")
 	|| !str_prefix(arg, "send")
-	|| !str_prefix(arg, "послать"))
+	|| !str_prefix(arg, "РїРѕСЃР»Р°С‚СЊ"))
     {
 	char *strtime;
 
 	if (IS_SET(ch->comm, COMM_NONOTES))
 	{
-	    send_to_char("Боги запретили тебе писать сообщения.\n\r", ch);
+	    send_to_char("Р‘РѕРіРё Р·Р°РїСЂРµС‚РёР»Рё С‚РµР±Рµ РїРёСЃР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёСЏ.\n\r", ch);
 	    return;
 	}
     
 	if (ch->pnote == NULL)
 	{
-	    printf_to_char("Ты же еще ничего не написал%s.\n\r", ch, SEX_ENDING(ch));
+	    printf_to_char("РўС‹ Р¶Рµ РµС‰Рµ РЅРёС‡РµРіРѕ РЅРµ РЅР°РїРёСЃР°Р»%s.\n\r", ch, SEX_ENDING(ch));
 	    return;
 	}
 
         if (ch->pnote->type != type)
         {
-            send_to_char("Ты работаешь над другим типом записки.\n\r", ch);
+            send_to_char("РўС‹ СЂР°Р±РѕС‚Р°РµС€СЊ РЅР°Рґ РґСЂСѓРіРёРј С‚РёРїРѕРј Р·Р°РїРёСЃРєРё.\n\r", ch);
             return;
         }
 
 	if (!str_cmp(ch->pnote->to_list, ""))
 	{
-	    send_to_char("Надо указать получателя (имя, всем, Богам, "
-			 "семье, клану).\n\r", ch);
+	    send_to_char("РќР°РґРѕ СѓРєР°Р·Р°С‚СЊ РїРѕР»СѓС‡Р°С‚РµР»СЏ (РёРјСЏ, РІСЃРµРј, Р‘РѕРіР°Рј, "
+			 "СЃРµРјСЊРµ, РєР»Р°РЅСѓ).\n\r", ch);
 	    return;
 	}
 
 	if (!str_cmp(ch->pnote->subject, ""))
 	{
-	    send_to_char("Необходимо указать тему письма.\n\r", ch);
+	    send_to_char("РќРµРѕР±С…РѕРґРёРјРѕ СѓРєР°Р·Р°С‚СЊ С‚РµРјСѓ РїРёСЃСЊРјР°.\n\r", ch);
 	    return;
 	}
 
 	if (ch->pnote->type == NOTE_VOTES && ch->pnote->vote == NULL)
 	{
-	    send_to_char("Необходимо создать хотя бы один вариант ответа.\n\r", ch);
+	    send_to_char("РќРµРѕР±С…РѕРґРёРјРѕ СЃРѕР·РґР°С‚СЊ С…РѕС‚СЏ Р±С‹ РѕРґРёРЅ РІР°СЂРёР°РЅС‚ РѕС‚РІРµС‚Р°.\n\r", ch);
 	    return;
 	}
 
@@ -1543,7 +1543,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 	append_note(ch->pnote);
 	ch->pnote = NULL;
 
-	send_to_char("Твое сообщение послано адресатам.\n\r", ch);
+	send_to_char("РўРІРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ РїРѕСЃР»Р°РЅРѕ Р°РґСЂРµСЃР°С‚Р°Рј.\n\r", ch);
 
 	SLIST_FOREACH(d, &descriptor_list, link)
 	{
@@ -1558,21 +1558,21 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
     
     if (type == NOTE_VOTES)
     {
-        if (!str_prefix(arg, "вариант") || !str_prefix(arg, "variant"))
+        if (!str_prefix(arg, "РІР°СЂРёР°РЅС‚") || !str_prefix(arg, "variant"))
         {
 	    char buf[MIL];
 	    VOTE_DATA *vd;
 
 	    if (IS_SET(ch->comm, COMM_NONOTES))
 	    {
-	        send_to_char("Боги запретили тебе писать сообщения.\n\r", ch);
+	        send_to_char("Р‘РѕРіРё Р·Р°РїСЂРµС‚РёР»Рё С‚РµР±Рµ РїРёСЃР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёСЏ.\n\r", ch);
 	        return;
 	    }
     
 	    note_attach(ch, type);
             if (ch->pnote->type != type)
             {
-                send_to_char("Ты уже занимаешься другой запиской.\n\r", ch);
+                send_to_char("РўС‹ СѓР¶Рµ Р·Р°РЅРёРјР°РµС€СЊСЃСЏ РґСЂСѓРіРѕР№ Р·Р°РїРёСЃРєРѕР№.\n\r", ch);
                 return;
             }
 
@@ -1601,20 +1601,20 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
                     send_to_char("Ok.\n\r", ch);
                 }
                 else
-                    send_to_char("Не создано еще ни одного варианта.\n\r", ch);
+                    send_to_char("РќРµ СЃРѕР·РґР°РЅРѕ РµС‰Рµ РЅРё РѕРґРЅРѕРіРѕ РІР°СЂРёР°РЅС‚Р°.\n\r", ch);
 
                 return;
             }
         }
 
-        if (!str_prefix(arg, "проголосовать") || !str_prefix(arg, "vote") || !str_prefix(arg, "голосовать"))
+        if (!str_prefix(arg, "РїСЂРѕРіРѕР»РѕСЃРѕРІР°С‚СЊ") || !str_prefix(arg, "vote") || !str_prefix(arg, "РіРѕР»РѕСЃРѕРІР°С‚СЊ"))
         {
             int variant, num, vnum;
 
             argument = one_argument(argument, arg);
             if (!is_number(arg))
             {
-                send_to_char("Аргументы должны быть числовыми.\n\r", ch);
+                send_to_char("РђСЂРіСѓРјРµРЅС‚С‹ РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ С‡РёСЃР»РѕРІС‹РјРё.\n\r", ch);
                 return;
             }
             num = atoi(arg);
@@ -1622,7 +1622,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
             argument = one_argument(argument, arg);                     
             if (!is_number(arg))
             {
-                send_to_char("Аргументы должны быть числовыми.\n\r", ch);
+                send_to_char("РђСЂРіСѓРјРµРЅС‚С‹ РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ С‡РёСЃР»РѕРІС‹РјРё.\n\r", ch);
                 return;
             }
             variant = atoi(arg);
@@ -1644,14 +1644,14 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
                         for (cv = vd->votes; cv; cv = cv->next)
                             if (cv->char_id == ch->id)
                             {
-                                printf_to_char("Ты уже участвовал%s в этом опросе.\n\r", ch, SEX_ENDING(ch));
+                                printf_to_char("РўС‹ СѓР¶Рµ СѓС‡Р°СЃС‚РІРѕРІР°Р»%s РІ СЌС‚РѕРј РѕРїСЂРѕСЃРµ.\n\r", ch, SEX_ENDING(ch));
                                 return;
                             }
                     }
 
                     if (!vd_curr)
                     {
-                        send_to_char("Нет такого варианта ответа.\n\r", ch);
+                        send_to_char("РќРµС‚ С‚Р°РєРѕРіРѕ РІР°СЂРёР°РЅС‚Р° РѕС‚РІРµС‚Р°.\n\r", ch);
                         return;
                     }
                     
@@ -1668,14 +1668,14 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
                 }
             }
 
-	    sprintf(buf, "Тебе еще не написали столько %s.\n\r", list_name);
+	    sprintf(buf, "РўРµР±Рµ РµС‰Рµ РЅРµ РЅР°РїРёСЃР°Р»Рё СЃС‚РѕР»СЊРєРѕ %s.\n\r", list_name);
 	    send_to_char(buf, ch);
            
             return;
         }
     }
      
-    send_to_char("Ты не можешь этого сделать.\n\r", ch);
+    send_to_char("РўС‹ РЅРµ РјРѕР¶РµС€СЊ СЌС‚РѕРіРѕ СЃРґРµР»Р°С‚СЊ.\n\r", ch);
     return;
 }
 

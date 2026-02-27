@@ -1597,7 +1597,7 @@ void do_mpremove(CHAR_DATA *ch, char *argument)
     }
 
     one_argument(argument, arg);
-    if (!str_cmp(arg,"изъять") || !str_cmp(arg,"excempt"))
+    if (!str_cmp(arg,"РёР·СЉСЏС‚СЊ") || !str_cmp(arg,"excempt"))
 	excempt = TRUE;
 
     for (obj = victim->carrying; obj; obj = obj_next)
@@ -3794,7 +3794,7 @@ void do_mpsetskill(CHAR_DATA *ch, char *argument)
     if (victim->pcdata->learned[sn] <= 0)
     {
 	victim->pcdata->learned[sn] = 1;
-	sprintf(arg, "Ты теперь знаешь, что такое '%s'!\n\r", skill_table[sn].rname);
+	sprintf(arg, "РўС‹ С‚РµРїРµСЂСЊ Р·РЅР°РµС€СЊ, С‡С‚Рѕ С‚Р°РєРѕРµ '%s'!\n\r", skill_table[sn].rname);
 	send_to_char(arg, victim);
     }
 }

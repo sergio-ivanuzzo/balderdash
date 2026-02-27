@@ -649,7 +649,7 @@ bool cledit_skills(CHAR_DATA *ch, char *argument)
 
     argument = one_argument(argument, arg1);
 
-    if (!str_prefix(arg1,"list") || !str_prefix(arg1,"список"))
+    if (!str_prefix(arg1,"list") || !str_prefix(arg1,"СЃРїРёСЃРѕРє"))
     {	
 	int col;
 	STRING_DATA sorted_list[max_skills];
@@ -683,7 +683,7 @@ bool cledit_skills(CHAR_DATA *ch, char *argument)
 	    send_to_char("\n\r", ch);
 	return FALSE;
     } 
-    else if (!str_prefix(arg1,"add") || !str_prefix(arg1,"добавить"))
+    else if (!str_prefix(arg1,"add") || !str_prefix(arg1,"РґРѕР±Р°РІРёС‚СЊ"))
     {
 	bool quest = FALSE;
 
@@ -729,7 +729,7 @@ bool cledit_skills(CHAR_DATA *ch, char *argument)
 	send_to_char("Add skill.\n\r", ch);
 	return TRUE;
     }
-    else if (!str_prefix(arg1,"delete") || !str_prefix(arg1,"удалить"))
+    else if (!str_prefix(arg1,"delete") || !str_prefix(arg1,"СѓРґР°Р»РёС‚СЊ"))
     {
 	j = skill_lookup(argument);
 	if (j == -1)
@@ -745,17 +745,17 @@ bool cledit_skills(CHAR_DATA *ch, char *argument)
 	send_to_char("Delete skill.\n\r", ch);
 	return TRUE;
     }	
-    else if (!str_prefix(arg1,"help") || !str_prefix(arg1,"помощь"))
+    else if (!str_prefix(arg1,"help") || !str_prefix(arg1,"РїРѕРјРѕС‰СЊ"))
     {
-	send_to_char("Syntax: skills <list> [russian] - показывает список всех умений и заклинаний.\n\r"
+	send_to_char("Syntax: skills <list> [russian] - РїРѕРєР°Р·С‹РІР°РµС‚ СЃРїРёСЃРѕРє РІСЃРµС… СѓРјРµРЅРёР№ Рё Р·Р°РєР»РёРЅР°РЅРёР№.\n\r"
 		     "        skills <add> <level> <difficalty> [quest] <skill name>\n\r"
-		     "               добавляет умение/заклинание данной профессии\n\r"
-		     "               level      - уровень появления\n\r"
-		     "               difficalty - сложность в обучении\n\r"
-		     "               quest      - дается по квесту, по умолчанию дается всегда\n\r"
-		     "               skill name - название умения или заклинания (выбирается из skills list)\n\r"
-		     "        skills <delete> <skill/spell name> - удаляет умение или заклинание.\n\r"
-		     "        skills <help> - помощь.\n\r",ch);
+		     "               РґРѕР±Р°РІР»СЏРµС‚ СѓРјРµРЅРёРµ/Р·Р°РєР»РёРЅР°РЅРёРµ РґР°РЅРЅРѕР№ РїСЂРѕС„РµСЃСЃРёРё\n\r"
+		     "               level      - СѓСЂРѕРІРµРЅСЊ РїРѕСЏРІР»РµРЅРёСЏ\n\r"
+		     "               difficalty - СЃР»РѕР¶РЅРѕСЃС‚СЊ РІ РѕР±СѓС‡РµРЅРёРё\n\r"
+		     "               quest      - РґР°РµС‚СЃСЏ РїРѕ РєРІРµСЃС‚Сѓ, РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РґР°РµС‚СЃСЏ РІСЃРµРіРґР°\n\r"
+		     "               skill name - РЅР°Р·РІР°РЅРёРµ СѓРјРµРЅРёСЏ РёР»Рё Р·Р°РєР»РёРЅР°РЅРёСЏ (РІС‹Р±РёСЂР°РµС‚СЃСЏ РёР· skills list)\n\r"
+		     "        skills <delete> <skill/spell name> - СѓРґР°Р»СЏРµС‚ СѓРјРµРЅРёРµ РёР»Рё Р·Р°РєР»РёРЅР°РЅРёРµ.\n\r"
+		     "        skills <help> - РїРѕРјРѕС‰СЊ.\n\r",ch);
     }
     return FALSE;    
 }
@@ -931,7 +931,7 @@ bool cledit_groups(CHAR_DATA *ch, char *argument)
 
     argument = one_argument(argument, arg1);
 
-    if (!str_prefix(arg1,"list") || !str_prefix(arg1,"список"))
+    if (!str_prefix(arg1,"list") || !str_prefix(arg1,"СЃРїРёСЃРѕРє"))
     {	
 	int col;
 	STRING_DATA sorted_list[max_groups];
@@ -965,7 +965,7 @@ bool cledit_groups(CHAR_DATA *ch, char *argument)
 	    send_to_char("\n\r", ch);
 	return FALSE;
     } 
-    else if (!str_prefix(arg1,"add") || !str_prefix(arg1,"добавить"))
+    else if (!str_prefix(arg1,"add") || !str_prefix(arg1,"РґРѕР±Р°РІРёС‚СЊ"))
     {
 	argument = one_argument(argument, arg2);
 
@@ -993,7 +993,7 @@ bool cledit_groups(CHAR_DATA *ch, char *argument)
 	send_to_char("Add groups.\n\r", ch);
 	return TRUE;
     }
-    else if (!str_prefix(arg1,"delete") || !str_prefix(arg1,"удалить"))
+    else if (!str_prefix(arg1,"delete") || !str_prefix(arg1,"СѓРґР°Р»РёС‚СЊ"))
     {
 	j = group_lookup(argument);
 	if (j == -1)
@@ -1007,15 +1007,15 @@ bool cledit_groups(CHAR_DATA *ch, char *argument)
 	send_to_char("Delete group.\n\r", ch);
 	return TRUE;
     }	
-    else if (!str_prefix(arg1,"help") || !str_prefix(arg1,"помощь"))
+    else if (!str_prefix(arg1,"help") || !str_prefix(arg1,"РїРѕРјРѕС‰СЊ"))
     {
-	send_to_char("Syntax: groups <list>     - показывает список групп.\n\r"
+	send_to_char("Syntax: groups <list>     - РїРѕРєР°Р·С‹РІР°РµС‚ СЃРїРёСЃРѕРє РіСЂСѓРїРї.\n\r"
 		     "        groups <add> <difficalty> <group name>\n\r"
-		     "               добавляет группу данной профессии\n\r"
-		     "               difficalty - сложность в обучении\n\r"
-		     "               group name - название группы (выбирается из groups list)\n\r"
-		     "        groups <delete> <group name> - удаляет умение или заклинание.\n\r"
-		     "        groups <help> - помощь.\n\r",ch);
+		     "               РґРѕР±Р°РІР»СЏРµС‚ РіСЂСѓРїРїСѓ РґР°РЅРЅРѕР№ РїСЂРѕС„РµСЃСЃРёРё\n\r"
+		     "               difficalty - СЃР»РѕР¶РЅРѕСЃС‚СЊ РІ РѕР±СѓС‡РµРЅРёРё\n\r"
+		     "               group name - РЅР°Р·РІР°РЅРёРµ РіСЂСѓРїРїС‹ (РІС‹Р±РёСЂР°РµС‚СЃСЏ РёР· groups list)\n\r"
+		     "        groups <delete> <group name> - СѓРґР°Р»СЏРµС‚ СѓРјРµРЅРёРµ РёР»Рё Р·Р°РєР»РёРЅР°РЅРёРµ.\n\r"
+		     "        groups <help> - РїРѕРјРѕС‰СЊ.\n\r",ch);
     }
     return FALSE;    
 }

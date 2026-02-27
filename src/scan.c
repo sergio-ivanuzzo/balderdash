@@ -35,7 +35,7 @@
 
 char *const distance[4]=
 {
-    "ïðÿìî çäåñü.", "ðÿäîì %s%s.", "íåäàëåêî %s%s.", "âäàëåêå %s%s."
+    "Ð¿Ñ€ÑÐ¼Ð¾ Ð·Ð´ÐµÑÑŒ.", "Ñ€ÑÐ´Ð¾Ð¼ %s%s.", "Ð½ÐµÐ´Ð°Ð»ÐµÐºÐ¾ %s%s.", "Ð²Ð´Ð°Ð»ÐµÐºÐµ %s%s."
 };
 
 void scan_list           args((ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch, int16_t depth, int16_t door));
@@ -49,16 +49,16 @@ void show_scan(CHAR_DATA *ch, int door, int depth_max)
     EXIT_DATA *pExit;
     int depth;
 
-    sprintf(arg1,"%s%s", (door==DIR_UP || door==DIR_DOWN) ? "â" : "íà ",
+    sprintf(arg1,"%s%s", (door==DIR_UP || door==DIR_DOWN) ? "Ð²" : "Ð½Ð° ",
 	    dir_name[door]);
 
-    sprintf(buf,"Òû âñìàòðèâàåøüñÿ %s.\n\r",arg1);
+    sprintf(buf,"Ð¢Ñ‹ Ð²ÑÐ¼Ð°Ñ‚Ñ€Ð¸Ð²Ð°ÐµÑˆÑŒÑÑ %s.\n\r",arg1);
     send_to_char(buf, ch);
 
-    sprintf(buf,"$n âñìàòðèâàåòñÿ %s.",arg1);
+    sprintf(buf,"$n Ð²ÑÐ¼Ð°Ñ‚Ñ€Ð¸Ð²Ð°ÐµÑ‚ÑÑ %s.",arg1);
     act(buf, ch, NULL, NULL, TO_ROOM);
 
-    sprintf(buf, "Ãëÿäÿ %s, òû âèäèøü:\n\r"
+    sprintf(buf, "Ð“Ð»ÑÐ´Ñ %s, Ñ‚Ñ‹ Ð²Ð¸Ð´Ð¸ÑˆÑŒ:\n\r"
 	    "-------------------------------------------\n\r", arg1);
     send_to_char(buf,ch);
 
@@ -77,7 +77,7 @@ void show_scan(CHAR_DATA *ch, int door, int depth_max)
 	}
 	else
 	{
-	    send_to_char("Òàì íè÷åãî íå âèäíî.\n\r",ch);
+	    send_to_char("Ð¢Ð°Ð¼ Ð½Ð¸Ñ‡ÐµÐ³Ð¾ Ð½Ðµ Ð²Ð¸Ð´Ð½Ð¾.\n\r",ch);
 	    return;
 	}
     }
@@ -95,8 +95,8 @@ void do_scan(CHAR_DATA *ch, char *argument)
     {
 	EXIT_DATA *pExit;
 
-	act("$n îñìàòðèâàåòñÿ âîêðóã.", ch, NULL, NULL, TO_ROOM);
-	send_to_char("Îñìîòðåâøèñü âîêðóã, òû âèäèøü:\n\r-------------------------------------------\n\r", ch);
+	act("$n Ð¾ÑÐ¼Ð°Ñ‚Ñ€Ð¸Ð²Ð°ÐµÑ‚ÑÑ Ð²Ð¾ÐºÑ€ÑƒÐ³.", ch, NULL, NULL, TO_ROOM);
+	send_to_char("ÐžÑÐ¼Ð¾Ñ‚Ñ€ÐµÐ²ÑˆÐ¸ÑÑŒ Ð²Ð¾ÐºÑ€ÑƒÐ³, Ñ‚Ñ‹ Ð²Ð¸Ð´Ð¸ÑˆÑŒ:\n\r-------------------------------------------\n\r", ch);
 	scan_list(ch->in_room, ch, 0, -1);
 
 	for (door=0;door<6;door++)
@@ -117,7 +117,7 @@ void do_scan(CHAR_DATA *ch, char *argument)
     else 
 	if ((door = what_door(arg1)) == -1)
 	{
-	    send_to_char("Â êàêóþ ñòîðîíó òû õîòåë ïîñìîòðåòü?\n\r", ch);
+	    send_to_char("Ð’ ÐºÐ°ÐºÑƒÑŽ ÑÑ‚Ð¾Ñ€Ð¾Ð½Ñƒ Ñ‚Ñ‹ Ñ…Ð¾Ñ‚ÐµÐ» Ð¿Ð¾ÑÐ¼Ð¾Ñ‚Ñ€ÐµÑ‚ÑŒ?\n\r", ch);
 	    return;
 	}
 
@@ -135,7 +135,7 @@ void do_good_look(CHAR_DATA *ch, char *argument)
 
     if (arg1[0] == '\0' || (door = what_door(arg1)) == -1)
     {
-	act("Â êàêóþ ñòîðîíó òû õî÷åøü ïîñìîòðåòü?", ch, NULL, NULL, TO_CHAR);
+	act("Ð’ ÐºÐ°ÐºÑƒÑŽ ÑÑ‚Ð¾Ñ€Ð¾Ð½Ñƒ Ñ‚Ñ‹ Ñ…Ð¾Ñ‡ÐµÑˆÑŒ Ð¿Ð¾ÑÐ¼Ð¾Ñ‚Ñ€ÐµÑ‚ÑŒ?", ch, NULL, NULL, TO_CHAR);
 	return;
     }
 
@@ -189,7 +189,7 @@ void scan_char(CHAR_DATA *victim, CHAR_DATA *ch, int16_t depth, int16_t door)
 
     strcat(buf, PERS(victim, ch, 0));
     strcat(buf, ", ");
-    sprintf(buf2, distance[depth], (door==DIR_UP || door==DIR_DOWN) ? "â" : "íà ", dir_name[door]);
+    sprintf(buf2, distance[depth], (door==DIR_UP || door==DIR_DOWN) ? "Ð²" : "Ð½Ð° ", dir_name[door]);
     strcat(buf, buf2);
 
     act(buf, ch, NULL, NULL, TO_CHAR);

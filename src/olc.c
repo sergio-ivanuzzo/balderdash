@@ -1094,7 +1094,7 @@ bool check_area(CHAR_DATA *ch, AREA_DATA *area)
 {
   if (IS_SET(area->area_flags, AREA_EXTERN_EDIT))
   {
-      send_to_char("Эта зона заблокирована для редактирования.\n\r", ch);
+      send_to_char("Р­С‚Р° Р·РѕРЅР° Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅР° РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ.\n\r", ch);
       return TRUE;
   }   
   else

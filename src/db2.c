@@ -311,7 +311,7 @@ void load_mobiles(FILE *fp)
 	pMobIndex->mana[DICE_BONUS]	= fread_number(fp);
 
         
-        /* Коротенький фикс для мобов без маны */
+        /* РљРѕСЂРѕС‚РµРЅСЊРєРёР№ С„РёРєСЃ РґР»СЏ РјРѕР±РѕРІ Р±РµР· РјР°РЅС‹ */
         if (pMobIndex->mana[DICE_BONUS] + 
             dice(pMobIndex->mana[DICE_NUMBER], pMobIndex->mana[DICE_TYPE]) == 0)
             pMobIndex->mana[DICE_BONUS] = pMobIndex->level * 10;
