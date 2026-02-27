@@ -12,7 +12,7 @@ CC      = gcc -O0 -g
 PROF    =
 NOCRYPT =
 #C_FLAGS =  -pipe -Wall $(PROF) $(NOCRYPT) -DNO_MYSQL -DNOTHREAD -DMEMDEBUG -D_USE_GNU -D_GNU_SOURCE -fPIC
-C_FLAGS =  -pipe -Wall $(PROF) $(NOCRYPT) -DNO_MYSQL -DLINUX -D_USE_GNU -D_GNU_SOURCE -fPIC
+C_FLAGS =  -pipe -Wall $(PROF) $(NOCRYPT) -DNO_MYSQL -DLINUX -D_USE_GNU -D_GNU_SOURCE -fPIC -finput-charset=cp1251 -fexec-charset=cp1251
 L_FLAGS =  $(PROF) -export-dynamic
 LIBS	= -lcrypt -lz -ldl -lm -lpthread
 #-static-libgcc
